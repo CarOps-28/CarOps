@@ -8,7 +8,15 @@
 
 
 <h2>About:</h2>
-<p><b>Author: </b><a href="https://github.com/bill-chamal">Bill Chamalidis</a> <a href="https://www.uom.gr/">University of Macedonia</a></p>
+<p><b>Authors: </b>
+  
+  -  <a href="https://github.com/bill-chamal">Bill Chamalidis</a> <a href="https://www.uom.gr/">University of Macedonia</a>
+  -  name 2
+  -  name 3
+  -  name 4
+  -  name 5
+</p>
+  
 <p><b>Created:</b> 15 March 2023</p>
 <p><b>Version:</b> 0.1</p>
 
