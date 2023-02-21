@@ -1,14 +1,21 @@
 # Car-service-IS
 
+<img src="img/UOMLOGOGR.png#gh-light-mode-only" alt= “” width="20%" height="20%"> 
+<img src="img/UOMLOGOGRWHITE.png#gh-dark-mode-only" alt= “” width="20%" height="20%"> 
 
-<img src="img/UOMLOGOGR.png#gh-light-mode-only" alt= “” width="20%" height="20%">
-<img src="img/UOMLOGOGRWHITE.png#gh-dark-mode-only" alt= “” width="20%" height="20%">
+
+
 
 
 <h2>About:</h2>
 <p><b>Author: </b><a href="https://github.com/bill-chamal">Bill Chamalidis</a> <a href="https://www.uom.gr/">University of Macedonia</a></p>
-<p><b>Created:</b> 1 Feb 2023</p>
-<p><b>Version:</b> 0.0.1</p>
+<p><b>Created:</b> 15 March 2023</p>
+<p><b>Version:</b> 0.1</p>
+
+<p align="center"> <i> Η παρούσα εργασία υλοποιήθηκε στα πλαίσια του μαθήματος <b> Ανάλυση & Σχεδίαση Συστημάτων </b> 4ου εξαμήνου </i> </p> 
+
+<p align="center"> Θεσσαλονίκη 2023  </p> 
+
 <h2>license:</h2>
 <h3><a href="https://mit-license.org/">The MIT License (MIT)</a></h3>
 <p>Copyright © 2023 Team</p>
