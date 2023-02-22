@@ -28,7 +28,7 @@
 <img align="right" width="150" height="200" src="https://opensource.org/wp-content/themes/osi/assets/img/osi-badge-light.svg">
 <p> The Car-service-IS is available as open source under the terms of <a href="https://github.com/bill-chamal/Car-service-IS/blob/db37606a14da6933994ade9e4c618c37b5444c1f/LICENSE">The MIT License (MIT)</a></p>
 
-<p>Copyright © 2023 Bill Chamalidis et. all</p>
+<p>Copyright © 2023 Bill Chamalidis et al.</p>
 
 <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
 
