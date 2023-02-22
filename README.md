@@ -25,7 +25,9 @@
 <p align="center"> Θεσσαλονίκη 2023  </p> 
 
 <h2>license:</h2>
-<img align="right" width="150" height="200" src="https://opensource.org/wp-content/themes/osi/assets/img/osi-badge-light.svg">
+
+<img align="right" width="15%" height="15%" src="https://i0.wp.com/opensource.org/wp-content/uploads/2009/08/osi_symbol_0.png">
+
 <p> The Car-service-IS is available as open source under the terms of <a href="https://github.com/bill-chamal/Car-service-IS/blob/db37606a14da6933994ade9e4c618c37b5444c1f/LICENSE">The MIT License (MIT)</a></p>
 
 <p>Copyright © 2023 Bill Chamalidis et al.</p>
