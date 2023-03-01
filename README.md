@@ -7,21 +7,7 @@
 
 
 
-<h2>About:</h2>
-<p><b>Authors: </b>
-<ul>  
-  <li>  <a href="https://github.com/bill-chamal">Bill Chamalidis</a> <a href="https://www.uom.gr/">University of Macedonia</a> </li>
-  <li>  name 2 </li>
-  <li>  name 3 </li>
-  <li>  name 4 </li>
-  <li>  name 5 </li>
- </ul> 
- 
-</p>
-  
-<p><b>Created:</b> 15 March 2023</p>
-<p><b>Version:</b> 0.1</p>
-
+<hr>
 <p align="center"> <i> Η παρούσα εργασία υλοποιήθηκε στα πλαίσια του μαθήματος 
 <br>
 <b> Ανάλυση & Σχεδίαση Συστημάτων </b> 
