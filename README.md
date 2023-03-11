@@ -1,4 +1,4 @@
-<h1> CarOps <i>ERP</i> </h1>
+<h1> CarOps </h1>
 
 
 <img src="img/UOMLOGOGR.png#gh-light-mode-only" alt= “” width="20%" height="20%"> 
