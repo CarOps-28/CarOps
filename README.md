@@ -4,7 +4,29 @@
 <img src="img/UOMLOGOGR.png#gh-light-mode-only" alt= “” width="20%" height="20%"> 
 <img src="img/UOMLOGOGRWHITE.png#gh-dark-mode-only" alt= “” width="20%" height="20%"> 
 
-
+<table style="text-align: center; border-collapse: collapse; border: none;">
+  <caption>Ομάδα 28</caption>
+    <tr>
+        <th>Τζήκα</th>
+        <th>Τσολακίδης</th>
+        <th>Φουλίδης</th>
+        <th>Χαϊντάρι</th>
+        <th>Χαμαλίδης</th>
+    </tr>
+    <tr>
+        <td>Δήμητρα</td>
+        <td>Βασίλειος</td>
+        <td>Δημήτριος</td>
+        <td>Εριόλα</td>
+        <td>Σ. Βασίλειος</td>
+    </tr>
+    <tr>
+        <td colspan="5">Πανεπιστήμιο Μακεδονίας</td>
+    </tr>
+    <tr colspan="5">
+        <td colspan="5">Τμήμα Εφαρμοσμένης Πληροφορικής</td>
+    </tr>
+</table>
 
 
 <hr>
