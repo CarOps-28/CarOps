@@ -1,10 +1,11 @@
+
 <h1> CarOps </h1>
 
 
 <img src="img/UOMLOGOGR.png#gh-light-mode-only" alt= “” width="20%" height="20%"> 
 <img src="img/UOMLOGOGRWHITE.png#gh-dark-mode-only" alt= “” width="20%" height="20%"> 
 
-<table style="text-align: center; border-collapse: collapse; border: none;">
+<table text-align: "center" border-collapse: "collapse" border: "none">
   <caption>Ομάδα 28</caption>
     <tr>
         <th>Τζήκα</th>
