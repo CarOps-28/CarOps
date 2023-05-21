@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="756.0" prefWidth="1344.0" stylesheets="@../../Styles/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.carops.controllers.HelloController">
+   <children>
+      <Text layoutX="624.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Secretary Screen" textAlignment="CENTER" textOrigin="CENTER" wrappingWidth="96.13671875" />
+      <Label fx:id="welcomeText" alignment="CENTER" layoutX="591.0" layoutY="196.0" prefHeight="25.0" prefWidth="163.0" stylesheets="@../../Styles/style.css" />
+
+      <Button layoutX="597.0" layoutY="306.0" mnemonicParsing="false" onAction="#onHelloButtonClick" stylesheets="@../../Styles/style.css" text="move to Secretary Screen" />
+      
+   </children>
+</Pane>
