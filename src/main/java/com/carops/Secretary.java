@@ -22,6 +22,7 @@ public class Secretary extends Person {
 
 	public boolean createVehicle(String plateNumber, String brand, String model, int prodYear, String type) {
 		// TODO - implement Secretary.createVehicle
+
 		throw new UnsupportedOperationException();
 	}
 
