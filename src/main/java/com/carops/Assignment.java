@@ -19,6 +19,22 @@ public class Assignment {
 		this.spareParts.put(sparePart, quantityOfSparePart);
 	}
 
+	public boolean isStatus() {
+		return status;
+	}
+
+	public HashMap<SparePart, Integer> getSpareParts() {
+		return spareParts;
+	}
+
+	public void setSpareParts(HashMap<SparePart, Integer> spareParts) {
+		this.spareParts = spareParts;
+	}
+
+	public void setJob(Job job) {
+		this.job = job;
+	}
+
 	public void setStatus(boolean newStatus){
 		this.status = newStatus;
 	}
@@ -33,6 +49,9 @@ public class Assignment {
 	}
 	public Repairfile getRepairfile() {
 		return this.repairfile;
+	}
+	public void setRepairfile(Repairfile rp) {
+		 this.repairfile = rp;
 	}
 	public int getWorktime() {
 		return this.worktime;
