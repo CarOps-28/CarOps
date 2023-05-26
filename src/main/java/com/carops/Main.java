@@ -24,9 +24,10 @@ public class Main extends Application {
         stage.show();
     }
 
+
     public static void main(String[] args) {
 //        Run GUI
-//        launch();
+        launch();
 
 //        Console
         System.out.println("CarOps Information System ");
