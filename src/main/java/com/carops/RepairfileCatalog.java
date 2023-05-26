@@ -12,13 +12,17 @@ public class RepairfileCatalog {
 	}
 
 	public static void addRepairfile(Repairfile repairfile) {
-		// TODO - implement RepairfileCatalog.addRepairfile
-		throw new UnsupportedOperationException();
+		repairfiles.add(repairfile);
 	}
 
 	public static Repairfile fetchRepairfilebyVehicle(String plateNumber) {
-		// TODO - implement RepairfileCatalog.fetchRepairfilebyVehicle
-		throw new UnsupportedOperationException();
+
+		Repairfile vehicleRepairfile = null;
+		for(Repairfile repairfile : repairfiles){
+			if(repairfile.getVehicle().getPlateNumber().equals(plateNumber))
+				vehicleRepairfile = repairfile;
+		}
+		return vehicleRepairfile;
 	}
 
 }

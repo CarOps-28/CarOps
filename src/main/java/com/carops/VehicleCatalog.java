@@ -5,6 +5,9 @@ import java.util.ArrayList;
 public class VehicleCatalog {
 
 	private ArrayList<Vehicle> vehicles = new ArrayList<Vehicle>();
+	public ArrayList<Vehicle> getVehicles() {
+		return vehicles;
+	}
 	public static Vehicle fetchVehicleByPlateNumber(String plateNumber) {
 		// TODO - implement VehicleCatalog.fetchVehicleByPlateNumber
 		throw new UnsupportedOperationException();

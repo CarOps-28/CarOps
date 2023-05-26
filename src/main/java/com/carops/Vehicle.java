@@ -16,6 +16,8 @@ public class Vehicle {
 		this.vehicleType = vehicleType;
 	}
 
+	public String getPlateNumber() {return plateNumber;}
+
 	public float getTypeValue() {
 		return -1;
 	}

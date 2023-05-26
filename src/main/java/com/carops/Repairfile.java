@@ -1,31 +1,52 @@
 package com.carops;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Repairfile {
 
-	private float price;
+	private int price;
 	private int worktime;
 	private String status;
+	private ArrayList<Assignment> assignments;
+	private Vehicle vehicle;
 
-	public ArrayList<Assignment> getAssigments() {
-		// TODO - implement Repairfile.getAssigments
-		throw new UnsupportedOperationException();
+
+	public ArrayList<Assignment> getAssignments() {
+		return assignments;
 	}
 
 	public void addAssignment(Assignment assignment) {
-		// TODO - implement Repairfile.addAssignment
-		throw new UnsupportedOperationException();
+		assignments.add(assignment);
 	}
 
 	public Vehicle getVehicle() {
-		// TODO - implement Repairfile.getVehicle
-		throw new UnsupportedOperationException();
+		return vehicle;
 	}
 
 	public void calculatePrice() {
-		// TODO - implement Repairfile.calculatePrice
-		throw new UnsupportedOperationException();
+		price = 0;
+
+		if(status != "Accepted"){ // Estimated price calculation based solely on the estimated jobs.
+			for(Assignment assignment: assignments) price += assignment.getJob().getPrice();
+		}
+		else if(status == "Completed"){ //Price calculation after repairs.
+
+			for(Assignment assignment: assignments) {
+
+				for(SparePart part : assignment.getSpareParts().keySet()){
+					int partPrice = 0;
+					int usedQuantity = assignment.getSpareParts().get(part);
+
+					for(SparePart sparepart : SparePartsCatalog.fetchSpareParts()){
+						if(part.equals(sparepart.getName()))
+							partPrice = usedQuantity * sparepart.getPrice();
+					}
+					price += partPrice;
+				}
+			}
+		}
 	}
 
 	public String getStatus() { return this.status; }

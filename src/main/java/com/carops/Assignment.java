@@ -37,4 +37,6 @@ public class Assignment {
 	public int getWorktime() {
 		return this.worktime;
 	}
+
+	public HashMap<SparePart, Integer> getSpareParts() { return spareParts; }
 }
