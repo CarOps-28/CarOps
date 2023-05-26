@@ -42,12 +42,12 @@ public class OwnersScreenAssignment implements Initializable {
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-//        job.setCellValueFactory(new PropertyValueFactory<AssignmStatus, String>("job"));
-//        vehicle.setCellValueFactory(new PropertyValueFactory<AssignmStatus, String>("vehicle"));
-//        vehicleId.setCellValueFactory(new PropertyValueFactory<AssignmStatus, String>("vehicleId"));
-//        status.setCellValueFactory(new PropertyValueFactory<AssignmStatus, String>("status"));
-//
-//        tableView.getItems().setAll(assignmStatuses);
+        job.setCellValueFactory(new PropertyValueFactory<AssignmStatus, String>("job"));
+        vehicle.setCellValueFactory(new PropertyValueFactory<AssignmStatus, String>("vehicle"));
+        vehicleId.setCellValueFactory(new PropertyValueFactory<AssignmStatus, String>("vehicleId"));
+        status.setCellValueFactory(new PropertyValueFactory<AssignmStatus, String>("status"));
+
+        tableView.getItems().setAll(assignmStatuses);
 
     }
 

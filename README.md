@@ -29,6 +29,9 @@
     </tr>
 </table>
 
+<h1>Graphical user interface</h1>
+<img src="img/owners.png" alt= “Owners screen”> 
+
 
 <hr>
 <p align="center"> <i> Η παρούσα εργασία υλοποιήθηκε στα πλαίσια του μαθήματος 
