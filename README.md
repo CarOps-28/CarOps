@@ -30,7 +30,7 @@
 </table>
 
 <h1>Graphical user interface</h1>
-<img src="img/owners.png" alt= “Owners screen”> 
+<img src="img/Screenshot 2023-05-27 020636.png" alt= “Owners screen”> 
 
 
 <hr>
