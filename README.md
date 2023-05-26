@@ -23,7 +23,7 @@
     </tr>
 </table>
 
-
+<p>This system requires <a href="https://openjfx.io/">JavaFX library</a>, because it includes user interface</p>
 <hr>
 <p align="center"> <i> Η παρούσα εργασία υλοποιήθηκε στα πλαίσια του μαθήματος 
 <br>
