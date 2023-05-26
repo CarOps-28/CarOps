@@ -12,4 +12,17 @@ public class Customer extends Person {
 		this.email = email;
 		this.address = address;
 	}
+
+	public String getPhoneNumber() {
+		return this.phoneNumber;
+	}
+
+	public String getEmail() {
+		return this.email;
+	}
+
+	public String getAddress() {
+		return this.address;
+	}
+
 }

@@ -28,4 +28,6 @@ public class Repairfile {
 		throw new UnsupportedOperationException();
 	}
 
+	public String getStatus() { return this.status; }
+
 }

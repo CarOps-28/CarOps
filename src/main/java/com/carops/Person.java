@@ -14,4 +14,12 @@ public abstract class Person {
 		return this.id;
 	}
 
+	public String getName(){
+		return this.name;
+	}
+
+	public String getSurname(){
+		return this.surname;
+	}
+
 }
