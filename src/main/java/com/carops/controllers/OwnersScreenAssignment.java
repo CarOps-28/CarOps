@@ -10,79 +10,71 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import org.jetbrains.annotations.NotNull;
 
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.ResourceBundle;
 
 public class OwnersScreenAssignment implements Initializable {
     private ArrayList<Repairfile> repairfiles = new ArrayList<>();
-    private ObservableList<AssignmStatus> assignmStatuses =  FXCollections.observableArrayList();
-    @FXML
-    private TableView<AssignmStatus> tableView;
-    @FXML private TableColumn<AssignmStatus, String> job;
-    @FXML private TableColumn<AssignmStatus, String> vehicle;
-    @FXML private TableColumn<AssignmStatus, String> vehicleId;
-    @FXML private TableColumn<AssignmStatus, String> status;
+    private final ObservableList<AssignmentData> ast = FXCollections.observableArrayList();
 
-    public OwnersScreenAssignment() {
-        repairfiles = (ArrayList<Repairfile>) RepairfileCatalog.fetchRepairfiles();
+    @FXML private TableView<AssignmentData>              tableView;
+    @FXML private TableColumn<AssignmentData, String>    jobID;
+    @FXML private TableColumn<AssignmentData, String>    vehicleModelID;
+    @FXML private TableColumn<AssignmentData, String>    vehiclePanelID;
+    @FXML private TableColumn<AssignmentData, String>    statusID;
 
-
-        for (Repairfile rp : repairfiles) {
-            String vmodel = rp.getVehicle().getModel();
-            String vid = rp.getVehicle().getPlateNumber();
-            for (Job j : rp.getJobs()) {
-                assignmStatuses.add(new AssignmStatus(j.getName(), vmodel, vid, "NAN"));
-            }
-        }
-    }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        job.setCellValueFactory(new PropertyValueFactory<AssignmStatus, String>("job"));
-        vehicle.setCellValueFactory(new PropertyValueFactory<AssignmStatus, String>("vehicle"));
-        vehicleId.setCellValueFactory(new PropertyValueFactory<AssignmStatus, String>("vehicleId"));
-        status.setCellValueFactory(new PropertyValueFactory<AssignmStatus, String>("status"));
 
-        tableView.getItems().setAll(assignmStatuses);
+        jobID.setCellValueFactory           (new PropertyValueFactory<>("jobID"));
+        vehicleModelID.setCellValueFactory  (new PropertyValueFactory<>("vehicleModelID"));
+        vehiclePanelID.setCellValueFactory  (new PropertyValueFactory<>("vehiclePanelID"));
+        statusID.setCellValueFactory        (new PropertyValueFactory<>("statusID"));
 
+
+        repairfiles = (ArrayList<Repairfile>) RepairfileCatalog.fetchRepairfiles();
+        for (Repairfile rp : repairfiles)
+            for (Job j : rp.getJobs())
+                ast.add(new AssignmentData(j.getName(), rp.getVehicle().getModel(), rp.getVehicle().getPlateNumber(), "NaN"));
+
+        tableView.getItems().setAll(ast);
     }
 
-    public class AssignmStatus{
-        private String job;
-         private String vehicle;
-         private String vehicleId;
-         private String status;
 
-        public AssignmStatus(String job, String vehicle, String vehicleId, String status) {
-            this.job = job;
-            this.vehicle = vehicle;
-            this.vehicleId = vehicleId;
-            this.status = status;
+    public class AssignmentData {
+        private final String jobID;
+        private final String vehicleModelID;
+        private final String vehiclePanelID;
+        private final String statusID;
+
+        public AssignmentData(String jobID, String vehicleModelID, String vehiclePanelID, String statusID) {
+            this.jobID =  (jobID);
+            this.vehicleModelID =  (vehicleModelID);
+            this.vehiclePanelID =  (vehiclePanelID);
+            this.statusID =  (statusID);
         }
 
-        public String getJob() {
-            return job;
+        public String getJobID() {
+            return jobID;
         }
 
-
-        public String getvehicle() {
-            return vehicle;
+        public String getVehicleModelID() {
+            return vehicleModelID;
         }
 
-
-        public String getVehicleId() {
-            return vehicleId;
+        public String getVehiclePanelID() {
+            return vehiclePanelID;
         }
 
+        public String getStatusID() {
+            return statusID;
+        }
 
-        public String getStatus() {
-            return status;
+        public String toString(){
+            return jobID +", "+ vehicleModelID +", "+ vehiclePanelID +", "+ statusID +"\n";
         }
 
     }
-
 }
