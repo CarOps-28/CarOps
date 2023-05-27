@@ -22,6 +22,7 @@
         <td>Σ. Βασίλειος</td>
     </tr>
 
+
 <tr>
         <td colspan="5">Τμήμα Εφαρμοσμένης Πληροφορικής</td>
     </tr>
@@ -29,6 +30,7 @@
 
 <h1>Graphical user interface</h1>
 <img src="img/Screenshot 2023-05-27 020636.png" alt= “Owners screen”>
+
 
 <hr>
 <p align="center"> <i> Η παρούσα εργασία υλοποιήθηκε στα πλαίσια του μαθήματος 
