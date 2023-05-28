@@ -7,7 +7,6 @@ import java.util.Date;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
-
 import javafx.scene.Scene;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
@@ -35,44 +34,49 @@ public class CarOps extends Application {
         System.out.println("New Secretary Tampouris has been created");
         System.out.println();
 
-        //  ---------------------------------------- Create Customer  ----------------------------------------
+        // ---------------------------------------- Create Customer
+        // ----------------------------------------
 
-        tampouris.createCustomer("Dimitra", "Tzhka", "1234567890", "tzhka@gmail.com","t12345");
+        tampouris.createCustomer("Dimitra", "Tzhka", "1234567890", "tzhka@gmail.com", "t12345");
         System.out.println("New Customer Tzhka has been created");
         System.out.println();
 
-        tampouris.createCustomer("Vasileios", "Tsolakidis", "6996986610", "bill@gmail.com","t12346");
+        tampouris.createCustomer("Vasileios", "Tsolakidis", "6996986610", "bill@gmail.com", "t12346");
         System.out.println("New Customer Tsolakidis has been created");
         System.out.println();
 
-        tampouris.createCustomer("Dimitris", "Foulidis", "1234567893", "jimmy@gmail.com","t12347");
+        tampouris.createCustomer("Dimitris", "Foulidis", "1234567893", "jimmy@gmail.com", "t12347");
         System.out.println("New Customer Foulidis has been created");
         System.out.println();
 
-        tampouris.createCustomer("Erjola", "Hajdari", "1234567894", "eri@gmail.com","t12348");
+        tampouris.createCustomer("Erjola", "Hajdari", "1234567894", "eri@gmail.com", "t12348");
         System.out.println("New Customer Hajdari has been created");
         System.out.println();
 
-        tampouris.createCustomer("Vasileios", "Xamalidis", "1234567895", "bill2@gmail.com","t12349");
+        tampouris.createCustomer("Vasileios", "Xamalidis", "1234567895", "bill2@gmail.com", "t12349");
         System.out.println("New Customer Xamalidis has been created");
         System.out.println();
 
-        //  ---------------------------------------- Create Vehicles by Tampouris ----------------------------------------
+        // ---------------------------------------- Create Vehicles by Tampouris
+        // ----------------------------------------
         tampouris.createVehicle("KTR4456", "TOYOTA", "90Turbo", 1989, "Truck", 500);
         System.out.println("New Vehicle KTR4456 has been created");
         System.out.println();
 
-        //  ---------------------------------------- Create Reception Engineer.  ----------------------------------------
+        // ---------------------------------------- Create Reception Engineer.
+        // ----------------------------------------
         ReceptionEngineer vergidis = new ReceptionEngineer("MHX1", "Konstantinos", "Vergidis", "reception");
         System.out.println("New ReceptionEngineer Vergidis has been created");
         System.out.println();
 
-        //  ---------------------------------------- Crete Vehicles by Vergidis  ----------------------------------------
+        // ---------------------------------------- Crete Vehicles by Vergidis
+        // ----------------------------------------
         vergidis.createVehicle("NIK3745", "Land", "LandRover Range Rover HSE", 2014, "Vehicle", 0);
         System.out.println("New Vehicle NIK3745 has been created");
         System.out.println();
 
-        //  ---------------------------------------- 3 job objects  ----------------------------------------
+        // ---------------------------------------- 3 job objects
+        // ----------------------------------------
         Job job1 = new Job("Oil change", 20, "");
         System.out.println("New Job 'Oil change' has been created");
         System.out.println();
@@ -85,7 +89,8 @@ public class CarOps extends Application {
         System.out.println("New Job 'Brake maintenance' has been created");
         System.out.println();
 
-        //  ---------------------------------------- 6 spareParts Objects  ----------------------------------------
+        // ---------------------------------------- 6 spareParts Objects
+        // ----------------------------------------
         SparePart sparePart1 = new SparePart("Oil package 4lt", 34, 30);
         System.out.println("New SparePart 'Oil package 4lt' has been created");
         System.out.println();
@@ -110,19 +115,18 @@ public class CarOps extends Application {
         System.out.println("New SparePart 'Break oil' has been created");
         System.out.println();
 
-
         // -------------- Create appointment ------------------
 
         Customer customer1 = tampouris.searchCustomer("6996986610");
         Vehicle vehicle3 = tampouris.searchVehicle("NIK3745");
-        tampouris.createAppointment(customer1.getId(),vehicle3.getPlateNumber(), new Date());
-        System.out.println("New Appointment with customer: "+customer1.getId() +" has been created");
+        tampouris.createAppointment(customer1.getId(), vehicle3.getPlateNumber(), new Date());
+        System.out.println("New Appointment with customer: " + customer1.getId() + " has been created");
         System.out.println();
 
-        Customer customer3 = tampouris.searchCustomer("6996986610");
+        Customer customer2 = tampouris.searchCustomer("1234567893");
         Vehicle vehicle4 = tampouris.searchVehicle("NIK3745");
-        tampouris.createAppointment(customer1.getId(),vehicle3.getPlateNumber(), new Date());
-        System.out.println("New Appointment with customer: " + customer1.getId() +" has been created");
+        tampouris.createAppointment(customer2.getId(), vehicle3.getPlateNumber(), new Date());
+        System.out.println("New Appointment with customer: " + customer1.getId() + " has been created");
         System.out.println();
 
         // -------------- /Create appointment ------------------
@@ -135,7 +139,7 @@ public class CarOps extends Application {
         estJobs1.add(job1);
         estJobs1.add(job2);
         vergidis.createRepairFile(vehicle1, estJobs1, 8);
-        System.out.println("New Repairfile with vehicle: "+ vehicle1.getPlateNumber() + " has been created");
+        System.out.println("New Repairfile with vehicle: " + vehicle1.getPlateNumber() + " has been created");
         System.out.println();
 
         Vehicle vehicle2 = vergidis.searchVehicle("NIK3745");
@@ -143,7 +147,7 @@ public class CarOps extends Application {
         ArrayList<Job> estJobs2 = new ArrayList<>();
         estJobs1.add(job3);
         vergidis.createRepairFile(vehicle2, estJobs1, 16);
-        System.out.println("New Repairfile with vehicle "+ vehicle1.getPlateNumber() + " has been created");
+        System.out.println("New Repairfile with vehicle " + vehicle1.getPlateNumber() + " has been created");
         System.out.println();
 
         // ------------------ Create Supervisor engineer ------------------
@@ -151,7 +155,7 @@ public class CarOps extends Application {
         System.out.println("New supervisorEngineer Lee has been created");
         System.out.println();
 
-        //------------------ Create Engineers ------------------
+        // ------------------ Create Engineers ------------------
         Engineer engineer1 = new Engineer("MHX3", "Martha", "Caephile", "engineer");
         System.out.println("New Engineer Caephile has been created");
         System.out.println();
@@ -160,58 +164,66 @@ public class CarOps extends Application {
         System.out.println("New Engineer Cruise has been created");
         System.out.println();
 
-        //  ------------------ Add assignments ------------------
+        // ------------------ Add assignments ------------------
         // ------------------ supervisor set assignments ------------------
         Vehicle vehicle5 = supervisorEngineer.searchVehicle("KTR4456");
 
-        supervisorEngineer.createAssignment(engineer1, job1, RepairfileCatalog.fetchRepairfilebyVehicle(vehicle5.getPlateNumber()));
+        supervisorEngineer.createAssignment(engineer1, job1,
+                RepairfileCatalog.fetchRepairfilebyVehicle(vehicle5.getPlateNumber()));
         System.out.println("New Assignment in engineer: " + engineer1.getName() + " has been created");
         System.out.println();
 
-        supervisorEngineer.createAssignment(engineer2, job2, RepairfileCatalog.fetchRepairfilebyVehicle(vehicle5.getPlateNumber()));
+        supervisorEngineer.createAssignment(engineer2, job2,
+                RepairfileCatalog.fetchRepairfilebyVehicle(vehicle5.getPlateNumber()));
         System.out.println("New Assignment in engineer: " + engineer2.getName() + " has been created");
         System.out.println();
 
         Vehicle vehicle6 = supervisorEngineer.searchVehicle("NIK3745");
-        supervisorEngineer.createAssignment(engineer1, job3, RepairfileCatalog.fetchRepairfilebyVehicle(vehicle6.getPlateNumber()));
+        supervisorEngineer.createAssignment(engineer1, job3,
+                RepairfileCatalog.fetchRepairfilebyVehicle(vehicle6.getPlateNumber()));
         System.out.println("New Assignment in engineer: " + engineer1.getName() + " has been created");
         System.out.println();
 
         // ------------------ Engineers set spareParts ------------------
 
-
-        // ------------------ engineer1 add sparepart to assignment2 - Repairfile 1 ------------------
+        // ------------------ engineer1 add sparepart to assignment2 - Repairfile 1
+        // ------------------
         Assignment assignment1 = engineer1.getAssignments().get(0);
 
         engineer1.addSpaceParts(assignment1, sparePart1, 1);
         engineer1.addSpaceParts(assignment1, sparePart2, 1);
         engineer1.setAssignmentWorktime(assignment1, 4);
 
-        // ------------------ engineer2 add sparepart to assignment2 - Repairfile 1 ------------------
+        // ------------------ engineer2 add sparepart to assignment2 - Repairfile 1
+        // ------------------
         Assignment assignment2 = engineer2.getAssignments().get(0);
         engineer2.addSpaceParts(assignment2, sparePart3, 1);
         engineer2.setAssignmentWorktime(assignment2, 4);
 
-
-        // ------------------ engineer1 add sparepart to assignment2 - Repairfile 2 ------------------
+        // ------------------ engineer1 add sparepart to assignment2 - Repairfile 2
+        // ------------------
         Assignment assignment3 = engineer1.getAssignments().get(1);
         engineer1.addSpaceParts(assignment3, sparePart4, 4);
         engineer1.addSpaceParts(assignment3, sparePart5, 4);
         engineer1.addSpaceParts(assignment3, sparePart6, 1);
         engineer1.setAssignmentWorktime(assignment3, 16);
 
-
         // ------------------ supervisor ------------------
-        supervisorEngineer.callRecordTotalSparePartsFromRepairfile(RepairfileCatalog.fetchRepairfilebyVehicle("KTR4456"));
+        supervisorEngineer
+                .callRecordTotalSparePartsFromRepairfile(RepairfileCatalog.fetchRepairfilebyVehicle("KTR4456"));
 
-        supervisorEngineer.callRecordTotalSparePartsFromRepairfile(RepairfileCatalog.fetchRepairfilebyVehicle("NIK3745"));
+        supervisorEngineer
+                .callRecordTotalSparePartsFromRepairfile(RepairfileCatalog.fetchRepairfilebyVehicle("NIK3745"));
 
         // ------------------ PRINT STATISTICS ------------------
         JobCatalog.printData();
         SparePartsCatalog.printData();
         RepairfileCatalog.printData();
-
-//        launch();
+        AppointmentCatalog.printData();
+        CustomerCatalog.printData();
+        VehicleCatalog.printData();
+        EngineerCatalog.printData();
+        // launch();
 
     }
 }

@@ -19,8 +19,22 @@ public class EngineerCatalog {
 		return null;
 	}
 
+	public static void printData() {
+		System.out.printf("\n> All Engineer in Catalog:\nn %-25s  %-10s\n", "Name", "Role");
+		int i = 1;
+		for (Engineer engineer : engineers) {
+			System.out.printf("%d|", i);
+			engineer.printData();
+			i++;
+		}
+	}
+
 	public static void addEngineer(Engineer engineer) {
 		engineers.add(engineer);
+	}
+
+	public static void removeEngineer(Engineer engineer) {
+		engineers.remove(engineer);
 	}
 
 }

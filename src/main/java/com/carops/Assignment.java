@@ -1,6 +1,5 @@
 package com.carops;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Assignment {
@@ -8,18 +7,18 @@ public class Assignment {
 	private int worktime;
 	private boolean status;
 	private HashMap<SparePart, Integer> spareParts = new HashMap<SparePart, Integer>();
-
 	private Repairfile repairfile;
 	private Job job;
-
 	private Engineer engineer;
 
-	public Assignment(Engineer engineer, Job job, Repairfile repairfile){
+	public Assignment(Engineer engineer, Job job, Repairfile repairfile) {
 		this.engineer = engineer;
 		this.job = job;
 		this.repairfile = repairfile;
 	}
 
+	// Συνάτηση που υπολογίζει και επιστρέφει το συνολικό κόστος όλων των
+	// ανταλακτίκων της εργασίας. Προστέθηκε για διευκόλυνση του υπολογισμού του κόστους.
 	public int getSparePartsPrice() {
 		int price = 0;
 		for (SparePart sparePart : spareParts.keySet()) {
@@ -30,10 +29,6 @@ public class Assignment {
 
 	public void addSparePart(SparePart sparePart, int quantityOfSparePart) {
 		this.spareParts.put(sparePart, quantityOfSparePart);
-	}
-
-	public boolean isStatus() {
-		return status;
 	}
 
 	public void setSpareParts(HashMap<SparePart, Integer> spareParts) {
@@ -48,8 +43,11 @@ public class Assignment {
 		this.status = newStatus;
 	}
 
+	// Προστέθηκε με βάση τη σχεδίαση των mockup
 	public void setWorktime(int worktime) {
 		this.worktime = worktime;
+		// Αυτόματη ενημέρωση των ωρών του Repairfile κάθε φορά που μια εργασία
+		// ολοκληρώνετε
 		repairfile.automaticChangeWorktime();
 	}
 
@@ -73,6 +71,8 @@ public class Assignment {
 		return this.worktime;
 	}
 
-	public HashMap<SparePart, Integer> getSpareParts(){ return this.spareParts;}
+	public HashMap<SparePart, Integer> getSpareParts() {
+		return this.spareParts;
+	}
 
 }

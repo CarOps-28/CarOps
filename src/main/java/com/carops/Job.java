@@ -17,7 +17,6 @@ public class Job {
 	public float getPrice() {
 		return this.price;
 	}
-
 	public void printData() {
 		System.out.printf("%-25s  |%-3d\u20ac\n", name, price);
 	}

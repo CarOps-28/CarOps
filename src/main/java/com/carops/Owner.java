@@ -6,8 +6,30 @@ public class Owner extends Person {
 	}
 
 	public void changeRole(Engineer engineer, String role) {
-		// TODO - implement Owner.changeRole
-		throw new UnsupportedOperationException();
+
+		// Ανάλογα με τον ρόλο δημιοργείται ενα αντικείμενο ανάλογου μηχανηκού και
+		// διαγράφεται το προηγούμενο μετά τηην πλήρη αντιγραφή του.
+		switch (role) {
+			case "engineer":
+				Engineer newEngineer = new Engineer(engineer.getId(), engineer.getName(), engineer.getSurname(), role);
+				newEngineer.setAssignments(engineer.getAssignments());
+				EngineerCatalog.removeEngineer(engineer);
+				break;
+			case "reception":
+				ReceptionEngineer newRecEngineer = new ReceptionEngineer(engineer.getId(), engineer.getName(),
+						engineer.getSurname(), role);
+				newRecEngineer.setAssignments(engineer.getAssignments());
+				EngineerCatalog.removeEngineer(engineer);
+				break;
+			case "supervisor":
+				SupervisorEngineer newSupEngineer = new SupervisorEngineer(engineer.getId(), engineer.getName(),
+						engineer.getSurname(), role);
+				newSupEngineer.setAssignments(engineer.getAssignments());
+				EngineerCatalog.removeEngineer(engineer);
+				break;
+			default:
+				break;
+		}
 	}
 
 }

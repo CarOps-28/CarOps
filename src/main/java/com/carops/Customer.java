@@ -12,7 +12,12 @@ public class Customer extends Person {
 		this.email = email;
 		this.address = address;
 
+		// Αυτόματη προσθήκη του αντικείμενου Customer στον κατάλογο των Customer
 		CustomerCatalog.addCustomer(this);
+	}
+
+	public void printData() {
+		System.out.printf("%-25s  |%-15s\n", this.getName(), this.phoneNumber);
 	}
 
 	public String getPhoneNumber() {

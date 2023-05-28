@@ -21,41 +21,50 @@ public class Repairfile {
 		RepairfileCatalog.addRepairfile(this);
 	}
 
-	public void recordTotalSpareParts(){
-		for (Assignment assignment : this.assignments){
+	// Από κάθε εργασία ζητάμε όλα τα αντλακτικά της και τα ομαδοποιούμε σε ένα
+	// HashMap του repairfile.
+	public void recordTotalSpareParts() {
+		for (Assignment assignment : this.assignments) {
 			HashMap<SparePart, Integer> currentAssignmentHashMap = assignment.getSpareParts();
 
 			for (SparePart sparePart : currentAssignmentHashMap.keySet()) {
-				if (this.totalSparePartsUsed.containsKey(sparePart)){
+				if (this.totalSparePartsUsed.containsKey(sparePart)) {
 
-					Integer newValue = this.totalSparePartsUsed.get(sparePart) + currentAssignmentHashMap.get(sparePart);
+					Integer newValue = this.totalSparePartsUsed.get(sparePart)
+							+ currentAssignmentHashMap.get(sparePart);
 
 					this.totalSparePartsUsed.replace(sparePart, newValue);
 				}
 
-				this.totalSparePartsUsed.put(sparePart,currentAssignmentHashMap.get(sparePart));
+				this.totalSparePartsUsed.put(sparePart, currentAssignmentHashMap.get(sparePart));
 
 			}
 		}
 	}
 
-	public void automaticChangeWorktime(){
+	// Συνάτηση που ενημερώνει αυτόματα τις ώρες εργασίας του RepairFile, σύμφωνα με
+	// τις ολοκληρωμένες εργασίες
+	public void automaticChangeWorktime() {
 		this.worktime = 0;
-		for (Assignment assignment : assignments){
+		for (Assignment assignment : assignments) {
 			this.worktime += assignment.getWorktime();
 		}
 	}
+
 	public void addAssignment(Assignment assignment) {
 		assignments.add(assignment);
 	}
 
+	// Συνάρτηση που υπολογίζει το συνολικό κόστος λαμβάνοντας τις τιμές από όλες τις δουλειές και από όλα τα ανταλλακτικά των εργασιών.
 	public int getTotalCost() {
 		int totalPrice = 0;
 
 		for (Assignment assignment : assignments) {
 
+			// άθροισμα της τιμής της κάθε δουλειάς.
 			totalPrice += assignment.getJob().getPrice();
 
+			// γίνεται άθροισμα του κόστους των ανταλακτίκων της εργασίας.
 			totalPrice += assignment.getSparePartsPrice();
 
 		}
@@ -63,7 +72,7 @@ public class Repairfile {
 	}
 
 	public void printData() {
-		System.out.printf("%-25d  |%-4d\u20ac\n", worktime/8, getTotalCost());
+		System.out.printf("%-25d  |%-4d\u20ac\n", worktime / 8, getTotalCost());
 	}
 
 	// getters & setters

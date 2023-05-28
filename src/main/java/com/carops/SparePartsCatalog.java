@@ -6,7 +6,6 @@ public class SparePartsCatalog {
 	private static ArrayList<SparePart> spareParts = new ArrayList<>();
 
 	public static ArrayList<SparePart> fetchSpareParts() {
-		// TODO - implement SparePartsCatalog.fetchSpareParts
 		return spareParts;
 	}
 
@@ -20,15 +19,13 @@ public class SparePartsCatalog {
 		}
 	}
 
-	public static SparePart findSpareByName(String s) {
-		SparePart outsp = null;
-		for (SparePart sp : spareParts) {
-			if (s.equalsIgnoreCase(sp.getName())) {
-				outsp = sp;
-				break;
+	public static SparePart findSpareByName(String name) {
+		for (SparePart sparePart : spareParts) {
+			if (name.equalsIgnoreCase(sparePart.getName())) {
+				return sparePart;
 			}
 		}
-		return outsp;
+		return null;
 	}
 
 	public static void addSparePart(SparePart sparep) {

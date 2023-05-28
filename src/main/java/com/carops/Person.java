@@ -2,9 +2,9 @@ package com.carops;
 
 public abstract class Person {
 
-	private String id;
-	private String name;
-	private String surname;
+	protected String id;
+	protected String name;
+	protected String surname;
 
 	public Person(String id, String name, String surname) {
 		this.id = id;

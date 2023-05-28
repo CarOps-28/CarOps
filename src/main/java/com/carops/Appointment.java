@@ -8,17 +8,16 @@ public class Appointment {
 	private String vehiclePlateNumber;
 	private boolean status;
 	private String transactionId;
-
 	private Repairfile repairfile;
 	private Date date;
 
 	// Constructors
-
 	public Appointment(String customerId, String plateNumber, Date date) {
 		this.customerId = customerId;
 		this.vehiclePlateNumber = plateNumber;
 		this.date = date;
 
+		// Αυτόματη προσθήκη του αντικείμενου Appointment στον κατάλογο των Appointment
 		AppointmentCatalog.addAppointment(this);
 	}
 
@@ -26,7 +25,12 @@ public class Appointment {
 		this.customerId = customerId_or_plateNumber;
 		this.date = date;
 
+		// Αυτόματη προσθήκη του αντικείμενου Appointment στον κατάλογο των Appointment
 		AppointmentCatalog.addAppointment(this);
+	}
+
+	public void printData() {
+		System.out.printf("%-25s  |%-15s\n", this.customerId, this.vehiclePlateNumber);
 	}
 
 	public Appointment(Date date) {

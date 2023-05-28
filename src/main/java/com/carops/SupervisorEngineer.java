@@ -11,17 +11,16 @@ public class SupervisorEngineer extends Engineer {
 	}
 
 	public void createAssignment(Engineer engineer, Job job, Repairfile repairfile) {
-		Assignment a1 = new Assignment(engineer,job,repairfile);
+		Assignment a1 = new Assignment(engineer, job, repairfile);
 		repairfile.addAssignment(a1);
 		this.addAssignmentToEngineer(engineer, a1);
 	}
 
 	public void changeRepairfileStatusToCompleted(String vehiclePlateNumber) {
-		// TODO - implement SupervisorEngineer.changeRepairfileStatusToCompleted
-		throw new UnsupportedOperationException();
+		RepairfileCatalog.fetchRepairfilebyVehicle(vehiclePlateNumber).setStatus("Completed");
 	}
 
-	public void callRecordTotalSparePartsFromRepairfile(Repairfile repairfile){
+	public void callRecordTotalSparePartsFromRepairfile(Repairfile repairfile) {
 		repairfile.recordTotalSpareParts();
 	}
 

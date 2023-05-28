@@ -22,6 +22,10 @@ public class Vehicle {
 		VehicleCatalog.addVehicle(this);
 	}
 
+	public void printData() {
+		System.out.printf("%-25s  |%-15s\n", this.plateNumber, this.vehicleType);
+	}
+
 	public String getVehicleType() {
 		return vehicleType;
 	}

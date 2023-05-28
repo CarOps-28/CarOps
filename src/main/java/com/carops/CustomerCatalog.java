@@ -28,7 +28,18 @@ public class CustomerCatalog {
 		customers.add(customer);
 	}
 
-	public static String generateId(){
+	// Συνάρτηση που δημιουργεί αυτόματα έναν κωδικό για τον πελάτη.
+	public static String generateId() {
 		return customers.size() + 1 + "";
+	}
+
+	public static void printData() {
+		System.out.printf("\n> All Customer in Catalog:\nn %-25s  %-10s\n", "Name", "PhoneNumber");
+		int i = 1;
+		for (Customer customer : customers) {
+			System.out.printf("%d|", i);
+			customer.printData();
+			i++;
+		}
 	}
 }

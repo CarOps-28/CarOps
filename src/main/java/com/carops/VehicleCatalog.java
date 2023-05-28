@@ -19,6 +19,16 @@ public class VehicleCatalog {
 		return null;
 	}
 
+	public static void printData() {
+		System.out.printf("\n> All Vehicle in Catalog:\nn %-25s  %-10s\n", "PlateNumber", "Vehicle Type");
+		int i = 1;
+		for (Vehicle vehicle : vehicles) {
+			System.out.printf("%d|", i);
+			vehicle.printData();
+			i++;
+		}
+	}
+
 	public static void addVehicle(Vehicle vehicle) {
 		vehicles.add(vehicle);
 	}

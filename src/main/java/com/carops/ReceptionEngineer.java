@@ -12,18 +12,19 @@ public class ReceptionEngineer extends Engineer {
 		vehicle.addRepairfiles(new Repairfile(vehicle, jobs, days));
 	}
 
-	// public void createAssignment(Engineer engineer, Job job, Repairfile
-	// repairfile) {
-	// return new Assignment(plateNumber, brand, model, prodYear, type) != null ?
-	// true:false;
-	// }
+	public boolean createAssignment(Engineer engineer, Job job, Repairfile repairfile) {
+		return new Assignment(engineer, job, repairfile) != null ? true : false;
+	}
 
-	public boolean createVehicle(String plateNumber, String brand, String model, int prodYear, String type,float typeValue ) {
-		if (type.equalsIgnoreCase("Truck")){
-			return new Truck(plateNumber, brand, model, prodYear, type,typeValue) != null ? true : false;
-		}else if (type.equalsIgnoreCase("Motorcycle")){
-			return new Truck(plateNumber, brand, model, prodYear, type,typeValue) != null ? true : false;
-		}else{
+	// Ανάλογα με τον τύπο του οχήματος καλείται ο ανάλογος κατασκευαστής του
+	// οχήματος.
+	public boolean createVehicle(String plateNumber, String brand, String model, int prodYear, String type,
+			float typeValue) {
+		if (type.equalsIgnoreCase("Truck")) {
+			return new Truck(plateNumber, brand, model, prodYear, type, typeValue) != null ? true : false;
+		} else if (type.equalsIgnoreCase("Motorcycle")) {
+			return new Truck(plateNumber, brand, model, prodYear, type, typeValue) != null ? true : false;
+		} else {
 			return new Vehicle(plateNumber, brand, model, prodYear, type) != null ? true : false;
 		}
 	}
