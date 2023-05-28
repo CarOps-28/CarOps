@@ -29,7 +29,7 @@
     </tr>
 </table>
 
-<h2>printData() output:</h2>
+<h2>Εξαγωγή δεδομένων από την μέθοδο printData():</h2>
 
 ```
 > All Jobs in Catalog:
