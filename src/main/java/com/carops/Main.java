@@ -45,12 +45,12 @@ public class Main extends Application {
         eng.add(new Engineer("@eng4", "Tome", "Cruise", ""));
         eng.add(new Engineer("@eng5", "Bill", "Chan", ""));
         // all spare parts
-        SparePartsCatalog.addSpareParts(new SparePart("oil package", 34, 30));
-        SparePartsCatalog.addSpareParts(new SparePart("oil filter", 55, 20));
-        SparePartsCatalog.addSpareParts(new SparePart("cabin filter", 90, 30));
-        SparePartsCatalog.addSpareParts(new SparePart("Front wheel brake pad", 44, 5));
-        SparePartsCatalog.addSpareParts(new SparePart("Back wheel brake pad", 22, 5));
-        SparePartsCatalog.addSpareParts(new SparePart("Break oil", 37, 10));
+        SparePartsCatalog.addSparePart(new SparePart("oil package", 34, 30));
+        SparePartsCatalog.addSparePart(new SparePart("oil filter", 55, 20));
+        SparePartsCatalog.addSparePart(new SparePart("cabin filter", 90, 30));
+        SparePartsCatalog.addSparePart(new SparePart("Front wheel brake pad", 44, 5));
+        SparePartsCatalog.addSparePart(new SparePart("Back wheel brake pad", 22, 5));
+        SparePartsCatalog.addSparePart(new SparePart("Break oil", 37, 10));
         // Jobs available
         //JobCatalog jobCatalog = new JobCatalog();
         JobCatalog.addJob(new Job("Oil change", 20, ""));
