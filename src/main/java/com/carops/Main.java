@@ -90,8 +90,6 @@ public class Main extends Application {
         SparePartsCatalog.printData();
         RepairfileCatalog.printData();
 
-
-//        Run GUI
         launch();
     }
 }
