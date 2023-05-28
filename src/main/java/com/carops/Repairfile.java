@@ -6,7 +6,6 @@ import java.util.Map;
 
 public class Repairfile {
 
-	private float price;
 	private int worktime;
 	private String status;
 	private Vehicle vehicle;
@@ -44,14 +43,6 @@ public class Repairfile {
 	}
 
 	// getters & setters
-	public float getPrice() {
-		return price;
-	}
-
-	public void setPrice(float price) {
-		this.price = price;
-	}
-
 	public int getWorktime() {
 		return worktime;
 	}
