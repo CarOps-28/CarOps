@@ -15,7 +15,7 @@ public class SparePartsCatalog {
 
 	public static void printData(){
 		int i=1;
-		System.out.printf("\n> All Spare parts:\nn %-25s  %10s\n", "Name", "Price per quantity");
+		System.out.printf("\n> All Spare part:\nn %-25s  %10s\n", "Name", "Price per quantity");
 		for (SparePart sp :
 				spareParts) {
 			System.out.printf("%d|",i);
@@ -36,7 +36,7 @@ public class SparePartsCatalog {
 		return outsp;
 	}
 
-	public static void addSpareParts(SparePart sparep) {
+	public static void addSparePart(SparePart sparep) {
 		spareParts.add(sparep);
 	}
 }
