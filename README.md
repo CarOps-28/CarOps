@@ -21,9 +21,15 @@
         <td>Εριόλα</td>
         <td>Σ. Βασίλειος</td>
     </tr>
+    <tr>
+        <td colspan="5">Πανεπιστήμιο Μακεδονίας</td>
+    </tr>
+    <tr colspan="5">
+        <td colspan="5">Τμήμα Εφαρμοσμένης Πληροφορικής</td>
+    </tr>
 </table>
 
-<p>This system requires <a href="https://openjfx.io/">JavaFX library</a>, because it includes user interface</p>
+
 <hr>
 <p align="center"> <i> Η παρούσα εργασία υλοποιήθηκε στα πλαίσια του μαθήματος 
 <br>
@@ -34,7 +40,7 @@
 <p align="center"> Θεσσαλονίκη 2023  </p> 
 
 <h2>license:</h2>
-
+<hr>
 <img align="right" width="15%" height="15%" src="https://i0.wp.com/opensource.org/wp-content/uploads/2009/08/osi_symbol_0.png">
 
 <p> CarOps is available as open source under the terms of <a href="https://github.com/bill-chamal/Car-service-IS/blob/db37606a14da6933994ade9e4c618c37b5444c1f/LICENSE">The MIT License (MIT)</a></p>

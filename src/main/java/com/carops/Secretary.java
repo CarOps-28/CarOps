@@ -1,10 +1,14 @@
 package com.carops;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.LinkedList;
 
 public class Secretary extends Person {
 
 	private int salary;
+	private static HashMap<String,Vehicle> vehicles = new HashMap<>();
+
 
 	public Secretary(String id, String name, String surname){
 		super(id, name, surname);
@@ -20,10 +24,9 @@ public class Secretary extends Person {
 		throw new UnsupportedOperationException();
 	}
 
-	public boolean createVehicle(String plateNumber, String brand, String model, int prodYear, String type) {
+	public static boolean createVehicle(String plateNumber, String brand, String model, int prodYear, String type) {
 		// TODO - implement Secretary.createVehicle
-
-		throw new UnsupportedOperationException();
+		return vehicles.put(plateNumber, new Vehicle(plateNumber, brand, model, prodYear, type)) != null ? true:false;
 	}
 
 	public Customer searchCustomer(String phoneNumber) {
@@ -33,17 +36,19 @@ public class Secretary extends Person {
 
 	public Vehicle searchVehicle(String plateNumbwe) {
 		// TODO - implement Secretary.searchVehicle
-		throw new UnsupportedOperationException();
+		return vehicles.get(plateNumbwe);
 	}
 
-	public boolean createMotorcycle(String plateNumber, String brand, String model, int prodYear, String type, int quantum) {
-		// TODO - implement Secretary.createMotorcycle
-		throw new UnsupportedOperationException();
+	public static boolean createMotorcycle(String plateNumber, String brand, String model, int prodYear, String type, int quantum) {
+		return vehicles.put(plateNumber,
+				new Motorcycle(plateNumber, brand, model, prodYear, type, quantum)) != null
+				? true:false;
 	}
 
-	public boolean createTruck(String plateNumber, String brand, String model, int prodYear, String type, float space) {
-		// TODO - implement Secretary.createTruck
-		throw new UnsupportedOperationException();
+	public static boolean createTruck(String plateNumber, String brand, String model, int prodYear, String type, float space) {
+		return vehicles.put(plateNumber,
+				new Truck(plateNumber, brand, model, prodYear, type, space)) != null
+				? true:false;
 	}
 
 	public void printRepairfile(Repairfile repairfile) {
