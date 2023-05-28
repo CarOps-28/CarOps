@@ -103,10 +103,6 @@ public class Repairfile {
 		return assignments;
 	}
 
-	public void setAssignments(ArrayList<Assignment> assignments) {
-		this.assignments = assignments;
-	}
-
 	public Vehicle getVehicle() {
 		return vehicle;
 	}
