@@ -21,15 +21,13 @@
         <td>Εριόλα</td>
         <td>Σ. Βασίλειος</td>
     </tr>
-
-
-<tr>
+    <tr>
+        <td colspan="5">Πανεπιστήμιο Μακεδονίας</td>
+    </tr>
+    <tr colspan="5">
         <td colspan="5">Τμήμα Εφαρμοσμένης Πληροφορικής</td>
     </tr>
 </table>
-
-<h1>Graphical user interface</h1>
-<img src="img/Screenshot 2023-05-27 020636.png" alt= “Owners screen”>
 
 
 <hr>
