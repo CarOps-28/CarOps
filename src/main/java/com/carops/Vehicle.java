@@ -18,13 +18,18 @@ public class Vehicle {
 		this.model = model;
 		this.prodYear = prodYear;
 		this.vehicleType = vehicleType;
+
+		VehicleCatalog.addVehicle(this);
 	}
 
+	public String getVehicleType() {
+		return vehicleType;
+	}
 
-	public String getVehicleType() { return vehicleType; }
 	public void setVehicleType(String vehicleType) {
 		this.vehicleType = vehicleType;
 	}
+
 	// getters setters
 	public String getPlateNumber() {
 		return plateNumber;

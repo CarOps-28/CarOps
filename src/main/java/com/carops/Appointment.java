@@ -12,24 +12,28 @@ public class Appointment {
 	private Repairfile repairfile;
 	private Date date;
 
-//	Constructors
+	// Constructors
 
 	public Appointment(String customerId, String plateNumber, Date date) {
 		this.customerId = customerId;
 		this.vehiclePlateNumber = plateNumber;
 		this.date = date;
+
+		AppointmentCatalog.addAppointment(this);
 	}
 
 	public Appointment(String customerId_or_plateNumber, Date date) {
 		this.customerId = customerId_or_plateNumber;
 		this.date = date;
+
+		AppointmentCatalog.addAppointment(this);
 	}
 
 	public Appointment(Date date) {
 		this.date = date;
 	}
 
-//	getters
+	// getters
 	public Repairfile getRepairfile() {
 		return this.repairfile;
 	}
@@ -50,7 +54,7 @@ public class Appointment {
 		return this.transactionId;
 	}
 
-//	setters
+	// setters
 	public void setCustomerId(String customerId) {
 		this.customerId = customerId;
 	}
@@ -67,7 +71,7 @@ public class Appointment {
 		this.transactionId = transactionId;
 	}
 
-	public void setRepairfile(Repairfile repairfile){
+	public void setRepairfile(Repairfile repairfile) {
 		this.repairfile = repairfile;
 	}
 }

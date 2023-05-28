@@ -1,22 +1,25 @@
 package com.carops;
+
 public class Job {
 
 	private String name;
-	private float price;
+	private int price;
 	private String description;
 
-	public Job(String name, float price, String description) {
+	public Job(String name, int price, String description) {
 		this.name = name;
 		this.price = price;
 		this.description = description;
+
+		JobCatalog.addJob(this);
 	}
 
-	public float getPrice(){
+	public float getPrice() {
 		return this.price;
 	}
 
-	public void printData(){
-		System.out.printf("%-25s |%-10f\n", name, price);
+	public void printData() {
+		System.out.printf("%-25s  |%-3d\u20ac\n", name, price);
 	}
 
 	public String getName() {
@@ -27,7 +30,7 @@ public class Job {
 		this.name = name;
 	}
 
-	public void setPrice(float price) {
+	public void setPrice(int price) {
 		this.price = price;
 	}
 

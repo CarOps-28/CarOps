@@ -11,8 +11,8 @@ public class VehicleCatalog {
 	}
 
 	public static Vehicle fetchVehicleByPlateNumber(String plateNumber) {
-		for(Vehicle vehicle: vehicles){
-			if(vehicle.getPlateNumber().equalsIgnoreCase(plateNumber)){
+		for (Vehicle vehicle : vehicles) {
+			if (vehicle.getPlateNumber().equalsIgnoreCase(plateNumber)) {
 				return vehicle;
 			}
 		}

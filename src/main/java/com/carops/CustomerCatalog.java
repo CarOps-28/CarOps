@@ -2,9 +2,10 @@ package com.carops;
 
 import java.util.ArrayList;
 
-	public class CustomerCatalog {
+public class CustomerCatalog {
 
 	private static ArrayList<Customer> customers = new ArrayList<Customer>();
+
 	public static Customer fetchCustomerById(String customerId) {
 		for (Customer customer : customers) {
 			if (customer.getId() == customerId) {

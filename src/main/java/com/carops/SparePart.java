@@ -10,10 +10,12 @@ public class SparePart {
 		this.name = name;
 		this.availableQuantity = availableQuantity;
 		this.price = price;
+
+		SparePartsCatalog.addSparePart(this);
 	}
 
-	public void printData(){
-		System.out.printf("%-25s |%-3f\n", name, price);
+	public void printData() {
+		System.out.printf("%-25s  |%-3d\u20ac\n", name, price);
 	}
 
 	public int hashCode() {
@@ -21,8 +23,8 @@ public class SparePart {
 	}
 
 	public boolean equals(Object other) {
-		SparePart sp = (SparePart)other;
-		if(this.name.equals(sp.name))
+		SparePart sp = (SparePart) other;
+		if (this.name.equals(sp.name))
 			return true;
 		else
 			return false;

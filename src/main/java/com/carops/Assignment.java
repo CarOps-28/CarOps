@@ -1,4 +1,6 @@
 package com.carops;
+
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Assignment {
@@ -9,19 +11,23 @@ public class Assignment {
 
 	private Repairfile repairfile;
 	private Job job;
-	public Assignment(int worktime, boolean status, HashMap<SparePart, Integer> spareParts) {
-		this.worktime = worktime;
-		this.status = status;
-		this.spareParts = spareParts;
+
+	private Engineer engineer;
+
+	public Assignment(Engineer engineer, Job job, Repairfile repairfile){
+		this.engineer = engineer;
+		this.job = job;
+		this.repairfile = repairfile;
 	}
 
-	public int getSparePartsPrice(){
+	public int getSparePartsPrice() {
 		int price = 0;
 		for (SparePart sparePart : spareParts.keySet()) {
 			price = price + sparePart.getPrice() * spareParts.get(sparePart);
 		}
 		return price;
 	}
+
 	public void addSparePart(SparePart sparePart, int quantityOfSparePart) {
 		this.spareParts.put(sparePart, quantityOfSparePart);
 	}
@@ -38,26 +44,35 @@ public class Assignment {
 		this.job = job;
 	}
 
-	public void setStatus(boolean newStatus){
+	public void setStatus(boolean newStatus) {
 		this.status = newStatus;
 	}
-	public void setWorktime(int worktime){
+
+	public void setWorktime(int worktime) {
 		this.worktime = worktime;
+		repairfile.automaticChangeWorktime();
 	}
-	public boolean getStatus(){
+
+	public boolean getStatus() {
 		return this.status;
 	}
+
 	public Job getJob() {
 		return this.job;
 	}
+
 	public Repairfile getRepairfile() {
 		return this.repairfile;
 	}
+
 	public void setRepairfile(Repairfile rp) {
-		 this.repairfile = rp;
+		this.repairfile = rp;
 	}
+
 	public int getWorktime() {
 		return this.worktime;
 	}
+
+	public HashMap<SparePart, Integer> getSpareParts(){ return this.spareParts;}
 
 }
