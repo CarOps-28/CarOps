@@ -23,10 +23,6 @@ public class Assignment {
 		return status;
 	}
 
-	public HashMap<SparePart, Integer> getSpareParts() {
-		return spareParts;
-	}
-
 	public void setSpareParts(HashMap<SparePart, Integer> spareParts) {
 		this.spareParts = spareParts;
 	}
