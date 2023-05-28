@@ -54,7 +54,7 @@ n Time in hour               Total Cost
 ```
 <h2>HCI with JavaFX:</h2>
 
-![User interface with javaFX](img/owner.png)
+![User interface with javaFX](img/2.png)
 
 <hr>
 <p align="center"> <i> Η παρούσα εργασία υλοποιήθηκε στα πλαίσια του μαθήματος 
