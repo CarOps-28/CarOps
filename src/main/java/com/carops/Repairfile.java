@@ -10,33 +10,31 @@ public class Repairfile {
 	private String status;
 	private Vehicle vehicle;
 	private ArrayList<Job> jobs = new ArrayList<>();
-	private ArrayList<Assignment> asgm = new ArrayList<>();
-
-	public ArrayList<Assignment> getAssigments() {
-		// TODO - implement Repairfile.getAssigments
-		return asgm;
-	}
+	private ArrayList<Assignment> assignments = new ArrayList<>();
 
 	public void addAssignment(Assignment assignment) {
-		// TODO - implement Repairfile.addAssignment
-		asgm.add(assignment);
+		assignments.add(assignment);
 	}
 
-	public float getTotalCost() {
-		// TODO - implement Repairfile.calculatePrice
-		float sum = 0;
-		for (Job j : jobs) {
-			sum += j.getPrice();
-		}
-		
-		for (Assignment a : asgm) {
-			HashMap<SparePart, Integer> h = a.getSpareParts();
-			for (Map.Entry<SparePart, Integer> sparePartIntegerEntry : h.entrySet()) {
-				sum += ((SparePart) sparePartIntegerEntry.getKey()).getPrice();
+	public int getTotalCost() {
+		int sum = 0;
+
+		for(Assignment assignment: assignments) {
+
+			sum+= assignment.getJob().getPrice();
+
+			for(SparePart part : assignment.getSpareParts().keySet()) {
+				int usedQuantity = assignment.getSpareParts().get(part);
+
+				for (SparePart sparepart : SparePartsCatalog.fetchSpareParts()) {
+					if (part.equals(sparepart.getName()))
+						sum += usedQuantity * sparepart.getPrice();
+				}
 			}
 		}
 		return sum;
 	}
+
 
 	public void printData(){
 		System.out.printf("%-25d |%-4f\n", worktime, getTotalCost());
@@ -74,16 +72,15 @@ public class Repairfile {
 		this.jobs.add(jobs);
 	}
 
-	public ArrayList<Assignment> getAsgm() {
-		return asgm;
+	public ArrayList<Assignment> getAssignments() {
+		return assignments;
 	}
 
-	public void setAsgm(ArrayList<Assignment> asgm) {
-		this.asgm = asgm;
+	public void setAssignments(ArrayList<Assignment> assignments) {
+		this.assignments = assignments;
 	}
 
 	public Vehicle getVehicle() {
-		// TODO - implement Repairfile.getVehicle
 		return vehicle;
 	}
 
