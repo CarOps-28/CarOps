@@ -4,18 +4,23 @@ import java.util.ArrayList;
 
 public class VehicleCatalog {
 
-	private ArrayList<Vehicle> vehicles = new ArrayList<Vehicle>();
+	private static ArrayList<Vehicle> vehicles = new ArrayList<Vehicle>();
+
 	public ArrayList<Vehicle> getVehicles() {
 		return vehicles;
 	}
+
 	public static Vehicle fetchVehicleByPlateNumber(String plateNumber) {
-		// TODO - implement VehicleCatalog.fetchVehicleByPlateNumber
-		throw new UnsupportedOperationException();
+		for(Vehicle vehicle: vehicles){
+			if(vehicle.getPlateNumber().equalsIgnoreCase(plateNumber)){
+				return vehicle;
+			}
+		}
+		return null;
 	}
 
 	public static void addVehicle(Vehicle vehicle) {
-		// TODO - implement VehicleCatalog.addVehicle
-		throw new UnsupportedOperationException();
+		vehicles.add(vehicle);
 	}
 
 }
