@@ -86,7 +86,4 @@ public class Repairfile {
 		// TODO - implement Repairfile.getVehicle
 		return vehicle;
 	}
-
-
-
 }
