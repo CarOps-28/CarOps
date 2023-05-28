@@ -21,9 +21,7 @@ public class Vehicle {
 	}
 
 
-	public String getVehicleType() {
-		return vehicleType;
-	}
+	public String getVehicleType() { return vehicleType; }
 	public void setVehicleType(String vehicleType) {
 		this.vehicleType = vehicleType;
 	}
