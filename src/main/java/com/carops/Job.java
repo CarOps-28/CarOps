@@ -14,4 +14,28 @@ public class Job {
 	public float getPrice(){
 		return this.price;
 	}
+
+	public void printData(){
+		System.out.printf("%-25s |%-10f\n", name, price);
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setPrice(float price) {
+		this.price = price;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
 }

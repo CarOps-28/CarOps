@@ -7,7 +7,8 @@ module com.example.carops {
             requires net.synedra.validatorfx;
                 requires org.kordamp.bootstrapfx.core;
                 requires com.almasb.fxgl.all;
-    
+    requires annotations;
+
     opens com.carops to javafx.fxml;
     exports com.carops;
     exports com.carops.controllers;

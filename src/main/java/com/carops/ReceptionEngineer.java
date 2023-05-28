@@ -10,7 +10,7 @@ public class ReceptionEngineer extends Engineer {
 		super(id, name, surname,role);
 	}
 	public void createRepairFile(Vehicle vehicle, ArrayList<Job> jobs, int days) {
-
+		vehicle.addRepairfiles(new Repairfile());
 	}
 
 	public void createAssignment(Engineer engineer, Job job, Repairfile repairfile) {
