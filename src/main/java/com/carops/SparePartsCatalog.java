@@ -28,7 +28,7 @@ public class SparePartsCatalog {
 		return null;
 	}
 
-	public static void addSparePart(SparePart sparep) {
-		spareParts.add(sparep);
+	public static void addSparePart(SparePart sparePart) {
+		spareParts.add(sparePart);
 	}
 }

@@ -21,7 +21,7 @@ public class Repairfile {
 		RepairfileCatalog.addRepairfile(this);
 	}
 
-	// Από κάθε εργασία ζητάμε όλα τα αντλακτικά της και τα ομαδοποιούμε σε ένα
+	// Από κάθε εργασία ζητάμε όλα τα ανταλλακτικά της και τα ομαδοποιούμε σε ένα
 	// HashMap του repairfile.
 	public void recordTotalSpareParts() {
 		for (Assignment assignment : this.assignments) {
@@ -42,7 +42,7 @@ public class Repairfile {
 		}
 	}
 
-	// Συνάτηση που ενημερώνει αυτόματα τις ώρες εργασίας του RepairFile, σύμφωνα με
+	// Συνάρτηση που ενημερώνει αυτόματα τις ώρες εργασίας του RepairFile, σύμφωνα με
 	// τις ολοκληρωμένες εργασίες
 	public void automaticChangeWorktime() {
 		this.worktime = 0;
