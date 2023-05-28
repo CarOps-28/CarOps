@@ -4,9 +4,9 @@ public class SparePart {
 
 	private String name;
 	private int availableQuantity;
-	private float price;
+	private int price;
 
-	public SparePart(String name, int availableQuantity, float price) {
+	public SparePart(String name, int availableQuantity, int price) {
 		this.name = name;
 		this.availableQuantity = availableQuantity;
 		this.price = price;
@@ -44,11 +44,11 @@ public class SparePart {
 		this.availableQuantity = availableQuantity;
 	}
 
-	public float getPrice() {
+	public int getPrice() {
 		return price;
 	}
 
-	public void setPrice(float price) {
+	public void setPrice(int price) {
 		this.price = price;
 	}
 }

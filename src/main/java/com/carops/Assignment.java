@@ -15,6 +15,13 @@ public class Assignment {
 		this.spareParts = spareParts;
 	}
 
+	public int getSparePartsPrice(){
+		int price = 0;
+		for (SparePart sparePart : spareParts.keySet()) {
+			price = price + sparePart.getPrice() * spareParts.get(sparePart);
+		}
+		return price;
+	}
 	public void addSparePart(SparePart sparePart, int quantityOfSparePart) {
 		this.spareParts.put(sparePart, quantityOfSparePart);
 	}
@@ -53,5 +60,4 @@ public class Assignment {
 		return this.worktime;
 	}
 
-	public HashMap<SparePart, Integer> getSpareParts() { return spareParts; }
 }

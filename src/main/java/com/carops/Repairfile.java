@@ -17,22 +17,16 @@ public class Repairfile {
 	}
 
 	public int getTotalCost() {
-		int sum = 0;
+		int totalPrice = 0;
 
 		for(Assignment assignment: assignments) {
 
-			sum+= assignment.getJob().getPrice();
+			totalPrice += assignment.getJob().getPrice();
 
-			for(SparePart part : assignment.getSpareParts().keySet()) {
-				int usedQuantity = assignment.getSpareParts().get(part);
+			totalPrice += assignment.getSparePartsPrice();
 
-				for (SparePart sparepart : SparePartsCatalog.fetchSpareParts()) {
-					if (part.equals(sparepart.getName()))
-						sum += usedQuantity * sparepart.getPrice();
-				}
-			}
 		}
-		return sum;
+		return totalPrice;
 	}
 
 
