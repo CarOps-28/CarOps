@@ -10,15 +10,19 @@ public class Secretary extends Person {
 		super(id, name, surname);
 	}
 
-	public void createCustomer(String name, String surname, String phoneNumber, String email, String address) {
-		// Generate id from customer list
-		Customer customer = new Customer("1111", name, surname, phoneNumber, email, address);
+	public boolean createCustomer(String name, String surname, String phoneNumber, String email, String address) {
+		return new Customer(CustomerCatalog.generateId(), name, surname, phoneNumber, email, address)  != null ? true : false;
 
 	}
 
 	public boolean createAppointment(String customer, String vehicle, Date date) {
-		// TODO - implement Secretary.createAppointment
-		throw new UnsupportedOperationException();
+		if (customer.equals("")){
+			return new Appointment(vehicle,date) != null ? true : false;
+		}else if (vehicle.equals("")){
+			return new Appointment(customer,date) != null ? true : false;
+		}else{
+			return new Appointment(customer, vehicle, date) != null ? true : false;
+		}
 	}
 
 	public boolean createVehicle(String plateNumber, String brand, String model, int prodYear, String type,float typeValue ) {
@@ -32,8 +36,10 @@ public class Secretary extends Person {
 	}
 
 	public Customer searchCustomer(String phoneNumber) {
-		// TODO - implement Secretary.searchCustomer
-		throw new UnsupportedOperationException();
+		return CustomerCatalog.fetchCustomerByPhoneNumber(phoneNumber);
+	}
+	public Vehicle searchVehicle(String plateNumber) {
+		return VehicleCatalog.fetchVehicleByPlateNumber(plateNumber);
 	}
 
 

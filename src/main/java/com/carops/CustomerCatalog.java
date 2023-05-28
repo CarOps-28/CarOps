@@ -8,7 +8,7 @@ public class CustomerCatalog {
 
 	public static Customer fetchCustomerById(String customerId) {
 		for (Customer customer : customers) {
-			if (customer.getId() == customerId) {
+			if (customer.getId().equals(customerId)) {
 				return customer;
 			}
 		}
@@ -17,7 +17,7 @@ public class CustomerCatalog {
 
 	public static Customer fetchCustomerByPhoneNumber(String phoneNumber) {
 		for (Customer customer : customers) {
-			if (customer.getPhoneNumber() == phoneNumber) {
+			if (customer.getPhoneNumber().equals(phoneNumber)) {
 				return customer;
 			}
 		}
@@ -28,4 +28,7 @@ public class CustomerCatalog {
 		customers.add(customer);
 	}
 
+	public static String generateId(){
+		return customers.size() + 1 + "";
+	}
 }

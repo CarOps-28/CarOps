@@ -25,4 +25,8 @@ public class SupervisorEngineer extends Engineer {
 		repairfile.recordTotalSpareParts();
 	}
 
+	public Vehicle searchVehicle(String plateNumber) {
+		return VehicleCatalog.fetchVehicleByPlateNumber(plateNumber);
+	}
+
 }
