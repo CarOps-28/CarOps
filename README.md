@@ -29,6 +29,32 @@
     </tr>
 </table>
 
+<h2>printData() output:</h2>
+
+```
+> All Jobs in Catalog:
+n Name                       Price     
+1|Oil change                |20.000000 
+2|Cabin filter change       |5.000000  
+3|Brake maintenance         |30.000000 
+
+> All Spare parts:
+n Name                       Price per quantity
+1|oil package               |30.000000
+2|oil filter                |20.000000
+3|cabin filter              |30.000000
+4|Front wheel brake pad     |5.000000
+5|Back wheel brake pad      |5.000000
+6|Break oil                 |10.000000
+
+> All Repair File:
+n Time in hour               Total Cost
+1|24                        |110.000000
+2|48                        |80.000000
+```
+<h2>HCI with JavaFX:</h2>
+
+![User interface with javaFX](img/owner.png)
 
 <hr>
 <p align="center"> <i> Η παρούσα εργασία υλοποιήθηκε στα πλαίσια του μαθήματος 
