@@ -51,7 +51,6 @@ public class Main extends Application {
         SparePartsCatalog.addSparePart(new SparePart("Back wheel brake pad", 22, 5));
         SparePartsCatalog.addSparePart(new SparePart("Break oil", 37, 10));
         // Jobs available
-        //JobCatalog jobCatalog = new JobCatalog();
         JobCatalog.addJob(new Job("Oil change", 20, ""));
         JobCatalog.addJob(new Job("Cabin filter change", 5, ""));
         JobCatalog.addJob(new Job("Brake maintenance", 30, ""));
