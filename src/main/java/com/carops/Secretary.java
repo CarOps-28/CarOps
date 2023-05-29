@@ -21,6 +21,7 @@ public class Secretary extends Person {
 	public boolean createAppointment(String customer, String vehicle, Date date) {
 		if (customer.equals("")) {
 			return new Appointment(vehicle, date) != null ? true : false;
+			// Αυτόματη προσθήκη του αντικείμενου Appointment στον κατάλογο των Appointment
 		} else if (vehicle.equals("")) {
 			return new Appointment(customer, date) != null ? true : false;
 		} else {
@@ -28,8 +29,7 @@ public class Secretary extends Person {
 		}
 	}
 
-	// Ανάλογα με τον τύπο του οχήματος καλείται ο ανάλογος κατασκευαστής του
-	// οχήματος.
+	// Ανάλογα με τον τύπο του οχήματος καλείται ο ανάλογος κατασκευαστής του οχήματος.
 	public boolean createVehicle(String plateNumber, String brand, String model, int prodYear, String type,
 			float typeValue) {
 		if (type.equalsIgnoreCase("Truck")) {

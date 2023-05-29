@@ -29,6 +29,7 @@ public class ReceptionEngineer extends Engineer {
 		}
 	}
 
+	//Προστέθηκε για πιστή τήρηση της διαδικασίας δημιουργίας φακέλου επισκευής των λεκτικών και mockup.
 	public Vehicle searchVehicle(String plateNumber) {
 		return VehicleCatalog.fetchVehicleByPlateNumber(plateNumber);
 	}

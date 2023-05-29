@@ -11,6 +11,8 @@ public class Repairfile {
 	private ArrayList<Job> estimatedJobs;
 	private ArrayList<Assignment> assignments = new ArrayList<>();
 
+	// Χρήση HashMap για τη συγκέντρωση των ανταλλακτικών και του πλήθους τους από όλες τις αναθέσεις
+	// μετά την ολοκλήρωση των επιμέρους εργασιών της επισκευής από τους μηχανικούς.
 	private HashMap<SparePart, Integer> totalSparePartsUsed = new HashMap<SparePart, Integer>();
 
 	public Repairfile(Vehicle vehicle, ArrayList<Job> estimatedJobs, int estimatedHours) {
@@ -18,6 +20,7 @@ public class Repairfile {
 		this.vehicle = vehicle;
 		this.estimatedJobs = estimatedJobs;
 
+		// Αυτόματη προσθήκη του αντικείμενου Repairfile στον κατάλογο των Repairfile
 		RepairfileCatalog.addRepairfile(this);
 	}
 
@@ -42,8 +45,7 @@ public class Repairfile {
 		}
 	}
 
-	// Συνάρτηση που ενημερώνει αυτόματα τις ώρες εργασίας του RepairFile, σύμφωνα με
-	// τις ολοκληρωμένες εργασίες
+	// Συνάρτηση που ενημερώνει αυτόματα τις ώρες εργασίας του RepairFile σύμφωνα με τις ολοκληρωμένες εργασίες
 	public void automaticChangeWorktime() {
 		this.worktime = 0;
 		for (Assignment assignment : assignments) {
@@ -55,19 +57,31 @@ public class Repairfile {
 		assignments.add(assignment);
 	}
 
-	// Συνάρτηση που υπολογίζει το συνολικό κόστος λαμβάνοντας τις τιμές από όλες τις δουλειές και από όλα τα ανταλλακτικά των εργασιών.
-	public int getTotalCost() {
-		int totalPrice = 0;
+	//Συνάρτηση που υπολογίζει το κόστος των εργασιών επισκευής. Χρησιμοποιείται για αυτόματο υπολογισμό του εκτιμώμενου
+	//κόστους κατά τη δημιουργία του φακέλου επισκευής και του τελικού κόστους μετά την επισκευή.
+	public int getJobCost() {
+		int jobPrice = 0;
 
 		for (Assignment assignment : assignments) {
 
 			// άθροισμα της τιμής της κάθε δουλειάς.
-			totalPrice += assignment.getJob().getPrice();
+			jobPrice += assignment.getJob().getPrice();
+		}
 
-			// γίνεται άθροισμα του κόστους των ανταλακτίκων της εργασίας.
+		return jobPrice;
+	}
+
+	// Συνάρτηση που υπολογίζει το τελικό κόστος λαμβάνοντας τις τιμές από όλες τις δουλειές και από όλα τα ανταλλακτικά των εργασιών.
+	public int getTotalCost() {
+		int totalPrice = 0;
+
+		// Άθροισμα κόστους όλων των δουλειών.
+		totalPrice += getJobCost();
+
+		for (Assignment assignment : assignments)
+			// Άθροισμα κόστους των ανταλλακτικών της εργασίας.
 			totalPrice += assignment.getSparePartsPrice();
 
-		}
 		return totalPrice;
 	}
 

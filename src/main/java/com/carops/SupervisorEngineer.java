@@ -20,10 +20,12 @@ public class SupervisorEngineer extends Engineer {
 		RepairfileCatalog.fetchRepairfilebyVehicle(vehiclePlateNumber).setStatus("Completed");
 	}
 
+	//Προστέθηκε για τη καταγραφή των ανταλλακτικών που χρησιμοποιήθηκαν αφού ολοκληρωθεί η επισκευή.
 	public void callRecordTotalSparePartsFromRepairfile(Repairfile repairfile) {
 		repairfile.recordTotalSpareParts();
 	}
 
+	//Προστέθηκε για πιστή τήρηση της διαδικασίας ανάθεσης εργασιών σε μηχανικό βάσει των λεκτικών και mockup.
 	public Vehicle searchVehicle(String plateNumber) {
 		return VehicleCatalog.fetchVehicleByPlateNumber(plateNumber);
 	}

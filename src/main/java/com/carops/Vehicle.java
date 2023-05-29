@@ -19,6 +19,7 @@ public class Vehicle {
 		this.prodYear = prodYear;
 		this.vehicleType = vehicleType;
 
+		// Αυτόματη προσθήκη του αντικείμενου Vehicle στον κατάλογο των Vehicle
 		VehicleCatalog.addVehicle(this);
 	}
 

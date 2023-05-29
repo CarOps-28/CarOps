@@ -12,6 +12,7 @@ public class Engineer extends Person {
 		super(id, name, surname);
 		this.role = role;
 
+		// Αυτόματη προσθήκη του αντικείμενου Engineer στον κατάλογο των Engineer
 		EngineerCatalog.addEngineer(this);
 	}
 

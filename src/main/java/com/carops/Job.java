@@ -11,6 +11,7 @@ public class Job {
 		this.price = price;
 		this.description = description;
 
+		// Αυτόματη προσθήκη του αντικείμενου Job στον κατάλογο των Job
 		JobCatalog.addJob(this);
 	}
 

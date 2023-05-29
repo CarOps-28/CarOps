@@ -15,7 +15,7 @@ public class RepairfileCatalog {
 	}
 
 	public static Repairfile fetchRepairfilebyVehicle(String plateNumber) {
-		Repairfile vehicleRepairfile = null;
+		Repairfile vehicleRepairfile = null; //vehicle not found
 		for (Repairfile repairfile : repairfiles) {
 			if (repairfile.getVehicle().getPlateNumber().equals(plateNumber))
 				vehicleRepairfile = repairfile;

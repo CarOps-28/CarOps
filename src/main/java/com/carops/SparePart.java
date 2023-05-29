@@ -11,6 +11,7 @@ public class SparePart {
 		this.availableQuantity = availableQuantity;
 		this.price = price;
 
+		// Αυτόματη προσθήκη του αντικείμενου SparePart στον κατάλογο των SparePart
 		SparePartsCatalog.addSparePart(this);
 	}
 
