@@ -11,7 +11,7 @@ public class SparePartsCatalog {
 
 	public static void printData() {
 		int i = 1;
-		System.out.printf("\n> All Spare part:\nn %-25s  %10s\n", "Name", "Price per unit");
+		System.out.printf("\n> All Spare Parts in catalog:\nn %-25s  %10s\n", "Name", "Price per unit");
 		for (SparePart sp : spareParts) {
 			System.out.printf("%d|", i);
 			sp.printData();

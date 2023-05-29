@@ -71,7 +71,7 @@ public class CarOps extends Application {
 
         // ---------------------------------------- Crete Vehicles by Vergidis
         // ----------------------------------------
-        vergidis.createVehicle("NIK3745", "Land", "LandRover Range Rover HSE", 2014, "Vehicle", 0);
+        vergidis.createVehicle("NIK3745", "Land", "LandRover Range Rover HSE", 2014, "Car", 0);
         System.out.println("New Vehicle NIK3745 has been created");
         System.out.println();
 
@@ -160,7 +160,7 @@ public class CarOps extends Application {
         System.out.println("New Engineer Caephile has been created");
         System.out.println();
 
-        Engineer engineer2 = new Engineer("MHX4", "Tome", "Cruise", "engineer");
+        Engineer engineer2 = new Engineer("MHX4", "Tom", "Cruise", "engineer");
         System.out.println("New Engineer Cruise has been created");
         System.out.println();
 
@@ -216,6 +216,7 @@ public class CarOps extends Application {
                 .callRecordTotalSparePartsFromRepairfile(RepairfileCatalog.fetchRepairfilebyVehicle("NIK3745"));
 
         // ------------------ PRINT STATISTICS ------------------
+        System.out.println("Total Catalog contents:");
         JobCatalog.printData();
         SparePartsCatalog.printData();
         RepairfileCatalog.printData();

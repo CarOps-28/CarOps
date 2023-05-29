@@ -25,7 +25,7 @@ public class RepairfileCatalog {
 
 	public static void printData() {
 		int i = 1;
-		System.out.printf("\n> All Repair File:\nn %-25s  %-10s\n", "Repair duration in days", "Total Cost");
+		System.out.printf("\n> All Repair Files in catalog:\nn %-25s  %-10s\n", "Repair duration in days", "Total Cost");
 		for (Repairfile rp : repairfiles) {
 			System.out.printf("%d|", i);
 			rp.printData();

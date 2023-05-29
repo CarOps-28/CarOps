@@ -20,7 +20,7 @@ public class VehicleCatalog {
 	}
 
 	public static void printData() {
-		System.out.printf("\n> All Vehicle in Catalog:\nn %-25s  %-10s\n", "PlateNumber", "Vehicle Type");
+		System.out.printf("\n> All Vehicles in catalog:\nn %-25s  %-10s\n", "PlateNumber", "Vehicle Type");
 		int i = 1;
 		for (Vehicle vehicle : vehicles) {
 			System.out.printf("%d|", i);

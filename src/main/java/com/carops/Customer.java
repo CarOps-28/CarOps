@@ -17,7 +17,7 @@ public class Customer extends Person {
 	}
 
 	public void printData() {
-		System.out.printf("%-25s  |%-15s\n", this.getName(), this.phoneNumber);
+		System.out.printf("%-25s  |%-15s\n", this.getSurname(), this.phoneNumber);
 	}
 
 	public String getPhoneNumber() {

@@ -34,7 +34,7 @@ public class CustomerCatalog {
 	}
 
 	public static void printData() {
-		System.out.printf("\n> All Customer in Catalog:\nn %-25s  %-10s\n", "Name", "PhoneNumber");
+		System.out.printf("\n> All Customers in Catalog:\nn %-25s  %-10s\n", "Name", "PhoneNumber");
 		int i = 1;
 		for (Customer customer : customers) {
 			System.out.printf("%d|", i);

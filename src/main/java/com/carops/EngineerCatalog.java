@@ -20,7 +20,7 @@ public class EngineerCatalog {
 	}
 
 	public static void printData() {
-		System.out.printf("\n> All Engineer in Catalog:\nn %-25s  %-10s\n", "Name", "Role");
+		System.out.printf("\n> All Engineers in catalog:\nn %-25s  %-10s\n", "Name", "Role");
 		int i = 1;
 		for (Engineer engineer : engineers) {
 			System.out.printf("%d|", i);

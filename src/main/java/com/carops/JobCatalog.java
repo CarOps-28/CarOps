@@ -14,7 +14,7 @@ public class JobCatalog {
 	}
 
 	public static void printData() {
-		System.out.printf("\n> All Jobs in Catalog:\nn %-25s  %-10s\n", "Name", "Price");
+		System.out.printf("\n> All Jobs in catalog:\nn %-25s  %-10s\n", "Name", "Price");
 		int i = 1;
 		for (Job job : jobs) {
 			System.out.printf("%d|", i);
