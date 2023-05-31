@@ -18,7 +18,8 @@ public class Assignment {
 	}
 
 	// Συνάρτηση που υπολογίζει και επιστρέφει το συνολικό κόστος όλων των
-	// ανταλλακτικών της εργασίας. Προστέθηκε για διευκόλυνση του υπολογισμού του τελικού κόστους.
+	// ανταλλακτικών της εργασίας. Προστέθηκε για διευκόλυνση του υπολογισμού του
+	// τελικού κόστους.
 	public int getSparePartsPrice() {
 		int price = 0;
 		for (SparePart sparePart : spareParts.keySet()) {
@@ -46,7 +47,8 @@ public class Assignment {
 	// Προστέθηκε με βάση τη σχεδίαση των λεκτικών και των mockup.
 	public void setWorktime(int worktime) {
 		this.worktime = worktime;
-		// Αυτόματη ενημέρωση των ωρών του Repairfile κάθε φορά που μια εργασία ολοκληρώνεται.
+		// Αυτόματη ενημέρωση των ωρών του Repairfile κάθε φορά που μια εργασία
+		// ολοκληρώνεται.
 		repairfile.automaticChangeWorktime();
 	}
 
@@ -62,7 +64,9 @@ public class Assignment {
 		return this.repairfile;
 	}
 
-	public void setRepairfile(Repairfile repairfile) { this.repairfile = repairfile; }
+	public void setRepairfile(Repairfile repairfile) {
+		this.repairfile = repairfile;
+	}
 
 	public int getWorktime() {
 		return this.worktime;

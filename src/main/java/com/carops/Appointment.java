@@ -1,7 +1,5 @@
 package com.carops;
 
-import java.util.Date;
-
 public class Appointment {
 
 	private String customerId;
@@ -9,10 +7,10 @@ public class Appointment {
 	private boolean status;
 	private String transactionId;
 	private Repairfile repairfile;
-	private Date date;
+	private DateTime date;
 
 	// Constructors
-	public Appointment(String customerId, String plateNumber, Date date) {
+	public Appointment(String customerId, String plateNumber, DateTime date) {
 		this.customerId = customerId;
 		this.vehiclePlateNumber = plateNumber;
 		this.date = date;
@@ -21,7 +19,7 @@ public class Appointment {
 		AppointmentCatalog.addAppointment(this);
 	}
 
-	public Appointment(String customerId_or_plateNumber, Date date) {
+	public Appointment(String customerId_or_plateNumber, DateTime date) {
 		this.customerId = customerId_or_plateNumber;
 		this.date = date;
 
@@ -33,7 +31,7 @@ public class Appointment {
 		System.out.printf("%-25s  |%-15s\n", this.customerId, this.vehiclePlateNumber);
 	}
 
-	public Appointment(Date date) {
+	public Appointment(DateTime date) {
 		this.date = date;
 	}
 

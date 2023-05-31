@@ -19,10 +19,12 @@ public class SparePart {
 		System.out.printf("%-25s  |%-3d\u20ac\n", name, price);
 	}
 
+	@Override
 	public int hashCode() {
 		return name.hashCode();
 	}
 
+	@Override
 	public boolean equals(Object other) {
 		SparePart sp = (SparePart) other;
 		if (this.name.equals(sp.name))

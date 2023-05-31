@@ -28,7 +28,7 @@ public class SparePartsCatalog {
 		return null;
 	}
 
-	//Παραλήφθηκε στο class diagram και προστίθεται τώρα.
+	// Παραλήφθηκε στο class diagram και προστίθεται τώρα.
 	public static void addSparePart(SparePart sparePart) {
 		spareParts.add(sparePart);
 	}

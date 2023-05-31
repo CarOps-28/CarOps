@@ -2,7 +2,7 @@ package com.carops;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Scanner;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -29,11 +29,15 @@ public class CarOps extends Application {
 
     public static void main(String[] args) {
 
+        System.out.println("Ylopoiisi ton zitimaton toy paradotaioy");
         // Create Secretary
         Secretary tampouris = new Secretary("SEC1", "Efthimios", "Tampouris");
         System.out.println("New Secretary Tampouris has been created");
         System.out.println();
 
+        Secretary mantas = new Secretary("SEC2", "Mixail", "Mantas");
+        System.out.println("New Secretary Mantas has been created");
+        System.out.println();
         // ---------------------------------------- Create Customer
         // ----------------------------------------
 
@@ -118,14 +122,15 @@ public class CarOps extends Application {
         // -------------- Create appointment ------------------
 
         Customer customer1 = tampouris.searchCustomer("6996986610");
-        Vehicle vehicle3 = tampouris.searchVehicle("NIK3745");
-        tampouris.createAppointment(customer1.getId(), vehicle3.getPlateNumber(), new Date());
+        Vehicle vehicle3 = tampouris.searchVehicle("KTR4456");
+
+        tampouris.createAppointment(customer1.getId(), vehicle3.getPlateNumber(), new DateTime("16/7/2024 - 15:00"));
         System.out.println("New Appointment with customer: " + customer1.getId() + " has been created");
         System.out.println();
 
         Customer customer2 = tampouris.searchCustomer("1234567893");
         Vehicle vehicle4 = tampouris.searchVehicle("NIK3745");
-        tampouris.createAppointment(customer2.getId(), vehicle3.getPlateNumber(), new Date());
+        tampouris.createAppointment(customer2.getId(), vehicle3.getPlateNumber(), new DateTime("16/7/2024 - 16:00"));
         System.out.println("New Appointment with customer: " + customer1.getId() + " has been created");
         System.out.println();
 
@@ -151,7 +156,7 @@ public class CarOps extends Application {
         System.out.println();
 
         // ------------------ Create Supervisor engineer ------------------
-        SupervisorEngineer supervisorEngineer = new SupervisorEngineer("MHX2", "Bruce", "Lee", "supervisor");
+        SupervisorEngineer supervisorEngineer = new SupervisorEngineer("sdf", "Bruce", "Lee", "supervisor");
         System.out.println("New supervisorEngineer Lee has been created");
         System.out.println();
 
@@ -226,5 +231,251 @@ public class CarOps extends Application {
         EngineerCatalog.printData();
         // launch();
 
+        System.out.println("TEXT MENU");
+        System.out.println();
+
+        System.out.println("---------- SECRETARY ----------");
+        System.out.println();
+
+        secretaryMenu();
+
+        System.out.println("---------- Reception Engineer ----------");
+        System.out.println();
+
+    }
+
+    private static void secretaryMenu() {
+        Secretary secretaryObject = null;
+        int userInputCode; // secretary menu
+        Scanner in = new Scanner(System.in);
+        boolean notFound;
+        int secretaryChoice;
+
+        String secretaryUserName;
+        // Secretary log in
+        do {
+            System.out.print("Secretary user name: ");
+            secretaryUserName = in.nextLine();
+            notFound = true;
+            for (Secretary sec : Secretary.secretaryList) {
+                if (secretaryUserName.equalsIgnoreCase(sec.getSurname())) {
+                    secretaryObject = sec;
+                    notFound = false;
+                    break;
+                }
+            }
+
+            if (notFound) {
+                System.out.println("Secretary do not exist");
+            }
+        } while (notFound);
+
+        System.out.println("Login as " + secretaryObject.getSurname() + " successful");
+
+        System.out.println();
+
+        userInputCode = Processes.options(1);
+        while (userInputCode != 0) {
+            Vehicle vehicle = null;
+            Customer customer = null;
+            Repairfile repairfile = null;
+            String plateNumber = "";
+            switch (userInputCode) {
+                case 1:
+                    System.out.println("Search Vehicle - 1");
+                    System.out.println("Make Vehicle - 2");
+                    System.out.println("Appointment without Vehicle - 3");
+                    System.out.println("Exit - 0");
+                    System.out.println("your choice: ");
+
+                    secretaryChoice = in.nextInt();
+                    if (secretaryChoice == 0) {
+                        break;
+                    }
+
+                    if (secretaryChoice == 1) {
+                        do {
+                            System.out.println("Enter vehicle plateNumber: ");
+                            plateNumber = in.nextLine();
+                            vehicle = secretaryObject.searchVehicle(plateNumber);
+                        } while (vehicle == null);
+
+                    } else if (secretaryChoice == 2) {
+                        vehicle = Processes.vehicleCreationProcess(1, secretaryObject);
+                    }
+
+                    System.out.println("Search Customer - 1");
+                    System.out.println("Make Customer - 2");
+                    System.out.println("Appointment without Customer - 3");
+                    System.out.println("Exit - 0");
+                    System.out.println("your choice: ");
+
+                    secretaryChoice = in.nextInt();
+                    if (secretaryChoice == 0) {
+                        break;
+                    }
+
+                    if (secretaryChoice == 1) {
+                        do {
+                            System.out.println("Enter Customer phone: ");
+                            String phoneNumber = in.nextLine();
+                            customer = secretaryObject.searchCustomer(phoneNumber);
+                        } while (customer == null);
+
+                    } else if (secretaryChoice == 2) {
+                        customer = Processes.customerCreationProcess(secretaryObject);
+                    }
+
+                    System.out.println("Give DateTime (XX/XX/XXXX - XX:XX)");
+                    String inputDatetime = in.nextLine();
+                    DateTime dateTime = new DateTime(inputDatetime);
+
+                    if (vehicle == null && customer == null) {
+                        secretaryObject.createAppointment("", "", dateTime);
+                    } else if (vehicle == null) {
+                        secretaryObject.createAppointment(customer.getPhoneNumber(), "", dateTime);
+                    } else if (customer == null) {
+                        secretaryObject.createAppointment("", vehicle.getPlateNumber(), dateTime);
+                    } else {
+                        secretaryObject.createAppointment(customer.getPhoneNumber(), vehicle.getPlateNumber(),
+                                dateTime);
+                    }
+                    System.out.println("New Appointment has been created");
+                    break;
+                case 2:
+                    vehicle = Processes.vehicleCreationProcess(1, secretaryObject);
+                    break;
+                case 3:
+                    customer = Processes.customerCreationProcess(secretaryObject);
+                    break;
+                case 4:
+                    System.out.println("Change RepairFile Status");
+
+                    System.out.println("Enter Vehicle plate number");
+                    plateNumber = in.nextLine();
+
+                    repairfile = secretaryObject.searchRepairfile(plateNumber);
+
+                    if (repairfile == null) {
+                        System.out.println("Reparifile not found");
+                    } else {
+                        System.out.println("Change repairfile status to (Accepted/Declined) :");
+                        String choice = in.nextLine();
+                        repairfile.setStatus(choice);
+                    }
+                    break;
+                case 5:
+                    System.out.println("Print repairfile");
+
+                    System.out.println("Enter Vehicle plate number");
+                    plateNumber = in.nextLine();
+
+                    repairfile = secretaryObject.searchRepairfile(plateNumber);
+
+                    if (repairfile == null) {
+                        System.out.println("Reparifile not found");
+                    } else {
+                        repairfile.printData();
+                    }
+                    break;
+            }
+            userInputCode = Processes.options(1);
+        }
+    }
+
+    private static void receptionEngineerMenu() {
+        ReceptionEngineer receptionEngineerObject = null;
+
+        int userInputCode; // engineer menu
+        Scanner in = new Scanner(System.in);
+        boolean notFound;
+        int engineerChoice;
+
+        String engineerUserName;
+        // Secretary log in
+        do {
+            System.out.print("Engineer user name: ");
+            engineerUserName = in.nextLine();
+            notFound = true;
+            for (Engineer eng : EngineerCatalog.fetchEngineers()) {
+                if (eng.getRole().equalsIgnoreCase("reception")) {
+                    receptionEngineerObject = (ReceptionEngineer) eng;
+                    notFound = false;
+                    break;
+                }
+            }
+
+            if (notFound) {
+                System.out.println("Engineer do not exist");
+            }
+        } while (notFound);
+
+        System.out.println("Login as " + receptionEngineerObject.getSurname() + " successful");
+
+        System.out.println();
+
+        userInputCode = Processes.options(2);
+        while (userInputCode != 0) {
+            Vehicle vehicle = null;
+            Repairfile repairfile = null;
+            String plateNumber = "";
+            int estHours = 0;
+
+            if (userInputCode == 1) {
+
+                System.out.println("Search vehicle - 1");
+                System.out.println("Exit - 0");
+                System.out.println("your choice: ");
+                engineerChoice = in.nextInt();
+
+                if (engineerChoice == 0) {
+                    break;
+                }
+
+                System.out.println("Vehicle plate number: ");
+                plateNumber = in.nextLine();
+
+                vehicle = VehicleCatalog.fetchVehicleByPlateNumber(plateNumber);
+
+                if (vehicle == null) {
+                    System.out.println("Vehicle not found.");
+                    System.out.println();
+                    System.out.println("Create vehicle - 2");
+                    System.out.println("Exit - 0");
+                    System.out.println("your choice: ");
+                    engineerChoice = in.nextInt();
+
+                    if (engineerChoice == 0) {
+                        break;
+                    }
+
+                    vehicle = Processes.vehicleCreationProcess(2, receptionEngineerObject);
+
+                }
+
+                int job = 0;
+                ArrayList<Job> jobs = new ArrayList<Job>();
+
+                do {
+                    System.out.println("add Job");
+                    System.out.println("Choose a Job (1,2,ect...)");
+                    // Emfanisi ton doyleioyn
+                    System.out.println("stop adding jobs - 0");
+                    job = in.nextInt();
+
+                    for (int i = 0; i < JobCatalog.fetchJobs().size(); i++) {
+                        if (job == (i + 1)) {
+
+                        }
+                    }
+                } while (job != 0);
+
+                System.out.println("add estimated hours: ");
+                estHours = in.nextInt();
+
+            }
+
+            userInputCode = Processes.options(2);
+        }
     }
 }
