@@ -2,8 +2,8 @@ package com.carops;
 
 public class SupervisorEngineer extends Engineer {
 
-	public SupervisorEngineer(String id, String name, String surname, String role) {
-		super(id, name, surname, role);
+	public SupervisorEngineer(String name, String surname, String role) {
+		super(name, surname, role);
 	}
 
 	public void addAssignmentToEngineer(Engineer engineer, Assignment assignment) {

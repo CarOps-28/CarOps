@@ -80,8 +80,13 @@ public class Processes {
             System.out.println("Exit - 0");
             System.out.println("your choice: ");
             return inputCode.nextInt();
-        } else if (code == 2) {
+        } else if (code == 2) { // Reception
             System.out.println("Create Repairfile - 1");
+            System.out.println("Exit - 0");
+            System.out.println("your choice: ");
+            return inputCode.nextInt();
+        }else if (code == 3){ // Supervisor
+            System.out.println("create Assignments - 1");
             System.out.println("Exit - 0");
             System.out.println("your choice: ");
             return inputCode.nextInt();
@@ -89,7 +94,4 @@ public class Processes {
         return 0;
     }
 
-    public static int searchFunction() {
-        return 0;
-    }
 }

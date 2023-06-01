@@ -8,9 +8,10 @@ public class Engineer extends Person {
 	private ArrayList<Assignment> assignments = new ArrayList<Assignment>();
 	private int salary;
 
-	public Engineer(String id, String name, String surname, String role) {
-		super(id, name, surname);
+	public Engineer(String name, String surname, String role) {
+		super( name, surname);
 		this.role = role;
+		this.setId();
 
 		// Αυτόματη προσθήκη του αντικείμενου Engineer στον κατάλογο των Engineer
 		EngineerCatalog.addEngineer(this);
@@ -46,5 +47,9 @@ public class Engineer extends Person {
 
 	public void printData() {
 		System.out.printf("%-25s  |%-15s\n", this.getSurname(), this.role);
+	}
+
+	public void setId(){
+		this.id = "MHX" + (EngineerCatalog.fetchEngineers().size() + 1 );
 	}
 }

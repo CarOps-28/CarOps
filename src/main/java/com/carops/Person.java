@@ -6,8 +6,7 @@ public abstract class Person {
 	protected String name;
 	protected String surname;
 
-	public Person(String id, String name, String surname) {
-		this.id = id;
+	public Person( String name, String surname) {
 		this.name = name;
 		this.surname = surname;
 	}

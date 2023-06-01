@@ -16,11 +16,12 @@ public class Repairfile {
 	// μετά την ολοκλήρωση των επιμέρους εργασιών της επισκευής από τους μηχανικούς.
 	private HashMap<SparePart, Integer> totalSparePartsUsed = new HashMap<SparePart, Integer>();
 
-	public Repairfile(Vehicle vehicle, ArrayList<Job> estimatedJobs, int estimatedHours) {
-		this.worktime = estimatedHours;
+	public Repairfile(Vehicle vehicle, ArrayList<Job> estimatedJobs, int estimatedDays) {
+		this.worktime = estimatedDays;
 		this.vehicle = vehicle;
 		this.estimatedJobs = estimatedJobs;
 
+		this.getTotalCost();
 		// Αυτόματη προσθήκη του αντικείμενου Repairfile στον κατάλογο των Repairfile
 		RepairfileCatalog.addRepairfile(this);
 	}
@@ -63,7 +64,7 @@ public class Repairfile {
 	// για αυτόματο υπολογισμό του εκτιμώμενου
 	// κόστους κατά τη δημιουργία του φακέλου επισκευής και του τελικού κόστους μετά
 	// την επισκευή.
-	public int getJobCost() {
+	private int getJobCost() {
 		int jobPrice = 0;
 
 		for (Assignment assignment : assignments) {
@@ -88,6 +89,14 @@ public class Repairfile {
 			totalPrice += assignment.getSparePartsPrice();
 
 		return totalPrice;
+	}
+
+	public int getEstimatedPrice(){
+		int price = 0;
+		for(Job job: this.estimatedJobs){
+			price += job.getPrice();
+		}
+		return price;
 	}
 
 	public void printData() {

@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class ReceptionEngineer extends Engineer {
 
-	public ReceptionEngineer(String id, String name, String surname, String role) {
-		super(id, name, surname, role);
+	public ReceptionEngineer( String name, String surname, String role) {
+		super(name, surname, role);
 	}
 
 	public void createRepairFile(Vehicle vehicle, ArrayList<Job> jobs, int days) {
@@ -33,6 +33,9 @@ public class ReceptionEngineer extends Engineer {
 	// λεκτικών και mockup.
 	public Vehicle searchVehicle(String plateNumber) {
 		return VehicleCatalog.fetchVehicleByPlateNumber(plateNumber);
+	}
+	public Repairfile searchRepairfile(String plateNumber) {
+		return RepairfileCatalog.fetchRepairfilebyVehicle(plateNumber);
 	}
 
 }

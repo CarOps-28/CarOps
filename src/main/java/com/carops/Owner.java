@@ -11,18 +11,18 @@ public class Owner extends Person {
 		// διαγράφεται το προηγούμενο μετά την πλήρη αντιγραφή του.
 		switch (role) {
 			case "engineer":
-				Engineer newEngineer = new Engineer(engineer.getId(), engineer.getName(), engineer.getSurname(), role);
+				Engineer newEngineer = new Engineer(engineer.getName(), engineer.getSurname(), role);
 				newEngineer.setAssignments(engineer.getAssignments());
 				EngineerCatalog.removeEngineer(engineer);
 				break;
 			case "reception":
-				ReceptionEngineer newRecEngineer = new ReceptionEngineer(engineer.getId(), engineer.getName(),
+				ReceptionEngineer newRecEngineer = new ReceptionEngineer( engineer.getName(),
 						engineer.getSurname(), role);
 				newRecEngineer.setAssignments(engineer.getAssignments());
 				EngineerCatalog.removeEngineer(engineer);
 				break;
 			case "supervisor":
-				SupervisorEngineer newSupEngineer = new SupervisorEngineer(engineer.getId(), engineer.getName(),
+				SupervisorEngineer newSupEngineer = new SupervisorEngineer( engineer.getName(),
 						engineer.getSurname(), role);
 				newSupEngineer.setAssignments(engineer.getAssignments());
 				EngineerCatalog.removeEngineer(engineer);
