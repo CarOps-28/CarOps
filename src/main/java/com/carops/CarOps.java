@@ -358,11 +358,11 @@ public class CarOps extends Application {
                     if (vehicle == null && customer == null) {
                         secretaryObject.createAppointment("", "", dateTime);
                     } else if (vehicle == null) {
-                        secretaryObject.createAppointment(customer.getPhoneNumber(), "", dateTime);
+                        secretaryObject.createAppointment(customer.getId(), "", dateTime);
                     } else if (customer == null) {
                         secretaryObject.createAppointment("", vehicle.getPlateNumber(), dateTime);
                     } else {
-                        secretaryObject.createAppointment(customer.getPhoneNumber(), vehicle.getPlateNumber(),
+                        secretaryObject.createAppointment(customer.getId(), vehicle.getPlateNumber(),
                                 dateTime);
                     }
                     System.out.println("New Appointment has been created.");
