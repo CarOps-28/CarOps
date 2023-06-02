@@ -392,7 +392,7 @@ public class CarOps extends Application {
                 case 5:
                     System.out.println("Print repairfile.");
 
-                    System.out.println("Enter Vehicle plate number: ");
+                    System.out.print("Enter Vehicle plate number: ");
                     plateNumber = in.nextLine();
 
                     repairfile = secretaryObject.searchRepairfile(plateNumber);
@@ -522,7 +522,7 @@ public class CarOps extends Application {
     }
 
     private static void supervisorEngineerMenu(){
-        ReceptionEngineer supervisorEngineerObject = null;
+        SupervisorEngineer supervisorEngineerObject = null;
 
         int userInputCode; // engineer menu
         Scanner in = new Scanner(System.in);
@@ -537,7 +537,7 @@ public class CarOps extends Application {
             notFound = true;
             for (Engineer eng : EngineerCatalog.fetchEngineers()) {
                 if (engineerUserName.equalsIgnoreCase(eng.getName()) && eng.getRole().equalsIgnoreCase("supervisor")) {
-                    supervisorEngineerObject = (ReceptionEngineer) eng;
+                    supervisorEngineerObject = (SupervisorEngineer) eng;
                     notFound = false;
                     break;
                 }

@@ -33,4 +33,7 @@ public class SupervisorEngineer extends Engineer {
 		return VehicleCatalog.fetchVehicleByPlateNumber(plateNumber);
 	}
 
+	public Repairfile searchRepairfile(String plateNumber) {
+		return RepairfileCatalog.fetchRepairfilebyVehicle(plateNumber);
+	}
 }
