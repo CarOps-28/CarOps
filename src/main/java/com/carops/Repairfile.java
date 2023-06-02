@@ -6,7 +6,7 @@ import java.util.HashMap;
 public class Repairfile {
 
 	private int worktime;
-	private String status;
+	private String status = "";
 	private Vehicle vehicle;
 	private ArrayList<Job> estimatedJobs;
 	private ArrayList<Assignment> assignments = new ArrayList<>();

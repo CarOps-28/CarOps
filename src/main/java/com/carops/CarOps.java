@@ -440,12 +440,12 @@ public class CarOps extends Application {
                     }
 
                     System.out.printf("\nChoose appointment number: ");
-                    int choice = in.nextInt();
-                    Appointment chosenAppointment = unfinishedAppointments.get(--choice);
+                    int appointmentChoice = in.nextInt();
+                    Appointment chosenAppointment = unfinishedAppointments.get(--appointmentChoice);
                     System.out.printf("n %-25s  %-15s  %-14s  %-20s  %-20s  %-20s  %-20s\n",
                             "Date","Name", "Surname", "Phone number", "Vehicle Plate", "Brand", "type");
-                    ++choice;
-                    System.out.printf("%d", choice);
+                    ++appointmentChoice;
+                    System.out.printf("%d", appointmentChoice);
                     chosenAppointment.printData();
                     System.out.printf("\n");
 
@@ -471,7 +471,7 @@ public class CarOps extends Application {
                                     System.out.printf("\nAppointment updated:\n" +
                                                     "n %-25s  %-15s  %-14s  %-20s  %-20s  %-20s  %-20s\n",
                                             "Date","Name", "Surname", "Phone number", "Vehicle Plate", "Brand", "type");
-                                    System.out.printf("%d", choice);
+                                    System.out.printf("%d", appointmentChoice);
                                     chosenAppointment.printData();
                                     break;
 
@@ -483,7 +483,7 @@ public class CarOps extends Application {
                                     System.out.printf("\nAppointment updated:\n" +
                                                     "n %-25s  %-15s  %-14s  %-20s  %-20s  %-20s  %-20s\n",
                                             "Date","Name", "Surname", "Phone number", "Vehicle Plate", "Brand", "type");
-                                    System.out.printf("%d", choice);
+                                    System.out.printf("%d", appointmentChoice);
                                     chosenAppointment.printData();
                                     break;
 
@@ -508,7 +508,7 @@ public class CarOps extends Application {
                                     System.out.printf("\nAppointment updated:\n" +
                                                     "n %-25s  %-15s  %-14s  %-20s  %-20s  %-20s  %-20s\n",
                                             "Date","Name", "Surname", "Phone number", "Vehicle Plate", "Brand", "type");
-                                    System.out.printf("%d", choice);
+                                    System.out.printf("%d", appointmentChoice);
                                     chosenAppointment.printData();
                                     break;
                             }
@@ -532,7 +532,7 @@ public class CarOps extends Application {
                                     System.out.printf("\nAppointment updated:\n" +
                                                     "n %-25s  %-15s  %-14s  %-20s  %-20s  %-20s  %-20s\n",
                                             "Date","Name", "Surname", "Phone number", "Vehicle Plate", "Brand", "type");
-                                    System.out.printf("%d", choice);
+                                    System.out.printf("%d", appointmentChoice);
                                     chosenAppointment.printData();
                                     break;
                             }
