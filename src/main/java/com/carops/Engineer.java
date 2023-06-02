@@ -17,10 +17,6 @@ public class Engineer extends Person {
 		EngineerCatalog.addEngineer(this);
 	}
 
-	public void addSpaceParts(Assignment assignment, SparePart sparePart, int quantity) {
-		assignment.addSparePart(sparePart, quantity);
-	}
-
 	public void setAssignmentWorktime(Assignment assignment, int worktime) {
 		assignment.setWorktime(worktime);
 	}
