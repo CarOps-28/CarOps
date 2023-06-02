@@ -1,5 +1,6 @@
 package com.carops;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class CustomerCatalog {
@@ -27,12 +28,6 @@ public class CustomerCatalog {
 	public static void addCustomer(Customer customer) {
 		customers.add(customer);
 	}
-
-	// Συνάρτηση που δημιουργεί αυτόματα έναν κωδικό για τον πελάτη.
-	public static String generateId() {
-		return customers.size() + 1 + "";
-	}
-
 	public static void printData() {
 		System.out.printf("\n> All Customers in Catalog:\nn %-25s  %-10s\n", "Name", "PhoneNumber");
 		int i = 1;
@@ -41,5 +36,8 @@ public class CustomerCatalog {
 			customer.printData();
 			i++;
 		}
+	}
+	public static ArrayList<Customer> fetchCustomers(){
+		return customers;
 	}
 }

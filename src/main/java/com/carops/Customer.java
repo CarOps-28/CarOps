@@ -6,14 +6,19 @@ public class Customer extends Person {
 	private String email;
 	private String address;
 
-	public Customer(String id, String name, String surname, String phoneNumber, String email, String address) {
-		super(id, name, surname);
+	public Customer(String name, String surname, String phoneNumber, String email, String address) {
+		super( name, surname);
 		this.phoneNumber = phoneNumber;
 		this.email = email;
 		this.address = address;
 
+		this.setId();
 		// Αυτόματη προσθήκη του αντικείμενου Customer στον κατάλογο των Customer
 		CustomerCatalog.addCustomer(this);
+	}
+
+	public void setId(){
+		this.id = "CUS" + (CustomerCatalog.fetchCustomers().size() + 1 );
 	}
 
 	public void printData() {

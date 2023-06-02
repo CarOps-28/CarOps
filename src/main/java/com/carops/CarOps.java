@@ -31,11 +31,11 @@ public class CarOps extends Application {
 
         System.out.println("Ylopoiisi ton zitimaton toy paradotaioy");
         // Create Secretary
-        Secretary tampouris = new Secretary("SEC1", "Efthimios", "Tampouris");
+        Secretary tampouris = new Secretary( "Efthimios", "Tampouris");
         System.out.println("New Secretary Tampouris has been created");
         System.out.println();
 
-        Secretary mantas = new Secretary("SEC2", "Mixail", "Mantas");
+        Secretary mantas = new Secretary( "Mixail", "Mantas");
         System.out.println("New Secretary Mantas has been created");
         System.out.println();
         // ---------------------------------------- Create Customer

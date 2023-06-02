@@ -8,13 +8,16 @@ public class Secretary extends Person {
 
 	private int salary;
 
-	public Secretary(String id, String name, String surname) {
-		super(id, name, surname);
+	public Secretary( String name, String surname) {
+		super( name, surname);
 		secretaryList.add(this);
+	}
+	public void setId(){
+		this.id = "SEC" + (secretaryList.size() + 1 );
 	}
 
 	public Customer createCustomer(String name, String surname, String phoneNumber, String email, String address) {
-		return new Customer(CustomerCatalog.generateId(), name, surname, phoneNumber, email, address);
+		return new Customer( name, surname, phoneNumber, email, address);
 	}
 
 	// Ανάλογα με τα ορίσματα που έδωσε η γραμματεία καλείται ο ανάλογος
