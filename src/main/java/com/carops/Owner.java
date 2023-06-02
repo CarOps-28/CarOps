@@ -1,8 +1,15 @@
 package com.carops;
 
+import java.util.ArrayList;
+
 public class Owner extends Person {
+	public static ArrayList<Owner> owners = new ArrayList<Owner>();
+
 	public Owner(String id, String name, String surname) {
-		super(id, name, surname);
+		super( name, surname);
+	}
+	public void setId(){
+		this.id = "OWN" + (owners.size() + 1 );
 	}
 
 	public void changeRole(Engineer engineer, String role) {
