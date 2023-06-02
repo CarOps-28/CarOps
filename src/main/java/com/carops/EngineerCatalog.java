@@ -19,9 +19,8 @@ public class EngineerCatalog {
 		return null;
 	}
 
-
 	public static void printData(){
-		System.out.printf("\n> Data Engineers in catalog:\nn %-8s  %-15s  %-15s  %-10s\n", "ID", "Name", "Surname", "Role");
+		System.out.printf("\n> All data Engineers in catalog:\nn %-8s  %-15s  %-15s  %-10s\n", "ID", "Name", "Surname", "Role");
 		int i = 1;
 		for (Engineer engineer : engineers) {
 			System.out.printf("%d", i);
