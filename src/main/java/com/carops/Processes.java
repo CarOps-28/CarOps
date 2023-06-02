@@ -27,8 +27,10 @@ public class Processes {
 
         float typeValue = -1;
         if (vehicleType.equalsIgnoreCase("Truck")) {
+            System.out.println("Give capacity: ");
             typeValue = in.nextFloat();
         } else if (vehicleType.equalsIgnoreCase("Motorcycle")) {
+            System.out.println("Give quantum: ");
             typeValue = in.nextFloat();
         }
 
