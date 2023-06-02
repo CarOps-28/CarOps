@@ -227,7 +227,7 @@ Update Appointment - 7
 Exit - 0
 ```
 
-  <details>
+  </details>
 
   <details>
   <summary>
@@ -339,6 +339,7 @@ Choose Job (1,2...): 1
 Choose engineer (1,2...): 1
 
 ```
+  </details>
 
 
 <h2>HCI with JavaFX:</h2>
