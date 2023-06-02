@@ -5,7 +5,7 @@
 <img src="img/UOMLOGOGR.png#gh-light-mode-only" alt= “” width="20%" height="20%"> 
 <img src="img/UOMLOGOGRWHITE.png#gh-dark-mode-only" alt= “” width="20%" height="20%"> 
 
-<table text-align: "center" border-collapse: "collapse" border: "none">
+<table>
   <caption>Ομάδα 28</caption>
     <tr>
         <th>Τζήκα</th>
@@ -51,6 +51,74 @@ n Name                       Price per unit
 n Repair duration in days    Total Cost
 1|1                          |105 €
 2|2                          |80  €
+```
+
+<h2>Objected created successful message</h2>
+
+```{css, echo=FALSE}
+.scroll-100 {
+  max-height: 100px;
+  overflow-y: auto;
+  background-color: inherit;
+}
+Ylopoiisi ton zitimaton toy paradotaioy
+New Secretary Tampouris has been created
+
+New Secretary Mantas has been created
+
+New Customer Tzhka has been created
+
+New Customer Tsolakidis has been created
+
+New Customer Foulidis has been created
+
+New Customer Hajdari has been created
+
+New Customer Xamalidis has been created
+
+New Vehicle KTR4456 has been created
+
+New ReceptionEngineer Vergidis has been created
+
+New Vehicle NIK3745 has been created
+
+New Job 'Oil change' has been created
+
+New Job 'Cabin filter change' has been created
+
+New Job 'Brake maintenance' has been created
+
+New SparePart 'Oil package 4lt' has been created
+
+New SparePart 'Oil filter' has been created
+
+New SparePart 'Cabin filter' has been created
+
+New SparePart 'Front wheel brake pad' has been created
+
+New SparePart 'Back wheel brake pad' has been created
+
+New SparePart 'Break oil' has been created
+
+New Appointment with customer: CUS2 has been created
+
+New Appointment with customer: CUS2 has been created
+
+New Repairfile with vehicle: KTR4456 has been created
+
+New Repairfile with vehicle KTR4456 has been created
+
+New supervisorEngineer Lee has been created
+
+New Engineer Caephile has been created
+
+New Engineer Cruise has been created
+
+New Assignment in engineer: Martha has been created
+
+New Assignment in engineer: Tom has been created
+
+New Assignment in engineer: Martha has been created
 ```
 
 <h2>HCI with JavaFX:</h2>
