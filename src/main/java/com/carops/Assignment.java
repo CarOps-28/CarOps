@@ -77,10 +77,16 @@ public class Assignment {
 
 
 	public void printData(){
+		String assignmentStatus;
+		if(this.status==true)
+			assignmentStatus = "Completed";
+		else
+			assignmentStatus = "Pending";
+
 		System.out.printf("%-15s |%-15s |%-4s |%-5s\n", "Engineer name", "Job name", "Work Time", "Status");
 
-		System.out.printf("%-8s |%-15s |%-4d |%-5B\n",
+		System.out.printf("%-15s |%-15s |%-4d |%-5s\n",
 				this.engineer.getName(), this.job.getName(), this.worktime,
-				this.status);
+				assignmentStatus);
 	}
 }

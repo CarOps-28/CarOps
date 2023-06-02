@@ -96,7 +96,7 @@ public class Processes {
             return checkInputData(0 ,2);
         }else if (code == 4){ // Engineer
             System.out.println("Show assignments - 1");
-            System.out.println("Add spareParts and work time on assignment - 2");
+            System.out.println("Add spareParts and/or work time on assignment - 2");
             System.out.println("Exit - 0");
             return checkInputData(0 ,2);
         }

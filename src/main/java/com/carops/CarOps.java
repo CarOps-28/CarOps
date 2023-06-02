@@ -121,7 +121,11 @@ public class CarOps extends Application {
         System.out.println();
 
         // -------------- Create appointment ------------------
+
+        //blank appointment for testing
         tampouris.createAppointment("","", new DateTime("13/13/1222 - 12:20"));
+
+        //appointment 1
         Customer customer1 = tampouris.searchCustomer("6996986610");
         Vehicle vehicle3 = tampouris.searchVehicle("KTR4456");
 
@@ -129,6 +133,7 @@ public class CarOps extends Application {
         System.out.println("New Appointment with customer: " + customer1.getId() + " has been created");
         System.out.println();
 
+        //appointment 2
         Customer customer2 = tampouris.searchCustomer("1234567893");
         Vehicle vehicle4 = tampouris.searchVehicle("NIK3745");
         tampouris.createAppointment(customer2.getId(), vehicle4.getPlateNumber(), new DateTime("16/7/2024 - 16:00"));
