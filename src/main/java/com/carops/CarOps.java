@@ -131,7 +131,7 @@ public class CarOps extends Application {
 
         Customer customer2 = tampouris.searchCustomer("1234567893");
         Vehicle vehicle4 = tampouris.searchVehicle("NIK3745");
-        tampouris.createAppointment(customer2.getId(), vehicle3.getPlateNumber(), new DateTime("16/7/2024 - 16:00"));
+        tampouris.createAppointment(customer2.getId(), vehicle4.getPlateNumber(), new DateTime("16/7/2024 - 16:00"));
         System.out.println("New Appointment with customer: " + customer2.getId() + " has been created");
         System.out.println();
 
