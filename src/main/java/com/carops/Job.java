@@ -20,7 +20,7 @@ public class Job {
 	}
 
 	public void printData() {
-		System.out.printf("%-25s  |%-3d\u20ac\n", name, price);
+		System.out.printf(" |%-25s  |%-3d\u20ac\n", name, price);
 	}
 
 	public String getName() {

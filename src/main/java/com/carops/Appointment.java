@@ -28,7 +28,16 @@ public class Appointment {
 	}
 
 	public void printData() {
-		System.out.printf("%-25s  |%-15s\n", this.customerId, this.vehiclePlateNumber);
+		Customer c = CustomerCatalog.fetchCustomerById(this.customerId);
+		Vehicle v = VehicleCatalog.fetchVehicleByPlateNumber(this.vehiclePlateNumber);
+		System.out.printf(" |%-25s |%-15s |%-14s |%-20s |%-20s |%-20s |%-20s\n",
+				date.getDateTime(),
+				c==null ? "No customer" : c.getName(),
+				c==null ? " - " : c.getSurname(),
+				c==null ? " - " : c.getPhoneNumber(),
+				v==null ? "No vehicle" : v.getPlateNumber(),
+				v==null ? " - " : v.getBrand(),
+				v==null ? " - " : v.getVehicleType());
 	}
 
 	public Appointment(DateTime date) {

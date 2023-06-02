@@ -16,7 +16,7 @@ public class SparePart {
 	}
 
 	public void printData() {
-		System.out.printf("%-25s  |%-3d\u20ac\n", name, price);
+		System.out.printf(" |%-25s |%-4d |%-3d\u20ac\n", name, this.availableQuantity, price);
 	}
 
 	@Override

@@ -100,7 +100,9 @@ public class Repairfile {
 	}
 
 	public void printData() {
-		System.out.printf("%-25d  |%-4d\u20ac\n", worktime / 8, getTotalCost());
+		System.out.printf(" |%-25d |%-10s |%-13s |%-10s |%-8d |%-8d |%-4d\u20ac\n",
+				worktime / 8, this.status==null ? " - " : this.status, vehicle.getPlateNumber(),
+				vehicle.getVehicleType(), estimatedJobs.size(), assignments.size(),  getTotalCost());
 	}
 
 	// getters & setters

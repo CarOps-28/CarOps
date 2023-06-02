@@ -25,10 +25,10 @@ public class RepairfileCatalog {
 
 	public static void printData() {
 		int i = 1;
-		System.out.printf("\n> All Repair Files in catalog:\nn %-25s  %-10s\n", "Repair duration in days",
-				"Total Cost");
+		System.out.printf("\n> All Repair Files in catalog:\nn %-25s  %-10s  %-13s  %-10s  %-8s  %-8s  %-4s\n", "Repair duration in days", "Status",
+				"Plate number", "Type", "Est Jobs", "Assign J", "Total Cost");
 		for (Repairfile rp : repairfiles) {
-			System.out.printf("%d|", i);
+			System.out.printf("%d", i);
 			rp.printData();
 			i++;
 		}
