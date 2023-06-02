@@ -121,6 +121,7 @@ public class CarOps extends Application {
         System.out.println();
 
         // -------------- Create appointment ------------------
+        tampouris.createAppointment("","", new DateTime("13/13/1222 - 12:20"));
         Customer customer1 = tampouris.searchCustomer("6996986610");
         Vehicle vehicle3 = tampouris.searchVehicle("KTR4456");
 
@@ -410,7 +411,9 @@ public class CarOps extends Application {
                     break;
 
                 case 7:
-                    System.out.println("\nSelect Appointment to update:\n");
+                    System.out.printf("\nSelect Appointment to update:\n" +
+                                    "n %-25s  %-15s  %-14s  %-20s  %-20s  %-20s  %-20s\n",
+                            "Date","Name", "Surname", "Phone number", "Vehicle Plate", "Brand", "type");
                     ArrayList<Appointment> unfinishedAppointments = new ArrayList<Appointment>();
                     int i = 1;
                     for(Appointment appointment : AppointmentCatalog.fetchAppointments()) {
@@ -422,11 +425,15 @@ public class CarOps extends Application {
                         }
                     }
 
-                    System.out.printf("Choose appointment number: ");
+                    System.out.printf("\nChoose appointment number: ");
                     int choice = in.nextInt();
-                    choice --;
-                    Appointment chosenAppointment = unfinishedAppointments.get(choice);
+                    Appointment chosenAppointment = unfinishedAppointments.get(--choice);
+                    System.out.printf("n %-25s  %-15s  %-14s  %-20s  %-20s  %-20s  %-20s\n",
+                            "Date","Name", "Surname", "Phone number", "Vehicle Plate", "Brand", "type");
+                    ++choice;
+                    System.out.printf("%d", choice);
                     chosenAppointment.printData();
+                    System.out.printf("\n");
 
                     secretaryChoice = -1;
                     while(secretaryChoice!=0) {
@@ -443,18 +450,26 @@ public class CarOps extends Application {
                                     break;
 
                                 case 1:
+                                    System.out.printf("\n");
                                     customer = Processes.customerCreationProcess(secretaryObject);
                                     chosenAppointment.setCustomerId(customer.getId());
 
-                                    System.out.println("Appointment updated: \n");
+                                    System.out.printf("\nAppointment updated:\n" +
+                                                    "n %-25s  %-15s  %-14s  %-20s  %-20s  %-20s  %-20s\n",
+                                            "Date","Name", "Surname", "Phone number", "Vehicle Plate", "Brand", "type");
+                                    System.out.printf("%d", choice);
                                     chosenAppointment.printData();
                                     break;
 
                                 case 2:
+                                    System.out.printf("\n");
                                     vehicle = Processes.vehicleCreationProcess(1, secretaryObject);
                                     chosenAppointment.setVehiclePlateNumber(vehicle.getPlateNumber());
 
-                                    System.out.println("Appointment updated: \n");
+                                    System.out.printf("\nAppointment updated:\n" +
+                                                    "n %-25s  %-15s  %-14s  %-20s  %-20s  %-20s  %-20s\n",
+                                            "Date","Name", "Surname", "Phone number", "Vehicle Plate", "Brand", "type");
+                                    System.out.printf("%d", choice);
                                     chosenAppointment.printData();
                                     break;
 
@@ -472,10 +487,14 @@ public class CarOps extends Application {
                                     break;
 
                                 case 1:
+                                    System.out.printf("\n");
                                     customer = Processes.customerCreationProcess(secretaryObject);
                                     chosenAppointment.setCustomerId(customer.getId());
 
-                                    System.out.println("Appointment updated: \n");
+                                    System.out.printf("\nAppointment updated:\n" +
+                                                    "n %-25s  %-15s  %-14s  %-20s  %-20s  %-20s  %-20s\n",
+                                            "Date","Name", "Surname", "Phone number", "Vehicle Plate", "Brand", "type");
+                                    System.out.printf("%d", choice);
                                     chosenAppointment.printData();
                                     break;
                             }
@@ -492,15 +511,20 @@ public class CarOps extends Application {
                                     break;
 
                                 case 1:
+                                    System.out.printf("\n");
                                     vehicle = Processes.vehicleCreationProcess(1, secretaryObject);
                                     chosenAppointment.setVehiclePlateNumber(vehicle.getPlateNumber());
 
-                                    System.out.println("Appointment updated: \n");
+                                    System.out.printf("\nAppointment updated:\n" +
+                                                    "n %-25s  %-15s  %-14s  %-20s  %-20s  %-20s  %-20s\n",
+                                            "Date","Name", "Surname", "Phone number", "Vehicle Plate", "Brand", "type");
+                                    System.out.printf("%d", choice);
                                     chosenAppointment.printData();
                                     break;
                             }
                         }
                         else{
+                            System.out.printf("\n");
                             System.out.println("Exit - 0");
                             secretaryChoice = Processes.checkInputData(0, 1);
                         }
