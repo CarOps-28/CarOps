@@ -6,7 +6,7 @@ public class Assignment {
 
 	private int worktime;
 	private boolean status;
-	private HashMap<SparePart, Integer> spareParts = new HashMap<SparePart, Integer>();
+	private HashMap<SparePart, Integer> spareParts = new HashMap<>();
 	private Repairfile repairfile;
 	private Job job;
 	private Engineer engineer;
@@ -28,12 +28,11 @@ public class Assignment {
 		return price;
 	}
 
-	public void addSparePart(SparePart sparePart, int quantityOfSparePart) {
-		this.spareParts.put(sparePart, quantityOfSparePart);
-	}
-
 	public void setSpareParts(HashMap<SparePart, Integer> spareParts) {
-		this.spareParts = spareParts;
+		//for(){
+
+		//}
+		this.spareParts = new HashMap<>(spareParts);
 	}
 
 	public void setJob(Job job) {
@@ -76,4 +75,8 @@ public class Assignment {
 		return this.spareParts;
 	}
 
+
+	public void printData(){
+		System.out.println(this.job.getName());
+	}
 }

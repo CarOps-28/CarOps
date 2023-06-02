@@ -70,7 +70,7 @@ public class Processes {
 
     public static int options(int code) {
         // secretary print code 1
-        Scanner inputCode = new Scanner(System.in);
+
         if (code == 1) {
             System.out.println("Create appointment - 1");
             System.out.println("Create vehicle - 2");
@@ -78,20 +78,32 @@ public class Processes {
             System.out.println("Change repairfile status - 4");
             System.out.println("Print repairfile  - 5");
             System.out.println("Exit - 0");
-            System.out.println("your choice: ");
-            return inputCode.nextInt();
+            return checkInputData(0 ,5);
         } else if (code == 2) { // Reception
             System.out.println("Create Repairfile - 1");
             System.out.println("Exit - 0");
-            System.out.println("your choice: ");
-            return inputCode.nextInt();
+            return checkInputData(0 ,1);
         }else if (code == 3){ // Supervisor
             System.out.println("create Assignments - 1");
             System.out.println("Exit - 0");
-            System.out.println("your choice: ");
-            return inputCode.nextInt();
+            return checkInputData(0 ,1);
+        }else if (code == 4){ // Engineer
+            System.out.println("Show assignments - 1");
+            System.out.println("add spareParts and work time on assignment - 2");
+            System.out.println("Exit - 0");
+            return checkInputData(0 ,2);
         }
         return 0;
+    }
+
+    public static int checkInputData(int startInt, int endInt){
+        int number;
+        Scanner inputCode = new Scanner(System.in);
+        do{
+            System.out.print("your choice: ");
+            number = inputCode.nextInt();
+        }while(number < startInt || number > endInt);
+        return number;
     }
 
 }
