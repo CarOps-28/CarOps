@@ -274,7 +274,7 @@ Create Repairfile - 1
 <details>
 <summary>
 <h2> Supervisor assigns jobs to engineers</h2>
-<symmary>
+</summary>
 
 ```
 ---------- Supervisor Engineer ----------
@@ -337,10 +337,9 @@ add new job - 2
 your choice: 1
 Choose Job (1,2...): 1
 Choose engineer (1,2...): 1
-
 ```
   
-  </details>
+</details>
 
 
 <h2>HCI with JavaFX:</h2>
