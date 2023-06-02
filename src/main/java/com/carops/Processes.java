@@ -82,8 +82,9 @@ public class Processes {
             System.out.println("Change repairfile status - 4");
             System.out.println("Print repairfile  - 5");
             System.out.println("Show Appointments - 6");
+            System.out.println("Update Appointment - 7");
             System.out.println("Exit - 0");
-            return checkInputData(0 ,6);
+            return checkInputData(0 ,7);
         } else if (code == 2) { // Reception
             System.out.println("Create Repairfile - 1");
             System.out.println("Exit - 0");

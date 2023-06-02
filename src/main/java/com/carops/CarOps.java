@@ -121,7 +121,6 @@ public class CarOps extends Application {
         System.out.println();
 
         // -------------- Create appointment ------------------
-
         Customer customer1 = tampouris.searchCustomer("6996986610");
         Vehicle vehicle3 = tampouris.searchVehicle("KTR4456");
 
@@ -408,6 +407,104 @@ public class CarOps extends Application {
 
                 case 6:
                     AppointmentCatalog.printData();
+                    break;
+
+                case 7:
+                    System.out.println("\nSelect Appointment to update:\n");
+                    ArrayList<Appointment> unfinishedAppointments = new ArrayList<Appointment>();
+                    int i = 1;
+                    for(Appointment appointment : AppointmentCatalog.fetchAppointments()) {
+                        if (appointment.getCustomerId().equals("") || appointment.getVehiclePlateNumber().equals("")) {
+                            unfinishedAppointments.add(appointment);
+                            System.out.printf("%d", i);
+                            appointment.printData();
+                            i++;
+                        }
+                    }
+
+                    System.out.printf("Choose appointment number: ");
+                    int choice = in.nextInt();
+                    choice --;
+                    Appointment chosenAppointment = unfinishedAppointments.get(choice);
+                    chosenAppointment.printData();
+
+                    secretaryChoice = -1;
+                    while(secretaryChoice!=0) {
+                        //both customer and vehicle are missing
+                        if (chosenAppointment.getCustomerId().equals("") && chosenAppointment.getVehiclePlateNumber().equals("")) {
+                            System.out.println("Add Customer - 1");
+                            System.out.println("Add Vehicle - 2");
+                            System.out.println("Exit - 0");
+
+                            secretaryChoice = Processes.checkInputData(0, 2);
+
+                            switch ((secretaryChoice)) {
+                                case 0:
+                                    break;
+
+                                case 1:
+                                    customer = Processes.customerCreationProcess(secretaryObject);
+                                    chosenAppointment.setCustomerId(customer.getId());
+
+                                    System.out.println("Appointment updated: \n");
+                                    chosenAppointment.printData();
+                                    break;
+
+                                case 2:
+                                    vehicle = Processes.vehicleCreationProcess(1, secretaryObject);
+                                    chosenAppointment.setVehiclePlateNumber(vehicle.getPlateNumber());
+
+                                    System.out.println("Appointment updated: \n");
+                                    chosenAppointment.printData();
+                                    break;
+
+
+                            }
+                        } else if (chosenAppointment.getCustomerId().equals("") && !chosenAppointment.getVehiclePlateNumber().equals("")) {
+                            //only customer is missing
+                            System.out.println("Add Customer - 1");
+                            System.out.println("Exit - 0");
+
+                            secretaryChoice = Processes.checkInputData(0, 1);
+
+                            switch ((secretaryChoice)) {
+                                case 0:
+                                    break;
+
+                                case 1:
+                                    customer = Processes.customerCreationProcess(secretaryObject);
+                                    chosenAppointment.setCustomerId(customer.getId());
+
+                                    System.out.println("Appointment updated: \n");
+                                    chosenAppointment.printData();
+                                    break;
+                            }
+                        }
+                        else if(!chosenAppointment.getCustomerId().equals("") && chosenAppointment.getVehiclePlateNumber().equals("")){
+                            //only vehicle is missing
+                            System.out.println("Add Vehicle - 1");
+                            System.out.println("Exit - 0");
+
+                            secretaryChoice = Processes.checkInputData(0, 1);
+
+                            switch ((secretaryChoice)) {
+                                case 0:
+                                    break;
+
+                                case 1:
+                                    vehicle = Processes.vehicleCreationProcess(1, secretaryObject);
+                                    chosenAppointment.setVehiclePlateNumber(vehicle.getPlateNumber());
+
+                                    System.out.println("Appointment updated: \n");
+                                    chosenAppointment.printData();
+                                    break;
+                            }
+                        }
+                        else{
+                            System.out.println("Exit - 0");
+                            secretaryChoice = Processes.checkInputData(0, 1);
+                        }
+                    }
             }
             userInputCode = Processes.options(1);
         }
