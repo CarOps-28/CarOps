@@ -49,6 +49,10 @@ public class Engineer extends Person {
 		System.out.printf("%-25s  |%-15s\n", this.getSurname(), this.role);
 	}
 
+	public void printAllData(){
+		System.out.printf(" |%-8s |%-15s |%-15s |%-10s\n", this.getId(), this.getName(), this.getSurname(), this.role);
+	}
+
 	public void setId(){
 		this.id = "MHX" + (EngineerCatalog.fetchEngineers().size() + 1 );
 	}
