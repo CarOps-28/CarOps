@@ -53,14 +53,12 @@ n Repair duration in days    Total Cost
 2|2                          |80  €
 ```
 
-<h2>Objected created successful message</h2>
-
-```{css, echo=FALSE}
-.scroll-100 {
-  max-height: 100px;
-  overflow-y: auto;
-  background-color: inherit;
-}
+<details>
+  <summary>
+    <h2>Objected created successful message</h2>
+  </summary>
+  
+```
 Ylopoiisi ton zitimaton toy paradotaioy
 New Secretary Tampouris has been created
 
@@ -120,6 +118,48 @@ New Assignment in engineer: Tom has been created
 
 New Assignment in engineer: Martha has been created
 ```
+
+</details>
+
+<details>
+  <summary>
+     <h2>Printers output</h2>
+  </summary>
+  
+  ```
+  Total Catalog contents:
+> All Repair Files in catalog:
+n Repair duration in days    Status      Plate number   Type        Est Jobs  Assign J  Total Cost
+1 |1                         | -         |KTR4456       |Truck      |3        |2        |105 €
+2 |2                         | -         |NIK3745       |Car        |3        |1        |80  €
+
+> All Appointments in catalog:
+n Date                       Name             Surname         Phone number          Vehicle Plate         Brand                 type                
+1 |16/7/2024 - 15:00         |Vasileios       |Tsolakidis     |6996986610           |KTR4456              |TOYOTA               |Truck               
+2 |16/7/2024 - 16:00         |Dimitris        |Foulidis       |1234567893           |KTR4456              |TOYOTA               |Truck               
+
+> All Customer data in catalog:
+n ID        Name             Surname          Phone Number    Email                 Address             
+1 |CUS1     |Dimitra         |Tzhka           |1234567890     |tzhka@gmail.com      |t12345              
+2 |CUS2     |Vasileios       |Tsolakidis      |6996986610     |bill@gmail.com       |t12346              
+3 |CUS3     |Dimitris        |Foulidis        |1234567893     |jimmy@gmail.com      |t12347              
+4 |CUS4     |Erjola          |Hajdari         |1234567894     |eri@gmail.com        |t12348              
+5 |CUS5     |Vasileios       |Xamalidis       |1234567895     |bill2@gmail.com      |t12349              
+
+> All Vehicles in catalog:
+n Plate Number   Brand     Model                      ProdYear    Vehicle Type   Other Data
+1 |KTR4456       |TOYOTA   |90Turbo                   |1989       |Truck       ~ Capacity : 500.0
+2 |NIK3745       |Land     |LandRover Range Rover HSE |2014       |Car        
+
+> All data Engineers in catalog:
+n ID        Name             Surname          Role      
+1 |MHX1     |Konstantinos    |Vergidis        |reception 
+2 |MHX2     |Bruce           |Lee             |supervisor
+3 |MHX3     |Martha          |Caephile        |engineer  
+4 |MHX4     |Tom             |Cruise          |engineer  
+  ```
+  
+</details>
 
 <h2>HCI with JavaFX:</h2>
 
