@@ -17,7 +17,8 @@ public class RepairfileCatalog {
 	public static Repairfile fetchRepairfilebyVehicle(String plateNumber) {
 		Repairfile vehicleRepairfile = null; // vehicle not found
 		for (Repairfile repairfile : repairfiles) {
-			if (repairfile.getVehicle().getPlateNumber().equals(plateNumber))
+			if (repairfile.getVehicle().getPlateNumber().equalsIgnoreCase(plateNumber)
+					&& !repairfile.getStatus().equals("Completed"))
 				vehicleRepairfile = repairfile;
 		}
 		return vehicleRepairfile;
@@ -25,7 +26,8 @@ public class RepairfileCatalog {
 
 	public static void printData() {
 		int i = 1;
-		System.out.printf("\n> All Repair Files in catalog:\nn %-25s  %-10s  %-13s  %-10s  %-8s  %-8s  %-4s\n", "Repair duration in days", "Status",
+		System.out.printf("\n> All Repair Files in catalog:\nn %-25s  %-10s  %-13s  %-10s  %-8s  %-8s  %-4s\n",
+				"Repair duration in days", "Status",
 				"Plate number", "Type", "Est Jobs", "Assign J", "Total Cost");
 		for (Repairfile rp : repairfiles) {
 			System.out.printf("%d", i);

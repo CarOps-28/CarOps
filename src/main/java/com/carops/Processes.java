@@ -27,10 +27,10 @@ public class Processes {
 
         float typeValue = -1;
         if (vehicleType.equalsIgnoreCase("Truck")) {
-            System.out.println("Give capacity: ");
+            System.out.print("Give capacity: ");
             typeValue = in.nextFloat();
         } else if (vehicleType.equalsIgnoreCase("Motorcycle")) {
-            System.out.println("Give quantum: ");
+            System.out.print("Give quantum: ");
             typeValue = in.nextFloat();
         }
 
@@ -91,11 +91,12 @@ public class Processes {
             return checkInputData(0 ,1);
         }else if (code == 3){ // Supervisor
             System.out.println("create Assignments - 1");
+            System.out.println("Set Repairfile status - 2");
             System.out.println("Exit - 0");
-            return checkInputData(0 ,1);
+            return checkInputData(0 ,2);
         }else if (code == 4){ // Engineer
             System.out.println("Show assignments - 1");
-            System.out.println("add spareParts and work time on assignment - 2");
+            System.out.println("Add spareParts and work time on assignment - 2");
             System.out.println("Exit - 0");
             return checkInputData(0 ,2);
         }

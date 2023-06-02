@@ -32,11 +32,11 @@ public class CarOps extends Application {
 
         System.out.println("Ylopoiisi ton zitimaton toy paradotaioy");
         // Create Secretary
-        Secretary tampouris = new Secretary( "Efthimios", "Tampouris");
+        Secretary tampouris = new Secretary("Efthimios", "Tampouris");
         System.out.println("New Secretary Tampouris has been created");
         System.out.println();
 
-        Secretary mantas = new Secretary( "Mixail", "Mantas");
+        Secretary mantas = new Secretary("Mixail", "Mantas");
         System.out.println("New Secretary Mantas has been created");
         System.out.println();
         // ---------------------------------------- Create Customer
@@ -70,7 +70,7 @@ public class CarOps extends Application {
 
         // ---------------------------------------- Create Reception Engineer.
         // ----------------------------------------
-        ReceptionEngineer vergidis = new ReceptionEngineer( "Konstantinos", "Vergidis", "reception");
+        ReceptionEngineer vergidis = new ReceptionEngineer("Konstantinos", "Vergidis", "reception");
         System.out.println("New ReceptionEngineer Vergidis has been created");
         System.out.println();
 
@@ -166,7 +166,7 @@ public class CarOps extends Application {
         System.out.println("New Engineer Caephile has been created");
         System.out.println();
 
-        Engineer engineer2 = new Engineer( "Tom", "Cruise", "engineer");
+        Engineer engineer2 = new Engineer("Tom", "Cruise", "engineer");
         System.out.println("New Engineer Cruise has been created");
         System.out.println();
 
@@ -198,8 +198,8 @@ public class CarOps extends Application {
 
         HashMap<SparePart, Integer> spareParts1 = new HashMap<>();
 
-        spareParts1.put(sparePart1 , 1);
-        spareParts1.put(sparePart2 , 1);
+        spareParts1.put(sparePart1, 1);
+        spareParts1.put(sparePart2, 1);
         assignment1.setSpareParts(spareParts1);
 
         assignment1.setWorktime(4);
@@ -209,7 +209,7 @@ public class CarOps extends Application {
         Assignment assignment2 = engineer2.getAssignments().get(0);
 
         HashMap<SparePart, Integer> spareParts2 = new HashMap<>();
-        spareParts2.put(sparePart3 , 1);
+        spareParts2.put(sparePart3, 1);
         assignment2.setSpareParts(spareParts2);
 
         assignment2.setWorktime(4);
@@ -228,9 +228,11 @@ public class CarOps extends Application {
         assignment3.setWorktime(16);
 
         // ------------------ supervisor ------------------
-        supervisorEngineer.callRecordTotalSparePartsFromRepairfile(RepairfileCatalog.fetchRepairfilebyVehicle("KTR4456"));
+        supervisorEngineer
+                .callRecordTotalSparePartsFromRepairfile(RepairfileCatalog.fetchRepairfilebyVehicle("KTR4456"));
 
-        supervisorEngineer.callRecordTotalSparePartsFromRepairfile(RepairfileCatalog.fetchRepairfilebyVehicle("NIK3745"));
+        supervisorEngineer
+                .callRecordTotalSparePartsFromRepairfile(RepairfileCatalog.fetchRepairfilebyVehicle("NIK3745"));
 
         // ------------------ PRINT STATISTICS ------------------
         System.out.println("Total Catalog contents:");
@@ -312,7 +314,7 @@ public class CarOps extends Application {
                     System.out.println("Appointment without Vehicle - 3");
                     System.out.println("Exit - 0");
 
-                    secretaryChoice = Processes.checkInputData(0,3);
+                    secretaryChoice = Processes.checkInputData(0, 3);
 
                     if (secretaryChoice == 0) {
                         break;
@@ -324,7 +326,7 @@ public class CarOps extends Application {
                             plateNumber = in.nextLine();
                             vehicle = secretaryObject.searchVehicle(plateNumber);
                         } while (vehicle == null);
-
+                        System.out.println("Vehicle found");
                     } else if (secretaryChoice == 2) {
                         vehicle = Processes.vehicleCreationProcess(1, secretaryObject);
                     }
@@ -334,7 +336,7 @@ public class CarOps extends Application {
                     System.out.println("Appointment without Customer - 3");
                     System.out.println("Exit - 0");
 
-                    secretaryChoice = Processes.checkInputData(0,3);
+                    secretaryChoice = Processes.checkInputData(0, 3);
 
                     if (secretaryChoice == 0) {
                         break;
@@ -349,6 +351,7 @@ public class CarOps extends Application {
 
                     } else if (secretaryChoice == 2) {
                         customer = Processes.customerCreationProcess(secretaryObject);
+                        System.out.println("Customer has been created");
                     }
 
                     System.out.print("Give DateTime (XX/XX/XXXX - XX:XX): ");
@@ -366,6 +369,8 @@ public class CarOps extends Application {
                                 dateTime);
                     }
                     System.out.println("New Appointment has been created.");
+                    System.out.println();
+
                     break;
                 case 2:
                     vehicle = Processes.vehicleCreationProcess(1, secretaryObject);
@@ -376,18 +381,20 @@ public class CarOps extends Application {
                 case 4:
                     System.out.println("Change RepairFile Status.");
 
-                    System.out.print("Enter Vehicle plate number: ");
-                    plateNumber = in.nextLine();
+                    do {
+                        System.out.print("Enter Vehicle plate number: ");
+                        plateNumber = in.nextLine();
+                        repairfile = secretaryObject.searchRepairfile(plateNumber);
+                    } while (repairfile == null);
 
-                    repairfile = secretaryObject.searchRepairfile(plateNumber);
+                    System.out.println("Repairfile found");
 
-                    if (repairfile == null) {
-                        System.out.println("Reparifile not found.");
-                    } else {
-                        System.out.print("Change repairfile status to (Accepted/Declined): ");
-                        String choice = in.nextLine();
-                        repairfile.setStatus(choice);
-                    }
+                    System.out.print("Change repairfile status to (Accepted/Declined): ");
+                    String choice = in.nextLine();
+                    repairfile.setStatus(choice);
+
+                    System.out.print("Repairfile status has been changed.");
+
                     break;
                 case 5:
                     System.out.println("Print repairfile.");
@@ -400,9 +407,11 @@ public class CarOps extends Application {
                     if (repairfile == null) {
                         System.out.println("Reparifile not found.");
                     } else {
-                        System.out.printf("\n> All Repair Files in catalog:\nn %-25s  %-10s  %-13s  %-10s  %-8s  %-8s  %-4s\n", "Repair duration in days", "Status",
+                        System.out.printf("\n> Repair File:\nn %-25s  %-10s  %-13s  %-10s  %-8s  %-8s  %-4s\n",
+                                "Repair duration in days", "Status",
                                 "Plate number", "Type", "Est Jobs", "Assign J", "Total Cost");
                         repairfile.printData();
+                        System.out.println();
                     }
                     break;
 
@@ -542,14 +551,14 @@ public class CarOps extends Application {
         boolean notFound;
         int engineerChoice;
 
-        String engineerUserName;
+        String engineerUserSurmame;
         // Secretary log in
         do {
-            System.out.print("Engineer user name: ");
-            engineerUserName = in.nextLine();
+            System.out.print("Engineer surname: ");
+            engineerUserSurmame = in.nextLine();
             notFound = true;
             for (Engineer eng : EngineerCatalog.fetchEngineers()) {
-                if (engineerUserName.equalsIgnoreCase(eng.getName()) && eng.getRole().equalsIgnoreCase("reception")) {
+                if (engineerUserSurmame.equalsIgnoreCase(eng.surname) && eng.getRole().equalsIgnoreCase("reception")) {
                     receptionEngineerObject = (ReceptionEngineer) eng;
                     notFound = false;
                     break;
@@ -573,34 +582,36 @@ public class CarOps extends Application {
 
             if (userInputCode == 1) {
 
+                System.out.println();
                 System.out.println("Search vehicle - 1");
                 System.out.println("Exit - 0");
 
-                engineerChoice = Processes.checkInputData(0,1);
+                engineerChoice = Processes.checkInputData(0, 1);
 
                 if (engineerChoice == 0) {
                     break;
                 }
 
-                System.out.print("Vehicle plate number: ");
-                plateNumber = in.nextLine();
+                System.out.println();
+                do {
+                    System.out.print("Enter vehicle plateNumber: ");
+                    plateNumber = in.nextLine();
+                    vehicle = receptionEngineerObject.searchVehicle(plateNumber);
+                } while (vehicle == null);
+                System.out.println("Vehicle found");
 
-                vehicle = receptionEngineerObject.searchVehicle(plateNumber);
+                System.out.println("Vehicle not found.");
+                System.out.println();
+                System.out.println("Create vehicle - 2");
+                System.out.println("Exit - 0");
 
-                if (vehicle == null) {
-                    System.out.println("Vehicle not found.");
-                    System.out.println();
-                    System.out.println("Create vehicle - 2");
-                    System.out.println("Exit - 0");
+                engineerChoice = Processes.checkInputData(0, 2);
 
-                    engineerChoice = Processes.checkInputData(0,2);
-
-                    if (engineerChoice == 0) {
-                        break;
-                    }
-
-                    vehicle = Processes.vehicleCreationProcess(2, receptionEngineerObject);
+                if (engineerChoice == 0) {
+                    break;
                 }
+
+                vehicle = Processes.vehicleCreationProcess(2, receptionEngineerObject);
 
                 int job = 0;
                 ArrayList<Job> jobs = new ArrayList<Job>();
@@ -610,11 +621,11 @@ public class CarOps extends Application {
                     // Emfanisi ton doyleioyn
 
                     int counter = 1;
-                    for(Job jb : JobCatalog.fetchJobs()){
-                        if(!jobs.contains(jb)){
+                    for (Job jb : JobCatalog.fetchJobs()) {
+                        if (!jobs.contains(jb)) {
                             System.out.println(counter + ") " + jb.getName());
                         }
-                        counter ++;
+                        counter++;
                     }
 
                     System.out.println("stop adding jobs - 0");
@@ -628,13 +639,12 @@ public class CarOps extends Application {
                         }
                     }
 
-
                 } while (job != 0);
 
                 System.out.print("add estimated hours: ");
                 estDays = in.nextInt();
 
-                receptionEngineerObject.createRepairFile(vehicle,jobs,estDays);
+                receptionEngineerObject.createRepairFile(vehicle, jobs, estDays);
 
             }
 
@@ -642,7 +652,7 @@ public class CarOps extends Application {
         }
     }
 
-    private static void supervisorEngineerMenu(){
+    private static void supervisorEngineerMenu() {
         SupervisorEngineer supervisorEngineerObject = null;
 
         int userInputCode; // engineer menu
@@ -653,11 +663,12 @@ public class CarOps extends Application {
         String engineerUserName;
         // Secretary log in
         do {
-            System.out.print("Engineer user name: ");
+            System.out.print("Engineer surname: ");
             engineerUserName = in.nextLine();
             notFound = true;
             for (Engineer eng : EngineerCatalog.fetchEngineers()) {
-                if (engineerUserName.equalsIgnoreCase(eng.getName()) && eng.getRole().equalsIgnoreCase("supervisor")) {
+                if (engineerUserName.equalsIgnoreCase(eng.getSurname())
+                        && eng.getRole().equalsIgnoreCase("supervisor")) {
                     supervisorEngineerObject = (SupervisorEngineer) eng;
                     notFound = false;
                     break;
@@ -665,14 +676,14 @@ public class CarOps extends Application {
             }
 
             if (notFound) {
-                System.out.println("Engineer do not exist");
+                System.out.println("Engineer do not exist.");
             }
         } while (notFound);
 
-        System.out.println("Login as " + supervisorEngineerObject.getSurname() + " successful");
+        System.out.println("Login as " + supervisorEngineerObject.getSurname() + " successful.");
 
         System.out.println();
-
+        Vehicle vehicle;
 
         userInputCode = Processes.options(3);
         while (userInputCode != 0) {
@@ -681,103 +692,132 @@ public class CarOps extends Application {
             Repairfile repairfile = null;
             int jobNumber, engineerNumber;
 
-            System.out.println("Search vehicle by plateNumber - 1");
-            System.out.println("Exit - 0");
+            switch (userInputCode) {
+                case 1:
 
-            engineerChoice = Processes.checkInputData(0,1);
+                    System.out.println();
+                    System.out.println("Search vehicle by plateNumber - 1");
+                    System.out.println("Exit - 0");
 
-            if(engineerChoice == 0 ){
-                break;
-            }
+                    engineerChoice = Processes.checkInputData(0, 1);
 
-            System.out.print("Vehicle plateNumber: ");
-            plateNumber = in.nextLine();
-
-            repairfile = supervisorEngineerObject.searchRepairfile(plateNumber);
-
-            ArrayList<Engineer> engineers = new ArrayList<>();
-            ArrayList<Job> jobs = repairfile.getJobs();
-
-            System.out.println("------------ Set job to engineer ------------");
-
-            do {
-
-                for (Job job : jobs) {
-                    engineers.add(null);
-                }
-
-                System.out.println("Available engineers:");
-                int counter = 1;
-
-                for (Engineer engineer : EngineerCatalog.fetchEngineers()) {
-                    System.out.println(counter + ") " + engineer.getName());
-                    counter++;
-                }
-                System.out.println();
-
-                System.out.println("Repairfile Jobs:");
-                counter = 1;
-                for (Job job : jobs) {
-                    if (engineers.get(counter - 1) != null) {
-                        System.out.println(counter + ") " + job.getName() + " -> " + engineers.get(counter - 1).getName());
-                    } else {
-                        System.out.println(counter + ") " + job.getName());
+                    if (engineerChoice == 0) {
+                        break;
                     }
-                    counter++;
-                }
 
-                System.out.println("set job to engineer - 1");
-                System.out.println("add new job - 2");
+                    do {
+                        System.out.print("Enter Vehicle plate number: ");
+                        plateNumber = in.nextLine();
+                        repairfile = supervisorEngineerObject.searchRepairfile(plateNumber);
+                    } while (repairfile == null);
 
-                repairfileChoice = Processes.checkInputData(1,2);
+                    ArrayList<Engineer> engineers = new ArrayList<>();
+                    ArrayList<Job> jobs = repairfile.getJobs();
 
-                if (repairfileChoice == 1) {
-                    System.out.print("Choose Job (1,2...): ");
-                    jobNumber = in.nextInt();
-
-                    System.out.print("Choose engineer (1,2...): ");
-                    engineerNumber = in.nextInt();
-
-                    counter = 1;
+                    System.out.println();
+                    System.out.println("------------ Set job to engineer ------------");
 
                     for (Job job : jobs) {
-                        if (counter == jobNumber) {
-                            int counterEng = 1;
-                            for (Engineer engineer : EngineerCatalog.fetchEngineers()) {
-                                if (engineerNumber == counterEng) {
-                                    engineers.add(counterEng - 1, engineer);
+                        engineers.add(null);
+                    }
+
+                    do {
+
+                        System.out.println("Available engineers:");
+
+                        int counter = 1;
+                        for (Engineer engineer : EngineerCatalog.fetchEngineers()) {
+                            System.out.println(counter + ") " + engineer.getName() + " " + engineer.getSurname());
+                            counter++;
+                        }
+                        System.out.println();
+
+                        System.out.println("Repairfile Jobs:");
+
+                        counter = 1;
+                        for (Job job : jobs) {
+                            if (engineers.get(counter - 1) != null) {
+                                System.out.println(
+                                        counter + ") " + job.getName() + " -> "
+                                                + engineers.get(counter - 1).getSurname());
+                            } else {
+                                System.out.println(counter + ") " + job.getName());
+                            }
+                            counter++;
+                        }
+
+                        System.out.println();
+                        System.out.println("Set job to engineer - 1");
+                        System.out.println("Add new job - 2");
+
+                        repairfileChoice = Processes.checkInputData(1, 2);
+
+                        System.out.println();
+                        if (repairfileChoice == 1) {
+                            System.out.print("Choose Job (1,...): ");
+                            jobNumber = in.nextInt();
+
+                            System.out.print("Choose engineer (1,...): ");
+                            engineerNumber = in.nextInt();
+
+                            engineers.add(jobNumber - 1, EngineerCatalog.fetchEngineers().get(engineerNumber - 1));
+
+                        }
+
+                        if (repairfileChoice == 2) {
+                            counter = 1;
+                            for (Job job : JobCatalog.fetchJobs()) {
+                                if (!jobs.contains(job)) {
+                                    System.out.println(counter + ") " + job.getName());
                                 }
-                                counterEng++;
+                            }
+                            System.out.println();
+
+                            System.out.print("Add a job: ");
+                            int jobNum = in.nextInt();
+
+                            jobs.add(JobCatalog.fetchJobs().get(jobNum));
+                        }
+
+                    } while (engineers.contains(null));
+                    break;
+                case 2:
+                    boolean found = true;
+
+                    do {
+
+                        System.out.println("Enter Vehicle plate number");
+                        System.out.println("Exit - 0");
+
+                        plateNumber = in.nextLine();
+                        if (plateNumber.equals("0")) {
+                            break;
+                        }
+                        repairfile = supervisorEngineerObject.searchRepairfile(plateNumber);
+
+                        for (Assignment assignment : repairfile.getAssignments()) {
+                            if (!assignment.getStatus()) {
+                                System.out.println("Repairfile not found");
+                                found = false;
+                                break;
                             }
                         }
-                        counter++;
-                    }
-                }
 
-                if (repairfileChoice == 2) {
-                    counter = 1;
-                    for (Job job : JobCatalog.fetchJobs()) {
-                        if (!jobs.contains(job)) {
-                            System.out.println(counter + ") " + job.getName());
-                        }
-                    }
-                    System.out.print("add a job: ");
-                    int jobNum = in.nextInt();
+                    } while (!found);
 
-                    for (int i = 0; i < JobCatalog.fetchJobs().size(); i++) {
-                        if (jobNum == i) {
-                            jobs.add(JobCatalog.fetchJobs().get(i));
-                        }
-                    }
-                }
+                    System.out.println("Change repairfile status: 'Completed': ");
+                    String status = in.nextLine();
 
-            }while (engineers.contains(null)); // maybe error
+                    repairfile.setStatus(status);
 
-            userInputCode = Processes.options(3);
+                    break;
+            }
+
         }
+        userInputCode = Processes.options(3);
     }
 
-    public static void EngineerMenu(){
+    public static void EngineerMenu() {
         Engineer EngineerObject = null;
 
         int userInputCode; // engineer menu
@@ -809,13 +849,12 @@ public class CarOps extends Application {
 
         System.out.println();
 
-
         userInputCode = Processes.options(4);
 
-        while (userInputCode != 0){
-            switch (userInputCode){
+        while (userInputCode != 0) {
+            switch (userInputCode) {
                 case 1:
-                    for(Assignment assignment : EngineerObject.getAssignments()){
+                    for (Assignment assignment : EngineerObject.getAssignments()) {
                         assignment.printData();
                     }
                     break;
@@ -823,28 +862,29 @@ public class CarOps extends Application {
                     System.out.println("Choose assignment");
                     counter = 1;
 
-                    for(Assignment assignment : EngineerObject.getAssignments()){
+                    for (Assignment assignment : EngineerObject.getAssignments()) {
                         String plateNumber = assignment.getRepairfile().getVehicle().getPlateNumber();
-                        System.out.println( counter + ") Car: " + plateNumber + " with assignment: " + assignment.getJob().getName());
+                        System.out.println(counter + ") Car: " + plateNumber + " with assignment: "
+                                + assignment.getJob().getName());
                         counter++;
                     }
                     System.out.println("Exit - 0");
 
-                    engineerChoice = Processes.checkInputData(0,counter);
+                    engineerChoice = Processes.checkInputData(0, counter);
 
-                    if (engineerChoice == 0){
+                    if (engineerChoice == 0) {
                         break;
                     }
 
                     int engineerSparePartChoice, numberOfSparePart, assignmentWorktime;
-                    Assignment currentAssignment  = EngineerObject.getAssignments().get(engineerChoice - 1);
+                    Assignment currentAssignment = EngineerObject.getAssignments().get(engineerChoice - 1);
                     HashMap<SparePart, Integer> spareParts = new HashMap<SparePart, Integer>();
 
                     do {
                         System.out.println("Choose sparePart");
-                        System.out.printf("\n> Spare Parts:\nn %-25s  |%-4s %10s\n", "Name", "A-Q","Price per unit");
+                        System.out.printf("\n> Spare Parts:\nn %-25s  |%-4s %10s\n", "Name", "A-Q", "Price per unit");
                         for (SparePart sparePart : SparePartsCatalog.fetchSpareParts()) {
-                            if(!spareParts.containsKey(spareParts)) {
+                            if (!spareParts.containsKey(spareParts)) {
                                 sparePart.printData();
                             }
                         }
@@ -856,23 +896,23 @@ public class CarOps extends Application {
 
                         System.out.println("Set number of sparePart");
 
-                        numberOfSparePart = Processes.checkInputData(1,sparePart.getAvailableQuantity());
+                        numberOfSparePart = Processes.checkInputData(1, sparePart.getAvailableQuantity());
 
-                        sparePart.setAvailableQuantity( sparePart.getAvailableQuantity() - numberOfSparePart );
+                        sparePart.setAvailableQuantity(sparePart.getAvailableQuantity() - numberOfSparePart);
 
                         spareParts.put(sparePart, numberOfSparePart);
                         System.out.println("Do you want to add more spareParts ?");
                         System.out.println("1 : Yes / 2 : No");
 
-                        engineerChoice = Processes.checkInputData(1,2);
+                        engineerChoice = Processes.checkInputData(1, 2);
 
-                    }while (engineerChoice == 1);
+                    } while (engineerChoice == 1);
 
                     currentAssignment.setSpareParts(spareParts);
 
                     System.out.println("Set Work Time");
                     System.out.print("your choice: ");
-                    assignmentWorktime = in .nextInt();
+                    assignmentWorktime = in.nextInt();
 
                     currentAssignment.setWorktime(assignmentWorktime);
 
