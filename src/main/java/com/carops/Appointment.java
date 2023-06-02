@@ -2,8 +2,8 @@ package com.carops;
 
 public class Appointment {
 
-	private String customerId;
-	private String vehiclePlateNumber;
+	private String customerId = "";
+	private String vehiclePlateNumber = "";
 	private boolean status;
 	private String transactionId;
 	private Repairfile repairfile;
@@ -19,10 +19,8 @@ public class Appointment {
 		AppointmentCatalog.addAppointment(this);
 	}
 
-	public Appointment(String customerId_or_plateNumber, DateTime date) {
-		this.customerId = customerId_or_plateNumber;
+	public Appointment(DateTime date) {
 		this.date = date;
-
 		// Αυτόματη προσθήκη του αντικείμενου Appointment στον κατάλογο των Appointment
 		AppointmentCatalog.addAppointment(this);
 	}
@@ -40,9 +38,6 @@ public class Appointment {
 				v==null ? " - " : v.getVehicleType());
 	}
 
-	public Appointment(DateTime date) {
-		this.date = date;
-	}
 
 	// getters
 	public Repairfile getRepairfile() {

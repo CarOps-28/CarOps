@@ -77,6 +77,10 @@ public class Assignment {
 
 
 	public void printData(){
-		System.out.println(this.job.getName());
+		System.out.printf("%-15s |%-15s |%-4s |%-5s\n", "Engineer name", "Job name", "Work Time", "Status");
+
+		System.out.printf("%-8s |%-15s |%-4d |%-5B\n",
+				this.engineer.getName(), this.job.getName(), this.worktime,
+				this.status);
 	}
 }

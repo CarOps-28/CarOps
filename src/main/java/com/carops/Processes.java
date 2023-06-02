@@ -20,7 +20,7 @@ public class Processes {
         System.out.print("Vehicle Prod Year: ");
         int vehicleProdYear = in.nextInt();
 
-        System.out.print("Vehicle vehicleType (Vehicle - Truck - Motorcycle)");
+        System.out.print("Vehicle vehicleType (Vehicle - Truck - Motorcycle): ");
         String vehicleType = in.nextLine();
 
         float typeValue = -1;

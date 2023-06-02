@@ -132,7 +132,7 @@ public class CarOps extends Application {
         Customer customer2 = tampouris.searchCustomer("1234567893");
         Vehicle vehicle4 = tampouris.searchVehicle("NIK3745");
         tampouris.createAppointment(customer2.getId(), vehicle3.getPlateNumber(), new DateTime("16/7/2024 - 16:00"));
-        System.out.println("New Appointment with customer: " + customer1.getId() + " has been created");
+        System.out.println("New Appointment with customer: " + customer2.getId() + " has been created");
         System.out.println();
 
         // -------------- /Create appointment ------------------
@@ -243,6 +243,7 @@ public class CarOps extends Application {
         EngineerCatalog.printData();
         // launch();
 
+        System.out.println();
         System.out.println("TEXT MENU");
         System.out.println();
 
@@ -253,6 +254,18 @@ public class CarOps extends Application {
 
         System.out.println("---------- Reception Engineer ----------");
         System.out.println();
+
+        receptionEngineerMenu();
+
+        System.out.println("---------- Supervisor Engineer ----------");
+        System.out.println();
+
+        supervisorEngineerMenu();
+
+        System.out.println("---------- Engineer ----------");
+        System.out.println();
+
+        EngineerMenu();
 
     }
 
@@ -266,7 +279,7 @@ public class CarOps extends Application {
         String secretaryUserName;
         // Secretary log in
         do {
-            System.out.print("Secretary user name: ");
+            System.out.print("Secretary surname: ");
             secretaryUserName = in.nextLine();
             notFound = true;
             for (Secretary sec : Secretary.secretaryList) {
@@ -278,11 +291,11 @@ public class CarOps extends Application {
             }
 
             if (notFound) {
-                System.out.println("Secretary do not exist");
+                System.out.println("Secretary do not exist.");
             }
         } while (notFound);
 
-        System.out.println("Login as " + secretaryObject.getSurname() + " successful");
+        System.out.println("Login as " + secretaryObject.getSurname() + " successful.");
 
         System.out.println();
 
@@ -352,7 +365,7 @@ public class CarOps extends Application {
                         secretaryObject.createAppointment(customer.getPhoneNumber(), vehicle.getPlateNumber(),
                                 dateTime);
                     }
-                    System.out.println("New Appointment has been created");
+                    System.out.println("New Appointment has been created.");
                     break;
                 case 2:
                     vehicle = Processes.vehicleCreationProcess(1, secretaryObject);
@@ -361,32 +374,34 @@ public class CarOps extends Application {
                     customer = Processes.customerCreationProcess(secretaryObject);
                     break;
                 case 4:
-                    System.out.println("Change RepairFile Status");
+                    System.out.println("Change RepairFile Status.");
 
-                    System.out.print("Enter Vehicle plate number");
+                    System.out.print("Enter Vehicle plate number: ");
                     plateNumber = in.nextLine();
 
                     repairfile = secretaryObject.searchRepairfile(plateNumber);
 
                     if (repairfile == null) {
-                        System.out.println("Reparifile not found");
+                        System.out.println("Reparifile not found.");
                     } else {
-                        System.out.print("Change repairfile status to (Accepted/Declined) :");
+                        System.out.print("Change repairfile status to (Accepted/Declined): ");
                         String choice = in.nextLine();
                         repairfile.setStatus(choice);
                     }
                     break;
                 case 5:
-                    System.out.println("Print repairfile");
+                    System.out.println("Print repairfile.");
 
-                    System.out.println("Enter Vehicle plate number");
+                    System.out.println("Enter Vehicle plate number: ");
                     plateNumber = in.nextLine();
 
                     repairfile = secretaryObject.searchRepairfile(plateNumber);
 
                     if (repairfile == null) {
-                        System.out.println("Reparifile not found");
+                        System.out.println("Reparifile not found.");
                     } else {
+                        System.out.printf("\n> All Repair Files in catalog:\nn %-25s  %-10s  %-13s  %-10s  %-8s  %-8s  %-4s\n", "Repair duration in days", "Status",
+                                "Plate number", "Type", "Est Jobs", "Assign J", "Total Cost");
                         repairfile.printData();
                     }
                     break;
@@ -425,7 +440,7 @@ public class CarOps extends Application {
             }
         } while (notFound);
 
-        System.out.println("Login as " + receptionEngineerObject.getSurname() + " successful");
+        System.out.println("Login as " + receptionEngineerObject.getSurname() + " successful.");
 
         System.out.println();
 
@@ -706,6 +721,7 @@ public class CarOps extends Application {
 
                     do {
                         System.out.println("Choose sparePart");
+                        System.out.printf("\n> Spare Parts:\nn %-25s  |%-4s %10s\n", "Name", "A-Q","Price per unit");
                         for (SparePart sparePart : SparePartsCatalog.fetchSpareParts()) {
                             if(!spareParts.containsKey(spareParts)) {
                                 sparePart.printData();

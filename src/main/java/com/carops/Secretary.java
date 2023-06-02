@@ -23,11 +23,17 @@ public class Secretary extends Person {
 	// Ανάλογα με τα ορίσματα που έδωσε η γραμματεία καλείται ο ανάλογος
 	// κατασκευαστής του ραντεβού.
 	public Appointment createAppointment(String customer, String vehicle, DateTime date) {
-		if (customer.equals("")) {
-			return new Appointment(vehicle, date);
-			// Αυτόματη προσθήκη του αντικείμενου Appointment στον κατάλογο των Appointment
-		} else if (vehicle.equals("")) {
-			return new Appointment(customer, date);
+		if(customer.equals("") && vehicle.equals("")){
+			return new Appointment(date);
+		}
+		else if (customer.equals("") && !vehicle.equals("")) {
+			Appointment a1 = new Appointment(date);
+			a1.setVehiclePlateNumber(vehicle);
+			return a1;
+		} else if (!customer.equals("") && vehicle.equals("")) {
+			Appointment a1 = new Appointment(date);
+			a1.setCustomerId(customer);
+			return a1;
 		} else {
 			return new Appointment(customer, vehicle, date);
 		}
