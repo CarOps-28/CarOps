@@ -178,6 +178,169 @@ n ID        Name             Surname          Role
   
 </details>
 
+<details>
+  <summary>
+    <h2>Secretary creates a appointment without vehicle</h2>
+  </summary>
+
+```
+---------- SECRETARY ----------
+
+Secretary surname: bob
+Secretary do not exist.
+Secretary surname: Mantas
+Login as Mantas successful.
+
+Create appointment - 1
+Create vehicle - 2
+Create customer - 3
+Change repairfile status - 4
+Print repairfile  - 5
+Show Appointments - 6
+Update Appointment - 7
+Exit - 0
+your choice: 1
+Search Vehicle - 1
+Make Vehicle - 2
+Appointment without Vehicle - 3
+Exit - 0
+your choice: 3
+Search Customer - 1
+Make Customer - 2
+Appointment without Customer - 3
+Exit - 0
+your choice: 2
+Customer name: Konstantinos
+Customer surname: Giannoutakis
+Customer phone number: 5676512345
+Customer email: gkiannou@edu.gr
+Customer address: G3 Uni 3roof
+Give DateTime (XX/XX/XXXX - XX:XX): 12/05/2023 - 14:00
+New Appointment has been created.
+Create appointment - 1
+Create vehicle - 2
+Create customer - 3
+Change repairfile status - 4
+Print repairfile  - 5
+Show Appointments - 6
+Update Appointment - 7
+Exit - 0
+```
+
+  <details>
+
+  <details>
+  <summary>
+     <h2>Reception Engineer adds jobs to repair file</h2>
+  </summary>
+  
+```
+---------- Reception Engineer ----------
+
+Engineer user name: Konstantinos
+Login as Vergidis successful.
+
+Create Repairfile - 1
+Exit - 0
+your choice: 1
+Search vehicle - 1
+Exit - 0
+your choice: 1
+Vehicle plate number: KTR4456
+Choose a Job (1,2,ect...): 
+1) Oil change
+2) Cabin filter change
+3) Brake maintenance
+stop adding jobs - 0
+your choice: 3
+Choose a Job (1,2,ect...): 
+1) Oil change
+2) Cabin filter change
+stop adding jobs - 0
+your choice: 2
+Choose a Job (1,2,ect...): 
+1) Oil change
+stop adding jobs - 0
+your choice: 1
+Choose a Job (1,2,ect...): 
+stop adding jobs - 0
+your choice: 0
+add estimated hours: 7
+Create Repairfile - 1
+```
+  
+</details>
+
+<details>
+<summary>
+<h2> Supervisor assigns jobs to engineers</h2>
+<symmary>
+
+```
+---------- Supervisor Engineer ----------
+
+Engineer user name: Bruce
+Login as Lee successful
+
+create Assignments - 1
+Exit - 0
+your choice: 1
+Search vehicle by plateNumber - 1
+Exit - 0
+your choice: 1
+Vehicle plateNumber: KTR4456
+------------ Set job to engineer ------------
+Available engineers:
+1) Konstantinos
+2) Bruce
+3) Martha
+4) Tom
+
+Repairfile Jobs:
+1) Brake maintenance
+2) Cabin filter change
+3) Oil change
+set job to engineer - 1
+add new job - 2
+your choice: 1
+Choose Job (1,2...): 2
+Choose engineer (1,2...): 2
+Available engineers:
+1) Konstantinos
+2) Bruce
+3) Martha
+4) Tom
+
+Repairfile Jobs:
+1) Brake maintenance
+2) Cabin filter change -> Bruce
+3) Oil change
+set job to engineer - 1
+add new job - 2
+your choice: 3
+your choice: 3
+your choice: 2
+add a job: 1
+Available engineers:
+1) Konstantinos
+2) Bruce
+3) Martha
+4) Tom
+
+Repairfile Jobs:
+1) Brake maintenance
+2) Cabin filter change -> Bruce
+3) Oil change
+4) Cabin filter change
+set job to engineer - 1
+add new job - 2
+your choice: 1
+Choose Job (1,2...): 1
+Choose engineer (1,2...): 1
+
+```
+
+
 <h2>HCI with JavaFX:</h2>
 
 ![User interface with javaFX](img/2.png)
