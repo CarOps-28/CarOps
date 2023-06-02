@@ -45,11 +45,8 @@ public class Engineer extends Person {
 		this.assignments = assignments;
 	}
 
-	public void printData() {
-		System.out.printf("%-25s  |%-15s\n", this.getSurname(), this.role);
-	}
 
-	public void printAllData(){
+	public void printData(){
 		System.out.printf(" |%-8s |%-15s |%-15s |%-10s\n", this.getId(), this.getName(), this.getSurname(), this.role);
 	}
 

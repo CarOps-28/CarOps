@@ -17,12 +17,14 @@ public class Customer extends Person {
 		CustomerCatalog.addCustomer(this);
 	}
 
-	public void setId(){
-		this.id = "CUS" + (CustomerCatalog.fetchCustomers().size() + 1 );
+	public void printData() {
+		System.out.printf(" |%-8s |%-15s |%-15s |%-14s |%-20s |%-20s\n",
+				this.getId(), this.getName(), this.getSurname(),
+				this.getPhoneNumber(), this.getEmail(), this.getAddress());
 	}
 
-	public void printData() {
-		System.out.printf("%-25s  |%-15s\n", this.getSurname(), this.phoneNumber);
+	public void setId(){
+		this.id = "CUS" + (CustomerCatalog.fetchCustomers().size() + 1 );
 	}
 
 	public String getPhoneNumber() {

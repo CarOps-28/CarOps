@@ -24,7 +24,17 @@ public class Vehicle {
 	}
 
 	public void printData() {
-		System.out.printf("%-25s  |%-15s\n", this.plateNumber, this.vehicleType);
+		System.out.printf(" |%-13s |%-8s |%-25s |%-10s |%-10s ",
+				this.plateNumber, this.getBrand(), this.getModel(), this.getProdYear(), this.vehicleType);
+		if( this instanceof Truck)
+		{
+			Truck t = (Truck) this;
+			System.out.printf(" ~ Capacity : %s", t.getCapacity());
+		} else if (this instanceof Motorcycle) {
+			Motorcycle m = (Motorcycle) this;
+			System.out.printf(" ~ Quantum : %s", m.getQuantum());
+		}
+		System.out.println();
 	}
 
 	public String getVehicleType() {

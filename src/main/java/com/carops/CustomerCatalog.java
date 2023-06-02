@@ -25,18 +25,21 @@ public class CustomerCatalog {
 		return null; // Customer with phoneNumber not found
 	}
 
-	public static void addCustomer(Customer customer) {
-		customers.add(customer);
-	}
 	public static void printData() {
-		System.out.printf("\n> All Customers in Catalog:\nn %-25s  %-10s\n", "Name", "PhoneNumber");
+		System.out.printf("\n> All Customer data in catalog:\nn %-8s  %-15s  %-15s  %-14s  %-20s  %-20s\n",
+				"ID", "Name", "Surname", "Phone Number", "Email", "Address");
 		int i = 1;
-		for (Customer customer : customers) {
-			System.out.printf("%d|", i);
-			customer.printData();
+		for (Customer c : customers) {
+			System.out.printf("%d", i);
+			c.printData();
 			i++;
 		}
 	}
+
+	public static void addCustomer(Customer customer) {
+		customers.add(customer);
+	}
+
 	public static ArrayList<Customer> fetchCustomers(){
 		return customers;
 	}
