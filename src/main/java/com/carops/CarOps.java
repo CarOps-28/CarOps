@@ -329,7 +329,7 @@ public class CarOps extends Application {
 
                     if (secretaryChoice == 1) {
                         do {
-                            System.out.println("Enter Customer phone: ");
+                            System.out.print("Enter Customer phone: ");
                             String phoneNumber = in.nextLine();
                             customer = secretaryObject.searchCustomer(phoneNumber);
                         } while (customer == null);
@@ -338,7 +338,7 @@ public class CarOps extends Application {
                         customer = Processes.customerCreationProcess(secretaryObject);
                     }
 
-                    System.out.println("Give DateTime (XX/XX/XXXX - XX:XX)");
+                    System.out.print("Give DateTime (XX/XX/XXXX - XX:XX): ");
                     String inputDatetime = in.nextLine();
                     DateTime dateTime = new DateTime(inputDatetime);
 
@@ -363,7 +363,7 @@ public class CarOps extends Application {
                 case 4:
                     System.out.println("Change RepairFile Status");
 
-                    System.out.println("Enter Vehicle plate number");
+                    System.out.print("Enter Vehicle plate number");
                     plateNumber = in.nextLine();
 
                     repairfile = secretaryObject.searchRepairfile(plateNumber);
@@ -371,7 +371,7 @@ public class CarOps extends Application {
                     if (repairfile == null) {
                         System.out.println("Reparifile not found");
                     } else {
-                        System.out.println("Change repairfile status to (Accepted/Declined) :");
+                        System.out.print("Change repairfile status to (Accepted/Declined) :");
                         String choice = in.nextLine();
                         repairfile.setStatus(choice);
                     }
@@ -390,6 +390,9 @@ public class CarOps extends Application {
                         repairfile.printData();
                     }
                     break;
+
+                case 6:
+                    AppointmentCatalog.printData();
             }
             userInputCode = Processes.options(1);
         }
@@ -443,7 +446,7 @@ public class CarOps extends Application {
                     break;
                 }
 
-                System.out.println("Vehicle plate number: ");
+                System.out.print("Vehicle plate number: ");
                 plateNumber = in.nextLine();
 
                 vehicle = receptionEngineerObject.searchVehicle(plateNumber);
@@ -551,7 +554,7 @@ public class CarOps extends Application {
                 break;
             }
 
-            System.out.println("Vehicle plateNumber: ");
+            System.out.print("Vehicle plateNumber: ");
             plateNumber = in.nextLine();
 
             repairfile = supervisorEngineerObject.searchRepairfile(plateNumber);
