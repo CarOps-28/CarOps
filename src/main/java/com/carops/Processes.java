@@ -19,10 +19,11 @@ public class Processes {
 
         System.out.print("Vehicle Prod Year: ");
         int vehicleProdYear = in.nextInt();
+        in.nextLine();
 
-        String vehicleType;
+        ;
         System.out.print("VehicleType (Vehicle - Truck - Motorcycle): ");
-        vehicleType = in.nextLine();
+        String vehicleType = in.nextLine();
 
         float typeValue = -1;
         if (vehicleType.equalsIgnoreCase("Truck")) {
