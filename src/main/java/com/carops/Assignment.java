@@ -85,10 +85,8 @@ public class Assignment {
 		else
 			assignmentStatus = "Pending";
 
-		System.out.printf("%-15s |%-15s |%-4s |%-5s\n", "Engineer name", "Job name", "Work Time", "Status");
-
-		System.out.printf("%-15s |%-15s |%-4d |%-5s\n",
-				this.engineer.getName(), this.job.getName(), this.worktime,
+		System.out.printf("%-20s |%-20s |%-10d |%-15s\n",
+				this.engineer.getSurname(), this.job.getName(), this.worktime,
 				assignmentStatus);
 	}
 

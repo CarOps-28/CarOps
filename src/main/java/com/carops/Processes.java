@@ -73,9 +73,17 @@ public class Processes {
     }
 
     public static int options(int code) {
-        // secretary print code 1
-
-        if (code == 1) {
+        System.out.println();
+        if(code == 0) {
+            System.out.println("Choose User");
+            System.out.println("SECRETARY - 1");
+            System.out.println("Reception Engineer - 2");
+            System.out.println("Supervisor Engineer - 3");
+            System.out.println("Engineer - 4");
+            System.out.println("Exit - 5");
+            return  checkInputData(0 ,5);
+        }
+        else if (code == 1) {
             System.out.println("Create appointment - 1");
             System.out.println("Create vehicle - 2");
             System.out.println("Create customer - 3");

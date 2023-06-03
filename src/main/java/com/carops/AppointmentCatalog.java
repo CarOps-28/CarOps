@@ -17,7 +17,7 @@ public class AppointmentCatalog {
 	public static void printData() {
 		System.out.printf("\n> All Appointments in catalog:\n" +
 						"n %-25s  %-15s  %-14s  %-20s  %-20s  %-20s  %-20s\n",
-				"Date","Name", "Surname", "Phone number", "Vehicle Plate", "Brand", "type");
+				"Date","Name", "Surname", "Phone number", "Vehicle Plate", "Brand", "Τype");
 		int i = 1;
 		for (Appointment appointment : appointments) {
 			System.out.printf("%d", i);

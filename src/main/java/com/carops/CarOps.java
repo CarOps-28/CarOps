@@ -36,30 +36,30 @@ public class CarOps extends Application {
         System.out.println("New Secretary Tampouris has been created");
         System.out.println();
 
-        Secretary mantas = new Secretary("Mixail", "Mantas");
-        System.out.println("New Secretary Mantas has been created");
+        Secretary mantas = new Secretary("Dimitris", "Foulidis");
+        System.out.println("New Secretary Foulidis has been created");
         System.out.println();
         // ---------------------------------------- Create Customer
         // ----------------------------------------
 
-        tampouris.createCustomer("Dimitra", "Tzhka", "1234567890", "tzhka@gmail.com", "t12345");
-        System.out.println("New Customer Tzhka has been created");
+        tampouris.createCustomer("Tasos", "Livaditis", "1234567890", "tzhka@gmail.com", "t12345");
+        System.out.println("New Customer Livaditis has been created");
         System.out.println();
 
-        tampouris.createCustomer("Vasileios", "Tsolakidis", "6996986610", "bill@gmail.com", "t12346");
-        System.out.println("New Customer Tsolakidis has been created");
+        tampouris.createCustomer("Maria", "Kallas", "6996986610", "bill@gmail.com", "t12346");
+        System.out.println("New Customer Kallas has been created");
         System.out.println();
 
-        tampouris.createCustomer("Dimitris", "Foulidis", "1234567893", "jimmy@gmail.com", "t12347");
-        System.out.println("New Customer Foulidis has been created");
+        tampouris.createCustomer("Giannis", "Parios", "1234567893", "jimmy@gmail.com", "t12347");
+        System.out.println("New Customer Parios has been created");
         System.out.println();
 
-        tampouris.createCustomer("Erjola", "Hajdari", "1234567894", "eri@gmail.com", "t12348");
-        System.out.println("New Customer Hajdari has been created");
+        tampouris.createCustomer("Meri", "Parmezana", "1234567894", "eri@gmail.com", "t12348");
+        System.out.println("New Customer Parmezana has been created");
         System.out.println();
 
-        tampouris.createCustomer("Vasileios", "Xamalidis", "1234567895", "bill2@gmail.com", "t12349");
-        System.out.println("New Customer Xamalidis has been created");
+        tampouris.createCustomer("Takis", "Petrov", "1234567895", "bill2@gmail.com", "t12349");
+        System.out.println("New Customer Petrov has been created");
         System.out.println();
 
         // ---------------------------------------- Create Vehicles by Tampouris
@@ -162,17 +162,21 @@ public class CarOps extends Application {
         System.out.println();
 
         // ------------------ Create Supervisor engineer ------------------
-        SupervisorEngineer supervisorEngineer = new SupervisorEngineer("Bruce", "Lee", "supervisor");
-        System.out.println("New supervisorEngineer Lee has been created");
+        SupervisorEngineer supervisorEngineer = new SupervisorEngineer("Dimitra", "Tzhka", "supervisor");
+        System.out.println("New supervisorEngineer Tzhka has been created");
         System.out.println();
 
         // ------------------ Create Engineers ------------------
-        Engineer engineer1 = new Engineer("Martha", "Caephile", "engineer");
-        System.out.println("New Engineer Caephile has been created");
+        Engineer engineer1 = new Engineer("Vasilis", "Tsolakidis", "engineer");
+        System.out.println("New Engineer Tsolakidis has been created");
         System.out.println();
 
-        Engineer engineer2 = new Engineer("Tom", "Cruise", "engineer");
-        System.out.println("New Engineer Cruise has been created");
+        Engineer engineer2 = new Engineer("Eriola", "Xaintari", "engineer");
+        System.out.println("New Engineer Xaintari has been created");
+        System.out.println();
+
+        Engineer engineer3 = new Engineer("Vasilis", "Xamalidis", "engineer");
+        System.out.println("New Engineer Xamalidis has been created");
         System.out.println();
 
         // ------------------ Add assignments ------------------
@@ -248,42 +252,54 @@ public class CarOps extends Application {
         CustomerCatalog.printData();
         VehicleCatalog.printData();
         EngineerCatalog.printData();
-        // launch();
 
-        System.out.println();
-        System.out.println("TEXT MENU");
-        System.out.println();
+//        TEXT MENU
 
-        System.out.println("---------- SECRETARY ----------");
-        System.out.println();
+        int testerChoice = Processes.options(0);
+        while(testerChoice != 0){
+            System.out.println();
+            System.out.println("TEXT MENU");
+            System.out.println();
 
-        secretaryMenu();
+            System.out.println("---------- SECRETARY ----------");
+            System.out.println();
 
-        System.out.println("---------- Reception Engineer ----------");
-        System.out.println();
+            secretaryMenu();
 
-        receptionEngineerMenu();
+            System.out.println("---------- Reception Engineer ----------");
+            System.out.println();
 
-        System.out.println("---------- Supervisor Engineer ----------");
-        System.out.println();
+            receptionEngineerMenu();
 
-        supervisorEngineerMenu();
+            System.out.println("---------- Supervisor Engineer ----------");
+            System.out.println();
 
-        System.out.println("---------- Engineer ----------");
-        System.out.println();
+            supervisorEngineerMenu();
 
-        EngineerMenu();
+            System.out.println("---------- Engineer ----------");
+            System.out.println();
 
-        // ------------------ PRINT STATISTICS ------------------
-        System.out.println("Total Catalog contents:");
-        JobCatalog.printData();
-        SparePartsCatalog.printData();
-        RepairfileCatalog.printData();
-        AppointmentCatalog.printData();
-        CustomerCatalog.printData();
-        VehicleCatalog.printData();
-        EngineerCatalog.printData();
+            EngineerMenu();
 
+            System.out.println("\n\n\nTotal Catalog contents:");
+            JobCatalog.printData();
+            SparePartsCatalog.printData();
+            RepairfileCatalog.printData();
+            AppointmentCatalog.printData();
+            CustomerCatalog.printData();
+            VehicleCatalog.printData();
+            EngineerCatalog.printData();
+
+
+            System.out.println("Choose User");
+            System.out.println("SECRETARY - 1");
+            System.out.println("Reception Engineer - 2");
+            System.out.println("Supervisor Engineer - 3");
+            System.out.println("Engineer - 4");
+            System.out.println("Exit - 5");
+
+            testerChoice = Processes.options(0);
+        }
     }
 
     private static void secretaryMenu() {
@@ -324,6 +340,7 @@ public class CarOps extends Application {
             String plateNumber = "";
             switch (userInputCode) {
                 case 1:
+                    System.out.println("-> Add vehicle in appointment");
                     System.out.println("Search Vehicle - 1");
                     System.out.println("Make Vehicle - 2");
                     System.out.println("Appointment without Vehicle - 3");
@@ -346,6 +363,8 @@ public class CarOps extends Application {
                         vehicle = Processes.vehicleCreationProcess(1, secretaryObject);
                     }
 
+                    System.out.println();
+                    System.out.println("-> Add vehicle in appointment");
                     System.out.println("Search Customer - 1");
                     System.out.println("Make Customer - 2");
                     System.out.println("Appointment without Customer - 3");
@@ -388,12 +407,17 @@ public class CarOps extends Application {
 
                     break;
                 case 2:
+                    System.out.println();
                     vehicle = Processes.vehicleCreationProcess(1, secretaryObject);
+                    System.out.println();
                     break;
                 case 3:
+                    System.out.println();
                     customer = Processes.customerCreationProcess(secretaryObject);
+                    System.out.println();
                     break;
                 case 4:
+                    System.out.println();
                     System.out.println("Change RepairFile Status.");
 
                     do {
@@ -435,6 +459,7 @@ public class CarOps extends Application {
 
                 case 6:
                     AppointmentCatalog.printData();
+                    System.out.println();
                     break;
 
                 case 7:
@@ -453,7 +478,12 @@ public class CarOps extends Application {
                     }
 
                     System.out.printf("\nChoose appointment number: ");
-                    int appointmentChoice = in.nextInt();
+                    int appointmentChoice = Processes.checkInputData(0,i);
+
+                    if(appointmentChoice == 0){
+                        break;
+                    }
+
                     Appointment chosenAppointment = unfinishedAppointments.get(--appointmentChoice);
                     System.out.printf("n %-25s  %-15s  %-14s  %-20s  %-20s  %-20s  %-20s\n",
                             "Date","Name", "Surname", "Phone number", "Vehicle Plate", "Brand", "type");
@@ -477,8 +507,12 @@ public class CarOps extends Application {
                                     break;
 
                                 case 1:
-                                    System.out.printf("\n");
-                                    customer = Processes.customerCreationProcess(secretaryObject);
+                                    System.out.printf("\nGive customer phone number: ");
+                                    String phoneNumber = in.nextLine();
+                                    customer = CustomerCatalog.fetchCustomerByPhoneNumber(phoneNumber);
+                                    if (customer == null){
+                                        customer = Processes.customerCreationProcess(secretaryObject);
+                                    }
                                     chosenAppointment.setCustomerId(customer.getId());
 
                                     System.out.printf("\nAppointment updated:\n" +
@@ -489,8 +523,14 @@ public class CarOps extends Application {
                                     break;
 
                                 case 2:
-                                    System.out.printf("\n");
-                                    vehicle = Processes.vehicleCreationProcess(1, secretaryObject);
+                                    System.out.printf("\nGive vehicle plate number: ");
+                                    String platenumber = in.nextLine();
+
+                                    vehicle = VehicleCatalog.fetchVehicleByPlateNumber(platenumber);
+                                    if (vehicle == null) {
+                                        vehicle = Processes.vehicleCreationProcess(1, secretaryObject);
+                                    }
+
                                     chosenAppointment.setVehiclePlateNumber(vehicle.getPlateNumber());
 
                                     System.out.printf("\nAppointment updated:\n" +
@@ -499,7 +539,6 @@ public class CarOps extends Application {
                                     System.out.printf("%d", appointmentChoice);
                                     chosenAppointment.printData();
                                     break;
-
 
                             }
                         } else if (chosenAppointment.getCustomerId().equals("") && !chosenAppointment.getVehiclePlateNumber().equals("")) {
@@ -514,8 +553,13 @@ public class CarOps extends Application {
                                     break;
 
                                 case 1:
-                                    System.out.printf("\n");
-                                    customer = Processes.customerCreationProcess(secretaryObject);
+                                    System.out.printf("\nGive customer phone number: ");
+                                    String phoneNumber = in.nextLine();
+                                    customer = CustomerCatalog.fetchCustomerByPhoneNumber(phoneNumber);
+                                    if (customer == null){
+                                        customer = Processes.customerCreationProcess(secretaryObject);
+                                    }
+
                                     chosenAppointment.setCustomerId(customer.getId());
 
                                     System.out.printf("\nAppointment updated:\n" +
@@ -538,8 +582,14 @@ public class CarOps extends Application {
                                     break;
 
                                 case 1:
-                                    System.out.printf("\n");
-                                    vehicle = Processes.vehicleCreationProcess(1, secretaryObject);
+                                    System.out.printf("\nGive vehicle plate number: ");
+                                    String platenumber = in.nextLine();
+
+                                    vehicle = VehicleCatalog.fetchVehicleByPlateNumber(platenumber);
+                                    if (vehicle == null) {
+                                        vehicle = Processes.vehicleCreationProcess(1, secretaryObject);
+                                    }
+
                                     chosenAppointment.setVehiclePlateNumber(vehicle.getPlateNumber());
 
                                     System.out.printf("\nAppointment updated:\n" +
@@ -616,6 +666,7 @@ public class CarOps extends Application {
                         plateNumber = in.nextLine();
                         vehicle = receptionEngineerObject.searchVehicle(plateNumber);
 
+
                         if(vehicle == null){
                             System.out.println("Vehicle not found.");
                             System.out.println("Create vehicle - 1");
@@ -623,13 +674,22 @@ public class CarOps extends Application {
 
                             System.out.print("\n");
                             engineerChoice = Processes.checkInputData(0, 1);
-                            if(engineerChoice==0)
+                            if(engineerChoice==0) {
                                 break;
-                            else
+                            }
+                            else {
                                 vehicle = Processes.vehicleCreationProcess(2, receptionEngineerObject);
+                            }
                         }
-                        else
+                        else {
                             System.out.println("Vehicle found.");
+                            Repairfile repairfile = RepairfileCatalog.fetchRepairfilebyVehicle(plateNumber);
+                            if (repairfile != null){
+                                if (repairfile.getStatus().equals("Completed")){
+                                    System.out.println("Repairfile already exist.");
+                                }
+                            }
+                        }
 
                         int job = 0;
                         ArrayList<Job> jobs = new ArrayList<Job>();
@@ -837,6 +897,7 @@ public class CarOps extends Application {
                             }while(repairfile == null);
 
                             boolean repairCompleted = true;
+
                             for (Assignment assignment : repairfile.getAssignments()) {
                                 if (!assignment.getStatus()) {
                                     repairCompleted = false;
@@ -844,13 +905,19 @@ public class CarOps extends Application {
                                 }
                             }
 
-                            if(repairCompleted == false)
+                            if(repairCompleted == false) {
                                 System.out.println("\nRepair is not yet done for this vehicle.\n");
+                            }
+                            else if (repairfile.getStatus().equals("Completed")){
+                                System.out.println("Repairfile status is already <<Completed>>.");
+                            }
                             else{
                                 System.out.println("Repairs completed. Change repair status to <<Completed>> ? (1 - Yes, 0 - No)");
                                 int answer = Processes.checkInputData(0, 1);
-                                if(answer == 1)
+                                if(answer == 1) {
                                     repairfile.setStatus("Completed");
+                                    System.out.println("Repairfile status has been changed.");
+                                }
                             }
 
                             break;
@@ -898,6 +965,8 @@ public class CarOps extends Application {
         while (userInputCode != 0) {
             switch (userInputCode) {
                 case 1:
+
+                    System.out.printf("|%-20s|%-20s |%-10s |%-15s\n", "Engineer surname", "Job name", "Work Time", "Status");
                     for (Assignment assignment : EngineerObject.getAssignments()) {
                         assignment.printDataWithVehicle();
                     }
@@ -929,11 +998,11 @@ public class CarOps extends Application {
                         System.out.printf("\n> Spare Parts:\nn %-25s  |%-4s %10s\n", "Name", "A-Q", "Price per unit");
                         counter = 1;
                         for (SparePart sparePart : SparePartsCatalog.fetchSpareParts()) {
-                            if (!spareParts.containsKey(spareParts)) {
+                            if (!spareParts.containsKey(sparePart)) {
                                 System.out.printf("%d", counter);
                                 sparePart.printData();
-                                counter++;
                             }
+                            counter++;
                         }
 
                         System.out.print("your choice: ");
@@ -964,6 +1033,7 @@ public class CarOps extends Application {
                     currentAssignment.setWorktime(assignmentWorktime);
 
                     currentAssignment.setStatus(true);
+                    EngineerObject.getAssignments().remove(currentAssignment);
 
                     break;
             }
