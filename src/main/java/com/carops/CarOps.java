@@ -734,8 +734,9 @@ public class CarOps extends Application {
 
                             Repairfile repairfile = RepairfileCatalog.fetchRepairfilebyVehicle(plateNumber);
                             if (repairfile != null){
-                                if (repairfile.getStatus().equals("Completed")){
+                                if (!repairfile.getStatus().equals("Completed")){
                                     System.out.println("Repairfile already exist.");
+                                    break;
                                 }
                             }
                         }else if(engineerChoice == 0){
