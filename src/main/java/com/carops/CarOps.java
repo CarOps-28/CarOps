@@ -491,7 +491,7 @@ public class CarOps extends Application {
                     if (repairfile == null) {
                         System.out.println("Reparifile not found.");
                     } else {
-                        System.out.printf("\n> Repair File:\n%-25s %-10s  %-13s  %-10s  %-8s  %-14s  %-4s\n",
+                        System.out.printf("\n> Repair File:\n %-26s %-10s  %-13s  %-10s  %-8s  %-14s  %-4s\n",
                                 "Repair duration in days", "Status",
                                 "Plate number", "Type", "Est Jobs", "Assignments", "Total Cost");
                         repairfile.printData();
@@ -728,7 +728,7 @@ public class CarOps extends Application {
 
                         if (engineerChoice == 2){
                             vehicle = Processes.vehicleCreationProcess(2, receptionEngineerObject);
-                        }else if (engineerChoice == 1){
+                        }else if (engineerChoice == -1 && vehicle != null){
                             System.out.println("Vehicle found.");
                             System.out.println();
 
