@@ -261,26 +261,32 @@ public class CarOps extends Application {
             System.out.println("TEXT MENU");
             System.out.println();
 
-            System.out.println("---------- Secretary ----------");
-            System.out.println();
+            switch (testerChoice){
+                case 1:
+                    System.out.println("---------- Secretary ----------");
+                    System.out.println();
 
-            secretaryMenu();
+                    secretaryMenu();
+                    break;
+                case 2:
+                    System.out.println("---------- Reception Engineer ----------");
+                    System.out.println();
 
-            System.out.println("---------- Reception Engineer ----------");
-            System.out.println();
+                    receptionEngineerMenu();
+                    break;
+                case 3:
+                    System.out.println("---------- Supervisor Engineer ----------");
+                    System.out.println();
 
-            receptionEngineerMenu();
+                    supervisorEngineerMenu();
+                    break;
+                case 4:
+                    System.out.println("---------- Engineer ----------");
+                    System.out.println();
 
-            System.out.println("---------- Supervisor Engineer ----------");
-            System.out.println();
-
-            supervisorEngineerMenu();
-
-            System.out.println("---------- Engineer ----------");
-            System.out.println();
-
-            EngineerMenu();
-
+                    EngineerMenu();
+                    break;
+            }
             System.out.println("\n\n\nTotal Catalog contents:");
             JobCatalog.printData();
             SparePartsCatalog.printData();
