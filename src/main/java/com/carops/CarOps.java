@@ -478,8 +478,9 @@ public class CarOps extends Application {
                         System.out.println("\nRepairfile status has been changed.\n");
                     }
                     break;
+
                 case 5:
-                    System.out.println("Print repairfile.");
+                    System.out.println("\nPrint repair file by entering the corresponding vehicle plate number");
 
                     System.out.print("Enter Vehicle plate number: ");
                     plateNumber = in.nextLine();
@@ -493,7 +494,6 @@ public class CarOps extends Application {
                                 "Repair duration in days", "Status",
                                 "Plate number", "Type", "Est Jobs", "Assignments", "Total Cost");
                         repairfile.printData();
-                        System.out.println();
                     }
                     break;
 
@@ -1008,7 +1008,6 @@ public class CarOps extends Application {
 
         System.out.println("Login as " + EngineerObject.getSurname() + " successful");
 
-        System.out.println();
 
         userInputCode = Processes.options(4);
 
@@ -1016,13 +1015,24 @@ public class CarOps extends Application {
             switch (userInputCode) {
                 case 1:
 
+                    if(EngineerObject.getAssignments().isEmpty()){
+                        System.out.println("\nNo Jobs assigned at the momment.");
+                        break;
+                    }
+
                     System.out.printf("|%-20s|%-20s |%-10s |%-15s\n", "Plate Number", "Job name", "Work Time", "Status");
                     for (Assignment assignment : EngineerObject.getAssignments()) {
                         System.out.printf("|%-20s|%-20s |%-10s |%-15s\n",assignment.getRepairfile().getVehicle().getPlateNumber(), assignment.getJob().getName(), assignment.getWorktime(),assignment.getStatus());
                     }
                     break;
                 case 2:
-                    System.out.println("Choose assignment");
+
+                    if(EngineerObject.getAssignments().isEmpty()){
+                        System.out.println("\nNo Jobs assigned at the momment.");
+                        break;
+                    }
+
+                    System.out.println("\nChoose assignment");
                     counter = 1;
 
                     for (Assignment assignment : EngineerObject.getAssignments()) {
@@ -1031,7 +1041,7 @@ public class CarOps extends Application {
                                 + assignment.getJob().getName());
                         counter++;
                     }
-                    System.out.println("Exit - 0");
+                    System.out.println("\nExit - 0");
 
                     engineerChoice = Processes.checkInputData(0, counter);
 
@@ -1044,7 +1054,7 @@ public class CarOps extends Application {
                     HashMap<SparePart, Integer> spareParts = new HashMap<SparePart, Integer>();
 
                     do {
-                        System.out.println("Choose sparePart");
+                        System.out.println("\nChoose sparePart");
                         System.out.printf("\n> Spare Parts:\nn %-25s  |%-4s %10s\n", "Name", "A-Q", "Price per unit");
                         counter = 1;
                         for (SparePart sparePart : SparePartsCatalog.fetchSpareParts()) {
@@ -1055,8 +1065,12 @@ public class CarOps extends Application {
                             counter++;
                         }
 
-                        System.out.print("your choice: ");
-                        engineerSparePartChoice = in.nextInt();
+                        System.out.println("\nExit - 0");
+
+                        engineerSparePartChoice = Processes.checkInputData(0,counter);
+
+                        if(engineerSparePartChoice==0)
+                            break;
 
                         SparePart sparePart = SparePartsCatalog.fetchSpareParts().get(engineerSparePartChoice - 1);
 
@@ -1073,6 +1087,9 @@ public class CarOps extends Application {
                         engineerChoice = Processes.checkInputData(1, 2);
 
                     } while (engineerChoice == 1);
+
+                    if(engineerSparePartChoice==0)
+                        break;
 
                     currentAssignment.setSpareParts(spareParts);
 
