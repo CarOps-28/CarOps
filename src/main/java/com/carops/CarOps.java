@@ -1070,15 +1070,10 @@ public class CarOps extends Application {
                 Engineer engineer = null;
                 System.out.println("Choose engineer: ");
 
-                int counter = 1;
-
-                for(Engineer eng : EngineerCatalog.fetchEngineers()) {
-                    System.out.println(counter + ") Engineer: " + eng.getSurname() + " with role: " + eng.getRole());
-                    counter ++;
-                }
+                EngineerCatalog.printData();
 
                 System.out.println();
-                int engineerChoice = Processes.checkInputData(0,counter);
+                int engineerChoice = Processes.checkInputData(0,EngineerCatalog.fetchEngineers().size());
 
                 if (engineerChoice == 0){
                     break;
