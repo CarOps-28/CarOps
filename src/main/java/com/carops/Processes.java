@@ -76,7 +76,7 @@ public class Processes {
         System.out.println();
         if(code == 0) {
             System.out.println("Choose User");
-            System.out.println("SECRETARY - 1");
+            System.out.println("Secretary - 1");
             System.out.println("Reception Engineer - 2");
             System.out.println("Supervisor Engineer - 3");
             System.out.println("Engineer - 4");

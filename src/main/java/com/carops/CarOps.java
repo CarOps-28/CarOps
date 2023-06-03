@@ -476,7 +476,7 @@ public class CarOps extends Application {
                         }
                     }
 
-                    System.out.printf("\nChoose appointment number: ");
+                    System.out.printf("\nChoose appointment number or choose 0 to Exit\n");
                     int appointmentChoice = Processes.checkInputData(0,i);
 
                     if(appointmentChoice == 0){
@@ -510,6 +510,7 @@ public class CarOps extends Application {
                                     String phoneNumber = in.nextLine();
                                     customer = CustomerCatalog.fetchCustomerByPhoneNumber(phoneNumber);
                                     if (customer == null){
+                                        System.out.printf("\nCustomer not found in catalogs. Provide customer details to create a new customer.\n");
                                         customer = Processes.customerCreationProcess(secretaryObject);
                                     }
                                     chosenAppointment.setCustomerId(customer.getId());
@@ -1007,7 +1008,7 @@ public class CarOps extends Application {
                         System.out.print("your choice: ");
                         engineerSparePartChoice = in.nextInt();
 
-                        SparePart sparePart = SparePartsCatalog.fetchSpareParts().get(engineerSparePartChoice);
+                        SparePart sparePart = SparePartsCatalog.fetchSpareParts().get(engineerSparePartChoice - 1);
 
                         System.out.println("Number of sparePart used");
 
