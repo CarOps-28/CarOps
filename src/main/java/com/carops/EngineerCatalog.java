@@ -29,17 +29,21 @@ public class EngineerCatalog {
 			ids.add(engineer.getId());
 		}
 
+
+		ArrayList<Engineer> newEngineer = new ArrayList<>();
 		Collections.sort(ids);
 
 		for(String id: ids){
 			for (Engineer engineer : engineers  ) {
 				if(engineer.getId().equals(id)){
+					newEngineer.add(engineer);
 					System.out.printf("%d", i);
 					engineer.printData();
 					i++;
 				}
 			}
 		}
+		engineers = newEngineer;
 	}
 
 	public static void addEngineer(Engineer engineer) {
