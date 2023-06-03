@@ -23,4 +23,5 @@ public abstract class Person {
 		return this.surname;
 	}
 
+	public void setId(String id ){this.id = id;}
 }

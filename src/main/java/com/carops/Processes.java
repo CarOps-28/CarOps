@@ -104,12 +104,13 @@ public class Processes {
         System.out.println();
         if(code == 0) {
             System.out.println("Choose User");
-            System.out.println("Secretary - 1");
-            System.out.println("Reception Engineer - 2");
-            System.out.println("Supervisor Engineer - 3");
-            System.out.println("Engineer - 4");
+            System.out.println("Owner - 1");
+            System.out.println("Secretary - 2");
+            System.out.println("Reception Engineer - 3");
+            System.out.println("Supervisor Engineer - 4");
+            System.out.println("Engineer - 5");
             System.out.println("Exit - 0");
-            return  checkInputData(0 ,4);
+            return  checkInputData(0 ,5);
         }
         else if (code == 1) {
             System.out.println("Create appointment - 1");
@@ -135,6 +136,10 @@ public class Processes {
             System.out.println("Add spareParts and work time on completed assignment - 2");
             System.out.println("Exit - 0");
             return checkInputData(0 ,2);
+        }else if (code == 5) {
+            System.out.println("Change Engineer Role - 1");
+            System.out.println("Exit - 0");
+            return checkInputData(0 ,1);
         }
         return 0;
     }
