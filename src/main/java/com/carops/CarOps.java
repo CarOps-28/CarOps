@@ -375,6 +375,7 @@ public class CarOps extends Application {
                     }
 
                     System.out.println();
+                    System.out.println();
                     System.out.println("-> Add customer in appointment");
                     System.out.println("Search Customer - 1");
                     System.out.println("Make Customer - 2");
@@ -490,7 +491,7 @@ public class CarOps extends Application {
                     if (repairfile == null) {
                         System.out.println("Reparifile not found.");
                     } else {
-                        System.out.printf("\n> Repair File:\nn %-25s %-10s  %-13s  %-10s  %-8s  %-14s  %-4s\n",
+                        System.out.printf("\n> Repair File:\n%-25s %-10s  %-13s  %-10s  %-8s  %-14s  %-4s\n",
                                 "Repair duration in days", "Status",
                                 "Plate number", "Type", "Est Jobs", "Assignments", "Total Cost");
                         repairfile.printData();
@@ -629,6 +630,7 @@ public class CarOps extends Application {
 
                                     vehicle = VehicleCatalog.fetchVehicleByPlateNumber(platenumber);
                                     if (vehicle == null) {
+                                        System.out.printf("\nVehicle not found in catalogs. Provide vehicle details to create a new customer.\n");
                                         vehicle = Processes.vehicleCreationProcess(1, secretaryObject);
                                     }
 
