@@ -161,6 +161,7 @@ public class CarOps extends Application {
         System.out.println("New Repairfile with vehicle " + vehicle1.getPlateNumber() + " has been created");
         System.out.println();
 
+
         // ------------------ Create Supervisor engineer ------------------
         SupervisorEngineer supervisorEngineer = new SupervisorEngineer("Dimitra", "Tzhka", "supervisor");
         System.out.println("New supervisorEngineer Tzhka has been created");
@@ -336,7 +337,6 @@ public class CarOps extends Application {
 
         System.out.println("Login as " + secretaryObject.getSurname() + " successful.");
 
-        System.out.println();
 
         userInputCode = Processes.options(1);
         while (userInputCode != 0) {
@@ -363,14 +363,19 @@ public class CarOps extends Application {
                             System.out.print("Enter vehicle plateNumber: ");
                             plateNumber = in.nextLine();
                             vehicle = secretaryObject.searchVehicle(plateNumber);
+
+                            if(vehicle==null)
+                                System.out.println("Vehicle not found.");
                         } while (vehicle == null);
-                        System.out.println("Vehicle found");
+                        System.out.println("\nVehicle found. Vehicle plate successfully added to appointment.");
+
                     } else if (secretaryChoice == 2) {
                         vehicle = Processes.vehicleCreationProcess(1, secretaryObject);
+                        System.out.println("");
                     }
 
                     System.out.println();
-                    System.out.println("-> Add vehicle in appointment");
+                    System.out.println("-> Add customer in appointment");
                     System.out.println("Search Customer - 1");
                     System.out.println("Make Customer - 2");
                     System.out.println("Appointment without Customer - 3");
@@ -387,11 +392,15 @@ public class CarOps extends Application {
                             System.out.print("Enter Customer phone: ");
                             String phoneNumber = in.nextLine();
                             customer = secretaryObject.searchCustomer(phoneNumber);
+
+                            if(customer== null)
+                                System.out.println("Customer not found.");
                         } while (customer == null);
+                        System.out.println("Customer found. Customer's ID successfully added to appointment.");
 
                     } else if (secretaryChoice == 2) {
                         customer = Processes.customerCreationProcess(secretaryObject);
-                        System.out.println("Customer has been created");
+                        System.out.println("");
                     }
 
                     System.out.print("Give DateTime (XX/XX/XXXX - XX:XX): ");
@@ -409,7 +418,6 @@ public class CarOps extends Application {
                                 dateTime);
                     }
                     System.out.println("New Appointment has been created.");
-                    System.out.println();
 
                     break;
                 case 2:
@@ -423,26 +431,52 @@ public class CarOps extends Application {
                     System.out.println();
                     break;
                 case 4:
+                    // εμφάνιση όλων των φακέλων επισκευής και αναζήτηση με βάση τον αριθμό πινακίδας για
+                    // να δεί η γραμματεί εάν ο φάκελος του οχήματος είναι Pending, δηλαδή περιμένει
+                    // απάντηση του πελάτη για συνέχεια η τέλος της διαδικασίας επισκευής.
                     System.out.println();
-                    System.out.println("Change RepairFile Status.");
 
+
+                    System.out.print("Change RepairFile Status:");
+
+
+                    RepairfileCatalog.printData();
+
+                    System.out.println("\nSearch repair files that await customer's answer with vehicle plate number:");
+                    boolean proceed = true;
                     do {
-                        System.out.print("Enter Vehicle plate number: ");
+                        System.out.print("Enter Vehicle plate number or enter Exit to abandon search: ");
                         plateNumber = in.nextLine();
                         repairfile = secretaryObject.searchRepairfile(plateNumber);
-                    } while (repairfile == null);
 
-                    System.out.println("Repairfile found");
+                        if(plateNumber=="Exit"){
+                            proceed = true;
+                        }
 
-                    System.out.println("\nChange repairfile status to Accepted (1)/Declined (0)");
-                    int choice = Processes.checkInputData(0, 1);
-                    if(choice == 1)
-                        repairfile.setStatus("Accepted");
-                    else
-                        repairfile.setStatus("Declined");
+                        if(!plateNumber.equals("Exit")){
+                            if(repairfile==null){
+                                System.out.println("\nNo repair file found with such vehicle plate number.");
+                                proceed = false;
+                            }
+                            else if (repairfile.getStatus()!="Awaiting") {
+                                System.out.println("\nRepair file found but its status is not Awaiting.");
+                                proceed = false;
+                            }
+                        }
+                    } while (proceed == false);
 
-                    System.out.println("\nRepairfile status has been changed.\n");
+                    if(!plateNumber.equals("Exit")){
+                        System.out.println("Repairfile found. Awaiting customer's answer.");
 
+                        System.out.println("\nChange repairfile status to Accepted (1)/Declined (0)");
+                        int choice = Processes.checkInputData(0, 1);
+                        if(choice == 1)
+                            repairfile.setStatus("Accepted");
+                        else
+                            repairfile.setStatus("Declined");
+
+                        System.out.println("\nRepairfile status has been changed.\n");
+                    }
                     break;
                 case 5:
                     System.out.println("Print repairfile.");
