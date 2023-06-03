@@ -294,7 +294,7 @@ public class CarOps extends Application {
                     EngineerMenu();
                     break;
             }
-            System.out.println("\n\n\nTotal Catalog contents:");
+            System.out.println("\nTotal Catalog contents:");
             JobCatalog.printData();
             SparePartsCatalog.printData();
             RepairfileCatalog.printData();
@@ -1088,11 +1088,20 @@ public class CarOps extends Application {
 
                 System.out.println("Set new role: ");
                 System.out.println("Reception - 1 / Supervisor - 2 / Engineer - 3");
-                System.out.println("you choice: ");
-                String role = in.nextLine();
+                System.out.print("you choice: ");
 
-                owner.changeRole(engineer,role);
-
+                int role = in.nextInt();
+                switch (role){
+                    case 1:
+                        owner.changeRole(engineer,"reception");
+                        break;
+                    case 2:
+                        owner.changeRole(engineer,"supervisor");
+                        break;
+                    case 3:
+                        owner.changeRole(engineer,"engineer");
+                        break;
+                }
                 break;
         }
     }
