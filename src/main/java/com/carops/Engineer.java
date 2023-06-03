@@ -1,8 +1,10 @@
 package com.carops;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 
-public class Engineer extends Person {
+public class Engineer extends Person  {
 
 	private String role;
 	private ArrayList<Assignment> assignments = new ArrayList<Assignment>();
@@ -49,4 +51,5 @@ public class Engineer extends Person {
 	public void setId(){
 		this.id = "MHX" + (EngineerCatalog.fetchEngineers().size() + 1 );
 	}
+
 }
