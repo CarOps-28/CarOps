@@ -80,8 +80,8 @@ public class Processes {
             System.out.println("Reception Engineer - 2");
             System.out.println("Supervisor Engineer - 3");
             System.out.println("Engineer - 4");
-            System.out.println("Exit - 5");
-            return  checkInputData(0 ,5);
+            System.out.println("Exit - 0");
+            return  checkInputData(0 ,4);
         }
         else if (code == 1) {
             System.out.println("Create appointment - 1");

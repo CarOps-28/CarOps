@@ -261,7 +261,7 @@ public class CarOps extends Application {
             System.out.println("TEXT MENU");
             System.out.println();
 
-            System.out.println("---------- SECRETARY ----------");
+            System.out.println("---------- Secretary ----------");
             System.out.println();
 
             secretaryMenu();
@@ -289,14 +289,6 @@ public class CarOps extends Application {
             CustomerCatalog.printData();
             VehicleCatalog.printData();
             EngineerCatalog.printData();
-
-
-            System.out.println("Choose User");
-            System.out.println("SECRETARY - 1");
-            System.out.println("Reception Engineer - 2");
-            System.out.println("Supervisor Engineer - 3");
-            System.out.println("Engineer - 4");
-            System.out.println("Exit - 5");
 
             testerChoice = Processes.options(0);
         }
