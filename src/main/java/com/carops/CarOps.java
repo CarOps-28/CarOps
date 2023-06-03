@@ -841,11 +841,15 @@ public class CarOps extends Application {
 
                         case 1:
                             do {
-                                System.out.print("Enter Vehicle plate number: ");
+                                System.out.print("\nEnter Vehicle plate number: ");
                                 plateNumber = in.nextLine();
                                 repairfile = supervisorEngineerObject.searchRepairfile(plateNumber);
+
+                                if(repairfile==null)
+                                    System.out.println("No repair file found.");
                             } while (repairfile == null);
 
+                            System.out.println("Repair file found.");
                             ArrayList<Engineer> engineers = EngineerCatalog.fetchEngineers();
                             ArrayList<Job> jobs = repairfile.getJobs();
 
