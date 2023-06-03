@@ -26,7 +26,7 @@ public class CustomerCatalog {
 	}
 
 	public static void printData() {
-		System.out.printf("\n> All Customer data in catalog:\nn %-8s  %-15s  %-15s  %-14s  %-20s  %-20s\n",
+		System.out.printf("\n> All Customers in catalog:\nn %-8s  %-15s  %-15s  %-14s  %-20s  %-20s\n",
 				"ID", "Name", "Surname", "Phone Number", "Email", "Address");
 		int i = 1;
 		for (Customer c : customers) {

@@ -21,6 +21,7 @@ public class Repairfile {
 		this.vehicle = vehicle;
 		this.estimatedJobs = estimatedJobs;
 
+		this.status= "Awaiting";
 		this.getTotalCost();
 		// Αυτόματη προσθήκη του αντικείμενου Repairfile στον κατάλογο των Repairfile
 		RepairfileCatalog.addRepairfile(this);

@@ -1,5 +1,7 @@
 package com.carops;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 
 public class Assignment {
@@ -87,6 +89,33 @@ public class Assignment {
 
 		System.out.printf("%-15s |%-15s |%-4d |%-5s\n",
 				this.engineer.getName(), this.job.getName(), this.worktime,
+				assignmentStatus);
+	}
+
+	//Εμφανίζει τη πινακίδα του οχήματος στα στοιχεία ανάθεσης αντί του ονόματος του μηχανικού.
+	// Χρήση στη καταχώρηση των ανταλλακτικών από τους μηχανικούς ώστε να γνωρίζουν σε ποιο όχημα ανήκει η ανάθεση που βλέπουν
+	public void printDataWithVehicle(){
+		String assignmentStatus;
+		if(this.status==true)
+			assignmentStatus = "Completed";
+		else
+			assignmentStatus = "Pending";
+
+		Vehicle assignmentVehicle = null;
+		Collection<Repairfile> repairfiles = RepairfileCatalog.fetchRepairfiles();
+		for(Repairfile repairfile : repairfiles){
+			for(Assignment assignment : repairfile.getAssignments()){
+				if(assignment == this){
+					assignmentVehicle = repairfile.getVehicle();
+					break;
+				}
+			}
+		}
+
+		System.out.printf("%-15s |%-15s |%-4s |%-5s\n", "Plate Number", "Job name", "Work Time", "Status");
+
+		System.out.printf("%-15s |%-15s |%-4d |%-5s\n",
+				assignmentVehicle.getPlateNumber(), this.job.getName(), this.worktime,
 				assignmentStatus);
 	}
 }

@@ -79,7 +79,7 @@ public class Processes {
             System.out.println("Create appointment - 1");
             System.out.println("Create vehicle - 2");
             System.out.println("Create customer - 3");
-            System.out.println("Change repairfile status - 4");
+            System.out.println("Change repairfile status based on customer decision - 4");
             System.out.println("Print repairfile  - 5");
             System.out.println("Show Appointments - 6");
             System.out.println("Update Appointment - 7");
@@ -90,13 +90,13 @@ public class Processes {
             System.out.println("Exit - 0");
             return checkInputData(0 ,1);
         }else if (code == 3){ // Supervisor
-            System.out.println("create Assignments - 1");
+            System.out.println("Create Assignments - 1");
             System.out.println("Set Repairfile status - 2");
             System.out.println("Exit - 0");
             return checkInputData(0 ,2);
         }else if (code == 4){ // Engineer
             System.out.println("Show assignments - 1");
-            System.out.println("Add spareParts and/or work time on assignment - 2");
+            System.out.println("Add spareParts and work time on completed assignment - 2");
             System.out.println("Exit - 0");
             return checkInputData(0 ,2);
         }
