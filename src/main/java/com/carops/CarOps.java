@@ -76,7 +76,7 @@ public class CarOps extends Application {
 
         // ---------------------------------------- Crete Vehicles by Vergidis
         // ----------------------------------------
-        vergidis.createVehicle("NIK3745", "Land", "LandRover Range Rover HSE", 2014, "Car", 0);
+        vergidis.createVehicle("NIK3745", "Land", "LandRover Range Rover HSE", 2014, "Vehicle", 0);
         System.out.println("New Vehicle NIK3745 has been created");
         System.out.println();
 
@@ -464,7 +464,7 @@ public class CarOps extends Application {
                 case 7:
                     System.out.printf("\nSelect Appointment to update:\n" +
                                     "n %-25s  %-15s  %-14s  %-20s  %-20s  %-20s  %-20s\n",
-                            "Date","Name", "Surname", "Phone number", "Vehicle Plate", "Brand", "type");
+                            "Date","Name", "Surname", "Phone number", "Vehicle Plate", "Brand", "Type");
                     ArrayList<Appointment> unfinishedAppointments = new ArrayList<Appointment>();
                     int i = 1;
                     for(Appointment appointment : AppointmentCatalog.fetchAppointments()) {
@@ -485,7 +485,7 @@ public class CarOps extends Application {
 
                     Appointment chosenAppointment = unfinishedAppointments.get(--appointmentChoice);
                     System.out.printf("n %-25s  %-15s  %-14s  %-20s  %-20s  %-20s  %-20s\n",
-                            "Date","Name", "Surname", "Phone number", "Vehicle Plate", "Brand", "type");
+                            "Date","Name", "Surname", "Phone number", "Vehicle Plate", "Brand", "Type");
                     ++appointmentChoice;
                     System.out.printf("%d", appointmentChoice);
                     chosenAppointment.printData();
@@ -517,7 +517,7 @@ public class CarOps extends Application {
 
                                     System.out.printf("\nAppointment updated:\n" +
                                                     "n %-25s  %-15s  %-14s  %-20s  %-20s  %-20s  %-20s\n",
-                                            "Date","Name", "Surname", "Phone number", "Vehicle Plate", "Brand", "type");
+                                            "Date","Name", "Surname", "Phone number", "Vehicle Plate", "Brand", "Type");
                                     System.out.printf("%d", appointmentChoice);
                                     chosenAppointment.printData();
                                     break;
@@ -535,7 +535,7 @@ public class CarOps extends Application {
 
                                     System.out.printf("\nAppointment updated:\n" +
                                                     "n %-25s  %-15s  %-14s  %-20s  %-20s  %-20s  %-20s\n",
-                                            "Date","Name", "Surname", "Phone number", "Vehicle Plate", "Brand", "type");
+                                            "Date","Name", "Surname", "Phone number", "Vehicle Plate", "Brand", "Type");
                                     System.out.printf("%d", appointmentChoice);
                                     chosenAppointment.printData();
                                     break;
@@ -564,7 +564,7 @@ public class CarOps extends Application {
 
                                     System.out.printf("\nAppointment updated:\n" +
                                                     "n %-25s  %-15s  %-14s  %-20s  %-20s  %-20s  %-20s\n",
-                                            "Date","Name", "Surname", "Phone number", "Vehicle Plate", "Brand", "type");
+                                            "Date","Name", "Surname", "Phone number", "Vehicle Plate", "Brand", "Type");
                                     System.out.printf("%d", appointmentChoice);
                                     chosenAppointment.printData();
                                     break;
@@ -594,7 +594,7 @@ public class CarOps extends Application {
 
                                     System.out.printf("\nAppointment updated:\n" +
                                                     "n %-25s  %-15s  %-14s  %-20s  %-20s  %-20s  %-20s\n",
-                                            "Date","Name", "Surname", "Phone number", "Vehicle Plate", "Brand", "type");
+                                            "Date","Name", "Surname", "Phone number", "Vehicle Plate", "Brand", "Type");
                                     System.out.printf("%d", appointmentChoice);
                                     chosenAppointment.printData();
                                     break;
