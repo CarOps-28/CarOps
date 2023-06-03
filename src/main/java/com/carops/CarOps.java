@@ -528,6 +528,7 @@ public class CarOps extends Application {
 
                                     vehicle = VehicleCatalog.fetchVehicleByPlateNumber(platenumber);
                                     if (vehicle == null) {
+                                        System.out.printf("\nVehicle not found in catalogs. Provide vehicle details to create a new customer.\n");
                                         vehicle = Processes.vehicleCreationProcess(1, secretaryObject);
                                     }
 

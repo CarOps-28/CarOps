@@ -8,9 +8,22 @@ public class Processes {
         // GUI Input fields
         Scanner in = new Scanner(System.in);
 
-        System.out.print("Vehicle plateNumber: ");
-        String vehiclePlateNumber = in.nextLine();
+        String vehiclePlateNumber;
 
+        boolean found = false;
+        do{
+            found = false;
+            System.out.print("Vehicle plateNumber: ");
+            vehiclePlateNumber = in.nextLine();
+            if(VehicleCatalog.fetchVehicleByPlateNumber(vehiclePlateNumber)!=null){
+                System.out.println("Vehicle already exists.");
+                found = true;
+            }
+        }while (found==true);
+
+
+
+        System.out.println("\nVehicle has not been registered yet. Provide details:");
         System.out.print("Vehicle brand: ");
         String vehicleBrand = in.nextLine();
 
@@ -21,8 +34,7 @@ public class Processes {
         int vehicleProdYear = in.nextInt();
         in.nextLine();
 
-        ;
-        System.out.print("VehicleType (Vehicle - Truck - Motorcycle): ");
+        System.out.print("VehicleType (Car - Truck - Motorcycle): ");
         String vehicleType = in.nextLine();
 
         float typeValue = -1;
@@ -34,6 +46,8 @@ public class Processes {
             typeValue = in.nextFloat();
         }
 
+        System.out.print("\nVehicle created successfully.");
+
         // Secretary
         if (code == 1) {
             Secretary secretary = (Secretary) object;
@@ -44,26 +58,40 @@ public class Processes {
         ReceptionEngineer receptionEngineer = (ReceptionEngineer) object;
         return receptionEngineer.createVehicle(vehiclePlateNumber, vehicleBrand, vehicleModel, vehicleProdYear,
                 vehicleType, typeValue);
+
     }
 
     public static Customer customerCreationProcess(Object object) {
         // GUI Input fields
         Scanner in = new Scanner(System.in);
 
+        String customerPhoneNumber;
+
+        boolean found = false;
+        do{
+            found = false;
+            System.out.print("Customer phone number: ");
+            customerPhoneNumber = in.nextLine();
+            if(CustomerCatalog.fetchCustomerByPhoneNumber(customerPhoneNumber) != null){
+                System.out.println("Customer already exists.");
+                found = true;
+            }
+        }while (found == true);
+
+        System.out.println("\nCustomer has not been registered yet. Provide details:");
         System.out.print("Customer name: ");
         String customerName = in.nextLine();
 
         System.out.print("Customer surname: ");
         String customerSurname = in.nextLine();
 
-        System.out.print("Customer phone number: ");
-        String customerPhoneNumber = in.nextLine();
-
         System.out.print("Customer email: ");
         String customerEmail = in.nextLine();
 
         System.out.print("Customer address: ");
         String customerAddress = in.nextLine();
+
+        System.out.print("\nCustomer created successfully.");
 
         // Secretary
         Secretary secretary = (Secretary) object;
