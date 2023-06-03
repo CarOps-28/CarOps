@@ -292,6 +292,7 @@ public class CarOps extends Application {
 
             testerChoice = Processes.options(0);
         }
+        System.exit(0);
     }
 
     private static void secretaryMenu() {
