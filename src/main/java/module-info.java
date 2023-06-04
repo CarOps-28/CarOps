@@ -9,8 +9,9 @@ module com.example.carops {
                 requires com.almasb.fxgl.all;
     requires annotations;
 
-    opens com.carops to javafx.fxml;
+    exports com;
     exports com.carops;
-    exports com.carops.controllers;
-    opens com.carops.controllers to javafx.fxml;
+    opens com.carops to javafx.fxml;
+    opens com to javafx.fxml;
+
 }

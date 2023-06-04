@@ -6,7 +6,7 @@ public class VehicleCatalog {
 
 	private static ArrayList<Vehicle> vehicles = new ArrayList<Vehicle>();
 
-	public ArrayList<Vehicle> getVehicles() {
+	public static ArrayList<Vehicle> getVehicles() {
 		return vehicles;
 	}
 

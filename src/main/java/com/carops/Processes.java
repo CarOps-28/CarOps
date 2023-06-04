@@ -1,11 +1,13 @@
 package com.carops;
 
+import java.text.Normalizer;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class Processes {
+    private static Scanner in = new Scanner(System.in);
 
     public static Vehicle vehicleCreationProcess(int code, Object object) {
-        // GUI Input fields
         Scanner in = new Scanner(System.in);
 
         String vehiclePlateNumber;
@@ -20,8 +22,6 @@ public class Processes {
                 found = true;
             }
         }while (found==true);
-
-
 
         System.out.println("\nVehicle has not been registered yet. Provide details:");
         System.out.print("Vehicle brand: ");
@@ -62,7 +62,6 @@ public class Processes {
     }
 
     public static Customer customerCreationProcess(Object object) {
-        // GUI Input fields
         Scanner in = new Scanner(System.in);
 
         String customerPhoneNumber;
@@ -109,7 +108,7 @@ public class Processes {
             System.out.println("Reception Engineer - 3");
             System.out.println("Supervisor Engineer - 4");
             System.out.println("Engineer - 5");
-            System.out.println("Exit - 0");
+            System.out.println("Exit / Run GUI - 0");
             return  checkInputData(0 ,5);
         }
         else if (code == 1) {
@@ -154,4 +153,98 @@ public class Processes {
         return number;
     }
 
+    public static Object logInFunctionality(int code){
+        Boolean found = false;
+        String userSurname;
+
+        if (code == 1){ // Log in as Secretary
+
+            System.out.print("Secretary surname: ");
+            userSurname = in.nextLine();
+
+
+            while (!found){
+                for (Secretary sec : Secretary.secretaryList) {
+                    if (removeTones(userSurname).equalsIgnoreCase(removeTones(sec.getSurname()))) {
+                        System.out.println("Login as " + userSurname + " successful.");
+                        return sec;
+                    }
+                }
+
+                System.out.print("\nSecretary surname not found :(\n");
+                System.out.print("Secretary surname: ");
+                userSurname = in.nextLine();
+
+            }
+
+        }else if (code == 2){ // Log in as Reception
+
+            System.out.print("Reception surname: ");
+            userSurname = in.nextLine();
+
+            while (!found){
+                for (Engineer engineer : EngineerCatalog.fetchEngineers()) {
+                    if (removeTones(userSurname).equalsIgnoreCase(removeTones(engineer.getSurname()))  && engineer.getRole().equalsIgnoreCase("reception")) {
+                        System.out.println("Login as " + userSurname + " successful.");
+                        return engineer;
+                    }
+                }
+
+                System.out.print("\nReception surname not found :(");
+                System.out.print("Reception surname: ");
+                userSurname = in.nextLine();
+
+            }
+        }else if (code == 3){ // Log in as Supervisor
+
+            System.out.print("Supervisor surname: ");
+            userSurname = in.nextLine();
+
+            while (!found){
+                for (Engineer engineer : EngineerCatalog.fetchEngineers()) {
+                    if (removeTones(userSurname).equalsIgnoreCase(removeTones(engineer.getSurname())) && engineer.getRole().equalsIgnoreCase("supervisor")) {
+                        System.out.println("Login as " + userSurname + " successful.");
+                        return engineer;
+                    }
+                }
+
+                System.out.print("\nSupervisor surname not found :(");
+                System.out.print("Supervisor surname: ");
+                userSurname = in.nextLine();
+
+            }
+        }else if (code == 4) { // Log in as Engineer
+
+                System.out.print("Engineer surname: ");
+                userSurname = in.nextLine();
+
+                while (!found) {
+                    for (Engineer engineer : EngineerCatalog.fetchEngineers()) {
+                        if (removeTones(userSurname).equalsIgnoreCase(removeTones(engineer.getSurname())) && engineer.getRole().equalsIgnoreCase("engineer")) {
+                            System.out.println("Login as " + userSurname + " successful.");
+                            return engineer;
+                        }
+                    }
+
+                    System.out.print("\nEngineer surname not found :(");
+                    System.out.print("Engineer surname: ");
+                    userSurname = in.nextLine();
+
+                }
+            }
+
+        return null;
+    }
+
+    public static String removeTones(String string){
+        // Normalize the string
+        String normalizedString = Normalizer.normalize(string, Normalizer.Form.NFD);
+
+        // Remove diacritical marks
+        String removedTonesString = Pattern.compile("\\p{InCombiningDiacriticalMarks}+").matcher(normalizedString)
+                .replaceAll("");
+
+        return removedTonesString;
+
+    }
 }

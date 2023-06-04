@@ -1,7 +1,5 @@
 package com.carops;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 
 public class Assignment {
@@ -80,7 +78,7 @@ public class Assignment {
 
 	public void printData(){
 		String assignmentStatus;
-		if(this.status==true)
+		if(this.status)
 			assignmentStatus = "Completed";
 		else
 			assignmentStatus = "Pending";
