@@ -28,11 +28,23 @@ public class RepairfileCatalog {
 		int i = 1;
 		System.out.printf("\n> All Repair Files in catalog:\nn %-25s  %-10s  %-13s  %-10s  %-8s  %-8s  %-4s\n",
 				"Repair duration in days", "Status",
-				"Plate number", "Type", "Est Jobs", "Assign J", "Total Cost");
+				"Plate number", "Type", "Est. Jobs", "Assigned Jobs", "Total Cost");
 		for (Repairfile rp : repairfiles) {
 			System.out.printf("%d", i);
 			rp.printData();
 			i++;
+		}
+	}
+
+	public static void printAssignments() {
+		System.out.println("\n> All Assignments with pending completion:");
+		for(Repairfile repairfile : fetchRepairfiles()){
+			System.out.println("Repair file with plate number " + repairfile.getVehicle().getPlateNumber() + ":");
+			System.out.printf("%-20s |%-20s |%-10s |%-15s\n", "Engineer surname", "Job name", "Worktime", "Status");
+			for(Assignment assignment : repairfile.getAssignments()){
+				if(assignment.getStatus() == false)
+					assignment.printData();
+			}
 		}
 	}
 

@@ -186,23 +186,27 @@ public class CarOps extends Application {
 
         supervisorEngineer.createAssignment(engineer1, job1,
                 RepairfileCatalog.fetchRepairfilebyVehicle(vehicle5.getPlateNumber()));
-        System.out.println("New Assignment in engineer: " + engineer1.getName() + " has been created");
+        System.out.println("New Assignment in engineer: " + engineer1.getSurname() + " has been created. Job removed from Estimated Jobs list.");
+        RepairfileCatalog.fetchRepairfilebyVehicle(vehicle5.getPlateNumber()).getJobs().remove(job1); //removes job from estimated list after assigning it to engineer.
         System.out.println();
 
         supervisorEngineer.createAssignment(engineer2, job2,
                 RepairfileCatalog.fetchRepairfilebyVehicle(vehicle5.getPlateNumber()));
-        System.out.println("New Assignment in engineer: " + engineer2.getName() + " has been created");
+        System.out.println("New Assignment in engineer: " + engineer2.getSurname() + " has been created. Job removed from Estimated Jobs list.");
+        RepairfileCatalog.fetchRepairfilebyVehicle(vehicle5.getPlateNumber()).getJobs().remove(job2); //removes job from estimated list after assigning it to engineer.
         System.out.println();
 
         Vehicle vehicle6 = supervisorEngineer.searchVehicle("NIK3745");
         supervisorEngineer.createAssignment(engineer1, job3,
                 RepairfileCatalog.fetchRepairfilebyVehicle(vehicle6.getPlateNumber()));
-        System.out.println("New Assignment in engineer: " + engineer1.getName() + " has been created");
+        System.out.println("New Assignment in engineer: " + engineer1.getSurname() + " has been created. Job removed from Estimated Jobs list");
+        RepairfileCatalog.fetchRepairfilebyVehicle(vehicle6.getPlateNumber()).getJobs().remove(job3); //removes job from estimated list after assigning it to engineer.
         System.out.println();
 
-        // ------------------ Engineers set spareParts ------------------
 
-        // ------------------ engineer1 add sparepart to assignment2 - Repairfile 1
+        // ------------------ Engineers mark assignments as completed and set spareParts and worktime ------------------
+
+        // ------------------ engineer1 add sparepart to assignment - Repairfile 1
         // ------------------
         Assignment assignment1 = engineer1.getAssignments().get(0);
 
@@ -213,8 +217,10 @@ public class CarOps extends Application {
         assignment1.setSpareParts(spareParts1);
 
         assignment1.setWorktime(4);
+        assignment1.setStatus(true); //mark assignment as completed
+        engineer1.getAssignments().remove(assignment1); //remove assignment from engineer's assignment list after completion.
 
-        // ------------------ engineer2 add sparepart to assignment2 - Repairfile 1
+        // ------------------ engineer2 add sparepart to assignment - Repairfile 1
         // ------------------
         Assignment assignment2 = engineer2.getAssignments().get(0);
 
@@ -223,10 +229,12 @@ public class CarOps extends Application {
         assignment2.setSpareParts(spareParts2);
 
         assignment2.setWorktime(4);
+        assignment2.setStatus(true); //mark assignment as completed
+        engineer2.getAssignments().remove(assignment2); //remove assignment from engineer's assignment list after completion.
 
-        // ------------------ engineer1 add sparepart to assignment2 - Repairfile 2
+        // ------------------ engineer1 add sparepart to assignment - Repairfile 2
         // ------------------
-        Assignment assignment3 = engineer1.getAssignments().get(1);
+        Assignment assignment3 = engineer1.getAssignments().get(0);
 
         HashMap<SparePart, Integer> spareParts3 = new HashMap<>();
 
@@ -236,6 +244,8 @@ public class CarOps extends Application {
         assignment3.setSpareParts(spareParts3);
 
         assignment3.setWorktime(16);
+        assignment3.setStatus(true); //mark assignment as completed
+        engineer1.getAssignments().remove(assignment3); //remove assignment from engineer's assignment list after completion.
 
         // ------------------ supervisor ------------------
         supervisorEngineer
@@ -254,8 +264,23 @@ public class CarOps extends Application {
         VehicleCatalog.printData();
         EngineerCatalog.printData();
 
+        // ------------------ EXTRA INTERACTIVE FUNCTIONALITY WITH TEXT MENU! ------------------
+        //test jobs
+
+         Job job4 = new Job("test job", 70, "");
+        Job job5 = new Job("assignment test job", 80, "");
+
+        //test assignments - CAUTION : Removing // will mark both repairfiles made above as not completed.
+        //Supervisor won't be able to mark repair file as completed unless the corresponding
+        //engineer (tsolakidis) marks assignment as completed and provides spareparts and worktime.
+        //Functionality is working as intended.
+
+         supervisorEngineer.createAssignment(engineer1, job5,
+                 RepairfileCatalog.fetchRepairfilebyVehicle(vehicle5.getPlateNumber()));
+         supervisorEngineer.createAssignment(engineer1, job5,
+                 RepairfileCatalog.fetchRepairfilebyVehicle(vehicle6.getPlateNumber()));
+
         Owner owner = new Owner("owner", "owner");
-//        TEXT MENU
 
         int testerChoice = Processes.options(0);
         while(testerChoice != 0){
@@ -303,6 +328,7 @@ public class CarOps extends Application {
             CustomerCatalog.printData();
             VehicleCatalog.printData();
             EngineerCatalog.printData();
+            RepairfileCatalog.printAssignments();
 
             testerChoice = Processes.options(0);
         }
@@ -854,16 +880,19 @@ public class CarOps extends Application {
                             ArrayList<Engineer> engineers = EngineerCatalog.fetchEngineers();
                             ArrayList<Job> jobs = repairfile.getJobs();
 
-                            System.out.println("\nUnassigned Estimated Jobs from Reception:");
+                            repairfileChoice = -1;
                             int counter = 1;
-                            for (Job job : jobs) {
-                                System.out.println(counter + ") " + job.getName());
-                                counter++;
+                            if (!jobs.isEmpty()){
+                                System.out.println("\nUnassigned Estimated Jobs from Reception:");
+                                for (Job job : jobs) {
+                                    System.out.println(counter + ") " + job.getName());
+                                    counter++;
+                                }
                             }
+                            else
+                                System.out.println("\nNo more jobs left to assign. Add new ones or continue.");
 
                             boolean done = false;
-                            repairfileChoice = -1;
-
                             while (done != true && repairfileChoice!=0) {
                                 System.out.println();
                                 System.out.println("Set job to engineer - 1");
@@ -910,7 +939,7 @@ public class CarOps extends Application {
                                             jobs.remove(jobs.get(jobNumber - 1)); //remove job from estimated list after assigning it to engineer.
 
                                         } else {
-                                            System.out.println("No more jobs left to assign. Add new ones or continue.\n");
+                                            System.out.println("No more jobs left to assign. Add new ones or continue.");
                                             done = true;
                                         }
 
@@ -918,18 +947,31 @@ public class CarOps extends Application {
 
                                     case 2:
                                         counter = 1;
+                                        //this list is needed so the selected job is properly added to the repair file's estimated jobs list.
+                                        ArrayList<Job> availableJobsToAdd = new ArrayList<>();
+
                                         for (Job job : JobCatalog.fetchJobs()) {
-                                            if (!jobs.contains(job)) { // if job isn't already in estimated jobs list
-                                                System.out.println(counter + ") " + job.getName());
+                                            boolean print = true; //used to print a job if it isn't an assignment or already in estimated jobs list.
+                                            if (jobs.contains(job)) { // if job is already in estimated jobs list, don't print.
+                                                print = false;
                                             }
-                                            counter++;
+                                            for(Assignment assignment : repairfile.getAssignments()){ //if job is in any of the assignments, do not print too.
+                                                if(job.getName().equals(assignment.getJob().getName()))
+                                                    print = false;
+                                            }
+                                            if(print == true){
+                                                System.out.println(counter + ") " + job.getName());
+                                                availableJobsToAdd.add(job);
+                                                counter++;
+                                            }
                                         }
                                         System.out.println();
+
 
                                         System.out.print("Add a job: ");
                                         jobNumber = in.nextInt();
 
-                                        jobs.add(JobCatalog.fetchJobs().get(jobNumber - 1));
+                                        jobs.add(availableJobsToAdd.get(jobNumber - 1));
 
                                         break;
                                 }
