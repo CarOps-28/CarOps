@@ -52,7 +52,7 @@ public class Appointment {
 		return this.vehiclePlateNumber;
 	}
 
-	public boolean isStatus() {
+	public boolean getStatus() {
 		return this.status;
 	}
 
@@ -79,5 +79,15 @@ public class Appointment {
 
 	public void setRepairfile(Repairfile repairfile) {
 		this.repairfile = repairfile;
+	}
+
+	public String toString(){
+		Customer c = CustomerCatalog.fetchCustomerById(this.customerId);
+		Vehicle v = VehicleCatalog.fetchVehicleByPlateNumber(this.vehiclePlateNumber);
+
+		return date.getDateTime() + " Customer: " + (c==null ? "No customer" : c.getSurname() )+ " Vehicle: " +(v==null ? "No vehicle" : v.getPlateNumber());
+	}
+	public String getDate(){
+		return this.date.getDateTime();
 	}
 }

@@ -38,5 +38,8 @@ public class Customer extends Person {
 	public String getAddress() {
 		return this.address;
 	}
+	public String toString(){
 
+		return this.name + " " + this.surname + " " + this.phoneNumber + " " + this.email;
+	}
 }

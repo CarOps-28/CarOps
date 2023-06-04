@@ -86,4 +86,9 @@ public class Vehicle {
 		this.repairfiles.add(repairfiles);
 		repairfiles.setVehicle(this);
 	}
+
+	public String toString(){
+
+		return this.plateNumber + " " + this.model + " " + this.prodYear + " " + this.vehicleType;
+	}
 }

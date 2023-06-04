@@ -42,7 +42,7 @@ public class Secretary extends Person {
 	// Ανάλογα με τον τύπο του οχήματος καλείται ο ανάλογος κατασκευαστής του
 	// οχήματος.
 	public Vehicle createVehicle(String plateNumber, String brand, String model, int prodYear, String type,
-			float typeValue) {
+								 float typeValue) {
 		if (type.equalsIgnoreCase("Truck")) {
 			return new Truck(plateNumber, brand, model, prodYear, type, typeValue);
 		} else if (type.equalsIgnoreCase("Motorcycle")) {
