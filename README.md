@@ -346,6 +346,14 @@ Choose engineer (1,2...): 1
 
 ![User interface with javaFX](img/2.png)
 
+<h2> Sprint burndown chart </h2>
+
+![Sprint burndown chart](img/sprintburndownChart.png)
+
+<h2> Sprint backlog </h2>
+
+![Sprint burndown chart](img/sprintbacklog.png)
+
 <hr>
 <p align="center"> <i> Η παρούσα εργασία υλοποιήθηκε στα πλαίσια του μαθήματος 
 <br>
