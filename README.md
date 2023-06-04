@@ -342,9 +342,13 @@ Choose engineer (1,2...): 1
 </details>
 
 
-<h2>HCI with JavaFX:</h2>
+<h1>HCI with JavaFX:</h1>
 
 ![User interface with javaFX](img/2.png)
+
+<h2>Secretary screen UI:</h2>
+
+![Secretery screen with JavaFX](img/secsrc.png)
 
 <h2> Sprint burndown chart </h2>
 
