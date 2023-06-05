@@ -46,6 +46,8 @@
 Για την υλοποίηση του σε κώδικα αποφασίσαμε τη δημοσίευση του στο GitHub για να διευκολυνθεί η ομάδα. Ήταν η πρώτη ανάπτυξη ενός πληροφοριακού συστήματος που κάναμε και είμαστε πλήρως ευχαριστημένοι από τα αποτελέσματα και την λειτουργικότητα του. Ανυπομονούμε να το εγκαταστήσουμε στην επιχείρηση για να ικανοποιηθούν όλες οι απαιτήσεις της διεύθυνσης.>>
 </p></i>
 
+## Εξαγωγή δεδομένων
+
 <h2>Εξαγωγή δεδομένων από την μέθοδο printData():</h2>
 
 ```
@@ -341,24 +343,33 @@ Choose engineer (1,2...): 1
   
 </details>
 
+<br>
 
-<h1>HCI with JavaFX:</h1>
+# HCI with JavaFX: 
 
 <h2>Secretary screen UI:</h2>
 
 ![Secretery screen with JavaFX](img/secsrc.png)
 
+## Screen creation customer & vehicle
+
+![creation customer and vehicle screen](img/custvehiscreen.png)
+
 ### Owner assignment engineer to role screen:
 
 ![User interface with javaFX](img/2.png)
 
-## Sprint burndown chart 
+# Sprint
+
+## Sprint backlog 
+
+![Sprint burndown chart](img/sprintbacklog.png)
+
+
+## burndown chart
 
 ![Sprint burndown chart](img/sprintburndownChart.png)
 
-<h2> Sprint backlog </h2>
-
-![Sprint burndown chart](img/sprintbacklog.png)
 
 <hr>
 <p align="center"> <i> Η παρούσα εργασία υλοποιήθηκε στα πλαίσια του μαθήματος 
