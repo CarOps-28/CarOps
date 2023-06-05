@@ -355,7 +355,7 @@ Choose engineer (1,2...): 1
 
 ![creation customer and vehicle screen](img/custvehiscreen.png)
 
-### Owner assignment engineer to role screen:
+## Owner assignment engineer to role screen:
 
 ![User interface with javaFX](img/2.png)
 
@@ -388,7 +388,7 @@ Choose engineer (1,2...): 1
 
 <p> CarOps is available as open source under the terms of <a href="https://github.com/bill-chamal/Car-service-IS/blob/db37606a14da6933994ade9e4c618c37b5444c1f/LICENSE">The MIT License (MIT)</a></p>
 
-<p>Copyright © 2023 Bill Chamalidis et al.</p>
+<p>Copyright © 2023 CarOps-28.</p>
 
 <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
 
