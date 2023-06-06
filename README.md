@@ -1,7 +1,7 @@
 # CarOps Information System
 
-<img src="img/UOMLOGOGR.png#gh-light-mode-only" alt= “” width="20%" height="20%"> 
-<img src="img/UOMLOGOGRWHITE.png#gh-dark-mode-only" alt= “” width="20%" height="20%"> 
+<img src="img/UOMLOGOGR.png#gh-light-mode-only" alt= “University of Macedonia logo for light mode” width="20%" height="20%"> 
+<img src="img/UOMLOGOGRWHITE.png#gh-dark-mode-only" alt= “University of Macedonia logo for dark mode” width="20%" height="20%"> 
 
 <table>
   <caption>Ομάδα 28</caption>
@@ -28,11 +28,11 @@
 </table>
 <br>
 
-## Instructions
+# Instructions
 
 Here we give instruction about where to download IntelliJ and JavaFX.
 
-# Jetbrains IntelliJ IDEA Setup
+## Jetbrains IntelliJ IDEA Setup
 
 You can install IntelliJ IDEA from <a href="https://www.jetbrains.com/idea/">here</a>. If you have an academic email you can download it for free but if you don’t, you can choose the option trial.
 
@@ -42,8 +42,10 @@ This project also includes JavaFx library in order to implement graphical interf
 
 <details>
   <summary>
-    <h2>printData()</h2>
+
+## printData() 
   </summary>
+
 
 ```
 > All Jobs in Catalog:
@@ -72,7 +74,9 @@ n Repair duration in days    Total Cost
 
 <details>
   <summary>
-    <h2>Objected created successful message</h2>
+
+## Objected created successful message 
+
   </summary>
   
 ```
@@ -140,7 +144,9 @@ New Assignment in engineer: Martha has been created
 
 <details>
   <summary>
-     <h2>Catalog print data</h2>
+
+## Catalog print data 
+
   </summary>
   
   ```
@@ -180,7 +186,9 @@ n ID        Name             Surname          Role
 
 <details>
   <summary>
-    <h2>Secretary creates a appointment without vehicle</h2>
+
+## Secretary creates a appointment without vehicle 
+
   </summary>
 
 ```
@@ -231,7 +239,9 @@ Exit - 0
 
   <details>
   <summary>
-     <h2>Reception Engineer adds jobs to repair file</h2>
+
+## Reception Engineer adds jobs to repair file 
+
   </summary>
   
 ```
@@ -273,7 +283,9 @@ Create Repairfile - 1
 
 <details>
 <summary>
-<h2> Supervisor assigns jobs to engineers</h2>
+
+## Supervisor assigns jobs to engineers
+
 </summary>
 
 ```
@@ -368,7 +380,7 @@ Choose engineer (1,2...): 1
 
 <p> CarOps is available as open source under the terms of <a href="https://github.com/bill-chamal/Car-service-IS/blob/db37606a14da6933994ade9e4c618c37b5444c1f/LICENSE">The MIT License (MIT)</a></p>
 
-<p>Copyright © 2023 Bill Chamalidis et al.</p>
+<p>Copyright © 2023 CarOps-28.</p>
 
 <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
 
