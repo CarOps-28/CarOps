@@ -138,7 +138,7 @@ public class CarOps extends Application {
         Vehicle vehicle2 = vergidis.searchVehicle("NIK3745");
 
         ArrayList<Job> estJobs2 = new ArrayList<>();
-        estJobs1.add(job3);
+        estJobs2.add(job3);
         vergidis.createRepairFile(vehicle2, estJobs2, 16);
         System.out.println("New Repairfile with vehicle " + vehicle1.getPlateNumber() + " has been created");
         System.out.println();
@@ -170,16 +170,25 @@ public class CarOps extends Application {
         System.out.println("New Assignment in engineer: " + engineer1.getName() + " has been created");
         System.out.println();
 
+        //remove assignment from estimated job list. this happens automatically in program.
+        RepairfileCatalog.fetchRepairfilebyVehicle(vehicle5.getPlateNumber()).getJobs().remove(job1);
+
         supervisorEngineer.createAssignment(engineer2, job2,
                 RepairfileCatalog.fetchRepairfilebyVehicle(vehicle5.getPlateNumber()));
         System.out.println("New Assignment in engineer: " + engineer2.getName() + " has been created");
         System.out.println();
+
+        //remove assignment from estimated job list. this happens automatically in program.
+        RepairfileCatalog.fetchRepairfilebyVehicle(vehicle5.getPlateNumber()).getJobs().remove(job2);
 
         Vehicle vehicle6 = supervisorEngineer.searchVehicle("NIK3745");
         supervisorEngineer.createAssignment(engineer1, job3,
                 RepairfileCatalog.fetchRepairfilebyVehicle(vehicle6.getPlateNumber()));
         System.out.println("New Assignment in engineer: " + engineer1.getName() + " has been created");
         System.out.println();
+
+        //remove assignment from estimated job list. this happens automatically in program.
+        RepairfileCatalog.fetchRepairfilebyVehicle(vehicle6.getPlateNumber()).getJobs().remove(job3);
 
         // ------------------ Engineers set spareParts ------------------
 
@@ -203,6 +212,7 @@ public class CarOps extends Application {
 
         assignment2.setWorktime(4);
 
+
         // ------------------ engineer1 add sparepart to assignment2 - Repairfile 2
         Assignment assignment3 = engineer1.getAssignments().get(1);
 
@@ -215,12 +225,21 @@ public class CarOps extends Application {
 
         assignment3.setWorktime(16);
 
+        //this happens automatically when registering spareparts and worktime in the program.
+        assignment1.setStatus(true);
+        assignment2.setStatus(true);
+        assignment3.setStatus(true);
+
         // Supervisor
         supervisorEngineer
                 .callRecordTotalSparePartsFromRepairfile(RepairfileCatalog.fetchRepairfilebyVehicle("KTR4456"));
 
         supervisorEngineer
                 .callRecordTotalSparePartsFromRepairfile(RepairfileCatalog.fetchRepairfilebyVehicle("NIK3745"));
+
+        //this happens automatically when registering spareparts and worktime in the program.
+        supervisorEngineer.searchRepairfile("KTR4456").setStatus("Completed");
+        supervisorEngineer.searchRepairfile("NIK3745").setStatus("Completed");
 
         // ------------------ PRINT STATISTICS ------------------
         System.out.println("Total Catalog contents:");
@@ -407,11 +426,14 @@ public class CarOps extends Application {
                         }else {
                             if (repairfile == null) {
                                 System.out.println("\nNo repair file found with such vehicle plate number.");
-                            } else if (repairfile.getStatus().equals("Awaiting")) {
+                                proceed = false;
+                            } else if (!repairfile.getStatus().equals("Awaiting")) {
                                 System.out.println("\nRepair file found but its status is not Awaiting.");
+                                proceed = false;
+                            }else if (!repairfile.getStatus().equals("Awaiting")) {
+                                System.out.println("");
+                                proceed = true;
                             }
-                            proceed = false;
-
                         }
                     } while (!proceed);
 
@@ -429,7 +451,7 @@ public class CarOps extends Application {
                     }
                 }
                 case 5 -> {
-                    System.out.println("\nPrint repair file by entering the corresponding vehicle plate number");
+                    System.out.println("\nPrint repair file by entering the vehicle's plate number.");
                     System.out.print("Enter Vehicle plate number: ");
                     plateNumber = in.nextLine();
 
@@ -653,69 +675,84 @@ public class CarOps extends Application {
 
                             if(vehicle == null) {
                                 System.out.println();
-                                System.out.println("Vehicle not found.");
+                                System.out.println("Vehicle not found.\n");
                                 System.out.println("Search vehicle - 1");
                                 System.out.println("Create vehicle - 2");
                                 System.out.println("Exit - 0");
 
                                 engineerChoice = Processes.checkInputData(0, 2);
-                            }else{
-                                engineerChoice = -1;
-                            }
-                        }
 
-                        if (engineerChoice == 2){
-                            vehicle = Processes.vehicleCreationProcess(2, receptionEngineerObject);
-                        }else if (engineerChoice == -1 && vehicle != null){
-                            System.out.println("Vehicle found.");
-                            System.out.println();
-
-                            Repairfile repairfile = RepairfileCatalog.fetchRepairfilebyVehicle(plateNumber);
-                            if (repairfile != null){
-                                if (!repairfile.getStatus().equals("Completed")){
-                                    System.out.println("Repairfile already exist.");
+                                if(engineerChoice == 0)
                                     break;
+
+                                else if (engineerChoice == 2){
+                                    System.out.println();
+                                    vehicle = Processes.vehicleCreationProcess(2, receptionEngineerObject);
                                 }
                             }
+                            else{
+                                boolean proceed = true;
 
-                        }else if(engineerChoice == 0){
-                            break;
+                                System.out.println("\nVehicle found.");
+
+                                //check if vehicle is already in the system. Repair file creation
+                                //will only happen if the vehicle has never been repaired in the shop before
+                                // or if latest repair file is either Completed or Declined.
+                                Repairfile repairfile = RepairfileCatalog.fetchRepairfilebyVehicle(plateNumber);
+                                if (repairfile != null) { //repairfile with this vehicle already in system
+                                    if (repairfile.getStatus().equals("Accepted")) {
+                                        System.out.println("Vehicle currently getting repaired. Search another vehicle.");
+                                        proceed = false;
+                                    }
+                                    else if(repairfile.getStatus().equals("Awaiting")){
+                                        System.out.println("Already diagnosed this Vehicle. Customer answer pending to continue repairs.");
+                                        proceed = false;
+                                    }
+                                }
+
+                                //vehicle waiting for diagnostic check
+                                if (proceed == true) {
+                                    int job = 0;
+                                    ArrayList<Job> jobs = new ArrayList<Job>();
+
+                                    do {
+                                        System.out.println("\nChoose a Job (1,2,ect...): ");
+
+                                        int counter = 1;
+                                        for (Job jb : JobCatalog.fetchJobs()) {
+                                            if (!jobs.contains(jb)) {
+                                                System.out.println(counter + ") " + jb.getName());
+                                            }
+                                            counter++;
+                                        }
+
+                                        System.out.println("stop adding jobs - 0");
+
+                                        System.out.print("your choice: ");
+                                        job = in.nextInt();
+
+                                        for (int i = 0; i < JobCatalog.fetchJobs().size(); i++) {
+                                            if (job == (i + 1)) {
+                                                jobs.add(JobCatalog.fetchJobs().get(i));
+                                            }
+                                        }
+
+                                    } while (job != 0);
+
+                                    System.out.print("\nAdd estimated hours: ");
+                                    estDays = in.nextInt();
+                                    in.nextLine(); //to enter character
+                                    System.out.print("\nRepair file created.\n");
+                                    assert vehicle != null;
+                                    receptionEngineerObject.createRepairFile(vehicle, jobs, estDays);
+
+                                    break;
+
+                                }
+                            }
                         }
 
-                        int job = 0;
-                        ArrayList<Job> jobs = new ArrayList<Job>();
-
-                        do {
-                            System.out.println("\nChoose a Job (1,2,ect...): ");
-
-                            int counter = 1;
-                            for (Job jb : JobCatalog.fetchJobs()) {
-                                if (!jobs.contains(jb)) {
-                                    System.out.println(counter + ") " + jb.getName());
-                                }
-                                counter++;
-                            }
-
-                            System.out.println("stop adding jobs - 0");
-
-                            System.out.print("your choice: ");
-                            job = in.nextInt();
-
-                            for (int i = 0; i < JobCatalog.fetchJobs().size(); i++) {
-                                if (job == (i + 1)) {
-                                    jobs.add(JobCatalog.fetchJobs().get(i));
-                                }
-                            }
-
-                        } while (job != 0);
-
-                        System.out.print("\nAdd estimated hours: ");
-                        estDays = in.nextInt();
-                        System.out.print("\n");
-                        assert vehicle != null;
-                        receptionEngineerObject.createRepairFile(vehicle, jobs, estDays);
-
-                        in.nextLine(); //to consume plateNumber enter character after in.nextLine();
+                        break;
                 }
             }
 
@@ -755,101 +792,113 @@ public class CarOps extends Application {
 
                         case 1:
                             do {
-                                System.out.print("\nEnter Vehicle plate number: ");
+                                repairfile = null;
+                                System.out.print("\nEnter Vehicle plate number or <<Exit>> to abandon search: ");
                                 plateNumber = in.nextLine();
 
                                 assert supervisorEngineerObject != null; // Empty object warning
                                 repairfile = supervisorEngineerObject.searchRepairfile(plateNumber);
 
-                                if(repairfile==null)
-                                    System.out.println("No repair file found.");
-                            } while (repairfile == null);
+                                if(!plateNumber.equalsIgnoreCase("Exit")){
+                                    if(repairfile==null)
+                                        System.out.println("No repair file found.");
+                                    else if (!repairfile.getStatus().equals("Accepted")) {
+                                        System.out.println("Cannot create assignments for this vehicle.");
+                                        repairfile = null; //to search again
+                                    }
+                                }
+                            } while (repairfile == null && !plateNumber.equalsIgnoreCase("Exit"));
 
-                            System.out.println("Repair file found.");
-                            ArrayList<Engineer> engineers = EngineerCatalog.fetchEngineers();
-                            ArrayList<Job> jobs = repairfile.getJobs();
+                            if(!plateNumber.equalsIgnoreCase("Exit")){
+                                System.out.println("Repair file found.");
+                                ArrayList<Engineer> engineers = EngineerCatalog.fetchEngineers();
+                                ArrayList<Job> jobs = repairfile.getJobs();
 
-                            System.out.println("\nUnassigned Estimated Jobs from Reception:");
-                            int counter = 1;
-                            for (Job job : jobs) {
-                                System.out.println(counter + ") " + job.getName());
-                                counter++;
-                            }
+                                System.out.println("\nUnassigned Estimated Jobs from Reception:");
+                                int counter = 1;
+                                for (Job job : jobs) {
+                                    System.out.println(counter + ") " + job.getName());
+                                    counter++;
+                                }
 
-                            boolean done = false;
-                            repairfileChoice = -1;
+                                boolean done = false;
+                                repairfileChoice = -1;
 
-                            while ( !done && repairfileChoice!=0 ) {
-                                System.out.println();
-                                System.out.println("Set job to engineer - 1");
-                                System.out.println("Add new job - 2");
-                                System.out.println("Exit - 0");
+                                while ( !done && repairfileChoice!=0 ) {
+                                    System.out.println();
+                                    System.out.println("Set job to engineer - 1");
+                                    System.out.println("Add new job - 2");
+                                    System.out.println("Exit - 0");
 
-                                repairfileChoice = Processes.checkInputData(0, 2);
+                                    repairfileChoice = Processes.checkInputData(0, 2);
 
-                                switch (repairfileChoice) {
-                                    case 0:
-                                        break;
+                                    switch (repairfileChoice) {
+                                        case 0:
+                                            break;
 
-                                    case 1:
-                                        System.out.println("\n------------ Set job to engineer ------------");
-                                        System.out.println("Available engineers:");
-                                        counter = 1;
-                                        for (Engineer engineer : EngineerCatalog.fetchEngineers()) {
-                                            System.out.println(counter + ") " + engineer.getName() + " " + engineer.getSurname());
-                                            counter++;
-                                        }
-                                        System.out.println();
-
-                                        if (!jobs.isEmpty()) {
-                                            System.out.println("Unassigned Estimated Jobs from Reception:");
+                                        case 1:
+                                            System.out.println("\n------------ Set job to engineer ------------");
+                                            System.out.println("Available engineers:");
                                             counter = 1;
-                                            for (Job job : jobs) {
-                                                System.out.println(counter + ") " + job.getName());
+                                            for (Engineer engineer : EngineerCatalog.fetchEngineers()) {
+                                                System.out.println(counter + ") " + engineer.getName() + " " + engineer.getSurname());
                                                 counter++;
                                             }
-
                                             System.out.println();
-                                            System.out.print("Choose Job (1,...): ");
+
+                                            if (!jobs.isEmpty()) {
+                                                System.out.println("Unassigned Estimated Jobs from Reception:");
+                                                counter = 1;
+                                                for (Job job : jobs) {
+                                                    System.out.println(counter + ") " + job.getName());
+                                                    counter++;
+                                                }
+
+                                                System.out.println();
+                                                System.out.print("Choose Job (1,...): ");
+                                                jobNumber = in.nextInt();
+
+                                                System.out.print("Choose engineer (1,...): ");
+                                                engineerNumber = in.nextInt();
+                                                in.nextLine(); //to discard enter from in.nextInt();
+
+                                                System.out.println("\nJob " + jobs.get(jobNumber - 1).getName() + " assigned to engineer " + engineers.get(engineerNumber - 1).getSurname());
+
+                                                Assignment assignment = new Assignment(engineers.get(engineerNumber - 1), jobs.get(jobNumber - 1), repairfile);
+
+                                                repairfile.addAssignment(assignment); //add assignment to repairfile
+                                                engineers.get(engineerNumber).addAssignment(assignment); //add assignment to engineer
+                                                jobs.remove(jobs.get(jobNumber - 1)); //remove job from estimated list after assigning it to engineer.
+
+                                            } else {
+                                                System.out.println("No more jobs left to assign. Add new ones or continue.\n");
+                                                done = true;
+                                            }
+
+                                            break;
+
+                                        case 2:
+                                            counter = 1;
+                                            for (Job job : JobCatalog.fetchJobs()) {
+                                                if (!jobs.contains(job)) { // if job isn't already in estimated jobs list
+                                                    System.out.println(counter + ") " + job.getName());
+                                                }
+                                                counter++;
+                                            }
+                                            System.out.println();
+
+                                            System.out.print("Add a job: ");
                                             jobNumber = in.nextInt();
 
-                                            System.out.print("Choose engineer (1,...): ");
-                                            engineerNumber = in.nextInt();
-                                            in.nextLine(); //to discard enter from in.nextInt();
+                                            jobs.add(JobCatalog.fetchJobs().get(jobNumber - 1));
 
-                                            System.out.println("\nJob " + jobs.get(jobNumber - 1).getName() + " assigned to engineer " + engineers.get(engineerNumber - 1).getSurname());
-
-                                            Assignment assignment = new Assignment(engineers.get(engineerNumber - 1), jobs.get(jobNumber - 1), repairfile);
-
-                                            repairfile.addAssignment(assignment); //add assignment to repairfile
-                                            engineers.get(engineerNumber).addAssignment(assignment); //add assignment to engineer
-                                            jobs.remove(jobs.get(jobNumber - 1)); //remove job from estimated list after assigning it to engineer.
-
-                                        } else {
-                                            System.out.println("No more jobs left to assign. Add new ones or continue.\n");
-                                            done = true;
-                                        }
-
-                                        break;
-
-                                    case 2:
-                                        counter = 1;
-                                        for (Job job : JobCatalog.fetchJobs()) {
-                                            if (!jobs.contains(job)) { // if job isn't already in estimated jobs list
-                                                System.out.println(counter + ") " + job.getName());
-                                            }
-                                            counter++;
-                                        }
-                                        System.out.println();
-
-                                        System.out.print("Add a job: ");
-                                        jobNumber = in.nextInt();
-
-                                        jobs.add(JobCatalog.fetchJobs().get(jobNumber - 1));
-
-                                        break;
+                                            break;
+                                    }
                                 }
+
+                                break;
                             }
+
                     }
 
                     break;
@@ -863,38 +912,54 @@ public class CarOps extends Application {
                             break;
 
                         case 1:
-                            System.out.print("\nEnter Vehicle plate number: ");
                             do{
+                                System.out.print("\nEnter Vehicle plate number or <<Exit>> to abandon search: ");
                                 plateNumber = in.nextLine();
 
-                                assert supervisorEngineerObject != null; // Empty object warning
-                                repairfile = supervisorEngineerObject.searchRepairfile(plateNumber);
-                            }while(repairfile == null);
+                                repairfile = null;
+                                if(!plateNumber.equalsIgnoreCase("Exit")){
+                                    assert supervisorEngineerObject != null; // Empty object warning
+                                    repairfile = supervisorEngineerObject.searchRepairfile(plateNumber);
 
-                            boolean repairCompleted = true;
+                                    if(repairfile == null)
+                                        System.out.println("\n No such vehicle found");
+                                    else if (repairfile.getStatus().equals("Completed")){
+                                        System.out.println("Repair status is already <<Completed>>.");
+                                        repairfile = null; //to search again
+                                    }
+                                    else if (!repairfile.getStatus().equals("Accepted")){
+                                        System.out.println("Cannot set repair status for this vehicle.");
+                                        repairfile = null; //to search again
+                                    }
+                                    else if(!repairfile.getJobs().isEmpty()){
+                                        System.out.println("There are still unassigned jobs for this vehicle. Complete assignments to start repairs.");
+                                        repairfile = null; //to search again
+                                    }
+                                }
+                            }while(repairfile == null && !plateNumber.equalsIgnoreCase("Exit"));
 
-                            for (Assignment assignment : repairfile.getAssignments()) {
-                                if (!assignment.getStatus()) {
-                                    repairCompleted = false;
-                                    break;
+                            if(!plateNumber.equalsIgnoreCase("Exit")){
+                                boolean repairCompleted = true;
+
+                                for (Assignment assignment : repairfile.getAssignments()) {
+                                    if (!assignment.getStatus()) {
+                                        repairCompleted = false;
+                                        break;
+                                    }
+                                }
+
+                                if(!repairCompleted) {
+                                    System.out.println("\nRepair is not yet done for this vehicle.\n");
+                                }
+                                else{
+                                    System.out.println("Repairs completed. Change repair status to <<Completed>> ? (1 - Yes, 0 - No)");
+                                    int answer = Processes.checkInputData(0, 1);
+                                    if(answer == 1) {
+                                        repairfile.setStatus("Completed");
+                                        System.out.println("Repairfile status has been changed.");
+                                    }
                                 }
                             }
-
-                            if(!repairCompleted) {
-                                System.out.println("\nRepair is not yet done for this vehicle.\n");
-                            }
-                            else if (repairfile.getStatus().equals("Completed")){
-                                System.out.println("Repairfile status is already <<Completed>>.");
-                            }
-                            else{
-                                System.out.println("Repairs completed. Change repair status to <<Completed>> ? (1 - Yes, 0 - No)");
-                                int answer = Processes.checkInputData(0, 1);
-                                if(answer == 1) {
-                                    repairfile.setStatus("Completed");
-                                    System.out.println("Repairfile status has been changed.");
-                                }
-                            }
-
                             break;
                     }
                 }

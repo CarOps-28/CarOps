@@ -22,7 +22,6 @@ public class Repairfile {
 		this.estimatedJobs = estimatedJobs;
 
 		this.status= "Awaiting";
-		this.getTotalCost();
 		// Αυτόματη προσθήκη του αντικείμενου Repairfile στον κατάλογο των Repairfile
 		RepairfileCatalog.addRepairfile(this);
 	}
@@ -61,44 +60,33 @@ public class Repairfile {
 		assignments.add(assignment);
 	}
 
-	// Συνάρτηση που υπολογίζει το κόστος των εργασιών επισκευής. Χρησιμοποιείται
-	// για αυτόματο υπολογισμό του εκτιμώμενου
-	// κόστους κατά τη δημιουργία του φακέλου επισκευής και του τελικού κόστους μετά
-	// την επισκευή.
-	private int getJobCost() {
-		int jobPrice = 0;
 
-		for (Assignment assignment : assignments) {
-
-			// άθροισμα της τιμής της κάθε δουλειάς.
-			jobPrice += assignment.getJob().getPrice();
-		}
-
-		return jobPrice;
-	}
-
-	// Συνάρτηση που υπολογίζει το τελικό κόστος λαμβάνοντας τις τιμές από όλες τις
-	// δουλειές και από όλα τα ανταλλακτικά των εργασιών.
+	// Συνάρτηση που υπολογίζει το εκτιμώμενο κόστος λαμβάνοντας τις τιμές των εκτιμώμενων εργασιών
+	// η το τελικό κόστος λαμβάνοντας τις τιμές από όλες τις δουλειές και από όλα τα ανταλλακτικά της επισεκυής.
 	public int getTotalCost() {
 		int totalPrice = 0;
 
-		// Άθροισμα κόστους όλων των δουλειών.
-		totalPrice += getJobCost();
+		if(this.status=="Awaiting"){// υπολογισμός ΕΚΤΙΜΩΜΕΝΟΥ κόστους
+			for(Job job: this.estimatedJobs){
+				totalPrice += job.getPrice();
+			}
+		}
+		else{ //υπολογισμός ΤΕΛΙΚΟΥ κόστους
 
-		for (Assignment assignment : assignments)
-			// Άθροισμα κόστους των ανταλλακτικών της εργασίας.
-			totalPrice += assignment.getSparePartsPrice();
+			for (Assignment assignment : assignments) {
+
+				// άθροισμα της τιμής της κάθε δουλειάς.
+				totalPrice += assignment.getJob().getPrice();
+			}
+
+			for (Assignment assignment : assignments)
+				// Άθροισμα κόστους των ανταλλακτικών της εργασίας.
+				totalPrice += assignment.getSparePartsPrice();
+		}
 
 		return totalPrice;
 	}
 
-	public int getEstimatedPrice(){
-		int price = 0;
-		for(Job job: this.estimatedJobs){
-			price += job.getPrice();
-		}
-		return price;
-	}
 
 	public void printData() {
 		System.out.printf(" |%-25d |%-10s |%-13s |%-10s |%-8d |%-14d |%-4d\u20ac\n",
