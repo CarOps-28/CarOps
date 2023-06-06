@@ -1,4 +1,6 @@
-# CarOps Information System
+
+<h1> CarOps - Αn information systems success story </h1>
+
 
 <img src="img/UOMLOGOGR.png#gh-light-mode-only" alt= “” width="20%" height="20%"> 
 <img src="img/UOMLOGOGRWHITE.png#gh-dark-mode-only" alt= “” width="20%" height="20%"> 
@@ -28,22 +30,23 @@
 </table>
 <br>
 
-## Instructions
 
-Here we give instruction about where to download IntelliJ and JavaFX.
+<i> <p><<
+Το CarOps είναι ένα συνεργείο οχημάτων με μεγάλη αύξηση εργαζομένων και κύκλου εργασιών. Το συνεργείο δέχεται αδιαχείριστα μεγάλο πλήθος πελατών σε συγκεκριμένες ώρες με αποτέλεσμα αυτοί να συνωστίζονται και να μην διατηρείται ουρά προτεραιότητας. 
+</p>
+<p>
+Για πρώτη φορά, η διεύθυνση του CarOps ήρθε με επικοινωνία μαζί. Κύριο θέμα τους ήταν η ανάπτυξη ενός πληροφοριακού συστήματος που θα βοηθούσε το συνεργείο να διαχειρίζεται τους πελάτες και τα οχήματα με πιο αποτελεσματικό τρόπο. Η διεύθυνση φαίνεται να έχει πειστεί αρκετά απ’ ότι ακούγεται στην πιάτσα για τις επιπτώσεις πληροφοριακών συστημάτων σε μία επιχείρηση. Συγκεκριμένα, ήταν αποφασισμένοι να αναθέσουν στα χέρια μας την ανάπτυξη αυτού του συστήματος. Βέβαι, ήταν και λίγο επίφοβοι καθώς αποτελούσαν τους πρώτους πελάτες μας και επειδή δεν είχαμε άλλη εμπειρία πέρα από την Java. Για αυτόν τον λόγο, προτίμησαν να μας δώσουν οδηγίες για να εστιάσουμε σε συγκεκριμένα προβλήματα και να μην ανασχεδιάσουμε ολόκληρη την επιχείρησή τους.
+</p>
+<p>
+Την επόμενη μέρα στρωθήκαμε στην δουλειά. Aποφασίσαμε πρώτα απ’ όλα ότι πρέπει να προετοιμαστούμε καθώς είχαμε να υπολογίσουμε και να αναλογιστούμε πολλά πράγματα όπως, την οικονομική διάσταση και την εφικτότητα του έργου, τις ανάγκες τις επιχείρησης και τα θέματα που μπορεί να καλύψει ένα πληροφοριακό σύστημα. Έχοντας αποτυπώσει όλα αυτά σε δύο μόνο σελίδες χαρτί, το στείλαμε στην διεύθυνση του CarOps περιμένοντας την έγκριση τους. </p>
+<p>
+Πέρασαν μέρες ανυπομονησίας και τελικά λάβαμε την πρώτη έγκρισή για την ανάπτυξη του πληροφοριακού συστήματος της CarOps. Έχοντας διαθέσιμα όλα τα όσα μπορεί να χρειαστούμε, ξεκινήσαμε τις φάσεις ανάλυσης και σχεδίασης και τέλος την υλοποίηση του συστήματος.
+</p>
+<p>
+Για την υλοποίηση του σε κώδικα αποφασίσαμε τη δημοσίευση του στο GitHub για να διευκολυνθεί η ομάδα. Ήταν η πρώτη ανάπτυξη ενός πληροφοριακού συστήματος που κάναμε και είμαστε πλήρως ευχαριστημένοι από τα αποτελέσματα και την λειτουργικότητα του. Ανυπομονούμε να το εγκαταστήσουμε στην επιχείρηση για να ικανοποιηθούν όλες οι απαιτήσεις της διεύθυνσης.>>
+</p></i>
 
-# Jetbrains IntelliJ IDEA Setup
-
-You can install IntelliJ IDEA from <a href="https://www.jetbrains.com/idea/">here</a>. If you have an academic email you can download it for free but if you don’t, you can choose the option trial.
-
-This project also includes JavaFx library in order to implement graphical interfaces. IntelliJ IDEA recognizing this and downloads the library automatically. If this don’t happen, you may want to install it manually from <a href="https://openjfx.io/">here</a>.
-
-# Print output sample
-
-<details>
-  <summary>
-    <h2>printData()</h2>
-  </summary>
+<h2>Εξαγωγή δεδομένων από την μέθοδο printData():</h2>
 
 ```
 > All Jobs in Catalog:
@@ -66,9 +69,6 @@ n Repair duration in days    Total Cost
 1|1                          |105 €
 2|2                          |80  €
 ```
-
-</details>
-
 
 <details>
   <summary>
@@ -140,7 +140,7 @@ New Assignment in engineer: Martha has been created
 
 <details>
   <summary>
-     <h2>Catalog print data</h2>
+     <h2>Printers output</h2>
   </summary>
   
   ```
@@ -341,16 +341,18 @@ Choose engineer (1,2...): 1
   
 </details>
 
-# Scrum
 
-## Sprint backlog  
+<h2>HCI with JavaFX:</h2>
 
-![Sprint burndown chart](img/sprintbacklog.png)
+![User interface with javaFX](img/2.png)
 
-## Sprint burndown chart  
+<h2> Sprint burndown chart </h2>
 
 ![Sprint burndown chart](img/sprintburndownChart.png)
 
+<h2> Sprint backlog </h2>
+
+![Sprint burndown chart](img/sprintbacklog.png)
 
 <hr>
 <p align="center"> <i> Η παρούσα εργασία υλοποιήθηκε στα πλαίσια του μαθήματος 
@@ -360,7 +362,6 @@ Choose engineer (1,2...): 1
 4ου εξαμήνου </i> </p> 
 
 <p align="center"> Θεσσαλονίκη 2023  </p> 
-
 
 <h2>license:</h2>
 <hr>
@@ -375,4 +376,5 @@ Choose engineer (1,2...): 1
 <p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
 
 <p>THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+
 
