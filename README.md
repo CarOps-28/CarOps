@@ -40,81 +40,59 @@ This project also includes JavaFx library in order to implement graphical interf
 
 # Print output sample
 
-<details>
-  <summary>
-
-## printData() 
-  </summary>
-
-
-```
-> All Jobs in Catalog:
-n Name                       Price     
-1|Oil change                 |20 €
-2|Cabin filter change        |5  €
-3|Brake maintenance          |30 €
-
-> All Spare part:
-n Name                       Price per unit
-1|Oil package 4lt            |30 €
-2|Oil filter                 |20 €
-3|Cabin filter               |30 €
-4|Front wheel brake pad      |5  €
-5|Back wheel brake pad       |5  €
-6|Break oil                  |10 €
-
-> All Repair File:
-n Repair duration in days    Total Cost
-1|1                          |105 €
-2|2                          |80  €
-```
-
-</details>
-
-
-
-
 ## Catalog print data 
 
-
-  
   ```
-  Total Catalog contents:
+Total Catalog contents:
+
+> All Jobs in catalog:
+n Name                        Price     
+1 |Oil change                 |20 €
+2 |Cabin filter change        |5  €
+3 |Brake maintenance          |30 €
+
+> All Spare Parts in catalog:
+n Name                       |A-Q  Price per unit
+1 |Oil package 4lt           |34   |30 €
+2 |Oil filter                |55   |20 €
+3 |Cabin filter              |90   |30 €
+4 |Front wheel brake pad     |44   |5  €
+5 |Back wheel brake pad      |22   |5  €
+6 |Break oil                 |37   |10 €
+
 > All Repair Files in catalog:
-n Repair duration in days    Status      Plate number   Type        Est Jobs  Assign J  Total Cost
-1 |1                         | -         |KTR4456       |Truck      |3        |2        |105 €
-2 |2                         | -         |NIK3745       |Car        |3        |1        |80  €
+n Repair duration in days    Status      Plate number   Type        Est. Jobs  Assigned Jobs  Total Cost
+1 |1                         |Awaiting   |KTR4456       |Truck      |3        |2              |105 €
+2 |2                         |Awaiting   |NIK3745       |Vehicle    |0        |1              |80  €
 
 > All Appointments in catalog:
-n Date                       Name             Surname         Phone number          Vehicle Plate         Brand                 type                
-1 |16/7/2024 - 15:00         |Vasileios       |Tsolakidis     |6996986610           |KTR4456              |TOYOTA               |Truck               
-2 |16/7/2024 - 16:00         |Dimitris        |Foulidis       |1234567893           |KTR4456              |TOYOTA               |Truck               
+n Date                       Name             Surname         Phone number          Vehicle Plate         Brand                 Τype                
+1 |13/13/1222 - 12:20        |No customer     | -             | -                   |No vehicle           | -                   | -                  
+2 |16/7/2024 - 15:00         |Μαρία           |Κάλλας         |6996986610           |KTR4456              |TOYOTA               |Truck               
+3 |16/7/2024 - 16:00         |Γιάννης         |Πάριος         |1234567893           |NIK3745              |Land                 |Vehicle             
 
-> All Customer data in catalog:
+> All Customers in catalog:
 n ID        Name             Surname          Phone Number    Email                 Address             
-1 |CUS1     |Dimitra         |Tzhka           |1234567890     |tzhka@gmail.com      |t12345              
-2 |CUS2     |Vasileios       |Tsolakidis      |6996986610     |bill@gmail.com       |t12346              
-3 |CUS3     |Dimitris        |Foulidis        |1234567893     |jimmy@gmail.com      |t12347              
-4 |CUS4     |Erjola          |Hajdari         |1234567894     |eri@gmail.com        |t12348              
-5 |CUS5     |Vasileios       |Xamalidis       |1234567895     |bill2@gmail.com      |t12349              
+1 |CUS1     |Τάσος           |Λειβαδίτης      |1234567890     |tasos@gmail.com      |t12345              
+2 |CUS2     |Μαρία           |Κάλλας          |6996986610     |kallas@gmail.com     |t12346              
+3 |CUS3     |Γιάννης         |Πάριος          |1234567893     |parios@gmail.com     |t12347              
+4 |CUS4     |Μέρη            |Παρμεζάνα       |1234567894     |parmezana@gmail.com  |t12348              
+5 |CUS5     |Τάκης           |Τσουκαλάς       |1234567895     |tsoukalas@gmail.com  |t12349              
 
 > All Vehicles in catalog:
 n Plate Number   Brand     Model                      ProdYear    Vehicle Type   Other Data
 1 |KTR4456       |TOYOTA   |90Turbo                   |1989       |Truck       ~ Capacity : 500.0
-2 |NIK3745       |Land     |LandRover Range Rover HSE |2014       |Car        
+2 |NIK3745       |Land     |LandRover Range Rover HSE |2014       |Vehicle    
 
-> All data Engineers in catalog:
+> All Engineers in catalog:
 n ID        Name             Surname          Role      
-1 |MHX1     |Konstantinos    |Vergidis        |reception 
-2 |MHX2     |Bruce           |Lee             |supervisor
-3 |MHX3     |Martha          |Caephile        |engineer  
-4 |MHX4     |Tom             |Cruise          |engineer  
+1 |MHX1     |Κωνσταντίνος    |Βεργίδης        |reception 
+2 |MHX2     |Δήμητρα         |Τζήκα           |supervisor
+3 |MHX3     |Βασίλης         |Τσολακίδης      |engineer  
+4 |MHX4     |Εριόλα          |Χαϊντάρη        |engineer  
+5 |MHX5     |Βασίλης         |Χαμαλίδης       |engineer 
   ```
   
-
-
-
-
 # Scrum
 
 ## Sprint backlog  
