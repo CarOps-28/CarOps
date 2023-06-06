@@ -72,12 +72,11 @@ n Repair duration in days    Total Cost
 </details>
 
 
-<details>
-  <summary>
+
 
 ## Catalog print data 
 
-  </summary>
+
   
   ```
   Total Catalog contents:
@@ -112,7 +111,7 @@ n ID        Name             Surname          Role
 4 |MHX4     |Tom             |Cruise          |engineer  
   ```
   
-</details>
+
 
 
 
