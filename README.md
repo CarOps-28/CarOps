@@ -1,7 +1,7 @@
 # CarOps Information System
 
-<img src="img/UOMLOGOGR.png#gh-light-mode-only" alt= “University of Macedonia logo for light mode” width="20%" height="20%"> 
-<img src="img/UOMLOGOGRWHITE.png#gh-dark-mode-only" alt= “University of Macedonia logo for dark mode” width="20%" height="20%"> 
+<img src="img/UOMLOGOGR.png#gh-light-mode-only" alt= “” width="20%" height="20%"> 
+<img src="img/UOMLOGOGRWHITE.png#gh-dark-mode-only" alt= “” width="20%" height="20%"> 
 
 <table>
   <caption>Ομάδα 28</caption>
