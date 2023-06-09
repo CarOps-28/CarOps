@@ -1,4 +1,5 @@
-# CarOps Information System
+# CarOps 
+_A full functional Information System_
 
 <img src="img/UOMLOGOGR.png#gh-light-mode-only" alt= “” width="20%" height="20%"> 
 <img src="img/UOMLOGOGRWHITE.png#gh-dark-mode-only" alt= “” width="20%" height="20%"> 
@@ -17,13 +18,13 @@
         <td>Βασίλειος</td>
         <td>Δημήτριος</td>
         <td>Εριόλα</td>
-        <td>Σ. Βασίλειος</td>
+        <td>Σωτήριος Βασίλειος</td>
     </tr>
     <tr>
-        <td colspan="5">Πανεπιστήμιο Μακεδονίας</td>
+        <td colspan="5">Πανεπιστήμιο Μακεδονίας - University of Macedonia</td>
     </tr>
     <tr colspan="5">
-        <td colspan="5">Τμήμα Εφαρμοσμένης Πληροφορικής</td>
+        <td colspan="5">Τμήμα Εφαρμοσμένης Πληροφορικής - Department of Applied Informatics</td>
     </tr>
 </table>
 <br>
@@ -122,14 +123,15 @@ n ID        Name             Surname          Role
 
 
 <hr>
-<p align="center"> <i> Η παρούσα εργασία υλοποιήθηκε στα πλαίσια του μαθήματος 
+<p style="text-align: center;"> <i> This work was done as part of the course
 <br>
-<b> Ανάλυση & Σχεδίαση Συστημάτων </b> 
+<b> Systems Analysis & Design </b> 
 <br>
-4ου εξαμήνου </i> </p> 
+4th semester </i> </p> 
 
-<p align="center"> Θεσσαλονίκη 2023  </p> 
+<p style="text-align: center;"> Thessaloniki 2023  </p> 
 
+<br>
 
 # license: 
 
