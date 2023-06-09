@@ -30,13 +30,30 @@
 
 # Instructions
 
-Here we give instruction about where to download IntelliJ and JavaFX.
+Here, we first give instruction about where to download IntelliJ and JavaFX. After that, we give steps and explain how to use the information system CarOps from the command line. Also, from the user interface.
 
 ## Jetbrains IntelliJ IDEA Setup
 
-You can install IntelliJ IDEA from <a href="https://www.jetbrains.com/idea/">here</a>. If you have an academic email you can download it for free but if you don’t, you can choose the option trial.
+You can install IntelliJ IDEA from [here](https://www.jetbrains.com/idea/). If you have an academic email you can download it for free but if you don’t, you can choose the option trial.
 
-This project also includes JavaFx library in order to implement graphical interfaces. IntelliJ IDEA recognizing this and downloads the library automatically. If this don’t happen, you may want to install it manually from <a href="https://openjfx.io/">here</a>.
+This project also includes JavaFx library in order to implement graphical interfaces. IntelliJ IDEA recognizing this and downloads the library automatically. If this don’t happen, you may want to install it manually from [here](https://openjfx.io/).
+
+## Using CarOps from the command line
+
+When you successfully run CarOps, you will be introduced to his command line interface. First of all, CarOps asks you choose a role from the main information system's user. You can choose:
+
+ - Owner - 1
+ - Secretary - 2
+ - Reception Engineer - 3
+ - Supervisor Engineer - 4
+ - Engineer - 5
+ - Exit / Run GUI - 0
+
+In case you type the option Exit / Run GUI (0), the program will terminate his command line and will open a logon window. To simplify things, let us choose from the order as is, top-down.
+
+**Case 1:** To logon as owner you don't need a username, you have the ability to change the roles from the engineers. Talking about roles, you can change each engineer's roles individually, there are 3 roles and an engineer can have only one of them 1) **Simple engineer** executes his jobs 2) **Reception** has the ability to create a new vehicle card, he also writes to the system, the jobs that may need for the repair and last 3) **Supervisor** engineer assigns the possible jobs to each other engineer. Continuing, typing 1 to the command line will show a list of all available engineers in the system. You type the number _n_ to choose an engineer. As we said, there are 3 only options.
+
+**Case 2:** Secretary role. To login, you need to enter a username `Ταμπούρης` or `Φουλίδης`. As secretary you can create an new appointment (also modify it), vehicle and customer. You can also print the repairfiles and read appoindments.
 
 # Print output sample
 
@@ -115,7 +132,7 @@ n ID        Name             Surname          Role
 
 
 # license: 
-<hr>
+
 <img align="right" width="15%" height="15%" src="https://i0.wp.com/opensource.org/wp-content/uploads/2009/08/osi_symbol_0.png">
 
 <p> CarOps is available as open source under the terms of <a href="https://github.com/bill-chamal/Car-service-IS/blob/db37606a14da6933994ade9e4c618c37b5444c1f/LICENSE">The MIT License (MIT)</a></p>
