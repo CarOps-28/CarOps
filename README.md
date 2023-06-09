@@ -123,13 +123,13 @@ n ID        Name             Surname          Role
 
 
 <hr>
-<p style="text-align: center;"> <i> This work was done as part of the course
+<p align="center"> <i> This work was done as part of the course
 <br>
 <b> Systems Analysis & Design </b> 
 <br>
 4th semester </i> </p> 
 
-<p style="text-align: center;"> Thessaloniki 2023  </p> 
+<p align="center"> Thessaloniki 2023  </p> 
 
 <br>
 
