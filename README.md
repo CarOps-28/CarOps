@@ -39,6 +39,12 @@ You can install IntelliJ IDEA from [here](https://www.jetbrains.com/idea/). If y
 
 This project also includes JavaFx library in order to implement graphical interfaces. IntelliJ IDEA recognizing this and downloads the library automatically. If this don’t happen, you may want to install it manually from [here](https://openjfx.io/).
 
+## Using CarOps GUI
+
+Login as: 
+- Owner : 'owner'
+- Secretary : 'ταμπούρης' or 'Φουλίδης'
+
 ## Using CarOps from the command line
 
 When you successfully run CarOps, you will be introduced to his command line interface. First of all, CarOps asks you choose a role from the main information system's user. You can choose:
