@@ -95,5 +95,6 @@
             </Button>
          </children>
       </AnchorPane>
+      <Text fx:id="dateErr" fill="RED" layoutX="228.0" layoutY="444.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="254.13671875" />
    </children>
 </AnchorPane>

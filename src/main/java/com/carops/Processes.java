@@ -224,7 +224,7 @@ public class Processes {
 
                 while (!found) {
                     for (Engineer engineer : EngineerCatalog.fetchEngineers()) {
-                        if (removeTones(userSurname).equalsIgnoreCase(removeTones(engineer.getSurname())) && engineer.getRole().equalsIgnoreCase("engineer")) {
+                        if (removeTones(userSurname).equalsIgnoreCase(removeTones(engineer.getSurname()))) {
                             System.out.println("Login as " + userSurname + " successful.");
                             return engineer;
                         }
