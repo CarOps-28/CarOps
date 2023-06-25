@@ -13,34 +13,37 @@
          <font>
             <Font size="14.0" />
          </font></Text>
-      <TextField fx:id="customerName" layoutX="60.0" layoutY="90.0" prefHeight="44.0" prefWidth="277.0" promptText="cxv" AnchorPane.leftAnchor="60.0">
+      <TextField fx:id="customerName" layoutX="60.0" layoutY="90.0" prefHeight="44.0" prefWidth="277.0" promptText="Customer name" AnchorPane.leftAnchor="60.0">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
+      <Text fx:id="nameErr" fill="RED" layoutX="60.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="277.0" />
       <Text layoutX="60.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Surname" wrappingWidth="141.0">
          <font>
             <Font size="14.0" />
          </font></Text>
-      <TextField fx:id="customerSurname" layoutX="60.0" layoutY="175.0" prefHeight="44.0" prefWidth="277.0" promptText="cxv" AnchorPane.leftAnchor="60.0">
+      <TextField fx:id="customerSurname" layoutX="60.0" layoutY="175.0" prefHeight="44.0" prefWidth="277.0" promptText="Customer surname" AnchorPane.leftAnchor="60.0">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
+      <Text fx:id="surnameErr" fill="RED" layoutX="60.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="277.0" />
       <Text layoutX="60.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone" wrappingWidth="141.0">
          <font>
             <Font size="14.0" />
          </font></Text>
-      <TextField fx:id="customerPhone" layoutX="60.0" layoutY="261.0" prefHeight="44.0" prefWidth="277.0" promptText="cxv" AnchorPane.leftAnchor="60.0">
+      <TextField fx:id="customerPhone" layoutX="60.0" layoutY="261.0" prefHeight="44.0" prefWidth="277.0" promptText="Customer phone" AnchorPane.leftAnchor="60.0">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
+      <Text fx:id="phoneErr" fill="RED" layoutX="60.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="277.0" />
       <Text layoutX="60.0" layoutY="346.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" wrappingWidth="59.0" AnchorPane.leftAnchor="60.0">
          <font>
             <Font size="14.0" />
          </font></Text>
-      <TextField fx:id="customerEmail" layoutX="60.0" layoutY="350.0" prefHeight="44.0" prefWidth="277.0" promptText="cxv" AnchorPane.leftAnchor="60.0">
+      <TextField fx:id="customerEmail" layoutX="60.0" layoutY="350.0" prefHeight="44.0" prefWidth="277.0" promptText="Customer email" AnchorPane.leftAnchor="60.0">
          <font>
             <Font size="14.0" />
          </font>
@@ -49,11 +52,12 @@
          <font>
             <Font size="14.0" />
          </font></Text>
-      <TextField fx:id="customerAddress" layoutX="60.0" layoutY="436.0" prefHeight="44.0" prefWidth="277.0" promptText="cxv" AnchorPane.leftAnchor="60.0">
+      <TextField fx:id="customerAddress" layoutX="60.0" layoutY="436.0" prefHeight="44.0" prefWidth="277.0" promptText="Customer address" AnchorPane.leftAnchor="60.0">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
+      <Text fx:id="addressErr" fill="RED" layoutX="60.0" layoutY="493.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="277.0" />
       <Button fx:id="goBackBtn" layoutX="60.0" layoutY="569.0" mnemonicParsing="false" onMouseClicked="#mouseClicked" prefHeight="44.0" prefWidth="141.0" styleClass="goBackBtn" stylesheets="@../Styles/style.css" text="go Back" textFill="WHITE" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="569.0">
          <font>
             <Font name="System Bold" size="14.0" />
@@ -91,5 +95,6 @@
             <Font size="36.0" />
          </font>
       </Text>
+      <Text fx:id="emailErr" fill="RED" layoutX="63.0" layoutY="407.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="277.0" />
    </children>
 </AnchorPane>

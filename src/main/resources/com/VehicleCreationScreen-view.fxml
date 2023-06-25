@@ -84,6 +84,11 @@
             <Font size="36.0" />
          </font>
       </Text>
+      <Text fx:id="plateNumberErr" fill="RED" layoutX="65.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="277.0" />
+      <Text fx:id="brandErr" fill="RED" layoutX="65.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="277.0" />
+      <Text fx:id="modelErr" fill="RED" layoutX="65.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="277.0" />
+      <Text fx:id="prodYearErr" fill="RED" layoutX="65.0" layoutY="393.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="277.0" />
+      <Text fx:id="vehicleTypeErr" fill="RED" layoutX="65.0" layoutY="473.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="277.0" />
 
    </children>
 </AnchorPane>

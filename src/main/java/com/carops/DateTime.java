@@ -12,10 +12,10 @@ public class DateTime {
     }
 
     public String getDate(){
-        return this.dateTime.split(" ")[0];
+        return this.dateTime.split(" - ")[0];
     }
 
     public String getTime(){
-        return this.dateTime.split(" ")[1];
+        return this.dateTime.split(" - ")[1];
     }
 }

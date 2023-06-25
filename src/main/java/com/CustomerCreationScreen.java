@@ -28,9 +28,12 @@ public class CustomerCreationScreen {
     private AnchorPane messageBox;
     @FXML
     private Text messageBoxText;
+    @FXML
+    public Text nameErr, surnameErr, phoneErr, emailErr, addressErr;
 
     @FXML
     private TextField customerName, customerSurname, customerPhone, customerEmail, customerAddress;
+    private String errorMessage;
     private void sceneGenerator(String Screen_Name, MouseEvent event, String Screen_Title) throws IOException {
         root = FXMLLoader.load(getClass().getResource(Screen_Name));
 
@@ -59,12 +62,11 @@ public class CustomerCreationScreen {
             }else{
                 closeBtn.setBackground(Background.fill(Color.RED));
                 closeBtn.setStyle("-fx-text-fill: white;");
-                messageBoxText.setText("Invalid Customer fields.");
+                messageBoxText.setText(errorMessage);
             }
             messageBoxText.setStyle("-fx-text-fill: white;");
             messageBox.setVisible(true);
         }else if (event.getSource() == closeBtn){
-            emptyTextFields();
             messageBox.setVisible(false);
         }
     }
@@ -79,19 +81,27 @@ public class CustomerCreationScreen {
     }
 
     private boolean checkInputFields(){
-        if ( customerName.getText().equals("") ||
-                customerSurname.getText().equals("") ||
-                customerPhone.getText().equals("") ||
-                customerEmail.getText().equals("") ||
-                customerAddress.getText().equals("")
-        ){
-            return false;
-        }
-        if ( CustomerCatalog.fetchCustomerByPhoneNumber(customerPhone.getText()) != null){
-            return false;
-        }
+        boolean flag = true;
+        errorMessage = "Invalid Customer fields.";
 
-        return true;
+        if (customerName.getText().equals("") ) { nameErr.setText("* this field cannot be empty."); flag = false; }
+        else { nameErr.setText("*"); }
+
+        if (customerSurname.getText().equals("") ) { surnameErr.setText("* this field cannot be empty."); flag = false; }
+        else { surnameErr.setText("*"); }
+
+        if (customerPhone.getText().equals("") ) { phoneErr.setText("* this field cannot be empty."); flag = false; }
+        else { phoneErr.setText("*"); }
+
+        if (customerEmail.getText().equals("") ) { emailErr.setText("* this field cannot be empty."); flag = false; }
+        else { emailErr.setText("*"); }
+
+        if (customerAddress.getText().equals("") ) { addressErr.setText("* this field cannot be empty."); flag = false; }
+        else { addressErr.setText("*"); }
+
+        if ( CustomerCatalog.fetchCustomerByPhoneNumber(customerPhone.getText()) != null) { errorMessage = "Customer already exist."; flag = false; }
+
+        return flag;
     }
     @FXML
     void initialize() {
@@ -107,6 +117,12 @@ public class CustomerCreationScreen {
         assert messageBox != null : "fx:id=\"messageBox\" was not injected: check your FXML file 'CustomerCreationScreen-view.fxml'.";
         assert messageBoxText != null : "fx:id=\"messageBoxText\" was not injected: check your FXML file 'CustomerCreationScreen-view.fxml'.";
 
+
+        assert nameErr != null : "fx:id=\"nameErr\" was not injected: check your FXML file 'CustomerCreationScreen-view.fxml'.";
+        assert surnameErr != null : "fx:id=\"surnameErr\" was not injected: check your FXML file 'CustomerCreationScreen-view.fxml'.";
+        assert phoneErr != null : "fx:id=\"phoneErr\" was not injected: check your FXML file 'CustomerCreationScreen-view.fxml'.";
+        assert emailErr != null : "fx:id=\"emailErr\" was not injected: check your FXML file 'CustomerCreationScreen-view.fxml'.";
+        assert addressErr != null : "fx:id=\"addressErr\" was not injected: check your FXML file 'CustomerCreationScreen-view.fxml'.";
 
         goBackBtn.setBackground(Background.fill(Color.RED));
         goBackBtn.setStyle("-fx-text-fill: white;");

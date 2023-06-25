@@ -22,12 +22,18 @@ public class AppointmentCreationScreen {
     private Stage stage;
     private Parent root;
 
-    public TextField plateNumber, date, phoneNumber;
-    public Button vehicleCreationBtn, customerCreationBtn, appointmentCreationBtn, closeBtn, goBackBtn;
+    @FXML
+    private TextField plateNumber, date, phoneNumber;
 
-    public AnchorPane messageBox;
-    public Text plateNumberErr, phoneNumberErr, messageBoxText;
+    @FXML
+    private Button vehicleCreationBtn, customerCreationBtn, appointmentCreationBtn, closeBtn, goBackBtn;
 
+    @FXML
+    private AnchorPane messageBox;
+    @FXML
+    private Text plateNumberErr, phoneNumberErr, dateErr, messageBoxText;
+
+    private String customerId_ifCustomerExist = "";
     private void sceneGenerator(String Screen_Name, MouseEvent event, String Screen_Title) throws IOException {
         root = FXMLLoader.load(getClass().getResource(Screen_Name));
 
@@ -53,12 +59,14 @@ public class AppointmentCreationScreen {
                 closeBtn.setStyle("-fx-text-fill: white;");
                 messageBoxText.setText("Successfully created.");
 
-                StartScreenController.secretary.createAppointment(phoneNumber.getText(), plateNumber.getText(),new DateTime(date.getText()));
+                StartScreenController.secretary.createAppointment(customerId_ifCustomerExist, plateNumber.getText(),new DateTime(date.getText()));
 
+                customerId_ifCustomerExist = "";
             }else{
                 closeBtn.setBackground(Background.fill(Color.RED));
                 closeBtn.setStyle("-fx-text-fill: white;");
                 messageBoxText.setText("Invalid Appointment fields.");
+
             }
             messageBoxText.setStyle("-fx-text-fill: white;");
 
@@ -71,9 +79,6 @@ public class AppointmentCreationScreen {
 
     private boolean checkInputFields(){
         boolean flag = true ;
-        if(date.getText().equals("")){
-            flag = false;
-        }
         if ( VehicleCatalog.fetchVehicleByPlateNumber(plateNumber.getText()) == null && !plateNumber.getText().equals("")){
             plateNumberErr.setText("* " + plateNumber.getText() + " does not exist");
             flag = false;
@@ -85,7 +90,15 @@ public class AppointmentCreationScreen {
             flag = false;
         }else{
             phoneNumberErr.setText("* ");
+            try{
+                customerId_ifCustomerExist = CustomerCatalog.fetchCustomerByPhoneNumber(phoneNumber.getText()).getId();
+            }catch (NullPointerException e){
+
+            }
         }
+
+        if(date.getText().equals("")){ dateErr.setText("* this field cannot be empty."); flag = false; }
+        else { dateErr.setText("* "); }
 
         return flag;
     }
@@ -112,6 +125,7 @@ public class AppointmentCreationScreen {
 
         assert plateNumberErr != null : "fx:id=\"plateNumberErr\" was not injected: check your FXML file 'AppointmentCreationScreen-view.fxml'.";
         assert phoneNumberErr != null : "fx:id=\"phoneNumberErr\" was not injected: check your FXML file 'AppointmentCreationScreen-view.fxml'.";
+        assert dateErr != null : "fx:id=\"dateErr\" was not injected: check your FXML file 'AppointmentCreationScreen-view.fxml'.";
 
         customerCreationBtn.setBackground(Background.fill(Color.LIGHTBLUE));
         customerCreationBtn.setStyle("-fx-text-fill: black;");
