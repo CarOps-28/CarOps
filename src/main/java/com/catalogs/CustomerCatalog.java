@@ -1,10 +1,13 @@
-package com.carops;
+package com.catalogs;
 
+import com.carops.Customer;
+
+import java.io.*;
 import java.util.ArrayList;
 
 public class CustomerCatalog {
 
-	private static ArrayList<Customer> customers = new ArrayList<Customer>();
+	private static ArrayList<Customer> customers = new ArrayList<>();
 
 	public static Customer fetchCustomerById(String customerId) {
 		for (Customer customer : customers) {
@@ -40,6 +43,33 @@ public class CustomerCatalog {
 	}
 
 	public static ArrayList<Customer> fetchCustomers(){
+		return customers;
+	}
+
+	public void save(){
+		try {
+			FileOutputStream fileOut = new FileOutputStream("customers.ser");
+			ObjectOutputStream out = new ObjectOutputStream(fileOut);
+			out.writeObject(customers);
+			out.close();
+			fileOut.close();
+		}
+		catch(IOException i) {
+			i.printStackTrace();
+		}
+	}
+	public ArrayList<Customer> getCustomersFromFile(){
+		try {
+			FileInputStream fileIn = new FileInputStream("customers.ser");
+			ObjectInputStream in = new ObjectInputStream(fileIn);
+			customers = (ArrayList<Customer>)in.readObject();
+			fileIn.close();
+			in.close();
+		}
+		catch(IOException | ClassNotFoundException exc1)
+		{
+			exc1.printStackTrace();
+		}
 		return customers;
 	}
 }

@@ -4,9 +4,7 @@ import java.util.EmptyStackException;
 
 public abstract class Person{
 
-	protected String id;
-	protected String name;
-	protected String surname;
+	protected String id, name, surname;
 
 	public Person( String name, String surname) {
 		this.name = name;

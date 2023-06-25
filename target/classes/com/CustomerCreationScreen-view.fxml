@@ -7,9 +7,54 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.CustomerCreationScreenController">
+<AnchorPane fx:id="backgroundScreen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.CustomerCreationScreen">
    <children>
-      <Button fx:id="goBackBtn" layoutX="49.0" layoutY="569.0" mnemonicParsing="false" onMouseClicked="#mouseClicked" prefHeight="44.0" prefWidth="141.0" styleClass="goBackBtn" stylesheets="@../Styles/style.css" text="go Back" textFill="WHITE" AnchorPane.leftAnchor="49.0" AnchorPane.topAnchor="569.0">
+      <Text layoutX="60.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="141.0">
+         <font>
+            <Font size="14.0" />
+         </font></Text>
+      <TextField fx:id="customerName" layoutX="60.0" layoutY="90.0" prefHeight="44.0" prefWidth="277.0" promptText="cxv" AnchorPane.leftAnchor="60.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <Text layoutX="60.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Surname" wrappingWidth="141.0">
+         <font>
+            <Font size="14.0" />
+         </font></Text>
+      <TextField fx:id="customerSurname" layoutX="60.0" layoutY="175.0" prefHeight="44.0" prefWidth="277.0" promptText="cxv" AnchorPane.leftAnchor="60.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <Text layoutX="60.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone" wrappingWidth="141.0">
+         <font>
+            <Font size="14.0" />
+         </font></Text>
+      <TextField fx:id="customerPhone" layoutX="60.0" layoutY="261.0" prefHeight="44.0" prefWidth="277.0" promptText="cxv" AnchorPane.leftAnchor="60.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <Text layoutX="60.0" layoutY="346.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" wrappingWidth="59.0" AnchorPane.leftAnchor="60.0">
+         <font>
+            <Font size="14.0" />
+         </font></Text>
+      <TextField fx:id="customerEmail" layoutX="60.0" layoutY="350.0" prefHeight="44.0" prefWidth="277.0" promptText="cxv" AnchorPane.leftAnchor="60.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <Text layoutX="60.0" layoutY="432.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address" wrappingWidth="141.0">
+         <font>
+            <Font size="14.0" />
+         </font></Text>
+      <TextField fx:id="customerAddress" layoutX="60.0" layoutY="436.0" prefHeight="44.0" prefWidth="277.0" promptText="cxv" AnchorPane.leftAnchor="60.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <Button fx:id="goBackBtn" layoutX="60.0" layoutY="569.0" mnemonicParsing="false" onMouseClicked="#mouseClicked" prefHeight="44.0" prefWidth="141.0" styleClass="goBackBtn" stylesheets="@../Styles/style.css" text="go Back" textFill="WHITE" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="569.0">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -24,35 +69,27 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <TextField fx:id="customerName" layoutX="60.0" layoutY="90.0" prefHeight="44.0" prefWidth="277.0" promptText="cxv" AnchorPane.leftAnchor="60.0">
+      <AnchorPane fx:id="messageBox" layoutX="269.0" layoutY="246.0" prefHeight="169.0" prefWidth="362.0" styleClass="messageBox" stylesheets="@../Styles/style.css" visible="false">
+         <children>
+            <Text fx:id="messageBoxText" fill="WHITE" layoutX="43.0" layoutY="64.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="277.0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Button fx:id="closeBtn" layoutX="111.0" layoutY="102.0" mnemonicParsing="false" onMouseClicked="#mouseClicked" prefHeight="44.0" prefWidth="141.0" styleClass="createBtn" stylesheets="@../Styles/style.css" text="Close">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </AnchorPane>
+      <Text disable="true" layoutX="297.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create Customer" textAlignment="CENTER" wrappingWidth="333.13671875">
          <font>
-            <Font size="14.0" />
+            <Font size="36.0" />
          </font>
-      </TextField>
-      <Text layoutX="60.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="141.0" />
-      <TextField fx:id="customerEmail" layoutX="60.0" layoutY="350.0" prefHeight="44.0" prefWidth="277.0" promptText="cxv" AnchorPane.leftAnchor="60.0">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </TextField>
-      <Text layoutX="60.0" layoutY="346.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" wrappingWidth="59.0" AnchorPane.leftAnchor="60.0" />
-      <TextField fx:id="customerSurname" layoutX="60.0" layoutY="175.0" prefHeight="44.0" prefWidth="277.0" promptText="cxv" AnchorPane.leftAnchor="60.0">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </TextField>
-      <Text layoutX="60.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Surname" wrappingWidth="141.0" />
-      <TextField fx:id="customerAddress" layoutX="60.0" layoutY="436.0" prefHeight="44.0" prefWidth="277.0" promptText="cxv" AnchorPane.leftAnchor="60.0">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </TextField>
-      <Text layoutX="60.0" layoutY="432.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address" wrappingWidth="141.0" />
-      <TextField fx:id="customerPhone" layoutX="60.0" layoutY="261.0" prefHeight="44.0" prefWidth="277.0" promptText="cxv" AnchorPane.leftAnchor="60.0">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </TextField>
-      <Text layoutX="60.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone" wrappingWidth="141.0" />
+      </Text>
    </children>
 </AnchorPane>

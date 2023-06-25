@@ -1,14 +1,13 @@
 package com.carops;
 
+import com.catalogs.VehicleCatalog;
+
 import java.util.LinkedList;
 
 public class Vehicle {
 
-	private String plateNumber;
-	private String brand;
-	private String model;
+	private String plateNumber, brand, model, vehicleType;
 	private int prodYear;
-	private String vehicleType;
 
 	private LinkedList<Repairfile> repairfiles = new LinkedList<>();
 
@@ -41,10 +40,6 @@ public class Vehicle {
 		return vehicleType;
 	}
 
-	public void setVehicleType(String vehicleType) {
-		this.vehicleType = vehicleType;
-	}
-
 	// getters setters
 	public String getPlateNumber() {
 		return plateNumber;
@@ -66,16 +61,8 @@ public class Vehicle {
 		return model;
 	}
 
-	public void setModel(String model) {
-		this.model = model;
-	}
-
 	public int getProdYear() {
 		return prodYear;
-	}
-
-	public void setProdYear(int prodYear) {
-		this.prodYear = prodYear;
 	}
 
 	public LinkedList<Repairfile> getRepairfiles() {
@@ -88,7 +75,8 @@ public class Vehicle {
 	}
 
 	public String toString(){
-
 		return this.plateNumber + " " + this.model + " " + this.prodYear + " " + this.vehicleType;
 	}
+
+
 }

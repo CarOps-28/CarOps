@@ -1,11 +1,13 @@
 package com.carops;
 
+import com.catalogs.AppointmentCatalog;
+import com.catalogs.CustomerCatalog;
+import com.catalogs.VehicleCatalog;
+
 public class Appointment {
 
-	private String customerId = "";
-	private String vehiclePlateNumber = "";
+	private String customerId = "", vehiclePlateNumber = "", transactionId;
 	private boolean status;
-	private String transactionId;
 	private Repairfile repairfile;
 	private DateTime date;
 

@@ -1,10 +1,15 @@
-package com.carops;
+package com.catalogs;
 
+import com.carops.Assignment;
+import com.carops.Customer;
+import com.carops.Repairfile;
+
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Collection;
 
 public class RepairfileCatalog {
-	private static ArrayList<Repairfile> repairfiles = new ArrayList<Repairfile>();
+	private static ArrayList<Repairfile> repairfiles = new ArrayList<>();
 
 	public static Collection<Repairfile> fetchRepairfiles() {
 		return repairfiles;
@@ -41,10 +46,37 @@ public class RepairfileCatalog {
 			System.out.println("Repair file with plate number " + repairfile.getVehicle().getPlateNumber() + ":");
 			System.out.printf("%-20s |%-20s |%-10s |%-15s\n", "Engineer surname", "Job name", "Worktime", "Status");
 			for(Assignment assignment : repairfile.getAssignments()){
-				if(assignment.getStatus() == false)
+				if(!assignment.getStatus())
 					assignment.printData();
 			}
 		}
+	}
+
+	public void save(){
+		try {
+			FileOutputStream fileOut = new FileOutputStream("repairfiles.ser");
+			ObjectOutputStream out = new ObjectOutputStream(fileOut);
+			out.writeObject(repairfiles);
+			out.close();
+			fileOut.close();
+		}
+		catch(IOException i) {
+			i.printStackTrace();
+		}
+	}
+	public ArrayList<Repairfile> getRepairfilesFromFile(){
+		try {
+			FileInputStream fileIn = new FileInputStream("repairfiles.ser");
+			ObjectInputStream in = new ObjectInputStream(fileIn);
+			repairfiles = (ArrayList<Repairfile>)in.readObject();
+			fileIn.close();
+			in.close();
+		}
+		catch(IOException | ClassNotFoundException exc1)
+		{
+			exc1.printStackTrace();
+		}
+		return repairfiles;
 	}
 
 }

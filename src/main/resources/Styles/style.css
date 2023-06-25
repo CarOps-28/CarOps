@@ -1,24 +1,12 @@
 
-.searchBtn {
-    -fx-background-color: green;
-}
-.customerBtn{
-    -fx-background-color: lightblue;
-}
-
-.vehicleBtn{
-    -fx-background-color: lightblue;
-}
-
-.goBackBtn{
-    -fx-background-color: red;
-
-}
-
 button:hover {
     -fx-cursor: hand;
 }
 
-.createBtn{
-    -fx-background-color: lightgreen;
+.messageBox{
+    -fx-background-color: #003476;
+}
+
+.backgroundScreen{
+    -fx-background-color: white;
 }

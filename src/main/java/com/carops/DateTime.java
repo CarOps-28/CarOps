@@ -1,7 +1,6 @@
 package com.carops;
 
 public class DateTime {
-
     String dateTime;
 
     public DateTime(String dateTime) {
@@ -10,5 +9,13 @@ public class DateTime {
 
     public String getDateTime() {
         return this.dateTime;
+    }
+
+    public String getDate(){
+        return this.dateTime.split(" ")[0];
+    }
+
+    public String getTime(){
+        return this.dateTime.split(" ")[1];
     }
 }

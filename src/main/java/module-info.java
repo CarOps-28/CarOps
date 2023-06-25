@@ -13,5 +13,7 @@ module com.example.carops {
     exports com.carops;
     opens com.carops to javafx.fxml;
     opens com to javafx.fxml;
+    exports com.catalogs;
+    opens com.catalogs to javafx.fxml;
 
 }

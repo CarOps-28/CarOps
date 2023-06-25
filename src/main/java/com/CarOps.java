@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 import com.carops.*;
+import com.catalogs.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -711,7 +712,7 @@ public class CarOps extends Application {
                                 }
 
                                 //vehicle waiting for diagnostic check
-                                if (proceed == true) {
+                                if (proceed) {
                                     int job = 0;
                                     ArrayList<Job> jobs = new ArrayList<Job>();
 
@@ -1117,7 +1118,7 @@ public class CarOps extends Application {
         Parent root;
 
         try {
-            root = FXMLLoader.load(getClass().getResource("StartScreen-view.fxml"));
+            root = FXMLLoader.load(getClass().getResource("StartScreenController-view.fxml"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

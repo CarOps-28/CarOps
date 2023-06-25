@@ -1,5 +1,9 @@
-package com.carops;
+package com.catalogs;
 
+import com.carops.Repairfile;
+import com.carops.SparePart;
+
+import java.io.*;
 import java.util.ArrayList;
 
 public class SparePartsCatalog {
@@ -31,5 +35,32 @@ public class SparePartsCatalog {
 	// Παραλήφθηκε στο class diagram και προστίθεται τώρα.
 	public static void addSparePart(SparePart sparePart) {
 		spareParts.add(sparePart);
+	}
+
+	public void save(){
+		try {
+			FileOutputStream fileOut = new FileOutputStream("spareParts.ser");
+			ObjectOutputStream out = new ObjectOutputStream(fileOut);
+			out.writeObject(spareParts);
+			out.close();
+			fileOut.close();
+		}
+		catch(IOException i) {
+			i.printStackTrace();
+		}
+	}
+	public ArrayList<SparePart> getSparePartsFromFile(){
+		try {
+			FileInputStream fileIn = new FileInputStream("spareParts.ser");
+			ObjectInputStream in = new ObjectInputStream(fileIn);
+			spareParts = (ArrayList<SparePart>)in.readObject();
+			fileIn.close();
+			in.close();
+		}
+		catch(IOException | ClassNotFoundException exc1)
+		{
+			exc1.printStackTrace();
+		}
+		return spareParts;
 	}
 }

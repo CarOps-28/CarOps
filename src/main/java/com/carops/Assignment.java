@@ -29,9 +29,6 @@ public class Assignment {
 	}
 
 	public void setSpareParts(HashMap<SparePart, Integer> spareParts) {
-		//for(){
-
-		//}
 		this.spareParts = new HashMap<>(spareParts);
 	}
 

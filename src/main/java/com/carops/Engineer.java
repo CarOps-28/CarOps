@@ -1,5 +1,7 @@
 package com.carops;
 
+import com.catalogs.EngineerCatalog;
+
 import java.util.ArrayList;
 
 public class Engineer extends Person  {
@@ -41,12 +43,11 @@ public class Engineer extends Person  {
 		this.assignments = assignments;
 	}
 
-
 	public void printData(){
 		System.out.printf(" |%-8s |%-15s |%-15s |%-10s\n", this.getId(), this.getName(), this.getSurname(), this.role);
 	}
 
-	public void setId(){
+	private void setId(){
 		this.id = "MHX" + (EngineerCatalog.fetchEngineers().size() + 1 );
 	}
 

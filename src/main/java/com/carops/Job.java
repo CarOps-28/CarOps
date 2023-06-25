@@ -1,10 +1,11 @@
 package com.carops;
 
+import com.catalogs.JobCatalog;
+
 public class Job {
 
-	private String name;
+	private String name, description;
 	private int price;
-	private String description;
 
 	public Job(String name, int price, String description) {
 		this.name = name;
@@ -29,14 +30,6 @@ public class Job {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public void setPrice(int price) {
-		this.price = price;
-	}
-
-	public String getDescription() {
-		return description;
 	}
 
 	public void setDescription(String description) {

@@ -1,5 +1,9 @@
 package com.carops;
 
+import com.catalogs.CustomerCatalog;
+import com.catalogs.EngineerCatalog;
+import com.catalogs.VehicleCatalog;
+
 import java.text.Normalizer;
 import java.util.Scanner;
 import java.util.regex.Pattern;
@@ -75,7 +79,7 @@ public class Processes {
                 System.out.println("Customer already exists.");
                 found = true;
             }
-        }while (found == true);
+        }while (found);
 
         System.out.println("\nCustomer has not been registered yet. Provide details:");
         System.out.print("Customer name: ");
@@ -226,7 +230,7 @@ public class Processes {
                         }
                     }
 
-                    System.out.print("\nEngineer surname not found :(");
+                    System.out.print("\nEngineer surname not found :(\n");
                     System.out.print("Engineer surname: ");
                     userSurname = in.nextLine();
 

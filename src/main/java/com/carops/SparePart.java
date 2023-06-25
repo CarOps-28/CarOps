@@ -1,10 +1,11 @@
 package com.carops;
 
+import com.catalogs.SparePartsCatalog;
+
 public class SparePart {
 
 	private String name;
-	private int availableQuantity;
-	private int price;
+	private int availableQuantity, price;
 
 	public SparePart(String name, int availableQuantity, int price) {
 		this.name = name;
@@ -32,7 +33,6 @@ public class SparePart {
 		else
 			return false;
 	}
-
 	public String getName() {
 		return name;
 	}
@@ -53,7 +53,4 @@ public class SparePart {
 		return price;
 	}
 
-	public void setPrice(int price) {
-		this.price = price;
-	}
 }

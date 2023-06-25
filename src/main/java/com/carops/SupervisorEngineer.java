@@ -1,5 +1,8 @@
 package com.carops;
 
+import com.catalogs.RepairfileCatalog;
+import com.catalogs.VehicleCatalog;
+
 public class SupervisorEngineer extends Engineer {
 
 	public SupervisorEngineer(String name, String surname, String role) {

@@ -1,5 +1,7 @@
 package com.carops;
 
+import com.catalogs.RepairfileCatalog;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -87,7 +89,6 @@ public class Repairfile {
 		return totalPrice;
 	}
 
-
 	public void printData() {
 		System.out.printf(" |%-25d |%-10s |%-13s |%-10s |%-8d |%-14d |%-4d\u20ac\n",
 				worktime / 8, this.status==null ? " - " : this.status, vehicle.getPlateNumber(),
@@ -97,10 +98,6 @@ public class Repairfile {
 	// getters & setters
 	public int getWorktime() {
 		return worktime;
-	}
-
-	public void setWorktime(int worktime) {
-		this.worktime = worktime;
 	}
 
 	public String getStatus() {

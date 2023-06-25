@@ -1,10 +1,10 @@
 package com.carops;
 
+import com.catalogs.CustomerCatalog;
+
 public class Customer extends Person {
 
-	private String phoneNumber;
-	private String email;
-	private String address;
+	private String phoneNumber, email, address;
 
 	public Customer(String name, String surname, String phoneNumber, String email, String address) {
 		super( name, surname);
@@ -23,7 +23,7 @@ public class Customer extends Person {
 				this.getPhoneNumber(), this.getEmail(), this.getAddress());
 	}
 
-	public void setId(){
+	private void setId(){
 		this.id = "CUS" + (CustomerCatalog.fetchCustomers().size() + 1 );
 	}
 
