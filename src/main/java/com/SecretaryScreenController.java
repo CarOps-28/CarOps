@@ -55,7 +55,6 @@ public class SecretaryScreenController {
         else if(event.getSource() == createAppointment){
             sceneGenerator("AppointmentCreationScreen-view.fxml", event, "Appointment Creation Screen");
         }
-
     }
 
     public void initializeTexts(){

@@ -28,11 +28,30 @@ public class EngineerCatalog {
 		return null;
 	}
 
+	public static Engineer fetchEngineerById(String id) {
+		for (Engineer engineer : engineers) {
+			if (engineer.getId().equalsIgnoreCase(id)) {
+				return engineer;
+			}
+		}
+		return null;
+	}
+
 	public static void printData() {
 		System.out.printf("\n> All Engineers in catalog:\nn %-8s  %-15s  %-15s  %-10s\n", "ID", "Name", "Surname",
 				"Role");
 		int i = 1;
 
+		sortedEngineers();
+
+		for (Engineer engineer : engineers) {
+				System.out.printf("%d", i);
+				engineer.printData();
+				i++;
+			}
+	}
+
+	public static void sortedEngineers(){
 		ArrayList<String> ids = new ArrayList<>();
 		for (Engineer engineer : engineers) {
 			ids.add(engineer.getId());
@@ -45,15 +64,11 @@ public class EngineerCatalog {
 			for (Engineer engineer : engineers) {
 				if (engineer.getId().equals(id)) {
 					newEngineer.add(engineer);
-					System.out.printf("%d", i);
-					engineer.printData();
-					i++;
 				}
 			}
 		}
 		engineers = newEngineer;
 	}
-
 	public static void addEngineer(Engineer engineer) {
 		engineers.add(engineer);
 	}

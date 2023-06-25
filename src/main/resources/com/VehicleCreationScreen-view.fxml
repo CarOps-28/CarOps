@@ -17,31 +17,31 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <TextField fx:id="vehiclePlatenumber" layoutX="65.0" layoutY="76.0" prefHeight="44.0" prefWidth="277.0" promptText="cxv">
+      <TextField fx:id="vehiclePlatenumber" layoutX="65.0" layoutY="76.0" prefHeight="44.0" prefWidth="277.0" promptText="Plate number">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
       <Text layoutX="65.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Plate Number" wrappingWidth="141.0" />
-      <TextField fx:id="vehicleProdYear" layoutX="65.0" layoutY="336.0" prefHeight="44.0" prefWidth="277.0" promptText="cxv">
+      <TextField fx:id="vehicleProdYear" layoutX="65.0" layoutY="336.0" prefHeight="44.0" prefWidth="277.0" promptText="Prod year">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
       <Text layoutX="65.0" layoutY="332.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prod Year" wrappingWidth="59.0" />
-      <TextField fx:id="vehicleBrand" layoutX="65.0" layoutY="161.0" prefHeight="44.0" prefWidth="277.0" promptText="cxv">
+      <TextField fx:id="vehicleBrand" layoutX="65.0" layoutY="161.0" prefHeight="44.0" prefWidth="277.0" promptText="Brand">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
       <Text layoutX="65.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Brand" wrappingWidth="141.0" />
-      <TextField fx:id="vehicleType" layoutX="65.0" layoutY="416.0" prefHeight="44.0" prefWidth="277.0" promptText="cxv">
+      <TextField fx:id="vehicleType" layoutX="65.0" layoutY="416.0" prefHeight="44.0" prefWidth="277.0" promptText="Vehicle/Truck/Motorcycle">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
       <Text layoutX="65.0" layoutY="412.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VehicleType - Vehicle / Truck / Motorcycle" wrappingWidth="277.0" />
-      <TextField fx:id="vehicleModel" layoutX="65.0" layoutY="247.0" prefHeight="44.0" prefWidth="277.0" promptText="cxv">
+      <TextField fx:id="vehicleModel" layoutX="65.0" layoutY="247.0" prefHeight="44.0" prefWidth="277.0" promptText="Model">
          <font>
             <Font size="14.0" />
          </font>

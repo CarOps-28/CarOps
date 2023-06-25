@@ -10,6 +10,8 @@ public class Owner extends Person {
 	public Owner(String name, String surname) {
 		super(name, surname);
 		this.setId();
+
+		owners.add(this);
 	}
 	private void setId() {
 		this.id = "OWN" + (owners.size() + 1);
