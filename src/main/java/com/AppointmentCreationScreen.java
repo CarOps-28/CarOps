@@ -1,6 +1,7 @@
 package com;
 
 import com.carops.DateTime;
+import com.catalogs.AppointmentCatalog;
 import com.catalogs.CustomerCatalog;
 import com.catalogs.VehicleCatalog;
 import javafx.fxml.FXML;
@@ -63,6 +64,7 @@ public class AppointmentCreationScreen {
                 messageBoxText.setText("Successfully created.");
 
                 StartScreenController.secretary.createAppointment(customerId_ifCustomerExist, plateNumber.getText(),new DateTime(date.getText()));
+                AppointmentCatalog.save();
 
                 customerId_ifCustomerExist = "";
             }else{

@@ -29,7 +29,7 @@ public class AppointmentCatalog {
 		}
 	}
 
-	public void save(){
+	public static void save(){
 		try {
 			FileOutputStream fileOut = new FileOutputStream("hotels.ser");
 			ObjectOutputStream out = new ObjectOutputStream(fileOut);
@@ -41,7 +41,7 @@ public class AppointmentCatalog {
 			i.printStackTrace();
 		}
 	}
-	public ArrayList<Appointment> getAppointmentsFromFile(){
+	public static boolean refreshDataFromFile(){
 		try {
 			FileInputStream fileIn = new FileInputStream("hotels.ser");
 			ObjectInputStream in = new ObjectInputStream(fileIn);
@@ -51,9 +51,9 @@ public class AppointmentCatalog {
 		}
 		catch(IOException | ClassNotFoundException exc1)
 		{
-			exc1.printStackTrace();
+			return false;
 		}
-		return appointments;
+		return true;
 	}
 
 }

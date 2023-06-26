@@ -7,7 +7,7 @@ import com.carops.Owner;
 import com.carops.ReceptionEngineer;
 import com.carops.Secretary;
 import com.carops.SupervisorEngineer;
-import com.catalogs.EngineerCatalog;
+import com.catalogs.*;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -122,6 +122,23 @@ public class StartScreenController {
         }
     }
 
+    private void createFiles(){
+        AppointmentCatalog.save();
+        CustomerCatalog.save();
+        EngineerCatalog.save();
+        JobCatalog.save();
+        RepairfileCatalog.save();
+        SparePartsCatalog.save();
+        VehicleCatalog.save();
+    }
+
+    public static boolean refreshCatalogs(){
+        return AppointmentCatalog.refreshDataFromFile() && CustomerCatalog.refreshDataFromFile() &&
+                EngineerCatalog.refreshDataFromFile() && JobCatalog.refreshDataFromFile() &&
+                RepairfileCatalog.refreshDataFromFile() && SparePartsCatalog.refreshDataFromFile() &&
+                VehicleCatalog.refreshDataFromFile();
+    }
+
     private void sceneGenerator(String Screen_Name, MouseEvent event, String Screen_Title) throws IOException {
         root = FXMLLoader.load(getClass().getResource(Screen_Name));
 
@@ -172,6 +189,10 @@ public class StartScreenController {
         supervisorBtn.setBackground(Background.fill(Color.GREEN));
         engineerBtn.setBackground(Background.fill(Color.GREEN));
 
+        if( !StartScreenController.refreshCatalogs()){
+            createFiles();
+            System.out.println("mpidfg");
+        }
     }
 
 }

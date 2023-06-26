@@ -37,7 +37,7 @@ public class SparePartsCatalog {
 		spareParts.add(sparePart);
 	}
 
-	public void save(){
+	public static void save(){
 		try {
 			FileOutputStream fileOut = new FileOutputStream("spareParts.ser");
 			ObjectOutputStream out = new ObjectOutputStream(fileOut);
@@ -49,7 +49,7 @@ public class SparePartsCatalog {
 			i.printStackTrace();
 		}
 	}
-	public ArrayList<SparePart> getSparePartsFromFile(){
+	public static boolean refreshDataFromFile(){
 		try {
 			FileInputStream fileIn = new FileInputStream("spareParts.ser");
 			ObjectInputStream in = new ObjectInputStream(fileIn);
@@ -59,8 +59,8 @@ public class SparePartsCatalog {
 		}
 		catch(IOException | ClassNotFoundException exc1)
 		{
-			exc1.printStackTrace();
+			return false;
 		}
-		return spareParts;
+		return true;
 	}
 }

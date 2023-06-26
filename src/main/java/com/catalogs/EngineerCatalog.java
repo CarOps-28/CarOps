@@ -77,7 +77,7 @@ public class EngineerCatalog {
 		engineers.remove(engineer);
 	}
 
-	public void save() {
+	public static void save() {
 		try {
 			FileOutputStream fileOut = new FileOutputStream("Engineers.ser");
 			ObjectOutputStream out = new ObjectOutputStream(fileOut);
@@ -89,7 +89,7 @@ public class EngineerCatalog {
 		}
 	}
 
-	public ArrayList<Engineer> getEngineersFromFile() {
+	public static boolean refreshDataFromFile() {
 		try {
 			FileInputStream fileIn = new FileInputStream("engineers.ser");
 			ObjectInputStream in = new ObjectInputStream(fileIn);
@@ -97,9 +97,9 @@ public class EngineerCatalog {
 			fileIn.close();
 			in.close();
 		} catch (IOException | ClassNotFoundException exc1) {
-			exc1.printStackTrace();
+			return false;
 		}
-		return engineers;
+		return true;
 	}
 
 	public static Engineer searchEngineerByRole(String surname, String role) {

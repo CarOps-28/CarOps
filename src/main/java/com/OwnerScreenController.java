@@ -49,6 +49,8 @@ public class OwnerScreenController {
             setEngineers();
             changeDisabledRoleRadioButton();
 
+            EngineerCatalog.save();
+
         }
     }
 

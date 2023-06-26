@@ -1,8 +1,9 @@
 package com.carops;
 
+import java.io.Serializable;
 import java.util.EmptyStackException;
 
-public abstract class Person{
+public abstract class Person implements Serializable {
 
 	protected String id, name, surname;
 

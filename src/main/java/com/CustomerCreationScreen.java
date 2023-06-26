@@ -60,7 +60,7 @@ public class CustomerCreationScreen {
                 messageBoxText.setText("Successfully created.");
 
                 StartScreenController.secretary.createCustomer(customerName.getText(),customerSurname.getText(),customerPhone.getText(), customerEmail.getText(),customerAddress.getText());
-
+                CustomerCatalog.save();
             }else{
                 closeBtn.setBackground(Background.fill(Color.RED));
                 closeBtn.setStyle("-fx-text-fill: white;");

@@ -64,7 +64,7 @@ public class VehicleCreationScreen {
                 messageBoxText.setText("Successfully created.");
 
                 StartScreenController.secretary.createVehicle(vehiclePlatenumber.getText(),vehicleBrand.getText(),vehicleModel.getText(), Integer.parseInt(vehicleProdYear.getText()),vehicleType.getText(), Float.parseFloat(vehicleTypeValue.getText()));
-
+                VehicleCatalog.save();
             }else{
                 closeBtn.setBackground(Background.fill(Color.RED));
                 closeBtn.setStyle("-fx-text-fill: white;");

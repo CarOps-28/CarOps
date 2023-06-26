@@ -34,7 +34,7 @@ public class JobCatalog {
 		return null;
 	}
 
-	public void save(){
+	public static void save(){
 		try {
 			FileOutputStream fileOut = new FileOutputStream("jobs.ser");
 			ObjectOutputStream out = new ObjectOutputStream(fileOut);
@@ -46,7 +46,7 @@ public class JobCatalog {
 			i.printStackTrace();
 		}
 	}
-	public ArrayList<Job> getJobsFromFile(){
+	public static boolean refreshDataFromFile(){
 		try {
 			FileInputStream fileIn = new FileInputStream("jobs.ser");
 			ObjectInputStream in = new ObjectInputStream(fileIn);
@@ -56,8 +56,8 @@ public class JobCatalog {
 		}
 		catch(IOException | ClassNotFoundException exc1)
 		{
-			exc1.printStackTrace();
+			return false;
 		}
-		return jobs;
+		return true;
 	}
 }

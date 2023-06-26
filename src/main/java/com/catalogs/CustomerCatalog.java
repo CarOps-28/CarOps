@@ -46,7 +46,7 @@ public class CustomerCatalog {
 		return customers;
 	}
 
-	public void save(){
+	public static void save(){
 		try {
 			FileOutputStream fileOut = new FileOutputStream("customers.ser");
 			ObjectOutputStream out = new ObjectOutputStream(fileOut);
@@ -58,7 +58,7 @@ public class CustomerCatalog {
 			i.printStackTrace();
 		}
 	}
-	public ArrayList<Customer> getCustomersFromFile(){
+	public static boolean refreshDataFromFile(){
 		try {
 			FileInputStream fileIn = new FileInputStream("customers.ser");
 			ObjectInputStream in = new ObjectInputStream(fileIn);
@@ -68,8 +68,8 @@ public class CustomerCatalog {
 		}
 		catch(IOException | ClassNotFoundException exc1)
 		{
-			exc1.printStackTrace();
+			return false;
 		}
-		return customers;
+		return true;
 	}
 }

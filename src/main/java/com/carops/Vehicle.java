@@ -2,9 +2,10 @@ package com.carops;
 
 import com.catalogs.VehicleCatalog;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 
-public class Vehicle {
+public class Vehicle implements Serializable {
 
 	private String plateNumber, brand, model, vehicleType;
 	private int prodYear;

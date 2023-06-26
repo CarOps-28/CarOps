@@ -52,7 +52,7 @@ public class RepairfileCatalog {
 		}
 	}
 
-	public void save(){
+	public static void save(){
 		try {
 			FileOutputStream fileOut = new FileOutputStream("repairfiles.ser");
 			ObjectOutputStream out = new ObjectOutputStream(fileOut);
@@ -64,7 +64,7 @@ public class RepairfileCatalog {
 			i.printStackTrace();
 		}
 	}
-	public ArrayList<Repairfile> getRepairfilesFromFile(){
+	public static boolean refreshDataFromFile(){
 		try {
 			FileInputStream fileIn = new FileInputStream("repairfiles.ser");
 			ObjectInputStream in = new ObjectInputStream(fileIn);
@@ -74,9 +74,9 @@ public class RepairfileCatalog {
 		}
 		catch(IOException | ClassNotFoundException exc1)
 		{
-			exc1.printStackTrace();
+			return false;
 		}
-		return repairfiles;
+		return true;
 	}
 
 }

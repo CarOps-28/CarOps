@@ -1,6 +1,8 @@
 package com.carops;
 
-public class DateTime {
+import java.io.Serializable;
+
+public class DateTime implements Serializable {
     String dateTime;
 
     public DateTime(String dateTime) {

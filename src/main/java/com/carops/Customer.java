@@ -2,7 +2,9 @@ package com.carops;
 
 import com.catalogs.CustomerCatalog;
 
-public class Customer extends Person {
+import java.io.Serializable;
+
+public class Customer extends Person implements Serializable {
 
 	private String phoneNumber, email, address;
 

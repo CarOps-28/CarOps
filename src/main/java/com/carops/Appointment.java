@@ -4,7 +4,9 @@ import com.catalogs.AppointmentCatalog;
 import com.catalogs.CustomerCatalog;
 import com.catalogs.VehicleCatalog;
 
-public class Appointment {
+import java.io.Serializable;
+
+public class Appointment implements Serializable {
 
 	private String customerId = "", vehiclePlateNumber = "", transactionId;
 	private boolean status;

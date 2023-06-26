@@ -8,87 +8,90 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.VehicleCreationScreen">
-   <children>
-      <Button fx:id="goBackBtn" layoutX="65.0" layoutY="589.0" mnemonicParsing="false" onMouseClicked="#mouseClicked" prefHeight="44.0" prefWidth="141.0" styleClass="goBackBtn" stylesheets="@../Styles/style.css" text="go Back" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <TextField fx:id="vehiclePlatenumber" layoutX="65.0" layoutY="76.0" prefHeight="44.0" prefWidth="277.0" promptText="Plate number">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </TextField>
-      <Text layoutX="65.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Plate Number" wrappingWidth="141.0" />
-      <TextField fx:id="vehicleProdYear" layoutX="65.0" layoutY="336.0" prefHeight="44.0" prefWidth="277.0" promptText="Prod year">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </TextField>
-      <Text layoutX="65.0" layoutY="332.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prod Year" wrappingWidth="59.0" />
-      <TextField fx:id="vehicleBrand" layoutX="65.0" layoutY="161.0" prefHeight="44.0" prefWidth="277.0" promptText="Brand">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </TextField>
-      <Text layoutX="65.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Brand" wrappingWidth="141.0" />
-      <TextField fx:id="vehicleType" layoutX="65.0" layoutY="416.0" prefHeight="44.0" prefWidth="277.0" promptText="Vehicle/Truck/Motorcycle">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </TextField>
-      <Text layoutX="65.0" layoutY="412.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VehicleType - Vehicle / Truck / Motorcycle" wrappingWidth="277.0" />
-      <TextField fx:id="vehicleModel" layoutX="65.0" layoutY="247.0" prefHeight="44.0" prefWidth="277.0" promptText="Model">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </TextField>
-      <Text layoutX="65.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Model" wrappingWidth="141.0" />
-      <TextField fx:id="vehicleTypeValue" layoutX="68.0" layoutY="499.0" prefHeight="44.0" prefWidth="277.0" promptText="cxv">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </TextField>
-      <Text layoutX="68.0" layoutY="495.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Capacity / Quantum" wrappingWidth="141.0" />
-      <Button fx:id="vehicleCreationBtn" layoutX="711.0" layoutY="589.0" mnemonicParsing="false" onMouseClicked="#mouseClicked" prefHeight="44.0" prefWidth="141.0" styleClass="createBtn" stylesheets="@../Styles/style.css" text="Create">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
 
-      <AnchorPane fx:id="messageBox" layoutX="269.0" layoutY="246.0" prefHeight="169.0" prefWidth="362.0" styleClass="messageBox" stylesheets="@../Styles/style.css" visible="false">
-         <children>
-            <Text fx:id="messageBoxText" fill="WHITE" layoutX="43.0" layoutY="64.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="277.0">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Text>
-            <Button fx:id="closeBtn" layoutX="111.0" layoutY="102.0" mnemonicParsing="false" onMouseClicked="#mouseClicked" prefHeight="44.0" prefWidth="141.0" styleClass="createBtn" stylesheets="@../Styles/style.css" text="Close">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-         </children>
-      </AnchorPane>
-      <Text disable="true" layoutX="297.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create Vehicle" textAlignment="CENTER" wrappingWidth="333.13671875">
-         <font>
-            <Font size="36.0" />
-         </font>
-      </Text>
-      <Text fx:id="plateNumberErr" fill="RED" layoutX="65.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="277.0" />
-      <Text fx:id="brandErr" fill="RED" layoutX="65.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="277.0" />
-      <Text fx:id="modelErr" fill="RED" layoutX="65.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="277.0" />
-      <Text fx:id="prodYearErr" fill="RED" layoutX="65.0" layoutY="393.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="277.0" />
-      <Text fx:id="vehicleTypeErr" fill="RED" layoutX="65.0" layoutY="473.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="277.0" />
+   <AnchorPane fx:id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+      <children>
+         <Button fx:id="goBackBtn" layoutX="65.0" layoutY="589.0" mnemonicParsing="false" onMouseClicked="#mouseClicked" prefHeight="44.0" prefWidth="141.0" styleClass="goBackBtn" stylesheets="@../Styles/style.css" text="go Back" textFill="WHITE">
+            <font>
+               <Font name="System Bold" size="14.0" />
+            </font>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </Button>
+         <TextField fx:id="vehiclePlatenumber" layoutX="65.0" layoutY="76.0" prefHeight="44.0" prefWidth="277.0" promptText="Plate number">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </TextField>
+         <Text layoutX="65.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Plate Number" wrappingWidth="141.0" />
+         <TextField fx:id="vehicleProdYear" layoutX="65.0" layoutY="336.0" prefHeight="44.0" prefWidth="277.0" promptText="Prod year">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </TextField>
+         <Text layoutX="65.0" layoutY="332.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prod Year" wrappingWidth="59.0" />
+         <TextField fx:id="vehicleBrand" layoutX="65.0" layoutY="161.0" prefHeight="44.0" prefWidth="277.0" promptText="Brand">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </TextField>
+         <Text layoutX="65.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Brand" wrappingWidth="141.0" />
+         <TextField fx:id="vehicleType" layoutX="65.0" layoutY="416.0" prefHeight="44.0" prefWidth="277.0" promptText="Vehicle/Truck/Motorcycle">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </TextField>
+         <Text layoutX="65.0" layoutY="412.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VehicleType - Vehicle / Truck / Motorcycle" wrappingWidth="277.0" />
+         <TextField fx:id="vehicleModel" layoutX="65.0" layoutY="247.0" prefHeight="44.0" prefWidth="277.0" promptText="Model">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </TextField>
+         <Text layoutX="65.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Model" wrappingWidth="141.0" />
+         <TextField fx:id="vehicleTypeValue" layoutX="68.0" layoutY="499.0" prefHeight="44.0" prefWidth="277.0" promptText="cxv">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </TextField>
+         <Text layoutX="68.0" layoutY="495.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Capacity / Quantum" wrappingWidth="141.0" />
+         <Button fx:id="vehicleCreationBtn" layoutX="711.0" layoutY="589.0" mnemonicParsing="false" onMouseClicked="#mouseClicked" prefHeight="44.0" prefWidth="141.0" styleClass="createBtn" stylesheets="@../Styles/style.css" text="Create">
+            <font>
+               <Font name="System Bold" size="14.0" />
+            </font>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </Button>
+         <Text disable="true" layoutX="297.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create Vehicle" textAlignment="CENTER" wrappingWidth="333.13671875">
+            <font>
+               <Font size="36.0" />
+            </font>
+         </Text>
+         <Text fx:id="plateNumberErr" fill="RED" layoutX="65.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="277.0" />
+         <Text fx:id="brandErr" fill="RED" layoutX="65.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="277.0" />
+         <Text fx:id="modelErr" fill="RED" layoutX="65.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="277.0" />
+         <Text fx:id="prodYearErr" fill="RED" layoutX="65.0" layoutY="393.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="277.0" />
+         <Text fx:id="vehicleTypeErr" fill="RED" layoutX="65.0" layoutY="473.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="277.0" />
 
-   </children>
+      </children>
+   </AnchorPane>
+
+   <AnchorPane fx:id="messageBox" layoutX="276.0" layoutY="254.0" prefHeight="169.0" prefWidth="362.0" styleClass="messageBox" stylesheets="@../Styles/style.css" visible="false">
+      <children>
+         <Text fx:id="messageBoxText" fill="WHITE" layoutX="43.0" layoutY="64.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="277.0">
+            <font>
+               <Font size="24.0" />
+            </font>
+         </Text>
+         <Button fx:id="closeBtn" layoutX="111.0" layoutY="102.0" mnemonicParsing="false" onMouseClicked="#mouseClicked" prefHeight="44.0" prefWidth="141.0" styleClass="createBtn" stylesheets="@../Styles/style.css" text="Close">
+            <font>
+               <Font name="System Bold" size="14.0" />
+            </font>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </Button>
+      </children>
+   </AnchorPane>
 </AnchorPane>

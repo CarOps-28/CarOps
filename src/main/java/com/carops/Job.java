@@ -2,7 +2,9 @@ package com.carops;
 
 import com.catalogs.JobCatalog;
 
-public class Job {
+import java.io.Serializable;
+
+public class Job implements Serializable {
 
 	private String name, description;
 	private int price;

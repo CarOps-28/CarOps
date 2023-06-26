@@ -1,8 +1,9 @@
 package com.carops;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
-public class Assignment {
+public class Assignment implements Serializable {
 
 	private int worktime;
 	private boolean status;

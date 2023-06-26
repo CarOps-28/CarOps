@@ -2,7 +2,9 @@ package com.carops;
 
 import com.catalogs.SparePartsCatalog;
 
-public class SparePart {
+import java.io.Serializable;
+
+public class SparePart implements Serializable {
 
 	private String name;
 	private int availableQuantity, price;

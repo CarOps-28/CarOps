@@ -2,10 +2,11 @@ package com.carops;
 
 import com.catalogs.RepairfileCatalog;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Repairfile {
+public class Repairfile implements Serializable {
 
 	private int worktime;
 	private String status = "";

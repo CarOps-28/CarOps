@@ -38,7 +38,7 @@ public class VehicleCatalog {
 		vehicles.add(vehicle);
 	}
 
-	public void save(){
+	public static void save(){
 		try {
 			FileOutputStream fileOut = new FileOutputStream("vehicles.ser");
 			ObjectOutputStream out = new ObjectOutputStream(fileOut);
@@ -50,7 +50,7 @@ public class VehicleCatalog {
 			i.printStackTrace();
 		}
 	}
-	public ArrayList<Vehicle> getVehiclesFromFile(){
+	public static boolean refreshDataFromFile(){
 		try {
 			FileInputStream fileIn = new FileInputStream("vehicles.ser");
 			ObjectInputStream in = new ObjectInputStream(fileIn);
@@ -60,8 +60,8 @@ public class VehicleCatalog {
 		}
 		catch(IOException | ClassNotFoundException exc1)
 		{
-			exc1.printStackTrace();
+			return false;
 		}
-		return vehicles;
+		return true;
 	}
 }
