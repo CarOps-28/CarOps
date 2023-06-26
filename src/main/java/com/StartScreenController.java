@@ -191,7 +191,6 @@ public class StartScreenController {
 
         if( !StartScreenController.refreshCatalogs()){
             createFiles();
-            System.out.println("mpidfg");
         }
     }
 
