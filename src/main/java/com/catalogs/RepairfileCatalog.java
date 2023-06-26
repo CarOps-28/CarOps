@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class RepairfileCatalog {
+	private static String url = "files/repairfiles.ser";
+
 	private static ArrayList<Repairfile> repairfiles = new ArrayList<>();
 
 	public static Collection<Repairfile> fetchRepairfiles() {
@@ -54,7 +56,7 @@ public class RepairfileCatalog {
 
 	public static void save(){
 		try {
-			FileOutputStream fileOut = new FileOutputStream("repairfiles.ser");
+			FileOutputStream fileOut = new FileOutputStream(url);
 			ObjectOutputStream out = new ObjectOutputStream(fileOut);
 			out.writeObject(repairfiles);
 			out.close();
@@ -66,7 +68,7 @@ public class RepairfileCatalog {
 	}
 	public static boolean refreshDataFromFile(){
 		try {
-			FileInputStream fileIn = new FileInputStream("repairfiles.ser");
+			FileInputStream fileIn = new FileInputStream(url);
 			ObjectInputStream in = new ObjectInputStream(fileIn);
 			repairfiles = (ArrayList<Repairfile>)in.readObject();
 			fileIn.close();

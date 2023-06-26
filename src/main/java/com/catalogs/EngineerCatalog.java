@@ -13,6 +13,8 @@ import com.carops.Engineer;
 import com.carops.Processes;
 
 public class EngineerCatalog {
+	private static String url = "files/engineers.ser";
+
 	private static ArrayList<Engineer> engineers = new ArrayList<>();
 
 	public static ArrayList<Engineer> fetchEngineers() {
@@ -79,7 +81,7 @@ public class EngineerCatalog {
 
 	public static void save() {
 		try {
-			FileOutputStream fileOut = new FileOutputStream("Engineers.ser");
+			FileOutputStream fileOut = new FileOutputStream(url);
 			ObjectOutputStream out = new ObjectOutputStream(fileOut);
 			out.writeObject(engineers);
 			out.close();
@@ -91,7 +93,7 @@ public class EngineerCatalog {
 
 	public static boolean refreshDataFromFile() {
 		try {
-			FileInputStream fileIn = new FileInputStream("engineers.ser");
+			FileInputStream fileIn = new FileInputStream(url);
 			ObjectInputStream in = new ObjectInputStream(fileIn);
 			engineers = (ArrayList<Engineer>) in.readObject();
 			fileIn.close();

@@ -6,6 +6,7 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class CustomerCatalog {
+	private static String url = "files/customers.ser";
 
 	private static ArrayList<Customer> customers = new ArrayList<>();
 
@@ -48,7 +49,7 @@ public class CustomerCatalog {
 
 	public static void save(){
 		try {
-			FileOutputStream fileOut = new FileOutputStream("customers.ser");
+			FileOutputStream fileOut = new FileOutputStream(url);
 			ObjectOutputStream out = new ObjectOutputStream(fileOut);
 			out.writeObject(customers);
 			out.close();
@@ -60,7 +61,7 @@ public class CustomerCatalog {
 	}
 	public static boolean refreshDataFromFile(){
 		try {
-			FileInputStream fileIn = new FileInputStream("customers.ser");
+			FileInputStream fileIn = new FileInputStream(url);
 			ObjectInputStream in = new ObjectInputStream(fileIn);
 			customers = (ArrayList<Customer>)in.readObject();
 			fileIn.close();

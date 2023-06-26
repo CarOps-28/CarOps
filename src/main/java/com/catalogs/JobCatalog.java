@@ -7,6 +7,8 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class JobCatalog {
+	private static String url = "files/jobs.ser";
+
 	private static ArrayList<Job> jobs = new ArrayList<Job>();
 
 	public static ArrayList<Job> fetchJobs() {
@@ -36,7 +38,7 @@ public class JobCatalog {
 
 	public static void save(){
 		try {
-			FileOutputStream fileOut = new FileOutputStream("jobs.ser");
+			FileOutputStream fileOut = new FileOutputStream(url);
 			ObjectOutputStream out = new ObjectOutputStream(fileOut);
 			out.writeObject(jobs);
 			out.close();
@@ -48,7 +50,7 @@ public class JobCatalog {
 	}
 	public static boolean refreshDataFromFile(){
 		try {
-			FileInputStream fileIn = new FileInputStream("jobs.ser");
+			FileInputStream fileIn = new FileInputStream(url);
 			ObjectInputStream in = new ObjectInputStream(fileIn);
 			jobs = (ArrayList<Job>)in.readObject();
 			fileIn.close();

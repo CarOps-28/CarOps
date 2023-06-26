@@ -3,10 +3,10 @@ package com.catalogs;
 import com.carops.Appointment;
 
 import java.io.*;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class AppointmentCatalog {
+	private static String url = "files/appointments.ser";
 
 	private static ArrayList<Appointment> appointments = new ArrayList<>();
 
@@ -31,7 +31,7 @@ public class AppointmentCatalog {
 
 	public static void save(){
 		try {
-			FileOutputStream fileOut = new FileOutputStream("hotels.ser");
+			FileOutputStream fileOut = new FileOutputStream(url);
 			ObjectOutputStream out = new ObjectOutputStream(fileOut);
 			out.writeObject(appointments);
 			out.close();
@@ -43,7 +43,7 @@ public class AppointmentCatalog {
 	}
 	public static boolean refreshDataFromFile(){
 		try {
-			FileInputStream fileIn = new FileInputStream("hotels.ser");
+			FileInputStream fileIn = new FileInputStream(url);
 			ObjectInputStream in = new ObjectInputStream(fileIn);
 			appointments = (ArrayList<Appointment>)in.readObject();
 			fileIn.close();
