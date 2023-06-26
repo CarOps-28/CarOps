@@ -22,6 +22,8 @@ public class CustomerCreationScreen {
     private Parent root;
 
     @FXML
+    private AnchorPane background;
+    @FXML
     private Button goBackBtn, customerCreationBtn, closeBtn;
 
     @FXML
@@ -65,8 +67,12 @@ public class CustomerCreationScreen {
                 messageBoxText.setText(errorMessage);
             }
             messageBoxText.setStyle("-fx-text-fill: white;");
+
+            background.setDisable(true);
+
             messageBox.setVisible(true);
         }else if (event.getSource() == closeBtn){
+            background.setDisable(false);
             messageBox.setVisible(false);
         }
     }
@@ -105,6 +111,8 @@ public class CustomerCreationScreen {
     }
     @FXML
     void initialize() {
+        assert background != null : "fx:id=\"background\" was not injected: check your FXML file 'VehicleCreationScreen-view.fxml'.";
+
         assert goBackBtn != null : "fx:id=\"goBackBtn\" was not injected: check your FXML file 'CustomerCreationScreen-view.fxml'.";
         assert customerCreationBtn != null : "fx:id=\"customerCreationBtn\" was not injected: check your FXML file 'CustomerCreationScreen-view.fxml'.";
         assert customerName != null : "fx:id=\"customerName\" was not injected: check your FXML file 'CustomerCreationScreen-view.fxml'.";

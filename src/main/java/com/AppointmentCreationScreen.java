@@ -23,6 +23,9 @@ public class AppointmentCreationScreen {
     private Parent root;
 
     @FXML
+    private AnchorPane background;
+
+    @FXML
     private TextField plateNumber, date, phoneNumber;
 
     @FXML
@@ -70,8 +73,11 @@ public class AppointmentCreationScreen {
             }
             messageBoxText.setStyle("-fx-text-fill: white;");
 
+            background.setDisable(true);
+
             messageBox.setVisible(true);
         }else if (event.getSource() == closeBtn){
+            background.setDisable(false);
             messageBox.setVisible(false);
         }
     }
@@ -111,6 +117,8 @@ public class AppointmentCreationScreen {
 
     @FXML
     void initialize() {
+        assert background != null : "fx:id=\"background\" was not injected: check your FXML file 'VehicleCreationScreen-view.fxml'.";
+
         assert plateNumber != null : "fx:id=\"plateNumber\" was not injected: check your FXML file 'AppointmentCreationScreen-view.fxml'.";
         assert date != null : "fx:id=\"date\" was not injected: check your FXML file 'AppointmentCreationScreen-view.fxml'.";
         assert phoneNumber != null : "fx:id=\"phoneNumber\" was not injected: check your FXML file 'AppointmentCreationScreen-view.fxml'.";

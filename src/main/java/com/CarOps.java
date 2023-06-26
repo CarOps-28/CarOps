@@ -154,7 +154,7 @@ public class CarOps extends Application {
         System.out.println("New Engineer Τσολακίδης has been created");
         System.out.println();
 
-        Engineer engineer2 = new Engineer("Εριόλα", "Χαϊντάρη", "engineer");
+        Engineer engineer2 = new Engineer("Εριόλα", "Χαϊντάρι", "engineer");
         System.out.println("New Engineer Χαϊντάρη has been created");
         System.out.println();
 

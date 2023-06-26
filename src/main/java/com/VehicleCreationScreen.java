@@ -19,8 +19,13 @@ import java.io.IOException;
 
 public class VehicleCreationScreen {
 
+
     private Stage stage;
     private Parent root;
+
+
+    @FXML
+    private AnchorPane background;
 
     @FXML
     private TextField vehiclePlatenumber, vehicleBrand, vehicleModel, vehicleProdYear, vehicleType;
@@ -69,9 +74,12 @@ public class VehicleCreationScreen {
             }
             messageBoxText.setStyle("-fx-text-fill: white;");
 
+            background.setDisable(true);
+
             messageBox.setVisible(true);
         }else if (event.getSource() == closeBtn){
             messageBox.setVisible(false);
+            background.setDisable(false);
         }
     }
 
@@ -103,7 +111,8 @@ public class VehicleCreationScreen {
         else { prodYearErr.setText("*"); }
 
         if (vehicleType.getText().equals("") ) { vehicleTypeErr.setText("* this field cannot be empty."); flag = false; }
-        else if ( !vehicleType.getText().contentEquals("Vehicle") && !vehicleType.getText().contentEquals("Truck") && !vehicleType.getText().contentEquals("Motorcycle")) { vehicleTypeErr.setText("* this field must be 'Vehicle'/'Truck'/'Motorcycle'" ); }
+        else if ( !vehicleType.getText().equalsIgnoreCase("Vehicle") && !vehicleType.getText().equalsIgnoreCase("Truck") && !vehicleType.getText().equalsIgnoreCase("Motorcycle"))
+        { vehicleTypeErr.setText("* this field must be 'Vehicle'/'Truck'/'Motorcycle'" ); flag = false; }
         else { vehicleTypeErr.setText("*"); }
 
         if ( VehicleCatalog.fetchVehicleByPlateNumber(vehiclePlatenumber.getText()) != null){ errorMessage = "Vehicle already exist."; flag = false; }
@@ -113,6 +122,8 @@ public class VehicleCreationScreen {
 
     @FXML
     void initialize() {
+        assert background != null : "fx:id=\"background\" was not injected: check your FXML file 'VehicleCreationScreen-view.fxml'.";
+        
         assert goBackBtn != null : "fx:id=\"goBackBtn\" was not injected: check your FXML file 'VehicleCreationScreen-view.fxml'.";
         assert vehiclePlatenumber != null : "fx:id=\"vehiclePlatenumber\" was not injected: check your FXML file 'VehicleCreationScreen-view.fxml'.";
         assert vehicleBrand != null : "fx:id=\"vehicleBrand\" was not injected: check your FXML file 'VehicleCreationScreen-view.fxml'.";

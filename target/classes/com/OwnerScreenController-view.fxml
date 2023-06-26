@@ -26,12 +26,12 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <TextField fx:id="engineer1" alignment="CENTER" layoutX="77.0" layoutY="200.0" prefHeight="44.0" prefWidth="218.0">
+      <TextField fx:id="engineer1" alignment="CENTER" editable="false" layoutX="77.0" layoutY="200.0" prefHeight="44.0" prefWidth="218.0">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField fx:id="engineerRole1" alignment="CENTER" layoutX="347.0" layoutY="200.0" prefHeight="44.0" prefWidth="138.0">
+      <TextField fx:id="engineerRole1" alignment="CENTER" editable="false" layoutX="347.0" layoutY="200.0" prefHeight="44.0" prefWidth="138.0">
          <font>
             <Font size="14.0" />
          </font>
@@ -44,12 +44,12 @@
             <ToggleGroup fx:id="eng" />
          </toggleGroup>
       </RadioButton>
-      <TextField fx:id="engineer2" alignment="CENTER" layoutX="77.0" layoutY="280.0" prefHeight="44.0" prefWidth="218.0">
+      <TextField fx:id="engineer2" alignment="CENTER" editable="false" layoutX="77.0" layoutY="280.0" prefHeight="44.0" prefWidth="218.0">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField fx:id="engineerRole2" alignment="CENTER" layoutX="347.0" layoutY="280.0" prefHeight="44.0" prefWidth="138.0">
+      <TextField fx:id="engineerRole2" alignment="CENTER" editable="false" layoutX="347.0" layoutY="280.0" prefHeight="44.0" prefWidth="138.0">
          <font>
             <Font size="14.0" />
          </font>
@@ -59,12 +59,12 @@
             <Font size="18.0" />
          </font>
       </RadioButton>
-      <TextField fx:id="engineer3" alignment="CENTER" layoutX="77.0" layoutY="355.0" prefHeight="44.0" prefWidth="218.0">
+      <TextField fx:id="engineer3" alignment="CENTER" editable="false" layoutX="77.0" layoutY="355.0" prefHeight="44.0" prefWidth="218.0">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField fx:id="engineerRole3" alignment="CENTER" layoutX="347.0" layoutY="355.0" prefHeight="44.0" prefWidth="138.0">
+      <TextField fx:id="engineerRole3" alignment="CENTER" editable="false" layoutX="347.0" layoutY="355.0" prefHeight="44.0" prefWidth="138.0">
          <font>
             <Font size="14.0" />
          </font>
@@ -74,12 +74,12 @@
             <Font size="18.0" />
          </font>
       </RadioButton>
-      <TextField fx:id="engineer4" alignment="CENTER" layoutX="77.0" layoutY="430.0" prefHeight="44.0" prefWidth="218.0">
+      <TextField fx:id="engineer4" alignment="CENTER" editable="false" layoutX="77.0" layoutY="430.0" prefHeight="44.0" prefWidth="218.0">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField fx:id="engineerRole4" alignment="CENTER" layoutX="347.0" layoutY="430.0" prefHeight="44.0" prefWidth="138.0">
+      <TextField fx:id="engineerRole4" alignment="CENTER" editable="false" layoutX="347.0" layoutY="430.0" prefHeight="44.0" prefWidth="138.0">
          <font>
             <Font size="14.0" />
          </font>
@@ -89,12 +89,12 @@
             <Font size="18.0" />
          </font>
       </RadioButton>
-      <TextField fx:id="engineer5" alignment="CENTER" layoutX="77.0" layoutY="505.0" prefHeight="44.0" prefWidth="218.0">
+      <TextField fx:id="engineer5" alignment="CENTER" editable="false" layoutX="77.0" layoutY="505.0" prefHeight="44.0" prefWidth="218.0">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField fx:id="engineerRole5" alignment="CENTER" layoutX="347.0" layoutY="505.0" prefHeight="44.0" prefWidth="138.0">
+      <TextField fx:id="engineerRole5" alignment="CENTER" editable="false" layoutX="347.0" layoutY="505.0" prefHeight="44.0" prefWidth="138.0">
          <font>
             <Font size="14.0" />
          </font>
