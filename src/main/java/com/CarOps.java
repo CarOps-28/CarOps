@@ -19,7 +19,7 @@ public class CarOps extends Application {
 
     public static void main(String[] args) {
 
-        System.out.println("Υλοποίηση των αιτούμενων του παραδοτέου.");
+        System.out.println("Υλοποίηση των ζητουμένων του παραδοτέου.");
 
         // Create Secretary
         Secretary tampouris = new Secretary("Ευθύμιος", "Ταμπούρης");

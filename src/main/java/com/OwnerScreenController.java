@@ -99,9 +99,9 @@ public class OwnerScreenController {
         for (Engineer eng : EngineerCatalog.fetchEngineers()){
             if (eng.getId().equals(selectedEngineerId)){
                 switch (eng.getRole()) {
-                    case "reception" -> { reception.setDisable(true); supervisor.fire(); }
-                    case "supervisor" ->{ supervisor.setDisable(true); reception.fire(); }
-                    case "engineer" -> { engineer.setDisable(true); supervisor.fire(); }
+                    case "reception" -> { reception.fire(); reception.setDisable(true);  }
+                    case "supervisor" ->{ supervisor.fire(); supervisor.setDisable(true); }
+                    case "engineer" -> { engineer.fire(); engineer.setDisable(true); }
                 }
             }
         }
