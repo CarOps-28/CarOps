@@ -1,0 +1,20 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="CarOps">
+    <output-path>$PROJECT_DIR$/out/artifacts/CarOps</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="CarOps" />
+        <option name="description" value="" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="title" value="" />
+        <option name="vendor" value="" />
+        <option name="version" value="" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="CarOps.jar">
+        <element id="module-output" name="CarOps" />
+      </element>
+    </root>
+  </artifact>
+</component>
