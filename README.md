@@ -121,11 +121,11 @@ n ID        Name             Surname          Role
 
 ## Sprint backlog  
 
-![Sprint burndown chart](img/sprintbacklog.png)
+![Sprint burndown chart](img/sprintBacklog.png)
 
 ## Sprint burndown chart  
 
-![Sprint burndown chart](img/sprintburndownChart.png)
+![Sprint burndown chart](img/burndownChart.png)
 
 
 <hr>
