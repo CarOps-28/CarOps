@@ -95,7 +95,7 @@ public class StartScreenController {
 
             if (receptionEngineer != null) {
                 receptionLastname.setText("");
-                StartScreenController.sceneGenerator("ReceptionEngineerScreen-view.fxml", e, "Reception Screen");
+                StartScreenController.sceneGenerator("ReceptionScreenController-view.fxml", e, "Reception Screen");
 
             } else {
                 receptionLastname.setText(receptionLastname.getText() + " not found");

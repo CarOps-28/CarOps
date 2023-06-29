@@ -23,7 +23,7 @@ public class VehicleCreationScreen {
     private AnchorPane background;
 
     @FXML
-    private TextField vehiclePlatenumber, vehicleBrand, vehicleModel, vehicleProdYear, vehicleType;
+    private TextField vehiclePlateNumber, vehicleBrand, vehicleModel, vehicleProdYear, vehicleType;
     @FXML
     private TextField vehicleTypeValue;
 
@@ -42,14 +42,18 @@ public class VehicleCreationScreen {
             if (StartScreenController.secretary != null) {
                 StartScreenController.sceneGenerator("SecretaryScreenController-view.fxml", event, "Secretary Screen");
             }else{
-                StartScreenController.sceneGenerator("ReceptionEngineerScreenController-view.fxml", event, "Reception Screen");
+                StartScreenController.sceneGenerator("ReceptionScreenController-view.fxml", event, "Reception Screen");
             }
         }else if (event.getSource() == vehicleCreationBtn){
 
             if( checkInputFields() ){
                 messageBoxText.setText("Successfully created.");
 
-                StartScreenController.secretary.createVehicle(vehiclePlatenumber.getText(),vehicleBrand.getText(),vehicleModel.getText(), Integer.parseInt(vehicleProdYear.getText()),vehicleType.getText(), Float.parseFloat(vehicleTypeValue.getText()));
+                if (StartScreenController.secretary != null){
+                    StartScreenController.secretary.createVehicle(vehiclePlateNumber.getText(),vehicleBrand.getText(),vehicleModel.getText(), Integer.parseInt(vehicleProdYear.getText()),vehicleType.getText(), Float.parseFloat(vehicleTypeValue.getText()));
+                }else {
+                    StartScreenController.receptionEngineer.createVehicle(vehiclePlateNumber.getText(),vehicleBrand.getText(),vehicleModel.getText(), Integer.parseInt(vehicleProdYear.getText()),vehicleType.getText(), Float.parseFloat(vehicleTypeValue.getText()));
+                }
                 VehicleCatalog.save();
             }else{
                 messageBoxText.setText(errorMessage);
@@ -70,7 +74,7 @@ public class VehicleCreationScreen {
         boolean flag = true;
         errorMessage = "Invalid Customer fields.";
 
-        if (vehiclePlatenumber.getText().equals("") ) { plateNumberErr.setText("* this field cannot be empty."); flag = false; }
+        if (vehiclePlateNumber.getText().equals("") ) { plateNumberErr.setText("* this field cannot be empty."); flag = false; }
         else { plateNumberErr.setText("*"); }
 
         if (vehicleBrand.getText().equals("") ) { brandErr.setText("* this field cannot be empty."); flag = false; }
@@ -87,7 +91,7 @@ public class VehicleCreationScreen {
         { vehicleTypeErr.setText("* this field must be 'Car'/'Truck'/'Motorcycle'" ); flag = false; }
         else { vehicleTypeErr.setText("*"); }
 
-        if ( VehicleCatalog.fetchVehicleByPlateNumber(vehiclePlatenumber.getText()) != null){ errorMessage = "Vehicle already exist."; flag = false; }
+        if ( VehicleCatalog.fetchVehicleByPlateNumber(vehiclePlateNumber.getText()) != null){ errorMessage = "Vehicle already exist."; flag = false; }
 
         return flag;
     }
@@ -97,7 +101,7 @@ public class VehicleCreationScreen {
         assert background != null : "fx:id=\"background\" was not injected: check your FXML file 'VehicleCreationScreen-view.fxml'.";
         
         assert goBackBtn != null : "fx:id=\"goBackBtn\" was not injected: check your FXML file 'VehicleCreationScreen-view.fxml'.";
-        assert vehiclePlatenumber != null : "fx:id=\"vehiclePlatenumber\" was not injected: check your FXML file 'VehicleCreationScreen-view.fxml'.";
+        assert vehiclePlateNumber != null : "fx:id=\"vehiclePlateNumber\" was not injected: check your FXML file 'VehicleCreationScreen-view.fxml'.";
         assert vehicleBrand != null : "fx:id=\"vehicleBrand\" was not injected: check your FXML file 'VehicleCreationScreen-view.fxml'.";
         assert vehicleModel != null : "fx:id=\"vehicleModel\" was not injected: check your FXML file 'VehicleCreationScreen-view.fxml'.";
         assert vehicleProdYear != null : "fx:id=\"vehicleProdYear\" was not injected: check your FXML file 'VehicleCreationScreen-view.fxml'.";

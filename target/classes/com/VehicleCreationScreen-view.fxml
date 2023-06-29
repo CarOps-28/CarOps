@@ -11,7 +11,7 @@
 
    <AnchorPane fx:id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" styleClass="screenBackground" stylesheets="@../Styles/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
       <children>
-         <Button fx:id="goBackBtn" layoutX="65.0" layoutY="589.0" mnemonicParsing="false" onMouseClicked="#mouseClicked" prefHeight="44.0" prefWidth="141.0" styleClass="logoutBtn" stylesheets="@../Styles/style.css" text="go Back" textFill="WHITE">
+         <Button fx:id="goBackBtn" layoutX="65.0" layoutY="589.0" mnemonicParsing="false" onMouseClicked="#mouseClicked" prefHeight="44.0" prefWidth="141.0" styleClass="go Back" stylesheets="@../Styles/style.css" text="Log out" textFill="WHITE">
             <font>
                <Font name="System Bold" size="14.0" />
             </font>
@@ -19,7 +19,7 @@
                <Cursor fx:constant="HAND" />
             </cursor>
          </Button>
-         <TextField fx:id="vehiclePlatenumber" layoutX="65.0" layoutY="76.0" prefHeight="44.0" prefWidth="277.0" promptText="Plate number" styleClass="text-field" stylesheets="@../Styles/style.css">
+         <TextField fx:id="vehiclePlateNumber" layoutX="65.0" layoutY="76.0" prefHeight="44.0" prefWidth="277.0" promptText="Plate number" styleClass="text-field" stylesheets="@../Styles/style.css">
             <font>
                <Font size="14.0" />
             </font>

@@ -60,7 +60,7 @@
                 <Font size="14.0" />
             </font>
         </TextField>
-        <Button fx:id="receptionBtn" disable="true" layoutX="651.0" layoutY="374.0" mnemonicParsing="false" onMouseClicked="#mouseClicked" prefHeight="40.0" prefWidth="200.0" styleClass="btn" stylesheets="@../Styles/style.css" text="Login as Reception" textFill="WHITE">
+        <Button fx:id="receptionBtn" layoutX="651.0" layoutY="374.0" mnemonicParsing="false" onMouseClicked="#mouseClicked" prefHeight="40.0" prefWidth="200.0" styleClass="btn" stylesheets="@../Styles/style.css" text="Login as Reception" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="14.0" />
             </font>

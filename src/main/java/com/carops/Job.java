@@ -1,6 +1,7 @@
 package com.carops;
 
 import com.catalogs.JobCatalog;
+import javafx.scene.control.CheckBox;
 
 import java.io.Serializable;
 
@@ -9,6 +10,7 @@ public class Job implements Serializable {
 	private String name, description;
 	private int price;
 
+	private CheckBox checkBox; // For GUI purpose.
 	public Job(String name, int price, String description) {
 		this.name = name;
 		this.price = price;
@@ -36,5 +38,12 @@ public class Job implements Serializable {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public void setCheckBox(CheckBox checkBox){
+		this.checkBox = checkBox;
+	}
+	public CheckBox getCheckBox(){
+		return this.checkBox;
 	}
 }
