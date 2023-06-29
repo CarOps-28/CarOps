@@ -1,14 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.SupervisorScreenController"
-            prefHeight="700.0" prefWidth="900.0">
-
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="700.0" prefWidth="900.0" styleClass="screenBackground"
+            stylesheets="@../Styles/style.css" xmlns="http://javafx.com/javafx/19"
+            fx:controller="com.SupervisorScreenController">
+    <children>
+        <TableView fx:id="jobTable" layoutX="408.0" layoutY="103.0" prefHeight="444.0" prefWidth="428.0">
+            <columns>
+                <TableColumn fx:id="jobName" prefWidth="152.0" text="Name"/>
+                <TableColumn fx:id="jobPrice" minWidth="0.0" prefWidth="131.0" text="Price"/>
+                <TableColumn fx:id="jobCheckBox" minWidth="0.0" prefWidth="132.0" text="Select"/>
+            </columns>
+        </TableView>
+        <TextField fx:id="vehiclePlateNumber" layoutX="70.0" layoutY="119.0" prefHeight="44.0" prefWidth="277.0"
+                   promptText="Plate number" styleClass="text-field" stylesheets="@../Styles/style.css">
+            <font>
+                <Font size="14.0"/>
+            </font>
+        </TextField>
+        <Text fill="#f1faee" layoutX="70.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Plate Number"
+              wrappingWidth="141.0">
+            <font>
+                <Font name="System Bold Italic" size="12.0"/>
+            </font>
+        </Text>
+        <Text disable="true" fill="#f1faee" layoutX="283.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              text="Set Assignments" textAlignment="CENTER" wrappingWidth="333.13671875">
+            <font>
+                <Font size="36.0"/>
+            </font>
+        </Text>
+        <Button fx:id="searchBtn" layoutX="63.0" layoutY="328.0" mnemonicParsing="false" onMouseClicked="#mouseClicked"
+                prefHeight="44.0" prefWidth="156.0" styleClass="btn" stylesheets="@../Styles/style.css" text="Search">
+            <font>
+                <Font name="System Bold" size="14.0"/>
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND"/>
+            </cursor>
+        </Button>
+        <Text fx:id="plateNumberErr" fill="#ff8585" layoutX="70.0" layoutY="178.0" strokeType="OUTSIDE"
+              strokeWidth="0.0" text="*" wrappingWidth="277.0">
+            <font>
+                <Font size="14.0"/>
+            </font>
+        </Text>
+        <Button fx:id="goBackBtn" layoutX="77.0" layoutY="602.0" mnemonicParsing="false" onMouseClicked="#mouseClicked"
+                prefHeight="44.0" prefWidth="141.0" styleClass="logoutBtn" stylesheets="@../Styles/style.css"
+                text="Log out" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="14.0"/>
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND"/>
+            </cursor>
+        </Button>
+        <Button fx:id="moveBtn" layoutX="680.0" layoutY="602.0" mnemonicParsing="false" onMouseClicked="#mouseClicked"
+                prefHeight="44.0" prefWidth="156.0" styleClass="btn" stylesheets="@../Styles/style.css"
+                text="set to engineers">
+            <font>
+                <Font name="System Bold" size="14.0"/>
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND"/>
+            </cursor>
+        </Button>
+    </children>
 </AnchorPane>

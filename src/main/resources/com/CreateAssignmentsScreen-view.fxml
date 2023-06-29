@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19"
+            fx:controller="com.CreateAssignmentsScreen">
+   <children>
+      <AnchorPane fx:id="background" prefHeight="700.0" prefWidth="900.0" styleClass="screenBackground"
+                  stylesheets="@../Styles/style.css">
+         <children>
+            <Text fill="#f1faee" layoutX="333.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Engineers"
+                  textAlignment="CENTER" wrappingWidth="233.13671875">
+               <font>
+                  <Font name="System Bold" size="18.0"/>
+               </font>
+            </Text>
+            <TextField fx:id="engineer1" alignment="CENTER" editable="false" layoutX="341.0" layoutY="204.0"
+                       prefHeight="44.0" prefWidth="218.0" styleClass=".text-field" stylesheets="@../Styles/style.css">
+               <font>
+                  <Font size="14.0"/>
+               </font>
+            </TextField>
+            <TextField fx:id="engineer2" alignment="CENTER" editable="false" layoutX="341.0" layoutY="271.0"
+                       prefHeight="44.0" prefWidth="218.0" styleClass=".text-field" stylesheets="@../Styles/style.css">
+               <font>
+                  <Font size="14.0"/>
+               </font>
+            </TextField>
+            <TextField fx:id="engineer3" alignment="CENTER" editable="false" layoutX="341.0" layoutY="341.0"
+                       prefHeight="44.0" prefWidth="218.0" styleClass=".text-field" stylesheets="@../Styles/style.css">
+               <font>
+                  <Font size="14.0"/>
+               </font>
+            </TextField>
+            <TextField fx:id="engineer4" alignment="CENTER" editable="false" layoutX="341.0" layoutY="419.0"
+                       prefHeight="44.0" prefWidth="218.0" styleClass=".text-field" stylesheets="@../Styles/style.css">
+               <font>
+                  <Font size="14.0"/>
+               </font>
+            </TextField>
+            <TextField fx:id="engineer5" alignment="CENTER" editable="false" layoutX="341.0" layoutY="490.0"
+                       prefHeight="44.0" prefWidth="218.0" styleClass=".text-field" stylesheets="@../Styles/style.css">
+               <font>
+                  <Font size="14.0"/>
+               </font>
+            </TextField>
+            <Button fx:id="goBackBtn" layoutX="63.0" layoutY="601.0" mnemonicParsing="false"
+                    onMouseClicked="#mouseClicked" prefHeight="44.0" prefWidth="141.0" styleClass="logoutBtn"
+                    stylesheets="@../Styles/style.css" text="go Back" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0"/>
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND"/>
+               </cursor>
+            </Button>
+            <Text fill="#f1faee" layoutX="63.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jobs"
+                  textAlignment="CENTER" wrappingWidth="233.13671875">
+               <font>
+                  <Font name="System Bold" size="18.0"/>
+               </font>
+            </Text>
+            <TextField fx:id="jobNumber" alignment="CENTER" layoutX="631.0" layoutY="204.0" prefHeight="44.0"
+                       prefWidth="218.0" styleClass=".text-field" stylesheets="@../Styles/style.css">
+               <font>
+                  <Font size="14.0"/>
+               </font>
+            </TextField>
+            <Text fill="#f1faee" layoutX="615.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                  text="Set Assignment" textAlignment="CENTER" wrappingWidth="233.13671875">
+               <font>
+                  <Font name="System Bold" size="18.0"/>
+               </font>
+            </Text>
+            <Text disable="true" fill="#f1faee" layoutX="290.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                  text="Create Assignment" textAlignment="CENTER" wrappingWidth="333.13671875">
+               <font>
+                  <Font size="36.0"/>
+               </font>
+            </Text>
+            <Text fill="#f1faee" layoutX="636.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                  text="Job Number" wrappingWidth="141.0">
+               <font>
+                  <Font name="System Bold Italic" size="12.0"/>
+               </font>
+            </Text>
+            <TextField fx:id="engineerId" alignment="CENTER" layoutX="631.0" layoutY="341.0" prefHeight="44.0"
+                       prefWidth="218.0" styleClass=".text-field" stylesheets="@../Styles/style.css">
+               <font>
+                  <Font size="14.0"/>
+               </font>
+            </TextField>
+            <Text fill="#f1faee" layoutX="636.0" layoutY="337.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                  text="Engineer Id in English" wrappingWidth="141.0">
+               <font>
+                  <Font name="System Bold Italic" size="12.0"/>
+               </font>
+            </Text>
+            <Button fx:id="setAssignment" layoutX="645.0" layoutY="463.0" mnemonicParsing="false"
+                    onMouseClicked="#mouseClicked" prefHeight="44.0" prefWidth="173.0" styleClass="btn"
+                    stylesheets="@../Styles/style.css" text="set Assignment">
+               <font>
+                  <Font name="System Bold" size="14.0"/>
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND"/>
+               </cursor>
+            </Button>
+            <TableView fx:id="jobTable" layoutX="39.0" layoutY="184.0" prefHeight="350.0" prefWidth="268.0">
+               <columns>
+                  <TableColumn fx:id="tableJobNumber" prefWidth="62.0" text="Number"/>
+                  <TableColumn fx:id="jobName" minWidth="0.0" prefWidth="191.0" text="Name"/>
+               </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="messageBox" layoutX="286.0" layoutY="264.0" prefHeight="169.0" prefWidth="362.0"
+                  styleClass="messageBox" stylesheets="@../Styles/style.css" visible="false">
+         <children>
+            <Text fx:id="messageBoxText" fill="#f1faee" layoutX="43.0" layoutY="64.0" stroke="BLACK"
+                  strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="277.0">
+               <font>
+                  <Font name="System Bold" size="24.0"/>
+               </font>
+            </Text>
+            <Button fx:id="closeBtn" layoutX="111.0" layoutY="102.0" mnemonicParsing="false"
+                    onMouseClicked="#mouseClicked" prefHeight="44.0" prefWidth="141.0" styleClass="btn"
+                    stylesheets="@../Styles/style.css" text="Close">
+               <font>
+                  <Font name="System Bold" size="14.0"/>
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND"/>
+               </cursor>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

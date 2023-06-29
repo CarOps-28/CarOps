@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
-
+<?import javafx.scene.text.*?>
 <AnchorPane fx:id="startScreenBackground" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" styleClass="screenBackground" stylesheets="@../Styles/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.StartScreenController">
     <children>
         <Text fill="#f1faee" layoutX="283.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LOGIN SCREEN" textAlignment="CENTER" wrappingWidth="333.13671875">
@@ -55,9 +52,11 @@
                 <Font name="Calibri Italic" size="32.0" />
             </font>
         </Text>
-        <TextField fx:id="receptionLastname" layoutX="279.0" layoutY="372.0" onMouseClicked="#mouseClicked" prefHeight="40.0" prefWidth="291.0" promptText="Download GitHub Version" styleClass="text-field" stylesheets="@../Styles/style.css">
+        <TextField fx:id="receptionLastname" layoutX="279.0" layoutY="372.0" onMouseClicked="#mouseClicked"
+                   prefHeight="40.0" prefWidth="291.0" promptText="Enter Reception Surname" styleClass="text-field"
+                   stylesheets="@../Styles/style.css">
             <font>
-                <Font size="14.0" />
+                <Font size="14.0"/>
             </font>
         </TextField>
         <Button fx:id="receptionBtn" layoutX="651.0" layoutY="374.0" mnemonicParsing="false" onMouseClicked="#mouseClicked" prefHeight="40.0" prefWidth="200.0" styleClass="btn" stylesheets="@../Styles/style.css" text="Login as Reception" textFill="WHITE">
@@ -73,17 +72,21 @@
                 <Font name="Calibri Italic" size="32.0" />
             </font>
         </Text>
-        <TextField fx:id="supervisorLastname" layoutX="279.0" layoutY="460.0" onMouseClicked="#mouseClicked" prefHeight="40.0" prefWidth="291.0" promptText="Download GitHub Version" styleClass="text-field" stylesheets="@../Styles/style.css">
+        <TextField fx:id="supervisorLastname" layoutX="279.0" layoutY="460.0" onMouseClicked="#mouseClicked"
+                   prefHeight="40.0" prefWidth="291.0" promptText="Enter Supervisor Surname" styleClass="text-field"
+                   stylesheets="@../Styles/style.css">
             <font>
-                <Font size="14.0" />
+                <Font size="14.0"/>
             </font>
         </TextField>
-        <Button fx:id="supervisorBtn" disable="true" layoutX="651.0" layoutY="462.0" mnemonicParsing="false" onMouseClicked="#mouseClicked" prefHeight="40.0" prefWidth="200.0" styleClass="btn" stylesheets="@../Styles/style.css" text="Login as Supervisor" textFill="WHITE">
+        <Button fx:id="supervisorBtn" layoutX="651.0" layoutY="462.0" mnemonicParsing="false"
+                onMouseClicked="#mouseClicked" prefHeight="40.0" prefWidth="200.0" styleClass="btn"
+                stylesheets="@../Styles/style.css" text="Login as Supervisor" textFill="WHITE">
             <font>
-                <Font name="System Bold" size="14.0" />
+                <Font name="System Bold" size="14.0"/>
             </font>
             <cursor>
-                <Cursor fx:constant="HAND" />
+                <Cursor fx:constant="HAND"/>
             </cursor>
         </Button>
         <Text fill="#f1faee" layoutX="38.0" layoutY="582.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Engineer" wrappingWidth="140.13671875">
@@ -91,17 +94,21 @@
                 <Font name="Calibri Italic" size="32.0" />
             </font>
         </Text>
-        <TextField fx:id="engineerLastname" layoutX="279.0" layoutY="552.0" onMouseClicked="#mouseClicked" prefHeight="40.0" prefWidth="291.0" promptText="Download GitHub Version" styleClass="text-field" stylesheets="@../Styles/style.css">
+        <TextField fx:id="engineerLastname" layoutX="279.0" layoutY="552.0" onMouseClicked="#mouseClicked"
+                   prefHeight="40.0" prefWidth="291.0" promptText="Enter Engineer Surname" styleClass="text-field"
+                   stylesheets="@../Styles/style.css">
             <font>
-                <Font size="14.0" />
+                <Font size="14.0"/>
             </font>
         </TextField>
-        <Button fx:id="engineerBtn" disable="true" layoutX="651.0" layoutY="552.0" mnemonicParsing="false" onMouseClicked="#mouseClicked" prefHeight="40.0" prefWidth="200.0" styleClass="btn" stylesheets="@../Styles/style.css" text="Login as Engineer" textFill="WHITE">
+        <Button fx:id="engineerBtn" layoutX="651.0" layoutY="552.0" mnemonicParsing="false"
+                onMouseClicked="#mouseClicked" prefHeight="40.0" prefWidth="200.0" styleClass="btn"
+                stylesheets="@../Styles/style.css" text="Login as Engineer" textFill="WHITE">
             <font>
-                <Font name="System Bold" size="14.0" />
+                <Font name="System Bold" size="14.0"/>
             </font>
             <cursor>
-                <Cursor fx:constant="HAND" />
+                <Cursor fx:constant="HAND"/>
             </cursor>
         </Button>
     </children>

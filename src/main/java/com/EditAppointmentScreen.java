@@ -5,11 +5,9 @@ import com.carops.Customer;
 import com.catalogs.AppointmentCatalog;
 import com.catalogs.CustomerCatalog;
 import com.catalogs.VehicleCatalog;
-import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -17,10 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
-
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class EditAppointmentScreen {
     @FXML
@@ -31,7 +26,6 @@ public class EditAppointmentScreen {
     private TableView<Appointment> appointmentTable;
     @FXML
     private TableColumn<Appointment, String> appointmentId, appointmentDate, appointmentTime, appointmentCustomer, appointmentVehicle, appointmentCost, appointmentStatus;
-
     @FXML
     private Button goBackBtn,changeApp;
 

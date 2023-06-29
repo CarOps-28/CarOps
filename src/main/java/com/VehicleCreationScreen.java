@@ -18,22 +18,16 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class VehicleCreationScreen {
-
     @FXML
-    private AnchorPane background;
-
+    private AnchorPane background,messageBox;
     @FXML
     private TextField vehiclePlateNumber, vehicleBrand, vehicleModel, vehicleProdYear, vehicleType;
     @FXML
     private TextField vehicleTypeValue;
 
     public Button goBackBtn, vehicleCreationBtn, closeBtn;
-    public AnchorPane messageBox;
-    public Text messageBoxText;
-
     @FXML
-    public Text plateNumberErr, brandErr, modelErr, prodYearErr, vehicleTypeErr;
-
+    public Text messageBoxText, plateNumberErr, brandErr, modelErr, prodYearErr, vehicleTypeErr;
     private String errorMessage = "Invalid Vehicle fields.";
 
     @FXML

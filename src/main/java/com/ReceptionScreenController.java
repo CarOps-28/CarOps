@@ -3,6 +3,7 @@ package com;
 import com.carops.Job;
 import com.carops.Vehicle;
 import com.catalogs.JobCatalog;
+import com.catalogs.RepairfileCatalog;
 import com.catalogs.VehicleCatalog;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -30,20 +31,21 @@ public class ReceptionScreenController {
     private Button closeBtn,repairfileCreationBtn,goBackBtn,vehicleCreationBtn,searchBtn;
 
     @FXML
-    private TableView<Job> jobTable;
+    private TableView<TempJobObject> jobTable;
     @FXML
-    private TableColumn<Job, String> jobPrice, jobName;
+    private TableColumn<TempJobObject, String> jobPrice, jobName;
     @FXML
-    private TableColumn<Job, CheckBox>jobCheckBox;
-    private final ObservableList<Job> jobsModel = FXCollections.observableArrayList(JobCatalog.fetchJobs());
+    private TableColumn<TempJobObject, CheckBox>jobCheckBox;
+    private ObservableList<TempJobObject> jobsModel;
+    private ArrayList<TempJobObject> temp = new ArrayList<>();
 
     Vehicle v = null;
     @FXML
     void mouseClicked(MouseEvent event) throws IOException {
         if (event.getSource() == goBackBtn){
-            StartScreenController.sceneGenerator("StartScreenController-view.fxml", event, "Secretary Screen");
+            StartScreenController.sceneGenerator("StartScreenController-view.fxml", event, "CarOps Information System");
         }else if (event.getSource() == vehicleCreationBtn) {
-            StartScreenController.sceneGenerator("VehicleCreationScreen-view.fxml", event, "Secretary Screen");
+            StartScreenController.sceneGenerator("VehicleCreationScreen-view.fxml", event, "Vehicle Creation Screen");
         }else if (event.getSource() == searchBtn){
 
             if (!checkVehicle()){
@@ -55,9 +57,10 @@ public class ReceptionScreenController {
 
             ArrayList<Job> j = new ArrayList<>();
 
-            for (Job job : JobCatalog.fetchJobs()){
-                if(job.getCheckBox().isSelected()){
-                    j.add(job);
+            for (int i =0; i< temp.size(); i++){
+                if(temp.get(i).getCheckBox().isSelected()){
+
+                    j.add(JobCatalog.fetchJobs().get(i));
                 }
             }
 
@@ -68,6 +71,8 @@ public class ReceptionScreenController {
                 messageBox.setVisible(true);
 
                 StartScreenController.receptionEngineer.createRepairFile(this.v,j, Integer.parseInt(estimatedHours.getText()));
+
+                RepairfileCatalog.save();
 
             }
             if (!checkVehicle()){
@@ -88,8 +93,11 @@ public class ReceptionScreenController {
     public void loadAppointmentToTable(){
 
         for (Job job : JobCatalog.fetchJobs()){
-            job.setCheckBox(new CheckBox());
+            temp.add(new TempJobObject(job.getName(), job.getPrice(), job.getDescription(),new CheckBox()));
         }
+
+        jobsModel = FXCollections.observableArrayList(temp);
+
         jobName.setCellValueFactory(new PropertyValueFactory<>("Name"));
         jobPrice.setCellValueFactory(new PropertyValueFactory<>("Price"));
         jobCheckBox.setCellValueFactory(new PropertyValueFactory<>("CheckBox"));

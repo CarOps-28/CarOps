@@ -3,18 +3,12 @@ package com;
 import com.carops.*;
 import com.catalogs.CustomerCatalog;
 import com.catalogs.VehicleCatalog;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Background;
-import javafx.scene.paint.Color;
-import javafx.util.Duration;
-
 import java.io.IOException;
 
 public class SecretaryScreenController {
@@ -47,9 +41,9 @@ public class SecretaryScreenController {
             StartScreenController.sceneGenerator("StartScreenController-view.fxml", event, "CarOps Information System");
         }
         else if(event.getSource() == createAppointment){
-            StartScreenController.sceneGenerator("AppointmentCreationScreen-view.fxml", event, "Appointment Creation Screen");
+            StartScreenController.sceneGenerator("AppointmentCreationScreen-view.fxml", event, "Secretary Screen");
         }else if (event.getSource() == editAppointment){
-            StartScreenController.sceneGenerator("EditAppointmentScreen-view.fxml", event, "Edit Appointment Screen");
+            StartScreenController.sceneGenerator("EditAppointmentScreen-view.fxml", event, "Secretary Screen");
         }
     }
 
