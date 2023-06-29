@@ -1,5 +1,6 @@
 package com;
 
+import com.carops.Assignment;
 import com.carops.Engineer;
 import com.carops.Job;
 import com.carops.Repairfile;
@@ -53,11 +54,19 @@ public class CreateAssignmentsScreen {
             Job job = SupervisorScreenController.r.getJobs().get(Integer.parseInt(jobNumber.getText()) - 1);
             Repairfile rp = SupervisorScreenController.r;
 
+            for (Engineer eng : EngineerCatalog.fetchEngineers()){
+                for (Assignment ass : eng.getAssignments()){
+                    if (ass.getJob().getName().equals(job.getName()) && ass.getRepairfile().getVehicle().getPlateNumber().equals(rp.getVehicle().getPlateNumber())){
+                        jobs.put(job, true);
+                    }
+                }
+            }
             if (!jobs.get(job)){
                 jobs.put(job, true);
                 StartScreenController.supervisorEngineer.createAssignment(engineer,job,rp);
                 messageBoxText.setText("Successfully added.");
                 RepairfileCatalog.save();
+                EngineerCatalog.save();
 
             }else{
                 messageBoxText.setText("Assignment has been already created.");

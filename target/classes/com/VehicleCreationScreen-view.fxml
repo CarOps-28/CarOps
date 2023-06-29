@@ -13,8 +13,8 @@
                 stylesheets="@../Styles/style.css" xmlns="http://javafx.com/javafx/19">
         <children>
             <Button fx:id="goBackBtn" layoutX="65.0" layoutY="589.0" mnemonicParsing="false"
-                    onMouseClicked="#mouseClicked" prefHeight="44.0" prefWidth="141.0" styleClass="go Back"
-                    stylesheets="@../Styles/style.css" text="Log out" textFill="WHITE">
+                    onMouseClicked="#mouseClicked" prefHeight="44.0" prefWidth="141.0" styleClass="logoutBtn"
+                    stylesheets="@../Styles/style.css" text="go Back" textFill="WHITE">
                 <font>
                     <Font name="System Bold" size="14.0"/>
                 </font>

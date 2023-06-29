@@ -7,6 +7,7 @@ public class TempJobObject {
     private String name, description;
     private int price;
     private CheckBox checkBox;
+    private String amount;
 
     public TempJobObject(String name, int price, String description, CheckBox ch) {
         this.name = name;
@@ -14,6 +15,22 @@ public class TempJobObject {
         this.description = description;
         this.checkBox = ch;
         this.checkBox.setAllowIndeterminate(true);
+    }
+
+    public TempJobObject(String name, int price, CheckBox ch, String amount) {
+        this.name = name;
+        this.price = price;
+        this.amount = amount;
+        this.checkBox = ch;
+        this.checkBox.setAllowIndeterminate(true);
+    }
+
+    public String getAmount() {
+        return amount;
+    }
+
+    public void setAmount(String amount) {
+        this.amount = amount;
     }
 
     public String getId() {

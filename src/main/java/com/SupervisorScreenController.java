@@ -91,8 +91,8 @@ public class SupervisorScreenController {
 
         for (Repairfile rp : RepairfileCatalog.fetchRepairfiles() ){
             if (rp.getVehicle().getPlateNumber().equals(v.getPlateNumber()) && !rp.getStatus().equals("Completed")){
-                System.out.println(rp.getVehicle().getPlateNumber().equals(v.getPlateNumber()) + "  " +  !rp.getStatus().equals("Completed"));
                 r = rp;
+                moveBtn.setDisable(false);
                 return true;
             }
 
@@ -115,5 +115,6 @@ public class SupervisorScreenController {
         assert jobPrice != null : "fx:id=\"jobPrice\" was not injected: check your FXML file 'ReceptionScreenController-view.fxml'.";
         assert jobCheckBox != null : "fx:id=\"jobCheckBox\" was not injected: check your FXML file 'ReceptionScreenController-view.fxml'.";
 
+        moveBtn.setDisable(true);
     }
 }

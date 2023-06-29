@@ -8,9 +8,6 @@ import com.carops.ReceptionEngineer;
 import com.carops.Secretary;
 import com.carops.SupervisorEngineer;
 import com.catalogs.*;
-
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -18,10 +15,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Background;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
 public class StartScreenController {
     private static Stage stage;

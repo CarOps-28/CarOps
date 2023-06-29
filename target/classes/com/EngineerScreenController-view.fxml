@@ -1,9 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.layout.AnchorPane?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml"
-            xmlns="http://javafx.com/javafx"
-            fx:controller="com.EngineerScreenController"
-            prefHeight="700.0" prefWidth="900.0">
-
+<?import javafx.scene.text.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="700.0" prefWidth="900.0" styleClass="screenBackground"
+            stylesheets="@../Styles/style.css" xmlns="http://javafx.com/javafx/19"
+            fx:controller="com.EngineerScreenController">
+    <children>
+        <TextField fx:id="EngineerName" alignment="CENTER" editable="false" layoutX="350.0" layoutY="26.0"
+                   prefHeight="31.0" prefWidth="202.0" styleClass="text-field" stylesheets="@../Styles/style.css">
+            <font>
+                <Font name="System Bold" size="18.0"/>
+            </font>
+        </TextField>
+        <Button fx:id="goBackBtn" layoutX="65.0" layoutY="578.0" mnemonicParsing="false" onMouseClicked="#mouseClicked"
+                prefHeight="44.0" prefWidth="186.0" styleClass="logoutBtn" stylesheets="@../Styles/style.css"
+                text="Logout" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="14.0"/>
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND"/>
+            </cursor>
+        </Button>
+        <TableView fx:id="assignmentTable" editable="true" layoutX="65.0" layoutY="104.0" prefHeight="404.0"
+                   prefWidth="771.0" styleClass="appointmentTable" stylesheets="@../Styles/style.css">
+            <columns>
+                <TableColumn fx:id="assignmentId" editable="false" prefWidth="67.0" resizable="false"
+                             styleClass="tableCols" text="ID"/>
+                <TableColumn fx:id="plateNumber" editable="false" prefWidth="170.0" styleClass="tableCols"
+                             text="Plate Number"/>
+                <TableColumn fx:id="jobName" prefWidth="170.0" styleClass="tableCols" text="Job Name"/>
+                <TableColumn fx:id="assignmentStatus" prefWidth="170.0" styleClass="tableCols"
+                             text="Assignment Status"/>
+                <TableColumn fx:id="cost" editable="false" prefWidth="170.0" styleClass="tableCols" text="Cost"/>
+            </columns>
+        </TableView>
+        <TextField fx:id="assId" layoutX="312.0" layoutY="578.0" prefHeight="44.0" prefWidth="277.0"
+                   promptText="Assignment Id" styleClass="text-field" stylesheets="@../Styles/style.css">
+            <font>
+                <Font size="14.0"/>
+            </font>
+        </TextField>
+        <Text fill="#f1faee" layoutX="315.0" layoutY="574.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Assignment Id"
+              wrappingWidth="141.0">
+            <font>
+                <Font name="System Bold Italic" size="12.0"/>
+            </font>
+        </Text>
+        <Button fx:id="editAssignmentBtn" layoutX="695.0" layoutY="578.0" mnemonicParsing="false"
+                onMouseClicked="#mouseClicked" prefHeight="44.0" prefWidth="141.0" styleClass="btn"
+                stylesheets="@../Styles/style.css" text="Edit Assignment">
+            <font>
+                <Font name="System Bold" size="14.0"/>
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND"/>
+            </cursor>
+        </Button>
+        <Text fx:id="assignmentIdErr" fill="#ff8585" layoutX="318.0" layoutY="637.0" strokeType="OUTSIDE"
+              strokeWidth="0.0" text="*" wrappingWidth="277.0">
+            <font>
+                <Font size="14.0"/>
+            </font>
+        </Text>
+    </children>
 </AnchorPane>

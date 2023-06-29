@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19"
+            fx:controller="com.AddSparePartsScreenView">
+   <children>
+      <AnchorPane fx:id="background" layoutY="-1.0" prefHeight="707.0" prefWidth="900.0" styleClass="screenBackground"
+                  stylesheets="@../Styles/style.css">
+         <children>
+            <TextField fx:id="jobName" alignment="CENTER" editable="false" layoutX="311.0" layoutY="110.0"
+                       prefHeight="39.0" prefWidth="277.0" styleClass="text-field" stylesheets="@../Styles/style.css">
+               <font>
+                  <Font name="System Bold" size="18.0"/>
+               </font>
+            </TextField>
+            <Text disable="true" fill="#f1faee" layoutX="283.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                  text="Add Spare Parts" textAlignment="CENTER" wrappingWidth="333.13671875">
+               <font>
+                  <Font size="36.0"/>
+               </font>
+            </Text>
+            <TableView fx:id="sparePartTable" editable="true" layoutX="71.0" layoutY="188.0" prefHeight="331.0"
+                       prefWidth="522.0" stylesheets="@../Styles/style.css">
+               <columns>
+                  <TableColumn fx:id="TableSparePartName" editable="false" prefWidth="166.0" text="Name"/>
+                  <TableColumn fx:id="price" editable="false" minWidth="0.0" prefWidth="125.0" text="Price"/>
+                  <TableColumn fx:id="partCheckBox" minWidth="0.0" prefWidth="88.0" text="Select"/>
+                  <TableColumn fx:id="amount" minWidth="0.0" prefWidth="105.0" text="Amount"/>
+               </columns>
+            </TableView>
+            <TextField fx:id="hours" layoutX="616.0" layoutY="332.0" prefHeight="44.0" prefWidth="219.0"
+                       promptText="Hours" styleClass="text-field" stylesheets="@../Styles/style.css">
+               <font>
+                  <Font size="14.0"/>
+               </font>
+            </TextField>
+            <Text fill="#f1faee" layoutX="616.0" layoutY="336.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hours"
+                  wrappingWidth="141.0">
+               <font>
+                  <Font name="System Bold Italic" size="12.0"/>
+               </font>
+            </Text>
+
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="messageBox" layoutX="296.0" layoutY="274.0" prefHeight="169.0" prefWidth="362.0"
+                  styleClass="messageBox" stylesheets="@../Styles/style.css" visible="false">
+         <children>
+            <Text fx:id="messageBoxText" fill="#f1faee" layoutX="43.0" layoutY="64.0" stroke="BLACK"
+                  strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="277.0">
+               <font>
+                  <Font name="System Bold" size="24.0"/>
+               </font>
+            </Text>
+            <Button fx:id="closeBtn" layoutX="111.0" layoutY="102.0" mnemonicParsing="false"
+                    onMouseClicked="#mouseClicked" prefHeight="44.0" prefWidth="141.0" styleClass="btn"
+                    stylesheets="@../Styles/style.css" text="Close">
+               <font>
+                  <Font name="System Bold" size="14.0"/>
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND"/>
+               </cursor>
+            </Button>
+         </children>
+      </AnchorPane>
+      <Button fx:id="goBackBtn" layoutX="77.0" layoutY="602.0" mnemonicParsing="false" onMouseClicked="#mouseClicked"
+              prefHeight="44.0" prefWidth="141.0" styleClass="logoutBtn" stylesheets="@../Styles/style.css"
+              text="go Back" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0"/>
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND"/>
+         </cursor>
+      </Button>
+      <Button fx:id="completedAss" layoutX="680.0" layoutY="602.0" mnemonicParsing="false"
+              onMouseClicked="#mouseClicked" prefHeight="44.0" prefWidth="156.0" styleClass="btn"
+              stylesheets="@../Styles/style.css" text="Completed">
+         <font>
+            <Font name="System Bold" size="14.0"/>
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND"/>
+         </cursor>
+      </Button>
+   </children>
+</AnchorPane>

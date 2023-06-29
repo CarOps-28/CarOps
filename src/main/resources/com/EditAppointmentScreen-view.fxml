@@ -10,7 +10,7 @@
     <children>
         <Button fx:id="goBackBtn" layoutX="61.0" layoutY="598.0" mnemonicParsing="false" onMouseClicked="#mouseClicked"
                 prefHeight="44.0" prefWidth="101.0" styleClass="logoutBtn" stylesheets="@../Styles/style.css"
-                text="Logout" textFill="WHITE">
+                text="go Back" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="14.0"/>
             </font>
@@ -19,7 +19,7 @@
             </cursor>
         </Button>
         <TableView fx:id="appointmentTable" editable="true" layoutX="61.0" layoutY="99.0" prefHeight="305.0"
-                   prefWidth="778.0" styleClass="appointmentTabke" stylesheets="@../Styles/style.css">
+                   prefWidth="778.0" styleClass="appointmentTable" stylesheets="@../Styles/style.css">
             <columns>
                 <TableColumn fx:id="appointmentId" editable="false" prefWidth="50.0" resizable="false"
                              styleClass="tableCols" text="ID"/>
