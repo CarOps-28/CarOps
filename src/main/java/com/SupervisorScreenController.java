@@ -41,9 +41,9 @@ public class SupervisorScreenController {
         else if (event.getSource() == searchBtn){
 
             if (!checkVehicle()){
-                plateNumberErr.setText("* Vehicle does not exist.");
+                plateNumberErr.setText("* Repairfile does not exist.");
             }else{
-                plateNumberErr.setText("* Vehicle exist!");
+                plateNumberErr.setText("* Repairfile exist!");
                 loadAppointmentToTable();
             }
 
@@ -56,7 +56,7 @@ public class SupervisorScreenController {
             }
 
             r.setJobs(checkJobs);
-
+            RepairfileCatalog.save();
             StartScreenController.sceneGenerator("CreateAssignmentsScreen-view.fxml", event, "Supervisor Screen");
         }
 

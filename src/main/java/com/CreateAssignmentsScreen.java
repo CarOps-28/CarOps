@@ -4,6 +4,7 @@ import com.carops.Engineer;
 import com.carops.Job;
 import com.carops.Repairfile;
 import com.catalogs.EngineerCatalog;
+import com.catalogs.RepairfileCatalog;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -56,6 +57,8 @@ public class CreateAssignmentsScreen {
                 jobs.put(job, true);
                 StartScreenController.supervisorEngineer.createAssignment(engineer,job,rp);
                 messageBoxText.setText("Successfully added.");
+                RepairfileCatalog.save();
+
             }else{
                 messageBoxText.setText("Assignment has been already created.");
             }
