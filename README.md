@@ -68,9 +68,10 @@ _A full functional Information System_
 
 # Graphical User Interface
 
-<img src="img/gui1.png#gh-dark-mode-only" alt= “” width="50%" height="50%"> 
-<img src="img/gui2.png#gh-dark-mode-only" alt= “” width="50%" height="50%"> 
-<img src="img/gui3.png#gh-dark-mode-only" alt= “” width="50%" height="50%">
+![Sprint burndown chart](img/gui1.png)
+![Sprint burndown chart](img/gui3.png)
+![Sprint burndown chart](img/gui3.png)
+and more ...
 
 # Print output sample
 
