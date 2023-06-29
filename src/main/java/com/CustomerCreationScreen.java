@@ -18,55 +18,34 @@ import java.io.IOException;
 
 public class CustomerCreationScreen {
 
-    private Stage stage;
-    private Parent root;
-
     @FXML
     private AnchorPane background;
     @FXML
     private Button goBackBtn, customerCreationBtn, closeBtn;
-
     @FXML
     private AnchorPane messageBox;
     @FXML
     private Text messageBoxText;
     @FXML
     public Text nameErr, surnameErr, phoneErr, emailErr, addressErr;
-
     @FXML
     private TextField customerName, customerSurname, customerPhone, customerEmail, customerAddress;
     private String errorMessage;
-    private void sceneGenerator(String Screen_Name, MouseEvent event, String Screen_Title) throws IOException {
-        root = FXMLLoader.load(getClass().getResource(Screen_Name));
-
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.getScene().setRoot(root);
-        stage.setHeight(700);
-        stage.setWidth(900);
-        stage.setTitle(Screen_Title);
-        stage.show();
-    }
-
 
     @FXML
     void mouseClicked(MouseEvent event) throws IOException {
         if (event.getSource() == goBackBtn){
-            sceneGenerator("SecretaryScreenController-view.fxml", event, "Secretary Screen");
+            StartScreenController.sceneGenerator("SecretaryScreenController-view.fxml", event, "Secretary Screen");
         }else if (event.getSource() == customerCreationBtn){
 
             if( checkInputFields() ){
-                closeBtn.setBackground(Background.fill(Color.GREEN));
-                closeBtn.setStyle("-fx-text-fill: white;");
                 messageBoxText.setText("Successfully created.");
 
                 StartScreenController.secretary.createCustomer(customerName.getText(),customerSurname.getText(),customerPhone.getText(), customerEmail.getText(),customerAddress.getText());
                 CustomerCatalog.save();
             }else{
-                closeBtn.setBackground(Background.fill(Color.RED));
-                closeBtn.setStyle("-fx-text-fill: white;");
                 messageBoxText.setText(errorMessage);
             }
-            messageBoxText.setStyle("-fx-text-fill: white;");
 
             background.setDisable(true);
 
@@ -125,18 +104,11 @@ public class CustomerCreationScreen {
         assert messageBox != null : "fx:id=\"messageBox\" was not injected: check your FXML file 'CustomerCreationScreen-view.fxml'.";
         assert messageBoxText != null : "fx:id=\"messageBoxText\" was not injected: check your FXML file 'CustomerCreationScreen-view.fxml'.";
 
-
         assert nameErr != null : "fx:id=\"nameErr\" was not injected: check your FXML file 'CustomerCreationScreen-view.fxml'.";
         assert surnameErr != null : "fx:id=\"surnameErr\" was not injected: check your FXML file 'CustomerCreationScreen-view.fxml'.";
         assert phoneErr != null : "fx:id=\"phoneErr\" was not injected: check your FXML file 'CustomerCreationScreen-view.fxml'.";
         assert emailErr != null : "fx:id=\"emailErr\" was not injected: check your FXML file 'CustomerCreationScreen-view.fxml'.";
         assert addressErr != null : "fx:id=\"addressErr\" was not injected: check your FXML file 'CustomerCreationScreen-view.fxml'.";
-
-        goBackBtn.setBackground(Background.fill(Color.RED));
-        goBackBtn.setStyle("-fx-text-fill: white;");
-
-        customerCreationBtn.setBackground(Background.fill(Color.GREEN));
-        customerCreationBtn.setStyle("-fx-text-fill: white;");
 
     }
 

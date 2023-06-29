@@ -1,79 +1,77 @@
 package com;
 
 import com.carops.*;
-import com.catalogs.AppointmentCatalog;
 import com.catalogs.CustomerCatalog;
 import com.catalogs.VehicleCatalog;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.paint.Color;
-import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 
 public class SecretaryScreenController {
-    private Stage stage;
-    private Parent root;
+
+    private final ObservableList<Customer> customersModel = FXCollections.observableArrayList(CustomerCatalog.fetchCustomers());
+    private final ObservableList<Vehicle> vehiclesModel = FXCollections.observableArrayList(VehicleCatalog.getVehicles());
 
     @FXML
-    private Button customerCreationBtn, vehicleCreationBtn, goBackBtn, createAppointment;
+    private TableView<Vehicle> vehicleTable;
+    @FXML
+    private TableView<Customer> customerTable;
+    @FXML
+    public TableColumn<Customer, String> customerEmail, customerPhoneNumber, customerSurname, customerName, customerId;
+    @FXML
+    public TableColumn<Vehicle, String> vehicleData, vehicleType, vehicleModel, vehicleBrand, vehiclePlateNumber, vehicleId;
 
+    @FXML
+    private Button customerCreationBtn, vehicleCreationBtn, goBackBtn, createAppointment, editAppointment;
     @FXML
     private  TextField secretaryName;
-
-    public TextArea appointmentsView;
-
-
-    private void sceneGenerator(String Screen_Name, MouseEvent event, String Screen_Title) throws IOException {
-        root = FXMLLoader.load(getClass().getResource(Screen_Name));
-
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.getScene().setRoot(root);
-        stage.setHeight(700);
-        stage.setWidth(900);
-        stage.setTitle(Screen_Title);
-        stage.show();
-    }
-
 
     @FXML
     void mouseClicked(MouseEvent event) throws IOException {
         if (event.getSource() == customerCreationBtn){
-            sceneGenerator("CustomerCreationScreen-view.fxml", event, "Customer Creation Screen");
+            StartScreenController.sceneGenerator("CustomerCreationScreen-view.fxml", event, "Customer Creation Screen");
         }else if (event.getSource() == vehicleCreationBtn){
-            sceneGenerator("VehicleCreationScreen-view.fxml", event, "Vehicle Creation Screen");
+            StartScreenController.sceneGenerator("VehicleCreationScreen-view.fxml", event, "Vehicle Creation Screen");
         }else if (event.getSource() == goBackBtn){
-            sceneGenerator("StartScreenController-view.fxml", event, "CarOps Information System");
+            StartScreenController.secretary = null;
+            StartScreenController.sceneGenerator("StartScreenController-view.fxml", event, "CarOps Information System");
         }
         else if(event.getSource() == createAppointment){
-            sceneGenerator("AppointmentCreationScreen-view.fxml", event, "Appointment Creation Screen");
+            StartScreenController.sceneGenerator("AppointmentCreationScreen-view.fxml", event, "Appointment Creation Screen");
+        }else if (event.getSource() == editAppointment){
+            StartScreenController.sceneGenerator("EditAppointmentScreen-view.fxml", event, "Edit Appointment Screen");
         }
     }
 
-    public void initializeTexts(){
+    public void loadAppointmentToTable(){
         this.secretaryName.setText(StartScreenController.secretary.getSurname().toUpperCase());
-        appointmentsView.appendText( "---------- Appointments ----------\n");
 
-        for(Appointment appointment : AppointmentCatalog.fetchAppointments()){
-            appointmentsView.appendText(appointment.toString() + "\n");
-        }
+        customerId.setCellValueFactory(new PropertyValueFactory<>("Id"));
+        customerName.setCellValueFactory(new PropertyValueFactory<>("Name"));
+        customerSurname.setCellValueFactory(new PropertyValueFactory<>("Surname"));
+        customerPhoneNumber.setCellValueFactory(new PropertyValueFactory<>("PhoneNumber"));
+        customerEmail.setCellValueFactory(new PropertyValueFactory<>("Email"));
+        customerTable.setItems(customersModel);
 
-        appointmentsView.appendText( "\n---------- Customers ----------\n");
-        for(Customer customer : CustomerCatalog.fetchCustomers()){
-            appointmentsView.appendText(customer.toString() + "\n");
-        }
+        vehicleId.setCellValueFactory(new PropertyValueFactory<>("Id"));
+        vehiclePlateNumber.setCellValueFactory(new PropertyValueFactory<>("PlateNumber"));
+        vehicleBrand.setCellValueFactory(new PropertyValueFactory<>("Brand"));
+        vehicleModel.setCellValueFactory(new PropertyValueFactory<>("Model"));
+        vehicleType.setCellValueFactory(new PropertyValueFactory<>("VehicleType"));
+        vehicleData.setCellValueFactory(new PropertyValueFactory<>("Value"));
 
-        appointmentsView.appendText( "\n---------- Vehicles ----------\n");
-        for(Vehicle vehicle : VehicleCatalog.getVehicles()){
-            appointmentsView.appendText(vehicle.toString() + "\n");
-        }
+        vehicleTable.setItems(vehiclesModel);
+
     }
 
 
@@ -84,20 +82,26 @@ public class SecretaryScreenController {
         assert createAppointment != null : "fx:id=\"createAppointment\" was not injected: check your FXML file 'SecretaryScreenController-view.fxml'.";
         assert goBackBtn != null : "fx:id=\"goBackBtn\" was not injected: check your FXML file 'SecretaryScreenController-view.fxml'.";
         assert secretaryName != null : "fx:id=\"secretaryName\" was not injected: check your FXML file 'SecretaryScreenController-view.fxml'.";
-        assert appointmentsView != null : "fx:id=\"appointmentsView\" was not injected: check your FXML file 'SecretaryScreenController-view.fxml'.";
+        assert editAppointment != null : "fx:id=\"editAppointment\" was not injected: check your FXML file 'SecretaryScreenController-view.fxml'.";
 
-        customerCreationBtn.setBackground(Background.fill(Color.LIGHTBLUE));
-        customerCreationBtn.setStyle("-fx-text-fill: black;");
+        // Customer Table
+        assert customerTable != null : "fx:id=\"customerTable\" was not injected: check your FXML file 'SecretaryScreenController-view.fxml'.";
+        assert customerId != null : "fx:id=\"customerId\" was not injected: check your FXML file 'SecretaryScreenController-view.fxml'.";
+        assert customerName != null : "fx:id=\"customerName\" was not injected: check your FXML file 'SecretaryScreenController-view.fxml'.";
+        assert customerSurname != null : "fx:id=\"customerSurname\" was not injected: check your FXML file 'SecretaryScreenController-view.fxml'.";
+        assert customerPhoneNumber != null : "fx:id=\"customerPhoneNumber\" was not injected: check your FXML file 'SecretaryScreenController-view.fxml'.";
+        assert customerEmail != null : "fx:id=\"customerEmail\" was not injected: check your FXML file 'SecretaryScreenController-view.fxml'.";
 
-        vehicleCreationBtn.setBackground(Background.fill(Color.LIGHTBLUE));
-        vehicleCreationBtn.setStyle("-fx-text-fill: black;");
-
-        createAppointment.setBackground(Background.fill(Color.LIGHTBLUE));
-        createAppointment.setStyle("-fx-text-fill: black;");
-
-        goBackBtn.setBackground(Background.fill(Color.RED));
-        goBackBtn.setStyle("-fx-text-fill: white;");
-
-        initializeTexts();
+        // Vehicle Table
+        assert vehicleTable != null : "fx:id=\"vehicleTable\" was not injected: check your FXML file 'SecretaryScreenController-view.fxml'.";
+        assert vehicleId != null : "fx:id=\"vehicleId\" was not injected: check your FXML file 'SecretaryScreenController-view.fxml'.";
+        assert vehiclePlateNumber != null : "fx:id=\"vehiclePlateNumber\" was not injected: check your FXML file 'SecretaryScreenController-view.fxml'.";
+        assert vehicleBrand != null : "fx:id=\"vehicleBrand\" was not injected: check your FXML file 'SecretaryScreenController-view.fxml'.";
+        assert vehicleModel != null : "fx:id=\"vehicleModel\" was not injected: check your FXML file 'SecretaryScreenController-view.fxml'.";
+        assert vehicleType != null : "fx:id=\"vehicleType\" was not injected: check your FXML file 'SecretaryScreenController-view.fxml'.";
+        assert vehicleData != null : "fx:id=\"vehicleData\" was not injected: check your FXML file 'SecretaryScreenController-view.fxml'.";
+        loadAppointmentToTable();
     }
+
+
 }

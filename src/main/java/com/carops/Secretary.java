@@ -42,6 +42,9 @@ public class Secretary extends Person {
 		}
 	}
 
+	public void addPlateNumberToAppointment(Appointment appointment, String plateNumber){
+	}
+
 	// Ανάλογα με τον τύπο του οχήματος καλείται ο ανάλογος κατασκευαστής του
 	// οχήματος.
 	public Vehicle createVehicle(String plateNumber, String brand, String model, int prodYear, String type,

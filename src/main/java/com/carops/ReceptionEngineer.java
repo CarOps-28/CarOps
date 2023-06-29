@@ -1,5 +1,6 @@
 package com.carops;
 
+import com.catalogs.AppointmentCatalog;
 import com.catalogs.RepairfileCatalog;
 import com.catalogs.VehicleCatalog;
 import java.util.ArrayList;
@@ -11,7 +12,7 @@ public class ReceptionEngineer extends Engineer {
 	}
 
 	public void createRepairFile(Vehicle vehicle, ArrayList<Job> jobs, int days) {
-		vehicle.addRepairfiles(new Repairfile(vehicle, jobs, days));
+		Repairfile rp = new Repairfile(vehicle, jobs, days);
 	}
 
 	public Assignment createAssignment(Engineer engineer, Job job, Repairfile repairfile) {

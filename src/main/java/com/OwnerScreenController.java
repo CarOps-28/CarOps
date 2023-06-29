@@ -17,11 +17,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class OwnerScreenController {
-    private Stage stage;
-    private Parent root;
     @FXML
     private ToggleGroup eng, newRole;
-
     @FXML
     private RadioButton engineer, reception, supervisor, engineer1Btn, engineer2Btn, engineer3Btn, engineer4Btn, engineer5Btn;
     @FXML
@@ -30,13 +27,11 @@ public class OwnerScreenController {
     private TextField engineer1, engineer2, engineer3, engineer4, engineer5, engineerRole1, engineerRole2, engineerRole3,engineerRole4, engineerRole5;
 
     private String selectedEngineerId;
-    private String selectedNewRole;
-
-
 
     public void mouseClicked(MouseEvent event) throws IOException {
         if (event.getSource() == goBackBtn){
-            sceneGenerator("StartScreenController-view.fxml", event, "CarOps Information System");
+            StartScreenController.owner = null;
+            StartScreenController.sceneGenerator("StartScreenController-view.fxml", event, "CarOps Information System");
         }else if (event.getSource() == changeRole){
             RadioButton rb = (RadioButton) newRole.getSelectedToggle();
 
@@ -52,17 +47,6 @@ public class OwnerScreenController {
             EngineerCatalog.save();
 
         }
-    }
-
-    private void sceneGenerator(String Screen_Name, MouseEvent event, String Screen_Title) throws IOException {
-        root = FXMLLoader.load(getClass().getResource(Screen_Name));
-
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.getScene().setRoot(root);
-        stage.setHeight(700);
-        stage.setWidth(900);
-        stage.setTitle(Screen_Title);
-        stage.show();
     }
 
     private void setEngineers(){
@@ -163,12 +147,6 @@ public class OwnerScreenController {
                 : "fx:id=\"goBackBtn\" was not injected: check your FXML file 'OwnerScreenController-view.fxml'.";
         assert changeRole != null
                 : "fx:id=\"changeRole\" was not injected: check your FXML file 'OwnerScreenController-view.fxml'.";
-
-        goBackBtn.setBackground(Background.fill(Color.RED));
-        goBackBtn.setStyle("-fx-text-fill: white;");
-
-        changeRole.setBackground(Background.fill(Color.GREEN));
-        changeRole.setStyle("-fx-text-fill: white;");
 
         setEngineers();
 

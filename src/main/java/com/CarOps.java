@@ -52,8 +52,8 @@ public class CarOps extends Application {
         System.out.println();
 
         // Create Vehicles by Tampouris
-        tampouris.createVehicle("KTR4456", "TOYOTA", "90Turbo", 1989, "Truck", 500);
-        System.out.println("New Vehicle KTR4456 has been created");
+        tampouris.createVehicle("ΚΤΡ4456", "TOYOTA", "90Turbo", 1989, "Truck", 500);
+        System.out.println("New Vehicle ΚΤΡ4456 has been created");
         System.out.println();
 
         // Create Reception Engineer
@@ -62,8 +62,8 @@ public class CarOps extends Application {
         System.out.println();
 
         // Crete Vehicles by Βεργίδης
-        vergidis.createVehicle("NIK3745", "Land", "LandRover Range Rover HSE", 2014, "Vehicle", 0);
-        System.out.println("New Vehicle NIK3745 has been created");
+        vergidis.createVehicle("ΝΙΚ3745", "Land", "LandRover Range Rover HSE", 2014, "Vehicle", 0);
+        System.out.println("New Vehicle ΝΙΚ3745 has been created");
         System.out.println();
 
         // ---------------------------------------- 3 job objects
@@ -113,7 +113,7 @@ public class CarOps extends Application {
 
         // Appointment 1
         Customer customer1 = tampouris.searchCustomer("6996986610");
-        Vehicle vehicle3 = tampouris.searchVehicle("KTR4456");
+        Vehicle vehicle3 = tampouris.searchVehicle("ΚΤΡ4456");
 
         tampouris.createAppointment(customer1.getId(), vehicle3.getPlateNumber(), new DateTime("16/7/2024 - 15:00"));
         System.out.println("New Appointment with customer: " + customer1.getId() + " has been created");
@@ -121,13 +121,13 @@ public class CarOps extends Application {
 
         // Appointment 2
         Customer customer2 = tampouris.searchCustomer("1234567893");
-        Vehicle vehicle4 = tampouris.searchVehicle("NIK3745");
+        Vehicle vehicle4 = tampouris.searchVehicle("ΝΙΚ3745");
         tampouris.createAppointment(customer2.getId(), vehicle4.getPlateNumber(), new DateTime("16/7/2024 - 16:00"));
         System.out.println("New Appointment with customer: " + customer2.getId() + " has been created");
         System.out.println();
 
         // 2 Repairfile Objects
-        Vehicle vehicle1 = vergidis.searchVehicle("KTR4456");
+        Vehicle vehicle1 = vergidis.searchVehicle("ΚΤΡ4456");
 
         ArrayList<Job> estJobs1 = new ArrayList<>();
         estJobs1.add(job1);
@@ -136,7 +136,7 @@ public class CarOps extends Application {
         System.out.println("New Repairfile with vehicle: " + vehicle1.getPlateNumber() + " has been created");
         System.out.println();
 
-        Vehicle vehicle2 = vergidis.searchVehicle("NIK3745");
+        Vehicle vehicle2 = vergidis.searchVehicle("ΝΙΚ3745");
 
         ArrayList<Job> estJobs2 = new ArrayList<>();
         estJobs2.add(job3);
@@ -155,7 +155,7 @@ public class CarOps extends Application {
         System.out.println();
 
         Engineer engineer2 = new Engineer("Εριόλα", "Χαϊντάρι", "engineer");
-        System.out.println("New Engineer Χαϊντάρη has been created");
+        System.out.println("New Engineer Χαϊντάρι has been created");
         System.out.println();
 
         Engineer engineer3 = new Engineer("Βασίλης", "Χαμαλίδης", "engineer");
@@ -164,7 +164,7 @@ public class CarOps extends Application {
 
         // ------------------ Add assignments ------------------
         // ------------------ supervisor set assignments ------------------
-        Vehicle vehicle5 = supervisorEngineer.searchVehicle("KTR4456");
+        Vehicle vehicle5 = supervisorEngineer.searchVehicle("ΚΤΡ4456");
 
         supervisorEngineer.createAssignment(engineer1, job1,
                 RepairfileCatalog.fetchRepairfilebyVehicle(vehicle5.getPlateNumber()));
@@ -182,7 +182,7 @@ public class CarOps extends Application {
         //remove assignment from estimated job list. this happens automatically in program.
         RepairfileCatalog.fetchRepairfilebyVehicle(vehicle5.getPlateNumber()).getJobs().remove(job2);
 
-        Vehicle vehicle6 = supervisorEngineer.searchVehicle("NIK3745");
+        Vehicle vehicle6 = supervisorEngineer.searchVehicle("ΝΙΚ3745");
         supervisorEngineer.createAssignment(engineer1, job3,
                 RepairfileCatalog.fetchRepairfilebyVehicle(vehicle6.getPlateNumber()));
         System.out.println("New Assignment in engineer: " + engineer1.getName() + " has been created");
@@ -227,20 +227,21 @@ public class CarOps extends Application {
         assignment3.setWorktime(16);
 
         //this happens automatically when registering spareparts and worktime in the program.
-        assignment1.setStatus(true);
-        assignment2.setStatus(true);
-        assignment3.setStatus(true);
+
+        engineer1.setAssignmentStatus(assignment1,true); // change status
+        engineer2.setAssignmentStatus(assignment2,true); // change status
+        engineer1.setAssignmentStatus(assignment3,true); // change status
 
         // Supervisor
         supervisorEngineer
-                .callRecordTotalSparePartsFromRepairfile(RepairfileCatalog.fetchRepairfilebyVehicle("KTR4456"));
+                .callRecordTotalSparePartsFromRepairfile(RepairfileCatalog.fetchRepairfilebyVehicle("ΚΤΡ4456"));
 
         supervisorEngineer
-                .callRecordTotalSparePartsFromRepairfile(RepairfileCatalog.fetchRepairfilebyVehicle("NIK3745"));
+                .callRecordTotalSparePartsFromRepairfile(RepairfileCatalog.fetchRepairfilebyVehicle("ΝΙΚ3745"));
 
         //this happens automatically when registering spareparts and worktime in the program.
-        supervisorEngineer.searchRepairfile("KTR4456").setStatus("Completed");
-        supervisorEngineer.searchRepairfile("NIK3745").setStatus("Completed");
+        supervisorEngineer.searchRepairfile("ΚΤΡ4456").setStatus("Completed");
+        supervisorEngineer.searchRepairfile("ΝΙΚ3745").setStatus("Completed");
 
         // ------------------ PRINT STATISTICS ------------------
         System.out.println("Total Catalog contents:");
@@ -858,6 +859,7 @@ public class CarOps extends Application {
                                                 System.out.println();
                                                 System.out.print("Choose Job (1,...): ");
                                                 jobNumber = in.nextInt();
+                                                in.nextLine(); //to discard enter from in.nextInt()
 
                                                 System.out.print("Choose engineer (1,...): ");
                                                 engineerNumber = in.nextInt();
@@ -868,7 +870,7 @@ public class CarOps extends Application {
                                                 Assignment assignment = new Assignment(engineers.get(engineerNumber - 1), jobs.get(jobNumber - 1), repairfile);
 
                                                 repairfile.addAssignment(assignment); //add assignment to repairfile
-                                                engineers.get(engineerNumber).addAssignment(assignment); //add assignment to engineer
+                                                engineers.get(engineerNumber - 1).addAssignment(assignment); //add assignment to engineer
                                                 jobs.remove(jobs.get(jobNumber - 1)); //remove job from estimated list after assigning it to engineer.
 
                                             } else {
@@ -1023,6 +1025,7 @@ public class CarOps extends Application {
 
                         Assignment currentAssignment = EngineerObject.getAssignments().get(engineerChoice - 1);
 
+                        int firstTime = 0;
                         do {
                             System.out.println("\nChoose sparePart");
                             System.out.printf("\n> Spare Parts:\nn %-25s  |%-4s %10s\n", "Name", "A-Q", "Price per unit");
@@ -1042,6 +1045,7 @@ public class CarOps extends Application {
                             if (engineerSparePartChoice == 0){
                                 break;
                             }
+                            firstTime ++;
 
                             SparePart sparePart = SparePartsCatalog.fetchSpareParts().get(engineerSparePartChoice - 1);
 
@@ -1059,15 +1063,15 @@ public class CarOps extends Application {
 
                         } while (engineerChoice == 1);
 
+                        if (firstTime != 0 ){
+                            currentAssignment.setSpareParts(spareParts);
+                            System.out.println("Set Work Time in hours (8 hours = 1 day): ");
+                            System.out.print("your choice: ");
+                            assignmentWorktime = in.nextInt();
 
-                        currentAssignment.setSpareParts(spareParts);
-                        System.out.println("Set Work Time");
-                        System.out.print("your choice: ");
-                        assignmentWorktime = in.nextInt();
-
-                        currentAssignment.setWorktime(assignmentWorktime); // add workTime
-                        currentAssignment.setStatus(true); // change status
-                        EngineerObject.getAssignments().remove(currentAssignment); // remove the completed assignment
+                            EngineerObject.setAssignmentWorktime(currentAssignment,assignmentWorktime); // add workTime
+                            EngineerObject.setAssignmentStatus(currentAssignment,true); // change status
+                        }
                     }
 
                 }

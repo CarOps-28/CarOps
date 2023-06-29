@@ -194,7 +194,7 @@ public class Processes {
                     }
                 }
 
-                System.out.print("\nReception surname not found :(");
+                System.out.print("\nReception surname not found :(\n");
                 System.out.print("Reception surname: ");
                 userSurname = in.nextLine();
 
@@ -212,7 +212,7 @@ public class Processes {
                     }
                 }
 
-                System.out.print("\nSupervisor surname not found :(");
+                System.out.print("\nSupervisor surname not found :(\n");
                 System.out.print("Supervisor surname: ");
                 userSurname = in.nextLine();
 

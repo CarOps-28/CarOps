@@ -20,60 +20,40 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class AppointmentCreationScreen {
-    private Stage stage;
-    private Parent root;
-
     @FXML
     private AnchorPane background;
-
     @FXML
     private TextField plateNumber, date, phoneNumber;
-
     @FXML
     private Button vehicleCreationBtn, customerCreationBtn, appointmentCreationBtn, closeBtn, goBackBtn;
-
     @FXML
     private AnchorPane messageBox;
     @FXML
     private Text plateNumberErr, phoneNumberErr, dateErr, messageBoxText;
 
     private String customerId_ifCustomerExist = "";
-    private void sceneGenerator(String Screen_Name, MouseEvent event, String Screen_Title) throws IOException {
-        root = FXMLLoader.load(getClass().getResource(Screen_Name));
 
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.getScene().setRoot(root);
-        stage.setHeight(700);
-        stage.setWidth(900);
-        stage.setTitle(Screen_Title);
-        stage.show();
-    }
     public void mouseClicked(MouseEvent event) throws IOException {
         if (event.getSource() == goBackBtn){
-            sceneGenerator("SecretaryScreenController-view.fxml", event, "Secretary Screen");
+            StartScreenController.sceneGenerator("SecretaryScreenController-view.fxml", event, "Secretary Screen");
         }else if (event.getSource() == customerCreationBtn){
-            sceneGenerator("CustomerCreationScreen-view.fxml", event, "Customer Creation Screen");
+            StartScreenController.sceneGenerator("CustomerCreationScreen-view.fxml", event, "Customer Creation Screen");
         }else if (event.getSource() == vehicleCreationBtn){
-            sceneGenerator("VehicleCreationScreen-view.fxml", event, "Vehicle Creation Screen");
+            StartScreenController.sceneGenerator("VehicleCreationScreen-view.fxml", event, "Vehicle Creation Screen");
         } else if (event.getSource() == appointmentCreationBtn){
 
             if( checkInputFields() ){
 
-                closeBtn.setBackground(Background.fill(Color.GREEN));
-                closeBtn.setStyle("-fx-text-fill: white;");
                 messageBoxText.setText("Successfully created.");
 
-                StartScreenController.secretary.createAppointment(customerId_ifCustomerExist, plateNumber.getText(),new DateTime(date.getText()));
+
+                        StartScreenController.secretary.createAppointment(customerId_ifCustomerExist, plateNumber.getText(),new DateTime(date.getText()));
                 AppointmentCatalog.save();
 
                 customerId_ifCustomerExist = "";
             }else{
-                closeBtn.setBackground(Background.fill(Color.RED));
-                closeBtn.setStyle("-fx-text-fill: white;");
                 messageBoxText.setText("Invalid Appointment fields.");
-
             }
-            messageBoxText.setStyle("-fx-text-fill: white;");
 
             background.setDisable(true);
 
@@ -111,12 +91,6 @@ public class AppointmentCreationScreen {
         return flag;
     }
 
-    private void emptyTextFields(){
-        plateNumber.setText("");
-        date.setText("");
-        phoneNumber.setText("");
-    }
-
     @FXML
     void initialize() {
         assert background != null : "fx:id=\"background\" was not injected: check your FXML file 'VehicleCreationScreen-view.fxml'.";
@@ -137,17 +111,6 @@ public class AppointmentCreationScreen {
         assert phoneNumberErr != null : "fx:id=\"phoneNumberErr\" was not injected: check your FXML file 'AppointmentCreationScreen-view.fxml'.";
         assert dateErr != null : "fx:id=\"dateErr\" was not injected: check your FXML file 'AppointmentCreationScreen-view.fxml'.";
 
-        customerCreationBtn.setBackground(Background.fill(Color.LIGHTBLUE));
-        customerCreationBtn.setStyle("-fx-text-fill: black;");
-
-        vehicleCreationBtn.setBackground(Background.fill(Color.LIGHTBLUE));
-        vehicleCreationBtn.setStyle("-fx-text-fill: black;");
-
-        appointmentCreationBtn.setBackground(Background.fill(Color.GREEN));
-        appointmentCreationBtn.setStyle("-fx-text-fill: white;");
-
-        goBackBtn.setBackground(Background.fill(Color.RED));
-        goBackBtn.setStyle("-fx-text-fill: white;");
     }
 
 }

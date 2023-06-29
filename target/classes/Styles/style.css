@@ -1,12 +1,139 @@
+* {
+   -fx-darkBlue: #1d3557;
+   -fx-lightBlue: #27436B;
+   -fx-blue: #00A8A8;
+   -fx-blue-hover: #017070;
+   -fx-white: #f1fAEE;
+   -fx-red: #C7323D;
+   -fx-red-hover: #ff525e;
 
-button:hover {
-    -fx-cursor: hand;
 }
+
+/* default styles */
+
+.screenBackground{
+    -fx-background-color : -fx-lightBlue;
+    -fx-text-fill : -fx-white;
+}
+
+.btn{
+    -fx-background-color : -fx-blue;
+    -fx-text-fill : -fx-white;
+}
+.btn:hover{
+    -fx-background-color : -fx-blue-hover;
+}
+
+.logoutBtn {
+    -fx-background-color : -fx-red;
+    -fx-text-fill : -fx-white;
+}
+
+.logoutBtn:hover{
+    -fx-background-color : -fx-red-hover;
+}
+
+.text-field {
+    -fx-font-size : 18px;
+    -fx-background-color: -fx-white, -fx-lightBlue;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-background-radius: 0;
+    -fx-text-fill : -fx-white;
+    -fx-font-weight: bold;
+}
+
+.text-field:focused {
+    -fx-background-color: -fx-blue, -fx-lightBlue;
+    -fx-text-fill : -fx-white;
+}
+
 
 .messageBox{
-    -fx-background-color: #003476;
+    -fx-border-radius:0.5em;
+    -fx-background-color: -fx-darkBlue;
 }
 
-.backgroundScreen{
+/* Table view styles */
+.table-view .column-header,
+.table-view .column-header-background .filler {
+    -fx-background-color:  -fx-blue;
+}
+.table-view .column-header .label{
+   -fx-text-fill: -fx-white;
+   -fx-font-weight: bold;
+   -fx-alignment: CENTER;
+}
+
+.table-view .cell{
+  -fx-cell-size: 35;
+  -fx-background-color: #29292D;
+  -fx-border-color: #29292D;
+  -fx-text-fill: lightgray;
+  -fx-font-weight: bold;
+  -fx-alignment: CENTER;
+
+}
+.table-row-cell:selected {
+   -fx-background-color: whitesmoke;
+   -fx-text-background-color:  #6622CC;
+}
+
+/* scroll bar starts here */
+
+/* The increment and decrement button CSS class of scrollbar */
+.table-view .increment-button ,.table-view .decrement-button {
+    -fx-background-color:transparent;
+	-fx-background-radius: 2em;
+
+}
+
+/* The main scrollbar **track** CSS class  */
+.table-view .scroll-bar:horizontal .track,
+.table-view .scroll-bar:vertical .track{
+	-fx-background-color: transparent;
+	-fx-border-color:derive( #6622CC,80%);
+
+	-fx-background-radius: 2em;
+	-fx-border-radius:2em;
+}
+
+/* The main scrollbar **thumb** CSS class which we drag every time (movable) */
+.table-view .scroll-bar:horizontal .thumb,
+.table-view .scroll-bar:vertical .thumb {
+    -fx-background-color:derive( #6622CC,90%);
+	-fx-background-insets: 2, 0, 0;
+	-fx-background-radius: 2em;
+
+}.table-view{
+   -fx-background-color: transparent;
+}
+
+/* radio ground styles */
+.radio-button .radio {
+    -fx-border-width: 1px;
+    -fx-border-color: #000;
     -fx-background-color: white;
+    -fx-background-image: null;
+    -fx-border-radius: 15px;
+    -fx-padding: 4px;
+}
+.radio-button .radio:selected {
+    -fx-background-color: white;
+    -fx-background-image: null;
+}
+.radio-button -radio:armed {
+    -fx-background-color: white;
+    -fx-background-image: null;
+}
+.radio-button -radio:determinate {
+    -fx-background-color: white;
+    -fx-background-image: null;
+}
+.radio-button -radio:indeterminate {
+    -fx-background-color: white;
+    -fx-background-image: null;
+}
+.radio-button .dot {
+    -fx-background-radius: 15px;
+    -fx-padding: 8px;
 }

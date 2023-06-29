@@ -1,16 +1,15 @@
 package com.carops;
 
+import com.catalogs.CustomerCatalog;
 import com.catalogs.VehicleCatalog;
 
 import java.io.Serializable;
-import java.util.LinkedList;
 
 public class Vehicle implements Serializable {
 
-	private String plateNumber, brand, model, vehicleType;
+	private String id, plateNumber, brand, model, vehicleType;
 	private int prodYear;
 
-	private LinkedList<Repairfile> repairfiles = new LinkedList<>();
 
 	public Vehicle(String plateNumber, String brand, String model, int prodYear, String vehicleType) {
 		this.plateNumber = plateNumber;
@@ -19,6 +18,7 @@ public class Vehicle implements Serializable {
 		this.prodYear = prodYear;
 		this.vehicleType = vehicleType;
 
+		this.setId();
 		// Αυτόματη προσθήκη του αντικείμενου Vehicle στον κατάλογο των Vehicle
 		VehicleCatalog.addVehicle(this);
 	}
@@ -65,18 +65,17 @@ public class Vehicle implements Serializable {
 	public int getProdYear() {
 		return prodYear;
 	}
-
-	public LinkedList<Repairfile> getRepairfiles() {
-		return repairfiles;
-	}
-
-	public void addRepairfiles(Repairfile repairfiles) {
-		this.repairfiles.add(repairfiles);
-		repairfiles.setVehicle(this);
-	}
-
 	public String toString(){
 		return this.plateNumber + " " + this.model + " " + this.prodYear + " " + this.vehicleType;
+	}
+	public String getValue(){
+		return " - ";
+	}
+	public String getId(){
+		return id;
+	}
+	private void setId(){
+		this.id = "VEH" + (VehicleCatalog.getVehicles().size() + 1 );
 	}
 
 

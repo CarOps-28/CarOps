@@ -1,5 +1,6 @@
 package com.carops;
 
+import com.catalogs.AppointmentCatalog;
 import com.catalogs.RepairfileCatalog;
 
 import java.io.Serializable;
@@ -27,6 +28,8 @@ public class Repairfile implements Serializable {
 		this.status= "Awaiting";
 		// Αυτόματη προσθήκη του αντικείμενου Repairfile στον κατάλογο των Repairfile
 		RepairfileCatalog.addRepairfile(this);
+
+		this.automaticConnectionAppointmentWithRepairfile();
 	}
 
 	// Από κάθε εργασία ζητάμε όλα τα ανταλλακτικά της και τα ομαδοποιούμε σε ένα
@@ -69,7 +72,7 @@ public class Repairfile implements Serializable {
 	public int getTotalCost() {
 		int totalPrice = 0;
 
-		if(this.status=="Awaiting"){// υπολογισμός ΕΚΤΙΜΩΜΕΝΟΥ κόστους
+		if(this.status.equals("Awaiting") || this.status.equals("Declined")){// υπολογισμός ΕΚΤΙΜΩΜΕΝΟΥ κόστους
 			for(Job job: this.estimatedJobs){
 				totalPrice += job.getPrice();
 			}
@@ -131,5 +134,14 @@ public class Repairfile implements Serializable {
 
 	public Vehicle getVehicle() {
 		return vehicle;
+	}
+
+	public void automaticConnectionAppointmentWithRepairfile() {
+		// Create connection with Appointment and Repairfile.
+		for (Appointment app : AppointmentCatalog.fetchAppointments()){
+			if (this.vehicle.getPlateNumber().equals(app.getVehiclePlateNumber()) && !app.getStatus() && app.getRepairfile() == null){
+				app.setRepairfile(this);
+			}
+		}
 	}
 }

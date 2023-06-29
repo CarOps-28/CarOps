@@ -1,16 +1,20 @@
 package com.carops;
 
+import com.CustomerCreationScreen;
 import com.catalogs.AppointmentCatalog;
 import com.catalogs.CustomerCatalog;
+import com.catalogs.RepairfileCatalog;
 import com.catalogs.VehicleCatalog;
 
 import java.io.Serializable;
 
 public class Appointment implements Serializable {
 
+	private String id = "";
+
 	private String customerId = "", vehiclePlateNumber = "", transactionId;
-	private boolean status;
-	private Repairfile repairfile;
+	private boolean status = false;
+	private Repairfile repairfile = null;
 	private DateTime date;
 
 	// Constructors
@@ -19,12 +23,14 @@ public class Appointment implements Serializable {
 		this.vehiclePlateNumber = plateNumber;
 		this.date = date;
 
+		this.setId();
 		// Αυτόματη προσθήκη του αντικείμενου Appointment στον κατάλογο των Appointment
 		AppointmentCatalog.addAppointment(this);
 	}
-
 	public Appointment(DateTime date) {
 		this.date = date;
+		this.setId();
+
 		// Αυτόματη προσθήκη του αντικείμενου Appointment στον κατάλογο των Appointment
 		AppointmentCatalog.addAppointment(this);
 	}
@@ -53,7 +59,7 @@ public class Appointment implements Serializable {
 	}
 
 	public String getVehiclePlateNumber() {
-		return this.vehiclePlateNumber;
+		return ( this.vehiclePlateNumber.equals("") ? "No Vehicle" : this.vehiclePlateNumber );
 	}
 
 	public boolean getStatus() {
@@ -71,6 +77,10 @@ public class Appointment implements Serializable {
 
 	public void setVehiclePlateNumber(String vehiclePlateNumber) {
 		this.vehiclePlateNumber = vehiclePlateNumber;
+
+		for (Repairfile rp : RepairfileCatalog.fetchRepairfiles()){
+			rp.automaticConnectionAppointmentWithRepairfile();
+		}
 	}
 
 	public void setStatus(boolean status) {
@@ -92,6 +102,24 @@ public class Appointment implements Serializable {
 		return date.getDateTime() + " Customer: " + (c==null ? "No customer" : c.getSurname() )+ " Vehicle: " +(v==null ? "No vehicle" : v.getPlateNumber());
 	}
 	public String getDate(){
-		return this.date.getDateTime();
+		return this.date.getDateTime().split(" - ")[0];
+	}
+	public String getTime(){
+		return this.date.getDateTime().split(" - ")[1];
+	}
+	public String getCost(){
+		return ( this.repairfile == null ? "?" : String.valueOf(this.repairfile.getTotalCost()));
+	}
+
+	public String getCustomerName(){
+		Customer c = CustomerCatalog.fetchCustomerById(this.customerId);
+		return ( c == null ? "No customer" : c.getSurname() ) ;
+	}
+
+	public String getId(){
+		return id;
+	}
+	private void setId(){
+		this.id = "APP" + (AppointmentCatalog.fetchAppointments().size() + 1 );
 	}
 }

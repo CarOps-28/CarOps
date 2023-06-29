@@ -19,11 +19,6 @@ import java.io.IOException;
 
 public class VehicleCreationScreen {
 
-
-    private Stage stage;
-    private Parent root;
-
-
     @FXML
     private AnchorPane background;
 
@@ -40,39 +35,27 @@ public class VehicleCreationScreen {
     public Text plateNumberErr, brandErr, modelErr, prodYearErr, vehicleTypeErr;
 
     private String errorMessage = "Invalid Vehicle fields.";
-    private void sceneGenerator(String Screen_Name, MouseEvent event, String Screen_Title) throws IOException {
-        root = FXMLLoader.load(getClass().getResource(Screen_Name));
-
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.getScene().setRoot(root);
-        stage.setHeight(700);
-        stage.setWidth(900);
-        stage.setTitle(Screen_Title);
-        stage.show();
-    }
-
 
     @FXML
     void mouseClicked(MouseEvent event) throws IOException {
         if (event.getSource() == goBackBtn){
-            sceneGenerator("SecretaryScreenController-view.fxml", event, "Secretary Screen");
+            if (StartScreenController.secretary != null) {
+                StartScreenController.sceneGenerator("SecretaryScreenController-view.fxml", event, "Secretary Screen");
+            }else{
+                StartScreenController.sceneGenerator("ReceptionEngineerScreenController-view.fxml", event, "Reception Screen");
+            }
         }else if (event.getSource() == vehicleCreationBtn){
 
             if( checkInputFields() ){
-                closeBtn.setBackground(Background.fill(Color.GREEN));
-                closeBtn.setStyle("-fx-text-fill: white;");
                 messageBoxText.setText("Successfully created.");
 
                 StartScreenController.secretary.createVehicle(vehiclePlatenumber.getText(),vehicleBrand.getText(),vehicleModel.getText(), Integer.parseInt(vehicleProdYear.getText()),vehicleType.getText(), Float.parseFloat(vehicleTypeValue.getText()));
                 VehicleCatalog.save();
             }else{
-                closeBtn.setBackground(Background.fill(Color.RED));
-                closeBtn.setStyle("-fx-text-fill: white;");
                 messageBoxText.setText(errorMessage);
 
                 errorMessage = "Invalid Vehicle fields.";
             }
-            messageBoxText.setStyle("-fx-text-fill: white;");
 
             background.setDisable(true);
 
@@ -81,17 +64,6 @@ public class VehicleCreationScreen {
             messageBox.setVisible(false);
             background.setDisable(false);
         }
-    }
-
-    private void emptyTextFields(){
-        vehicleBrand.setText("");
-        vehicleBrand.setText("");
-        vehicleModel.setText("");
-        vehicleProdYear.setText("");
-        vehicleType.setText("");
-        vehicleTypeValue.setText("");
-
-        messageBoxText.setText("");
     }
 
     private boolean checkInputFields(){
@@ -111,8 +83,8 @@ public class VehicleCreationScreen {
         else { prodYearErr.setText("*"); }
 
         if (vehicleType.getText().equals("") ) { vehicleTypeErr.setText("* this field cannot be empty."); flag = false; }
-        else if ( !vehicleType.getText().equalsIgnoreCase("Vehicle") && !vehicleType.getText().equalsIgnoreCase("Truck") && !vehicleType.getText().equalsIgnoreCase("Motorcycle"))
-        { vehicleTypeErr.setText("* this field must be 'Vehicle'/'Truck'/'Motorcycle'" ); flag = false; }
+        else if ( !vehicleType.getText().equalsIgnoreCase("Car") && !vehicleType.getText().equalsIgnoreCase("Truck") && !vehicleType.getText().equalsIgnoreCase("Motorcycle"))
+        { vehicleTypeErr.setText("* this field must be 'Car'/'Truck'/'Motorcycle'" ); flag = false; }
         else { vehicleTypeErr.setText("*"); }
 
         if ( VehicleCatalog.fetchVehicleByPlateNumber(vehiclePlatenumber.getText()) != null){ errorMessage = "Vehicle already exist."; flag = false; }
@@ -143,12 +115,6 @@ public class VehicleCreationScreen {
         assert modelErr != null : "fx:id=\"modelErr\" was not injected: check your FXML file 'CustomerCreationScreen-view.fxml'.";
         assert prodYearErr != null : "fx:id=\"prodYearErr\" was not injected: check your FXML file 'CustomerCreationScreen-view.fxml'.";
         assert vehicleTypeErr != null : "fx:id=\"vehicleTypeErr\" was not injected: check your FXML file 'CustomerCreationScreen-view.fxml'.";
-
-        goBackBtn.setBackground(Background.fill(Color.RED));
-        goBackBtn.setStyle("-fx-text-fill: white;");
-
-        vehicleCreationBtn.setBackground(Background.fill(Color.GREEN));
-        vehicleCreationBtn.setStyle("-fx-text-fill: white;");
 
         vehicleTypeValue.setText("0");
     }

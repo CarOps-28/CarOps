@@ -56,4 +56,13 @@ public class AppointmentCatalog {
 		return true;
 	}
 
+	public static Appointment getAppointmentById(String id){
+		for (Appointment app : appointments){
+			if (app.getId().equals(id)){
+				return app;
+			}
+		}
+		return null;
+	}
+
 }

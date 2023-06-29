@@ -33,6 +33,9 @@ public class Engineer extends Person  {
 
 	public void setAssignmentStatus(Assignment assignment, boolean status) {
 		assignment.setStatus(status);
+		if (status){
+			this.assignments.remove(assignment);
+		}
 	}
 
 	public String getRole() {

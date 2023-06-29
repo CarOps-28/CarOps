@@ -29,38 +29,44 @@ _A full functional Information System_
 </table>
 <br>
 
-# Instructions
-
-Here, we first give instruction about where to download IntelliJ and JavaFX. After that, we give steps and explain how to use the information system CarOps from the command line. Also, from the user interface.
-
 ## Jetbrains IntelliJ IDEA Setup
 
-You can install IntelliJ IDEA from [here](https://www.jetbrains.com/idea/). If you have an academic email you can download it for free but if you don’t, you can choose the option trial.
+- You can install IntelliJ IDEA from [here](https://www.jetbrains.com/idea/). <br>
+- This project also includes JavaFx library in order to implement graphical interfaces. IntelliJ IDEA recognizing this and downloads the library automatically. If this don’t happen, you may want to install it manually from [here](https://openjfx.io/).
 
-This project also includes JavaFx library in order to implement graphical interfaces. IntelliJ IDEA recognizing this and downloads the library automatically. If this don’t happen, you may want to install it manually from [here](https://openjfx.io/).
+## Documentation Κώδικα στο command line
+Ο κώδικας υλοποιεί τα ζητούμενα του παραδοτέου και έπειτα εμφανίζει τα στοιχεία των καταλόγων. Είναι πλήρης και λειτουργεί σωστά ενώ περιέχει όλες τις λειτουργίες των λεκτικών περιγραφών και γραφική διασύνδεση για μέγιστη ευχρηστία. Μετά την εμφάνιση των καταλόγων, εμφανίζεται μια λίστα επιλογών σύνδεσης στο σύστημα για κάθε ιδιότητα χρήστη. Επιλέγοντας μεταξύ 1-5, γίνεται σύνδεση ως ιδιοκτήτης, γραμματεία, Μηχανικός Υποδοχής, Επιβλέποντας Μηχανικός ή απλός Μηχανικός αντίστοιχα.  Για τις επιλογές 2-5 για τις οποίες υπάρχουν πολλαπλοί χρήστες-λογαριασμοί στο σύστημα, απαιτείται η εισαγωγή του επιθέτου για σύνδεση. Οι λειτουργίες συμβαδίζουν με ακρίβεια με τις περιγραφές των διαδικασιών στο Case Study. Για παράδειγμα, δε μπορούν να γίνουν αναθέσεις εργασιών σε οχήματα για τα οποία ο ιδιοκτήτης τους δεν έχει δεχτεί ακόμα την επισκευή τους.
 
-## Using CarOps GUI
+### Με σύνδεση ως ιδιοκτήτης (επιλογή 1) εμφανίζονται οι εξής επιλογές:
+- <b> Επιλογή 1 - Αλλαγή ρόλων: </b> Εμφανίζει τη λίστα με τους μηχανικούς και το σύστημα ζητά από τον ιδιοκτήτη να επιλέξει έναν από αυτούς και να του αναθέσει τον ρόλο που επιθυμεί (1-Υποδοχής, 2-Επιβλέποντας, 3-Υποδοχής).
+- <b> Επιλογή 0 - Έξοδος: </b>  Εμφάνιση αρχικής οθόνης επιλογής χρήστη.
 
-Login as: 
-- Owner : 'owner'
-- Secretary : 'ταμπούρης' or 'Φουλίδης'
+### Με σύνδεση ως γραμματεία (επιλογή 2) εμφανίζονται οι εξής επιλογές:
+- <b> Επιλογή 1 - Δημιουργία ραντεβού:</b> Η γραμματεία μπορεί να δημιουργήσει ραντεβού χωρίς καρτέλα πελάτη ή/και χωρίς καρτέλα οχήματος επιλέγοντας μεταξύ των 1,2 και 3. Με την επιλογή 0 γίνεται επιστροφή στο αρχικό μενού γραμματείας.
+- <b> Επιλογή 2 - Δημιουργία καρτέλας οχήματος:</b> Η γραμματεία μπορεί να δημιουργήσει μια καρτέλα οχήματος συμπληρώνοντας τα απαιτούμενα στοιχεία. Το σύστημα πραγματοποιεί έλεγχο για να διασφαλιστεί ότι το όχημα δεν είναι ήδη καταχωρημένο με βάση τον αριθμό πινακίδας που δίνεται.
+- <b> Επιλογή 3 - Δημιουργία καρτέλας πελάτη:</b> Η γραμματεία μπορεί να δημιουργήσει μια καρτέλα πελάτη συμπληρώνοντας τα απαιτούμενα στοιχεία. Το σύστημα πραγματοποιεί έλεγχο για να διασφαλιστεί ότι ο πελάτης δεν είναι ήδη καταχωρημένος με βάση τον αριθμό τηλεφώνου που δίνεται.
+- <b> Επιλογή 4 - Αλλαγή κατάστασης φακέλου επισκευής βάσει απόφασης του πελάτη:</b> Το σύστημα επιτρέπει την αλλαγή κατάσταση μόνο για φακέλους για τους οποίους αναμένεται απάντηση από τον πελάτη (“Awaiting”). Εμφανίζεται η λίστα των φακέλων επισκευής και ζητείται από τη γραμματεία να καταχωρήσει τον αριθμό πινακίδας του οχήματος του φακέλου επισκευής για τον οποίο επιθυμείται αλλαγή κατάστασης. Η γραμματεία επιλέγει μεταξύ των καταστάσεων 1 (“Accepted”) ή 0 (“Declined”) ανάλογα την απάντηση του πελάτη.
+- <b> Επιλογή 5 - Εκτύπωση φακέλου επισκευής:</b> Το σύστημα ζητά τον αριθμό πινακίδας του οχήματος του φακέλου επισκευής για τον οποίο επιθυμείται εμφάνιση των δεδομένων του και τα εκτυπώνει.
+- <b> Επιλογή 6 - Εκτύπωση λίστας ραντεβού:</b> Γίνεται εμφάνιση των δεδομένων όλων των ραντεβού.
+- <b> Επιλογή 7 - Ενημέρωση στοιχείων ραντεβού:</b> Εμφανίζονται μόνο τα ραντεβού που δεν έχουν καρτέλα πελάτη ή/και καρτέλα οχήματος. Η γραμματεία στη συνέχεια επιλέγει το είδος καρτέλας που θέλει να προσθέσει και την αναζητά ή τη δημιουργεί συμπληρώνοντας τα ζητούμενα στοιχεία.
+- <b> Επιλογή 0 - Έξοδος:</b> Εμφάνιση αρχικής οθόνης επιλογής χρήστη.
 
-## Using CarOps from the command line
+### Με σύνδεση ως Μηχανικός Υποδοχής (επιλογή 3) εμφανίζονται οι εξής επιλογές:
+- <b> Επιλογή 1 - Δημιουργία Φακέλου Επισκευής:</b> Πατώντας το 1, ο Μηχανικός Υποδοχής μπορεί να αναζητήσει το όχημα με βάση τον αριθμό πινακίδας. <br> - Στην περίπτωση όπου το όχημα δεν είναι καταχωρημένο, ο Μηχανικός Υποδοχής μπορεί να αναζητήσει ένα καινούριο (επιλογή 1)  ή να δημιουργήσει ένα νέο (επιλογή 2). <br> - Στην περίπτωση που το όχημα βρεθεί, εμφανίζεται η λίστα με τις διαθέσιμες εργασίες του συνεργείου. <br> Μόλις ο Μηχανικός Υποδοχής καταχωρίσει τις εργασίες που επιθυμεί, επιλέγει 0 και το σύστημα ζητά τις εκτιμώμενες ώρες επισκευής.
+- <b> Επιλογή 0:</b> Έξοδος και επιστροφή στην αρχική λίστα επιλογής χρήστη.
 
-When you successfully run CarOps, you will be introduced to his command line interface. First of all, CarOps asks you choose a role from the main information system's user. You can choose:
+### Με σύνδεση ως Επιβλέποντας Μηχανικός (επιλογή 4) εμφανίζονται οι εξής επιλογές:
+- <b>  Επιλογή 1 - Δημιουργία ανάθεσης εργασιών:</b> Ο Επιβλέποντας Μηχανικός μπορεί να αναζητήσει όχημα προς επισκευή, επιλέγοντας το 1 και δίνοντας τον αριθμό πινακίδας του οχήματος. Το σύστημα επιτρέπει αναθέσεις μόνο για οχήματα των οποίων η επισκευή έχει γίνει δεκτή από τον πελάτη (κατάσταση Φακέλου Επισκευής ”Accepted”). <br> - Στην περίπτωση όπου η επισκευή είναι δεκτή από τον πελάτη, ο Επιβλέποντας Μηχανικός έχει την επιλογή ανάθεσης εργασίας σε μηχανικό (1), την επιλογή προσθήκης νέας εργασίας στο Φάκελο επισκευής (2) ή έξοδο (0) για επιστροφή στην αρχική λίστα επιλογών του Επιβλέποντα Μηχανικού.
+- <b> Επιλογή 2 - Αλλαγή κατάστασης Φακέλου Επισκευής:</b> Ο Επιβλέποντας Μηχανικός αναζητά το σχετικό όχημα επιλέγοντας 1 και δίνοντας τον αριθμό πινακίδας του. Εάν όλες οι εργασίες του οχήματος έχουν ολοκληρωθεί, η κατάσταση του Φακέλου Επισκευής ενημερώνεται σε ολοκληρωμένη (“Completed”).
+- <b> Επιλογή 0:</b> Έξοδος και επιστροφή στην αρχική λίστα επιλογής χρήστη.
 
- - Owner - 1
- - Secretary - 2
- - Reception Engineer - 3
- - Supervisor Engineer - 4
- - Engineer - 5
- - Exit / Run GUI - 0
 
-In case you type the option Exit / Run GUI (0), the program will terminate his command line and will open a logon window. To simplify things, let us choose from the order as is, top-down.
+### Με σύνδεση ως απλός Μηχανικός (επιλογή 5) εμφανίζονται οι εξής επιλογές:
+- <b> Επιλογή 1 - Εμφάνιση εργασιών:</b> Εμφανίζονται οι εργασίες του μηχανικού που δεν έχει ολοκληρώσει.
+- <b> Επιλογή 2 - Προσθήκη ανταλλακτικών και διάρκειας επισκευής για ολοκλήρωση εργασίας:</b> Γίνεται εμφάνιση μιας λίστας στοιχείων οχημάτων με την εργασία επισκευής τους που ανατεθεί στον συγκεκριμένο μηχανικό. Ο μηχανικός επιλέγει την εργασία που ολοκλήρωσε και στη συνέχεια τον τύπο και το πλήθος των ανταλλακτικών που χρησιμοποίησε. Το σύστημα ζητά επίσης τη διάρκεια επισκευής. Ο μηχανικός μπορεί να ακυρώσει τη καταχώρηση των δεδομένων με την επιλογή 0.
+- <b> Επιλογή 0: </b> Έξοδος και επιστροφή στην αρχική λίστα επιλογής χρήστη.
 
-**Case 1:** To logon as owner you don't need a username, you have the ability to change the roles from the engineers. Talking about roles, you can change each engineer's roles individually, there are 3 roles and an engineer can have only one of them 1) **Simple engineer** executes his jobs 2) **Reception** has the ability to create a new vehicle card, he also writes to the system, the jobs that may need for the repair and last 3) **Supervisor** engineer assigns the possible jobs to each other engineer. Continuing, typing 1 to the command line will show a list of all available engineers in the system. You type the number _n_ to choose an engineer. As we said, there are 3 only options.
-
-**Case 2:** Secretary role. To login, you need to enter a username `Ταμπούρης` or `Φουλίδης`. As secretary you can create an new appointment (also modify it), vehicle and customer. You can also print the repairfiles and read appoindments.
+# Graphical User Interface
 
 # Print output sample
 
@@ -141,15 +147,7 @@ n ID        Name             Surname          Role
 
 # license: 
 
-<img align="right" width="15%" height="15%" src="https://i0.wp.com/opensource.org/wp-content/uploads/2009/08/osi_symbol_0.png">
-
 <p> CarOps is available as open source under the terms of <a href="https://github.com/bill-chamal/Car-service-IS/blob/db37606a14da6933994ade9e4c618c37b5444c1f/LICENSE">The MIT License (MIT)</a></p>
 
 <p>Copyright © 2023 <a href="https://github.com/CarOps-28">CarOps-28</a>.</p>
-
-<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
-
-<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
-
-<p>THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
 

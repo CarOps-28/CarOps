@@ -15,4 +15,8 @@ public class Truck extends Vehicle {
 		return "Truck";
 	}
 
+	public String getValue(){
+		return String.valueOf(this.capacity);
+	}
+
 }

@@ -9,6 +9,8 @@ import com.carops.Secretary;
 import com.carops.SupervisorEngineer;
 import com.catalogs.*;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -19,10 +21,11 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 public class StartScreenController {
-    private Stage stage;
-    private Parent root;
+    private static Stage stage;
+    private static Parent root;
 
     // Input TextField
     @FXML
@@ -31,11 +34,11 @@ public class StartScreenController {
     @FXML
     private Button ownerBtn, secretaryBtn, receptionBtn, supervisorBtn, engineerBtn;
 
-    public static Owner owner;
-    public static Secretary secretary;
-    public static ReceptionEngineer receptionEngineer;
-    public static SupervisorEngineer supervisorEngineer;
-    public static Engineer engineer;
+    public static Owner owner = null;
+    public static Secretary secretary = null;
+    public static ReceptionEngineer receptionEngineer = null;
+    public static SupervisorEngineer supervisorEngineer = null;
+    public static Engineer engineer = null;
 
 
     // Listener
@@ -71,7 +74,7 @@ public class StartScreenController {
             owner = Owner.searchOwner(ownerLastname.getText());
             if (owner != null) {
                 ownerLastname.setText("");
-                sceneGenerator("OwnerScreenController-view.fxml", e, "Owner Screen");
+                StartScreenController.sceneGenerator("OwnerScreenController-view.fxml", e, "Owner Screen");
 
             } else {
                 ownerLastname.setText(ownerLastname.getText() + " not found");
@@ -81,7 +84,7 @@ public class StartScreenController {
 
             if (secretary != null) {
                 secretaryLastname.setText("");
-                sceneGenerator("SecretaryScreenController-view.fxml", e, "Secretary Screen");
+                StartScreenController.sceneGenerator("SecretaryScreenController-view.fxml", e, "Secretary Screen");
 
             } else {
                 secretaryLastname.setText(secretaryLastname.getText() + " not found");
@@ -92,7 +95,7 @@ public class StartScreenController {
 
             if (receptionEngineer != null) {
                 receptionLastname.setText("");
-                sceneGenerator("ReceptionEngineerScreen-view.fxml", e, "Reception Screen");
+                StartScreenController.sceneGenerator("ReceptionEngineerScreen-view.fxml", e, "Reception Screen");
 
             } else {
                 receptionLastname.setText(receptionLastname.getText() + " not found");
@@ -103,7 +106,7 @@ public class StartScreenController {
 
             if (supervisorEngineer != null) {
                 supervisorLastname.setText("");
-                sceneGenerator("SupervisorScreenController-view.fxml", e, "Supervisor Screen");
+                StartScreenController.sceneGenerator("SupervisorScreenController-view.fxml", e, "Supervisor Screen");
 
             } else {
                 supervisorLastname.setText(supervisorLastname.getText() + " not found");
@@ -114,7 +117,7 @@ public class StartScreenController {
 
             if (engineer != null) {
                 engineerLastname.setText("");
-                sceneGenerator("EngineerScreenController-view.fxml", e, "Engineer Screen");
+                StartScreenController.sceneGenerator("EngineerScreenController-view.fxml", e, "Engineer Screen");
 
             } else {
                 engineerLastname.setText(engineerLastname.getText() + " not found");
@@ -139,8 +142,10 @@ public class StartScreenController {
                 VehicleCatalog.refreshDataFromFile();
     }
 
-    private void sceneGenerator(String Screen_Name, MouseEvent event, String Screen_Title) throws IOException {
-        root = FXMLLoader.load(getClass().getResource(Screen_Name));
+
+
+    public static void sceneGenerator(String Screen_Name, MouseEvent event, String Screen_Title) throws IOException {
+        root = FXMLLoader.load(StartScreenController.class.getResource(Screen_Name));
 
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.getScene().setRoot(root);
@@ -182,16 +187,8 @@ public class StartScreenController {
         assert engineerBtn != null
                 : "fx:id=\"engineerBtn\" was not injected: check your FXML file 'StartScreenController-view.fxml'.";
 
-
-        ownerBtn.setBackground(Background.fill(Color.GREEN));
-        secretaryBtn.setBackground(Background.fill(Color.GREEN));
-        receptionBtn.setBackground(Background.fill(Color.GREEN));
-        supervisorBtn.setBackground(Background.fill(Color.GREEN));
-        engineerBtn.setBackground(Background.fill(Color.GREEN));
-
         if( !StartScreenController.refreshCatalogs()){
             createFiles();
         }
     }
-
 }

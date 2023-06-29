@@ -16,4 +16,8 @@ public class Motorcycle extends Vehicle {
 	public String getVehicleType() {
 		return "Motorcycle";
 	}
+
+	public String getValue(){
+		return String.valueOf(this.quantum);
+	}
 }
