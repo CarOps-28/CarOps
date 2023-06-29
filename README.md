@@ -69,7 +69,7 @@ _A full functional Information System_
 # Graphical User Interface
 
 ![Sprint burndown chart](img/gui1.png)
-![Sprint burndown chart](img/gui3.png)
+![Sprint burndown chart](img/gui2.png)
 ![Sprint burndown chart](img/gui3.png)
 and more ...
 
