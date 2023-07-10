@@ -59,7 +59,7 @@ public class VehicleCreationScreen {
 
     private boolean checkInputFields(){
         boolean flag = true;
-        errorMessage = "Invalid Customer fields.";
+        errorMessage = "Invalid Vehicle fields.";
 
         if (vehiclePlateNumber.getText().equals("") ) { plateNumberErr.setText("* this field cannot be empty."); flag = false; }
         else { plateNumberErr.setText("*"); }
