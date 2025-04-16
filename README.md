@@ -1,5 +1,5 @@
 # CarOps 
-_A full functional Information System_
+_A fully functional Information System_
 
 <img src="img/UOMLOGOGR.png#gh-light-mode-only" alt= “” width="20%" height="20%"> 
 <img src="img/UOMLOGOGRWHITE.png#gh-dark-mode-only" alt= “” width="20%" height="20%"> 
